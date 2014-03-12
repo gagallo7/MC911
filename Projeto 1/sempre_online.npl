@@ -1,0 +1,265 @@
+//Este arquivo que especifica, através de exemplos, a linguagem chamada "News Publication Language (NPL)", 
+// voltada para a publicação de conteúdo
+//em um site de notícias
+//Todos os caracteres após um "//" são comentários.
+
+//Segue uma lista de todas as palavras reservadas da linguagem:
+//newspaper, title, date, abstract, text, source, image, author, structure, item
+
+//Uma descrição NPL sempre inicia com a declaracao do objeto "newspaper"
+// Este objeto é obrigatório para todo programa e contém os dados a serem usados para fazer o cabeçalho da página.
+	//Atributos Obrigatórios: 
+	//   -- title= título do jornal
+	//   -- date= data do jornal
+	//   -- structure: Objeto encapsulando a definição da estrutura da página do jornal
+	//   Qualquer outro objeto que seja declarado dentro de Newspaper são notícias para serem colocadas na 
+	//   	página principal do site
+
+newspaper{ 
+	title= "SEMPRE ONLINE. O jornal em tempo real" 
+	date= "24 de Fevereiro de 2014"
+
+	structure {
+		// Atributos Obrigatórios
+		// 	--col= quantidade de colunas do jornal 
+		//	--show= ordem dos objetos a serem inseridos no jornal
+		col= 3  
+		show= headline1, Editorial2, headline2, noticia3, Editorial1
+	}
+
+	//Notícias para serem colocadas na página principal do site.
+	//O nome do objeto de cada notícia DEVE obedecer à seguinte regra de formação: 
+		//   1. Deve iniciar com uma letra
+		//   2. Deve conter apenas letras, números ou o caractere "_" (underscore/sublinhado)
+		//   3. A linguagem não faz diferença entre maiúsculas e minúsculas, isto é, news1 e NEWs1 são o 
+		//	mesmo nome em NPL.
+		//Atributos Obrigatórios: 
+		//   --title= título da manchete
+		//   --abstract= resumo da notícia
+		//   --author= autor da noticia
+		//   --structure: objeto encapsulando a definição da estrutura da notícia
+		//Atributos opcionais:
+		//   --date= data da noticia
+		//   --image= uma foto associada a noticia
+		//   --source= a fonte de onde foi retirada a noticia. Deve ser mostrada somente na exibição da noticia completa
+		//   --text= Texto completo da noticia. Quando este campo é fornecido, o título da notícia deve ser exibido no site como
+		//           um link que, ao ser clicado, mostra o texto completo da noticia. Na página inicial do site sempre aparece
+		//           apenas o abstract.
+		//
+		//Note que campos onde são inseridos textos estão delimitados por aspas duplas. Para usar aspas duplas dentro 
+		//	desses campos você deve usar \"
+		//
+		//Os campos: "title", "abstract", "author", "date", "image", "source" e "text" não necessitam de ordem específica.
+		//O objeto "structure" deve ser o último a ser declarado. Seus atributos internos, "col" e "show", serão declarados 
+		//    nesta sequência.
+
+		headline1{
+			title= "Virada Cultural Paulista tem programação até as 18h deste domingo"
+
+			image= "./virada.jpg"
+
+			abstract= "A Virada Cultural Paulista, que se iniciou ontem em 20 cidades do Estado, prossegue neste domingo 
+			 	até as 18h. Ao todo, segundo o governo de São Paulo, são mais de 500 apresentações nas 
+				24 horas de programação. A lista de eventos inclui exibições de peças de teatro, dança, música e cinema. 
+				O governo espera 1 milhão de pessoas nas 24 horas de atividades. Os espetáculos têm entrada 
+				franca e as unidades do Sesc e do Sesi têm programação integrada ao evento.
+				Santa Bárbara d'Oeste e Mogi Guaçu participam do evento pela primeira vez. Araraquara, Araçatuba, 
+				Assis, Bauru, Caraguatatuba, Franca, Indaiatuba, Jundiaí, Marília, Mogi das Cruzes, Presidente Prudente, 
+				Ribeirão Preto, Santos, São Bernardo do Campo, 
+				São José do Rio Preto, São João da Boa Vista, São José dos Campos e Sorocaba são as outras cidades."
+
+		    	//text= Este é o campo que contém o texto completo da notícia. Ele deve ser exibido caso o usuário clique 
+			// no título da manchete. É possível usar mecanismos de formatação, iguais àqueles da linguagem da wikipedia 
+			// (http://pt.wikipedia.org/wiki/Ajuda:Guia_de_edição/Formatação#Os_c.C3.B3digos_wiki_para_formatar_artigos). 
+			// A formatação considerada será: 
+		    	//
+			// Link Texto: [ url | texto exibido ]
+			// Link Imagens: [[ ./url.jpg | legenda ]]
+		    	// Parágrafo de titulo: === texto ===
+		    	// Recuo de parágrafo: o caractere ":" indica quantos recuos. Cada ":" equivale a 6 "&nbsp;". 
+		    	// Italico: ''texto''
+			// Negrito: '''texto'''
+			// Negrito e Italico: '''''texto''''' 
+			// Bullet: Cada caractere "*" marca um nível (ver Editorial2)
+			// Numeração: Cada caractere "#" marca um nível (ver Editorial2)
+			//
+			//Veja o resultado da renderização e o código HTML deste texto no exemplo em HTML fornecido.
+
+		    	text= "A [http://viradacultural.org | Virada Cultural Paulista], que se iniciou ontem em 20 cidades do Estado, 
+				prossegue neste domingo até as 18h. Ao todo, segundo o governo de São Paulo, são mais de 500 
+				apresentações nas 24 horas de programação.
+				A lista de eventos inclui exibições de peças de teatro, dança, música e cinema. 
+				O governo espera 1 milhão de pessoas nas 24 horas de atividades. Os espetáculos têm entrada 
+				franca e as unidades do Sesc e do Sesi têm programação integrada ao evento. 
+	
+				=== A ultima Virada Cultural 2009 terminou com público estimado em 4 milhões ===
+	
+				: Cerca de 800 atrações se apresentaram ao longo das 24 horas de performances musicais e intervenções 
+				artísticas para um público estimado pela organização do evento em 4 milhões de pessoas, entre as 
+				platéias dos 42 Centros Educacionais Unificados, unidades da rede SESC,
+				museus administrados pela Secretaria de Estado da Cultura, Teatro Municipal de São Paulo e palcos de rua.
+				: Ao final do show, Maria Rita declarou: \"Estou em estado de plenitude, absoluta graça, intensa alegria, 
+				'quicando' pela casa. 
+				É uma alegria e satisfação doida. Um presente de São Paulo.\"
+				::: Além das apresentações, houve momentos memoráveis como a participação do cantor Zeca Baleiro no show de 
+				Odair José no Largo do Arouche,
+				interpretando entre outras canções, Eu, você e a praça, uma das mais conhecidas na voz do cantor romântico.
+				Baleiro se apresentou ao meio-dia no palco principal com grande público e seguiu para uma participação especial 
+				no palco do Largo do Arouche."
+        
+			author= "Fulano de Tal"
+			source= "Central de Informações da Virada Cultural"
+
+			structure {
+				//Atributos obrigatorios
+				//	--col= quantidade de colunas que a notícia ocupará
+				//	--show= ordem em que os atributos da notícia irão aparecer
+				col= 2
+				show= title, image, abstract
+			}
+		}	
+
+		headline2{
+			title= "Deputado Roberto Jefferson é levado para presídio em Niterói, no RJ"
+			abstract= "
+				O ex-deputado  Roberto Jefferson, delator do esquema do mensalão, foi levado pouco antes 
+				das 20h desta segunda-feira (24) do Complexo de Gericinó, em Bangu, Zona Oeste do Rio, para um 
+				presídio em Niterói, na Região Metropolitana. Segundo a Secretaria de Estado de Administração 
+				Penitenciária (Seap), ele vai ficar detido na Casa do Albergado Coronel PM Francisco Spargoli Rocha, 
+				onde chegou às 20h30.	"
+			
+			text="
+				O ex-deputado  Roberto Jefferson, delator do esquema do mensalão, foi levado pouco antes das 20h 
+				desta segunda-feira (24) do Complexo de Gericinó, em Bangu, Zona Oeste do Rio, para um presídio em 
+				Niterói, na Região Metropolitana. Segundo a Secretaria de Estado de Administração Penitenciária (Seap), 
+				ele vai ficar detido na Casa do Albergado Coronel PM Francisco Spargoli Rocha, onde chegou às 20h30.
+				:Preso em sua casa, em Levy Gasparian, no sul do estado, ele chegou à capital em um carro da Polícia 
+				Federal, às 15h30, passou por duas 
+				baterias de exames e por um triagem penitenciária antes de ir para o presídio em que ficará em regime 
+				semiaberto -- poderá sair durante 
+				o dia para trabalhar e dormir na prisão.
+				Sempre acompanhado do advogado, Marcos Pinheiro Lemos, ele fez exame de corpo de delito no Instituto 
+				Médico Legal (IML), antes de ir a 
+				Água Santa e dar entrada, às 16h15, no Presídio Ary Franco, porta de entrada do sistema penitenciário 
+				do Rio."
+						
+			author= "Beltrano"
+
+			date="06/06/2012"
+
+			source= "FolhaOnLine.com"
+
+			structure {
+				col= 1
+				show= title, abstract, source
+			}
+	
+		}	
+	
+		Noticia3{
+			title= "Fusca que tinha sido roubado havia 40 anos é encontrado nos EUA"
+			image= "./fusca.jpg"
+			abstract= "
+				Um Fusca ano 1965 que tinha sido roubado havia 40 anos em Knoxville, no estado do Tennessee, foi 
+				encontrado em Detroit, em Michigan. Quando foi roubado em 1974, o veículo era vermelho, mas, 
+				ao ser localizado em janeiro, era branco. Agentes federais de Detroit descobriram que o 
+				Fusca tinha sido roubado ao verificar os documentos do veículo. O Fusca seria levado para 
+				o exterior para ser restaurado. Primeiro, o veículo seria transportado para o Canadá, antes 
+				de seguir viagem até a Finlândia."
+					
+			author= "Paquito Meneguel"
+			source= "http://www.folhaOnLine.com"
+
+			structure {
+				col= 1
+				show= title, source, image, abstract
+			}
+		}
+
+		Editorial1{
+			title= "O que não sabemos que não sabemos"
+			abstract= "Frase antológica outro dia do ministro da Justiça, Tarso Genro, lembrou outra frase, brilhante, 
+				de Donald Rumsfeld, o ex-secretário da Defesa de George W. Bush. Primeiro, a frase de Rummy, 
+				falando sobre os perigos da ameaça terrorista contra os EUA: \"Há coisas que sabemos que sabemos. 
+				E há desconhecidos conhecidos. Quer dizer, há coisas que sabemos que não sabemos. Mas há ainda 
+				desconhecidos desconhecidos. Há coisas que não sabemos que não sabemos. \" O maior perigo estará 
+				sempre nos \"desconhecidos desconhecidos\", de onde surgem coisas como os aviões do 11 de 
+				Setembro se chocando contra as torres de Nova York."
+
+			image= "./sergio.jpg"
+
+			author= "Sérgio Malbergier"
+
+			structure {
+				col= 1
+				show= title, abstract, image, author
+			}
+
+		}
+
+		Editorial2{
+			title= "País do faz-de-conta"
+			abstract= "Durante minhas breves semanas de descanso, alguns leitores me escreveram \"encomendando\" 
+				artigos sobre a lei seca e o caso Daniel Dantas. Para não descontentar ninguém, arrisco uma 
+				manobra temerária: vou comentar os dois assuntos valendo-me de uma mesma chave interpretativa que me 
+				parece especialmente valiosa para entender o Brasil de hoje. Comecemos pela lei seca.
+			       	Como ferrenho entusiasta daquilo que se convencionou chamar de liberdades, defendo até 
+				as últimas consequências o direito das pessoas de embriagar-se, drogar-se e fazer tudo o que 
+				bem entenderem com seus próprios corpos e mentes. Ainda assim, o conceito por trás da lei seca é inatacável: 
+				você tem o direito de beber até cair; mas, para tanto, precisa renunciar momentaneamente a 
+				outros direitos, como o de dirigir veículos automotores ou operar 
+				máquinas pesadas, posto que fazê-lo com reflexos e capacidade de decisão diminuídos 
+				pelo álcool representa um risco para terceiros."
+
+			author= "Hélio Schwartsman"
+
+			image= "./helio.jpg"
+
+			text= "
+				Durante minhas breves semanas de descanso, alguns leitores me escreveram \"encomendando\" artigos sobre a 
+				lei seca e o caso Daniel Dantas. Para não descontentar ninguém, arrisco uma manobra temerária: vou comentar 
+				os dois assuntos valendo-me de uma mesma chave interpretativa que me parece especialmente valiosa para 
+				entender o Brasil de hoje.Comecemos pela '''lei seca'''.[[./images.jpg| Ladrao Fugitivo]] 
+				: Como ferrenho entusiasta daquilo que se convencionou chamar de ''liberdades'', defendo até as últimas 
+				consequências o direito das pessoas de embriagar-se, drogar-se e fazer tudo o que bem entenderem com seus 
+				próprios corpos e mentes. Ainda assim, o conceito por trás da lei seca é inatacável: você tem o direito de 
+				beber até cair; mas, para tanto, precisa renunciar momentaneamente a outros direitos, como o de dirigir veículos 
+				automotores ou operar máquinas pesadas, posto que fazê-lo com reflexos e capacidade de decisão diminuídos pelo 
+				álcool representa um risco para terceiros. Cada qual é livre para submeter-se a qualquer nível de perigo 
+				que julgue conveniente, mas não para impor essa decisão individual a outras pessoas.
+				Em relação à multa e suspensão da carteira de motorista [www.uol.com.br], sanção administrativa prevista 
+				no art. 165, o problema não se coloca, pois ali o tipo infracional permanece enunciado como 
+				\"dirigir sob influência\", fato em princípio aferível por policiais, médicos legistas e até cidadãos comuns.
+
+				*  teste1
+				* teste2
+				* teste3
+				** teste4
+				** teste5
+				* teste final
+				
+				# ordem1
+				# ordem2
+				## ordem3
+				### ordem4
+				### ordem5
+				# ordem5  
+
+				: Até acho que operações de marketing legal têm o seu valor, à medida que levam rapidamente a um grande número 
+				de pessoas a mensagem embutida na nova legislação. O meu receio, porém, é o de que estejamos diante de mais uma 
+				pirotecnia de efeitos limitados. Espero estar errado, mas não há nada a sugerir que a recente disposição 
+				fiscalizatória veio para ficar. O mais provável é que, dentro de alguns meses ou anos, já ninguém mais fale 
+				em lei seca, e as taxas de acidentes com participação do álcool voltem à \"normalidade\". Foi assim, por exemplo,
+				 com as punições \"mais duras\" previstas no CTB, que começou a vigorar em janeiro de 1998 e cujo efeito 
+				 novidade já parece ter-se esgotado.
+				"
+
+			structure{
+				col= 1
+				show= title, image, abstract, author
+			}
+		}
+}
+
+
+
