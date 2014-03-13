@@ -5,11 +5,10 @@
 #include <stdlib.h>
 FILE* fp ;
 
-#define YYDEBUG 1
-
 #define COMPILE(X) fp = fopen ("teste.html", "a"); fprintf ( fp, (X) ); fclose (fp)
+
 #define COMPILE2(X,...) fp = fopen ("teste.html", "a"); fprintf ( fp, (X), ##__VA_ARGS__ ); fclose (fp)
-#define COMPILE3(X,...) printf ( (X), ##__VA_ARGS__ )
+
 #define LOG(X,...) fp = fopen ("debug.err", "a"); \
                    fprintf ( fp, (X), ##__VA_ARGS__ ); \
                    fprintf ( fp, "\n" ); \
@@ -45,43 +44,62 @@ FILE* fp ;
 
 %%
 
-newspaper: T_NEWSPAPER { fp = fopen ("teste.html","w"); 
-                                LOG ( "T_NEWSPAPER" );   
-                        }
-'{' { COMPILE("<html>\n"); }
- desc 
-{  LOG ( "desc ready. Waiting structure..." ); }
- structure
-{  LOG ( "structure ready" ); }
- news_list '}' { 
-                                 printf ("Completed!\n");
-                                 COMPILE("\n<html>\n");
-                               }
+/* LOG ( ... ) recebe e transforma os argumentos num printf para debug.err */
+/* COMPILE2 ( ... ) faz o mesmo que o log, mas já deixa num formato html
+no arquivo teste.html */
+newspaper: T_NEWSPAPER 
+            { fp = fopen ("teste.html","w"); 
+              LOG ( "T_NEWSPAPER" );   
+            }
+
+            '{' 
+            { 
+                COMPILE("<html>\n"); 
+            }
+
+             desc 
+            {  LOG ( "desc ready. Waiting structure..." ); }
+
+             structure
+            {  LOG ( "structure ready" ); }
+
+             news_list '}' 
+            { 
+                 printf ("Completed!\n");
+                 COMPILE("\n<html>\n");
+            }
 ;
 
 news_list:
-         news                   { LOG ("news"); }
-         | news_list news   { LOG ("list + news"); }
+         news 
+         {
+            LOG ("news");
+         }
+         | news_list news 
+         {
+            LOG ("list + news"); 
+         }
 ;
 
 news:
     T_NAME 
-    { LOG ( "---------------News >> %s", $1 ); }
+    { 
+        LOG ( "---------------News >> %s", $1 ); 
+    }
     '{' f_list 
-    { LOG ( "Waiting structure" ); }
+    {
+        LOG ( "Waiting structure" );
+    }
     newsStructure '}'
 ;
 
-f_list:
-          f_opt
-          | f_list f_opt
-;
-
+/* lista com nomes de componentes de uma noticia */
 f_list_comma:
           f_names
           | f_list_comma ',' f_names
 ;
 
+/* possiveis valores para nomes de lista */
 f_names:
         T_TITLE             { LOG ("fname_required\ttitle"); }
         | T_AUTHOR          { LOG ("fname_required\tauthor"); }
@@ -92,6 +110,14 @@ f_names:
         | T_TEXT
 ;
 
+/* lista com as ESPECIFICACOES de um componente de uma noticia */
+/* tratarei os obrigatorios com funcoes em C, o que acha? */
+f_list:
+          f_opt
+          | f_list f_opt
+;
+
+/* especificacoes de cada campo */
 f_opt:
      title         { LOG ("f_required\ttitle"); }
      | author      { LOG ("f_required\tauthor"); }
@@ -104,31 +130,49 @@ f_opt:
 
 
 desc: 
-    title date { COMPILE2 ( "\n<HEAD>\n<TITLE>%s</TITLE>\n</HEAD>\n<h1>%s</h1>\n", $1, $2 );
-                }
-    | date title { COMPILE2 ( "\n<HEAD>\n<TITLE>%s</TITLE>\n</HEAD>\n<h1>%s</h1>\n", $2, $1 ); }
+    title date
+        {
+            COMPILE2 ( "\n<HEAD>\n<TITLE>%s</TITLE>\n</HEAD>\n<h1>%s</h1>\n", $1, $2 );
+        }
+    | date title
+        { 
+            COMPILE2 ( "\n<HEAD>\n<TITLE>%s</TITLE>\n</HEAD>\n<h1>%s</h1>\n", $2, $1 ); 
+        }
 ;
 
 date: 
-    T_DATE  '=' T_STRING { printf ("Date = %s\n", $3); $$ = $3; }
+    T_DATE  '=' T_STRING
+        {
+            printf ("Date = %s\n", $3); 
+            $$ = $3;
+        }
    ;
 
 
 title: 
-     T_TITLE '=' T_STRING { $$ = strdup ($3); }
+     T_TITLE '=' T_STRING 
+             { 
+                $$ = strdup ($3);
+             }
 ;
 
 structure: 
          T_STRUCTURE '{' col 
-   { LOG ( "Waiting show..." ) ; }
+               {
+                   LOG ( "Waiting show..." ) ; 
+               }
          show '}'
 ;
 
 newsStructure: 
          T_STRUCTURE '{' col 
-   { LOG ( "Waiting newsShow..." ) ; }
+           {
+                 LOG ( "Waiting newsShow..." ) ;
+            }
             showNews 
-   { LOG ( "showNews parsed!" ) ; }
+           {
+                LOG ( "showNews parsed!" ) ;
+            }
          '}'
 ;
 
@@ -163,11 +207,17 @@ show:
 
 showNews:
      T_SHOW
-   { LOG ( "T_SHOW" ) ; }
+       {
+            LOG ( "T_SHOW" ) ;
+        }
      '='
-   { LOG ( "=" ) ; }
+       {
+            LOG ( "=" ) ;
+        }
      f_list_comma
-   { LOG ( "f_list" ) ; }
+       {
+            LOG ( "f_list" ) ;
+        }
 ;
 
 sComponents: 
@@ -187,7 +237,6 @@ int yywrap(void) { return 1; }
  extern int yy_flex_debug;
 int main(int argc, char** argv)
 {
-    yy_flex_debug = 0;
      yyparse();
      return 0;
 }
