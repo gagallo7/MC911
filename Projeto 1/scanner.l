@@ -33,7 +33,7 @@ ERROR (^\")*
 <STRING>\"  { 
                 *s = 0; 
                 BEGIN 0; 
-                printf("Encontrado: '%s'\n", buf); 
+                printf("\n'\e[0;32m'Encontrado: '%s''\e[0m'\n", buf); 
                 yylval.str = (char* ) strdup (buf);
                 return T_STRING;
             } 
@@ -55,6 +55,7 @@ ERROR (^\")*
 "show" return T_SHOW;
 "source" return T_SOURCE;
 "image" return T_IMAGE;
+"abstract" return T_ABSTRACT;
 
 
 {NAME} {	
