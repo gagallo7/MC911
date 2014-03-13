@@ -43,7 +43,6 @@ ERROR (^\")*
 "{"       return '{';
 "}"       return '}';
 "="       return '=';
-"\""       return 'a';
 ","       return ',';
 "newspaper" return T_NEWSPAPER;
 "date"    return T_DATE;
@@ -65,7 +64,7 @@ ERROR (^\")*
 }
 
 {NUMBER} {	
-	yylval.intval = (int *) atoi(yytext);
+	yylval.intval = (int ) atoi(yytext);
 	return T_NUMBER;
 }
 

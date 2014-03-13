@@ -5,6 +5,8 @@
 #include <stdlib.h>
 FILE* fp ;
 
+#define YYDEBUG 1
+
 #define COMPILE(X) fp = fopen ("teste.html", "a"); fprintf ( fp, (X) ); fclose (fp)
 #define COMPILE2(X,...) fp = fopen ("teste.html", "a"); fprintf ( fp, (X), ##__VA_ARGS__ ); fclose (fp)
 #define COMPILE3(X,...) printf ( (X), ##__VA_ARGS__ )
@@ -16,7 +18,7 @@ FILE* fp ;
 
 %union {
     char* str;
-    int* intval;
+    int intval;
 }
 
 %token <str> T_NAME
@@ -35,8 +37,6 @@ FILE* fp ;
 %token T_ABSTRACT
 %token T_WHITESPACE
 
-/*%type <> title date show*/
-
 %type <str> date T_STRING title
 
 %start newspaper
@@ -49,7 +49,11 @@ newspaper: T_NEWSPAPER { fp = fopen ("teste.html","w");
                                 LOG ( "T_NEWSPAPER" );   
                         }
 '{' { COMPILE("<html>\n"); }
- desc structure news_list '}' { 
+ desc 
+{  LOG ( "desc ready. Waiting structure..." ); }
+ structure
+{  LOG ( "structure ready" ); }
+ news_list '}' { 
                                  printf ("Completed!\n");
                                  COMPILE("\n<html>\n");
                                }
@@ -57,37 +61,50 @@ newspaper: T_NEWSPAPER { fp = fopen ("teste.html","w");
 
 news_list:
          news                   { LOG ("news"); }
-         | news_list ',' news   { LOG ("list + news"); }
+         | news_list news   { LOG ("list + news"); }
 ;
 
 news:
-    T_NAME '{' f_opt_list f_required f_opt_list f_required f_opt_list f_required f_opt_list 
+    T_NAME 
+    { LOG ( "---------------News >> %s", $1 ); }
+    '{' f_list 
     { LOG ( "Waiting structure" ); }
-    structure '}'
+    newsStructure '}'
 ;
 
-f_opt_list:
+f_list:
           f_opt
-          | f_opt_list f_opt
-          |               { LOG ("f_opt\tempty!!!"); }
+          | f_list f_opt
+;
+
+f_list_comma:
+          f_names
+          | f_list_comma ',' f_names
+;
+
+f_names:
+        T_TITLE             { LOG ("fname_required\ttitle"); }
+        | T_AUTHOR          { LOG ("fname_required\tauthor"); }
+        | T_ABSTRACT        { LOG ("fname_required\tabstract"); }
+        | T_DATE
+        | T_IMAGE
+        | T_SOURCE
+        | T_TEXT
 ;
 
 f_opt:
-    image
-    | date          { LOG ("f_opt\tdate"); }
-    | source        { LOG ("f_opt\tsource"); }
-    | text          { LOG ("f_opt\ttext"); }
+     title         { LOG ("f_required\ttitle"); }
+     | author      { LOG ("f_required\tauthor"); }
+     | abstract    { LOG ("f_required\tabstract"); }
+     | date          { LOG ("f_opt\tdate"); }
+     | image         { LOG ("f_opt\timage"); }
+     | source        { LOG ("f_opt\tsource"); }
+     | text          { LOG ("f_opt\ttext"); }
 ;
 
-f_required:
-          title         { LOG ("f_required\ttitle"); }
-          | author      { LOG ("f_required\tauthor"); }
-          | abstract    { LOG ("f_required\tabstract"); }
-;
 
 desc: 
     title date { COMPILE2 ( "\n<HEAD>\n<TITLE>%s</TITLE>\n</HEAD>\n<h1>%s</h1>\n", $1, $2 );
-                LOG ( "desc ready" );
                 }
     | date title { COMPILE2 ( "\n<HEAD>\n<TITLE>%s</TITLE>\n</HEAD>\n<h1>%s</h1>\n", $2, $1 ); }
 ;
@@ -102,7 +119,17 @@ title:
 ;
 
 structure: 
-         T_STRUCTURE '{' col show '}'
+         T_STRUCTURE '{' col 
+   { LOG ( "Waiting show..." ) ; }
+         show '}'
+;
+
+newsStructure: 
+         T_STRUCTURE '{' col 
+   { LOG ( "Waiting newsShow..." ) ; }
+            showNews 
+   { LOG ( "showNews parsed!" ) ; }
+         '}'
 ;
 
 image:
@@ -127,10 +154,20 @@ author:
 
 col: 
    T_COL '=' T_NUMBER
+   { LOG ( "col = %d", $3 ) ; }
 ;
 
 show: 
     T_SHOW '=' sComponents
+;
+
+showNews:
+     T_SHOW
+   { LOG ( "T_SHOW" ) ; }
+     '='
+   { LOG ( "=" ) ; }
+     f_list_comma
+   { LOG ( "f_list" ) ; }
 ;
 
 sComponents: 
