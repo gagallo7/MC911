@@ -108,11 +108,14 @@ news: T_NAME '{' f_list
         {
             printf("f_list is ok!\n");
 
-            LOG ("\n CAMPOS LIDOS:");
+            LOG ("\nCAMPOS LIDOS:");
             for (i = 0; i < 7; i++) 
             {
-                if ( fields[i] != 0 ) 
-                    LOG( "%s", fields[i] );      
+                if ( fields[i] != 0)                        // Essa é a maneira de checar se um espaco alocado está vazio ou nao.
+                    if ( strlen(fields[i]) > 0)             // Junto com essa parte. 
+                    {
+                        LOG( "%s", fields[i] );      
+                    }
             }
 
         } else 
