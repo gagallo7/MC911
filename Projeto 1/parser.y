@@ -50,7 +50,7 @@ FILE* fp ;
 
 /* newspaper: T_NEWSPAPER '{' desc structure news_list '}' */
 newspaper: T_NEWSPAPER 
-         { fp = fopen ("teste.html","w"); 
+         { 
             LOG ( "T_NEWSPAPER" );   
          }
 
@@ -101,9 +101,8 @@ news: T_NAME
 ;
 
 /* lista com nomes de componentes de uma noticia */
-f_list_comma:
-          f_names
-          | f_list_comma ',' f_names
+f_list_comma: f_names
+            | f_list_comma ',' f_names
 ;
 
 /* possiveis valores para nomes de lista */
@@ -123,8 +122,7 @@ f_list: f_opt
 ;
 
 /* especificacoes de cada campo */
-f_opt:
-     title         { LOG ("f_required\ttitle"); }
+f_opt: title         { LOG ("f_required\ttitle"); }
      | author      { LOG ("f_required\tauthor"); }
      | abstract    { LOG ("f_required\tabstract"); }
      | date          { LOG ("f_opt\tdate"); }
@@ -164,7 +162,7 @@ title: T_TITLE '=' T_STRING
 ;
 
 
-/* structure: T_STRUCTURE '{' show '}' */
+/* structure: T_STRUCTURE '{' col show '}' */
 structure: T_STRUCTURE '{' col 
          {
             LOG ( "Waiting show..." ) ; 
