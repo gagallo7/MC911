@@ -32,6 +32,9 @@ int check_f_list( char* f_list, char** fields, char** values )
         split_str( aux[index], S2, tmp );
         strcpy( fields[index], tmp[0] );
         strcpy( values[index], tmp[1] );
+
+        memset( tmp[0], 0, strlen( tmp[0] ) );
+        memset( tmp[1], 0, strlen( tmp[1] ) );
         index++;
     }
 

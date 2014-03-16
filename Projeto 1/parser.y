@@ -107,7 +107,7 @@ news: T_NAME '{' f_list
         if ( check_f_list($3, fields, values) ) 
         {
             printf("f_list is ok!\n");
-            /*for (i = 0; i < 7; i++) LOG( "%s\t", fields[i] );*/
+            /*for (i = 0; i < 7; i++) LOG( "%s\t", fields[i] );*/       // Por algum motivo estranho, esta linha dá segfault
 
         } else 
         {
