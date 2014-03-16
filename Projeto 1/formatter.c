@@ -1,11 +1,22 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include "formatter.h"
+
+char buffer [10000];
 
 char* lists ( char* root, char* tail, char* lvl1, char* lvl2 )
 {
-    if ( tail == '*' )
+    char aux [20];
+
+    while ( *tail != '\n' )
     {
+        if ( *tail == '*' && *(tail+1) == '*' )
+        {
+        }
+    }
+    if ( *tail == '*' )
+    {
+        root = strcat ( root, "<ul><li>" );
+        strcat ( aux, "</li></ul>" );
+        
     }
 
     return tail;
@@ -14,7 +25,7 @@ char* lists ( char* root, char* tail, char* lvl1, char* lvl2 )
 char* simpleSubs ( char* root, char* tail, char start[], char tag[], char extra[] )
 {
     int n = strlen ( start );
-    char* tostr [2];
+    char tostr [2];
     tostr[1] = '\0';
     int repeats = 0;
 
@@ -23,13 +34,9 @@ char* simpleSubs ( char* root, char* tail, char start[], char tag[], char extra[
         tail += n;
         if ( strlen ( extra ) ) 
         {
-            root = strcat ( root, "<" );
             root = strcat ( root, extra );
-            root = strcat ( root, ">" );
         }
-        root = strcat ( root, "<" );
         root = strcat ( root, tag );
-        root = strcat ( root, ">" );
         repeats++;
     }
 
@@ -39,12 +46,14 @@ char* simpleSubs ( char* root, char* tail, char start[], char tag[], char extra[
 char* subsRepeat ( char* root, char* tail, char start[], char end[], char tag[], char extra[] )
 {
     int n = strlen ( start );
-    char* tostr [2];
+    char tostr [2];
     tostr[1] = '\0';
     int repeats = 0;
+    int match = 0;
 
     while ( strncmp ( tail, start, n ) == 0 )
     {
+        match = 1;
         tail += n;
         if ( strlen ( extra ) ) 
         {
@@ -58,25 +67,30 @@ char* subsRepeat ( char* root, char* tail, char start[], char end[], char tag[],
         repeats++;
     }
 
-    n = strlen ( end );
-    while ( strncmp ( tail, end, n ) != 0 )
+    if ( match )
     {
-        printf ( "\nroot:%s\n", root );
-        tostr[0] = *tail;
-        strcat ( root, tostr );
-        tail++;
-    }
+        n = strlen ( end );
+        while ( strncmp ( tail, end, n ) != 0 )
+        {
+            printf ( "\nroot:%s\n", root );
+            tostr[0] = *tail;
+            strcat ( root, tostr );
+            tail++;
+        }
 
-    while ( repeats-- )
-    {
-        root = strcat ( root, "</" );
-        root = strcat ( root, tag );
-        root = strcat ( root, ">" );
-        if ( strlen ( extra ) ) 
+        tail += n;
+
+        while ( repeats-- )
         {
             root = strcat ( root, "</" );
-            root = strcat ( root, extra );
+            root = strcat ( root, tag );
             root = strcat ( root, ">" );
+            if ( strlen ( extra ) ) 
+            {
+                root = strcat ( root, "</" );
+                root = strcat ( root, extra );
+                root = strcat ( root, ">" );
+            }
         }
     }
 
@@ -86,7 +100,7 @@ char* subsRepeat ( char* root, char* tail, char start[], char end[], char tag[],
 char* subs ( char* root, char* tail, char start[], char end[], char tag[] )
 {
     int n = strlen ( start );
-    char* tostr [2];
+    char tostr [2];
     tostr[1] = '\0';
 
     if ( strncmp ( tail, start, n ) == 0 )
@@ -209,9 +223,7 @@ char* subs3 ( char* root, char* tail, char open[], char type, char lvl1[], char 
 /* concatena uma string e retorna um ponteiro
  * para o fim da mesma */
 
-
-
-char*  push_back ( char* fmt, char s[], char* root, int* len )
+char* push_back ( char* fmt, char s[], char* root, int* len )
 {
     int i = 0;
     while ( s [i++] != 0 ) 
@@ -235,9 +247,8 @@ char*  push_back ( char* fmt, char s[], char* root, int* len )
     return fmt;
 }
 
-char*  push_back_char ( char* fmt, char s, char* root, int* len )
+char* push_back_char ( char* fmt, char s, char* root, int* len )
 {
-    int i = 0;
     (*len)++;
     root = (char *) realloc ( root, (*len) * sizeof (char) );
     printf ( "len:%d\n", *len );
@@ -250,17 +261,169 @@ char*  push_back_char ( char* fmt, char s, char* root, int* len )
     return fmt;
 }
 
-char* clearStr ( char* s )
+/* Gerador de hyperlinks */
+char* hyperlink ( char* root, char* tail )
 {
+    //char cc[2];
+    //cc[1] = '\0';
+    char http[] = "http://";
+    char www[] = "www";
+    //int n = strlen ( http );
     char* aux;
-    if ( s != NULL )
-    {
-        free ( s );
-    }
-    aux = (char *) malloc ( 1 * sizeof ( char ) );
-    aux[0] = 0;
+    int validURL = 0;
 
-    return aux;
+    /* Primeiro caractere da formatação */
+    if ( *tail == '[' )
+    {
+        tail++;
+
+        /* "[[" requer uma outra formatação */
+        if ( *tail == '[' )
+        {
+            tail = hyperlink2 ( root, ++tail );
+            return tail;
+        }
+
+        /* Caso seja somente "[", continue */
+
+        /* Pulando espaços */
+        while ( *tail == ' ' ) tail++;
+
+        /* Verificando se a URL começa com http:// ou www */
+        aux = strstr ( tail, http );
+
+        if ( aux == NULL )
+        {
+            aux = strstr ( tail, www );
+        }
+
+        if ( aux != NULL )
+        {
+            /* Montando HTML */
+            root = strcat ( root, "<a href=\"" );
+
+            /* Copiando corpo da URL */
+            while ( *tail != ' ' && *tail != '|' )
+            {
+                strncat ( root, tail++, 1 );
+            }
+
+            /* Fechando tag <a> */
+            root = strcat ( root, "\">" );
+
+            /* Procurando separador '|' */
+            while ( *tail == ' ' || *tail == '|' )
+            {
+                if ( *tail == ']' )
+                {
+                    validURL = 1;
+                    break;
+                }
+                else if ( *tail == '|' )
+                {
+                    validURL = 1;
+                }
+                tail++;
+            }
+
+            /* Se a URL for inválida */
+            if ( !validURL )
+            {
+                printf ( "Erro hyp2: url mal feita. Esperando por '|', encontrou-se: \"%s\"\n", strtok ( tail, "|\n" ) );
+                exit (1);
+            }
+
+            /*
+            */
+
+            /* Procurando fim da URL */
+            while ( *tail != ']' )
+            {
+                strncat ( root, tail++, 1 );
+            }
+
+            tail++;
+
+            //strcat ( root, strtok_r ( tail, "]", &tail ) );
+
+            /* Fechando tag </a> */
+            root = strcat ( root, "</a>" );
+
+        }
+        else
+        {
+            printf ( "Erro: url mal feita. Esperando por \"%s\" ou \"%s\", encontrou-se: \"%s\"\n", http, www, strtok ( tail, "|\n" ) );
+            exit (1);
+        }
+        /*
+        */
+    }
+
+    return tail;
+}
+
+char* hyperlink2 ( char* root, char* tail )
+{
+        int validURL = 0;
+    /* Pulando espaços */
+    while ( *tail == ' ' ) tail++;
+
+    /* Montando HTML */
+    root = strcat ( root, "<img src=\"" );
+
+    /* Copiando corpo da URL */
+    while ( *tail != ' ' && *tail != '|' )
+    {
+        strncat ( root, tail++, 1 );
+    }
+
+    /* Fechando tag <a> */
+    root = strcat ( root, "\" alt=\"" );
+
+    /* Procurando separador '|' */
+    while ( *tail == ' ' || *tail == '|' )
+    {
+        if ( *tail == '|' )
+        {
+            validURL = 1;
+        }
+        tail++;
+        if ( *tail == ']' )
+        {
+            validURL = 1;
+            break;
+        }
+    }
+
+
+    /* Se a URL for inválida */
+    if ( !validURL )
+    {
+        printf ( "Erro hyp2: url mal feita. Esperando por '|', encontrou-se: \"%s\"\n", strtok ( tail, "|\n" ) );
+        exit (1);
+    }
+
+    /*
+    */
+
+    /* Procurando fim da URL */
+    //while ( *tail != ']' )
+    while ( strncmp ( tail, "]]", 2 ) != 0 )
+    {
+        strncat ( root, tail++, 1 );
+    }
+
+    tail += 2;
+
+    //strcat ( root, strtok_r ( tail, "]", &tail ) );
+
+    /* Fechando tag </a> */
+    root = strcat ( root, "\">" );
+
+    /*
+    */
+
+    return tail;
 }
 
 char* format ( char* s )
@@ -269,25 +432,31 @@ char* format ( char* s )
     c = s;
     char open[10];
     strcpy ( open, "" );
-    char* cmp;
     char* fmt = strdup ("");
     char* root = fmt;
     char cc[2];
     cc[1] = '\0';
-    int len = 0;
+    //int len = 0;
 
     while ( *c != 0 )
     {
+        c = hyperlink ( root, c );
+        // simpleSubs ( char* root, char* tail, char start[], char tag[], char extra[] )
+        c = simpleSubs ( root, c, "<br />", "\n", "" );
+
         //subs3 ( char* tail, char open[], char type, char lvl1[], char lvl2[], char lvl3[] )
-        c = subs3 ( root, c, open, '=', "h4", "h3", "h2" );
         c = subs3 ( root, c, open, '=', "h4", "h3", "h2" );
         //subs ( char* root, char* tail, char start[], char end[], char tag[] )
         //c = subs ( root, c, "**", "\n", "li" );
         c = subsRepeat ( root, c, ":", "\n", "dd", "dl" );
-        c = simpleSubs ( root, c, "<br />", "li", "" );
+        c = subsRepeat ( root, c, "'''''", "'''''", "b", "i" );
+        c = subsRepeat ( root, c, "'''", "'''", "b", "" );
+        c = subsRepeat ( root, c, "''", "''", "i", "" );
+        c = subsRepeat ( root, c, "*", "\n", "li", "" );
+
         //*fmt = *c;
 
-        len = strlen ( root );
+        //len = strlen ( root );
         //fmt = push_back_char ( fmt, *c, root, &len );
         cc[0] = *c;
         root = strcat ( root, cc );
@@ -301,13 +470,18 @@ char* format ( char* s )
 int main ()
 {
     char str [10000];
+    char tst [10000];
     char* fmt;
 
     scanf ( "%[^\"]s", str );
 
+    str [ strlen (str) - 1 ] = 0;
+
     fmt = format ( str );
 
     printf ( "\nInput:%s\nFormatted:%s\n", str, fmt );
+    sscanf ( str, "%*s ]", tst );
+    printf ( "Test:%s\n", tst );
 
     return 0;
 }
