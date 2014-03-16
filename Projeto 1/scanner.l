@@ -40,21 +40,21 @@ ERROR (^\")*
 <STRING>.   {*s++ = yytext [0];} 
 
 
-"{"         return '{'         ; 
-"}"         return '}'         ; 
-"="         return '='         ; 
-","         return ','         ; 
-"newspaper" return T_NEWSPAPER ; 
-"date"      return T_DATE      ; 
-"title"     return T_TITLE     ; 
-"structure" return T_STRUCTURE ; 
-"author"    return T_AUTHOR    ; 
-"text"      return T_TEXT      ; 
-"col"       return T_COL       ; 
-"show"      return T_SHOW      ; 
-"source"    return T_SOURCE    ; 
-"image"     return T_IMAGE     ; 
-"abstract"  return T_ABSTRACT  ; 
+"{" return '{'; 
+"}" return '}'; 
+"=" return '='; 
+"," return ','; 
+"newspaper" return T_NEWSPAPER; 
+"date" return T_DATE; 
+"title" return T_TITLE; 
+"structure" return T_STRUCTURE; 
+"author" return T_AUTHOR; 
+"text" return T_TEXT; 
+"col" return T_COL; 
+"show" return T_SHOW; 
+"source" return T_SOURCE; 
+"image" return T_IMAGE; 
+"abstract" return T_ABSTRACT; 
 
 
 {NAME} {	
@@ -64,7 +64,8 @@ ERROR (^\")*
 }
 
 {NUMBER} {	
-	yylval.intval = (int ) atoi(yytext);
+	yylval.str = (char *) strdup(yytext);
+    printf ( "Format: %s\n", yytext );
 	return T_NUMBER;
 }
 
