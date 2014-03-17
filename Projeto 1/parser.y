@@ -30,7 +30,7 @@
 %token T_WHITESPACE
 
 %type <str> T_STRING T_NEWSPAPER T_DATE date title T_TITLE news f_list f_opt image T_IMAGE source T_SOURCE T_NAME T_NUMBER
-%type <str> text T_TEXT abstract T_ABSTRACT author T_AUTHOR col T_COL show T_SHOW sComponents f_list_comma f_names
+%type <str> text T_TEXT abstract T_ABSTRACT author T_AUTHOR col T_COL show T_SHOW sComponents f_list_comma f_names showNews structure
 
 %start newspaper
 
@@ -256,7 +256,7 @@ structure: T_STRUCTURE '{' col
          
          show '}' 
          {
-            /*LOG ( "show = %s", $1);*/
+            LOG ( "show = %s", $5);
          }
 ;
 
@@ -269,7 +269,7 @@ newsStructure: T_STRUCTURE '{' col
             
              showNews 
              {
-                /*LOG ( "showNews = %s", $1 ) ;*/
+                LOG ( "showNews = %s", $5 ) ;
              }
          
              '}'
@@ -329,7 +329,7 @@ show: T_SHOW '=' sComponents
 /* showNews: T_SHOW '=' f_list_comma */
 showNews: T_SHOW '=' f_list_comma
         {
-            /*$$ = concat(3, "show", S2, $3);*/
+            $$ = concat(3, "show", S2, $3);
         }
 ;
 
