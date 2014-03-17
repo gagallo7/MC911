@@ -4,3 +4,6 @@
 
 char* hyperlink ( char* , char* );
 char* hyperlink2 ( char* , char* );
+char* subsRepeat ( char*, char*, char[], char[], char[], char[] );
+
+char* format ( char* s );
