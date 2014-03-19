@@ -6,6 +6,23 @@
 #include "checker.h"
 #include "utility.h"
 
+
+// GLOBALS
+
+int col;                // Numero de colunas da pagina
+char** show;            // Ordem com que as noticias devem ser imprimidas
+news* list;             // Lista de todas as noticias da pagina
+
+struct news 
+{
+    int col;            // Numero de colunas da noticia
+    char** show;        // Ordem com que os campos devem ser imprimidos
+    
+    char** fields;      // Campos presentes na noticia
+    char** values;      // Valores associados dos campos
+};
+
+
 %}
 
 %union {
@@ -40,15 +57,11 @@
 /* newspaper: T_NEWSPAPER '{' desc structure news_list '}' */
 newspaper: T_NEWSPAPER 
          { 
-            LOG ( "Reconheci T_NEWSPAPER" );   
-         }
-
-         '{' 
-         { 
+            LOG ( "Compilando..." );   
             COMPILE("<html>\n"); 
          }
 
-         desc 
+         '{' desc 
          {  
             LOG ( "desc ready" ); 
          }
@@ -58,8 +71,22 @@ newspaper: T_NEWSPAPER
 
          news_list '}' 
          { 
+            // Gerando o HTML
+
+
+
+
+
+
+
+
+
+
+
+            // Fim do processo
+            COMPILE("\n</html>");
+
             printf ("Completed!\n");
-            COMPILE("\n<html>\n");
             LOG ( "Completed!" );
          }
 ;
