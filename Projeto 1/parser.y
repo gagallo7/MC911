@@ -8,20 +8,18 @@
 
 
 // GLOBALS
-
-int col;                // Numero de colunas da pagina
-char** show;            // Ordem com que as noticias devem ser imprimidas
-news* list;             // Lista de todas as noticias da pagina
-
-struct news 
+typedef struct 
 {
     int col;            // Numero de colunas da noticia
     char** show;        // Ordem com que os campos devem ser imprimidos
     
     char** fields;      // Campos presentes na noticia
     char** values;      // Valores associados dos campos
-};
+} news;
 
+int col;                // Numero de colunas da pagina
+char** show;            // Ordem com que as noticias devem ser imprimidas
+news* list;             // Lista de todas as noticias da pagina
 
 %}
 
@@ -278,7 +276,10 @@ title: T_TITLE '=' T_STRING
 /* structure: T_STRUCTURE '{' col show '}' */
 structure: T_STRUCTURE '{' col 
          {
-            LOG ( "structure possui col = %s", $3 ) ;
+            LOG ( "structure possui col: %s", $3 ) ;
+            /*
+             *col = atoi($3);
+             */
          }
          
          show '}' 
