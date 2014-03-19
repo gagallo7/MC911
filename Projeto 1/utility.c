@@ -1,6 +1,7 @@
+/* =============================================================================== */ 
 #include "utility.h"
 
-
+/* =============================================================================== */ 
 char* concat(int count, ...)
 {
     va_list ap;
@@ -27,8 +28,10 @@ char* concat(int count, ...)
     return result;
 }
 
-void sub_str(char* src, char* dst, int howMany) 
+/* =============================================================================== */ 
+char* sub_str(char* src, int howMany) 
 {
+    char* dst = (char*) calloc( howMany+1, sizeof(char) );
     int i;
 
     for (i = 0; i < howMany; i++) 
@@ -40,42 +43,84 @@ void sub_str(char* src, char* dst, int howMany)
     }
 
     dst[i] = '\0';
+    return dst;
 }
 
 
-void split_str(char* str, char* delimiter, char** vector) 
+/* =============================================================================== */ 
+char** split_str(char* str, char* delimiter) 
 {
     int delim_len = strlen(delimiter);
     int i = 0;
     int str_len = strlen(str);
     int index = 0, sub_index = 0;
     char* aux;
+    char** vector;
 
-    // Alocando memoria pra aux
-    aux = (char*) calloc ( (delim_len+1), sizeof(char) );
+    // Condicao de saida imediata
+    if ( str_len == 0 || delim_len == 0 ) return NULL;
+
+    // Alocando memoria
+    vector = (char**) calloc( 1, sizeof(char*) );
+    vector[0] = (char*) calloc( 1, sizeof(char) );
 
     while (i < str_len) 
     {
-        sub_str(str+i, aux, delim_len);
+        aux = sub_str(str+i, delim_len);
 
         if ( strcmp(aux, delimiter) != 0 ) 
         {
             vector[index][sub_index] = str[i];
+
             i++;
             sub_index++;
-            continue;
+
+            vector[index] = (char*) realloc( vector[index], sizeof(char) * (sub_index+2) );
+            
+        } else 
+        {
+            vector[index][sub_index] = '\0';
+
+            i += delim_len;
+            sub_index = 0;
+
+            if ( strlen(vector[index]) > 0 ) 
+            {
+                index++;
+                vector = (char**) realloc( vector, sizeof(char*) * (index+2) );
+                vector[index] = (char*) calloc( 1, sizeof(char) );
+            }
         }
 
-        vector[index][sub_index] = '\0';
-        i += delim_len;
-        index++;
-        sub_index = 0;
+        // Liberando memoria alocada
+        free( aux );
     }
 
-    // Liberando memoria alocada
-    free(aux);
+    vector[index][sub_index] = '\0';
+
+    // Adicionando ultima palavra igual a NULL
+    vector = (char**) realloc( vector, sizeof(char*) * (index+2) );
+    vector[index+1] = NULL;
+
+    // Exit
+    return vector;
 }
 
+/* =============================================================================== */ 
+void free_split(char** vector) 
+{
+    int index = 0;
+    
+    while ( vector[index] != NULL ) 
+    {
+        free( vector[index] );
+        index++;
+    }
+    
+    free( vector );
+}
+
+/* =============================================================================== */ 
 
 
 

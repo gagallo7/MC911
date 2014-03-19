@@ -11,4 +11,4 @@
  * fields contera' em ordem os fields passados.
  * values contera' em ordem os valores relacionados de cada field.
 */
-int check_f_list( char* f_list, char** fields, char** values ); 
+int check_f_list( char* f_list, char*** fields, char*** values ); 

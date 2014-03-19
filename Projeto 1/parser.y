@@ -82,40 +82,24 @@ news_list: news
 /* news: T_NAME '{' f_list newsStructure '}' */
 news: T_NAME '{' f_list 
     {
-        int i = 0;
+        int i;
         char** fields; 
         char** values;
 
-        LOG( "news name = %s\n", $1);
-
-        // Alocando memoria pra fields e values
-        fields = (char**) calloc ( 7, sizeof(char*) );
-        for (i = 0; i < 7; i++) 
-        {
-            fields[i] = (char*) calloc ( 512,  sizeof(char) );
-        }
-
-        values = (char**) calloc ( 7, sizeof(char*) );
-        for (i = 0; i < 7; i++) 
-        {
-            values[i] = (char*) calloc ( 32000, sizeof(char) );
-        }
-
+        LOG( "news name: %s\n", $1);
         LOG ( "f_list sent to checker: %s", $3 );
 
         // Verificando a validade
-        if ( check_f_list($3, fields, values) ) 
+        if ( check_f_list($3, &fields, &values) ) 
         {
             printf("f_list is ok!\n");
 
             LOG ("\nCAMPOS LIDOS:");
-            for (i = 0; i < 7; i++) 
+            i = 0;
+            while ( fields[i] != NULL ) 
             {
-                if ( fields[i] != 0)                        // Essa é a maneira de checar se um espaco alocado está vazio ou nao.
-                    if ( strlen(fields[i]) > 0)             // Junto com essa parte. 
-                    {
-                        LOG( "%s", fields[i] );      
-                    }
+                LOG( "%s", fields[i] );      
+                i++;
             }
 
         } else 
@@ -127,12 +111,13 @@ news: T_NAME '{' f_list
         // Liberando a memoria alocada
         LOG ( "Liberando memoria alocada para validacao...\n" );
 
-        for (i = 0; i < 7; i++) 
+        i = 0;
+        while ( fields[i] != NULL ) 
         {
             free( fields[i] );
             free( values[i] );
-        } 
-
+            i++;
+        }
         free(fields);
         free(values);
     }
@@ -222,14 +207,30 @@ f_opt: title        { LOG ("f_required\ttitle");    }
 */ 
 desc: title date 
     {
-        COMPILE ( "\n<HEAD>\n<TITLE>%s</TITLE>\n</HEAD>\n<h1>%s</h1>\n", $1, $2 );
-        LOG ( "Title = %s \nDate = %s", $1, $2 );
+        // Realizando split
+        char** title_aux = split_str($1, S2);
+        char** date_aux = split_str($2, S2);
+
+        COMPILE ( "\n<HEAD>\n<TITLE>%s</TITLE>\n</HEAD>\n<h1>%s</h1>\n", title_aux[1], date_aux[1] );
+        LOG ( "Title = %s \nDate = %s", title_aux[1], date_aux[1] );
+
+        // Liberando memoria
+        free_split( title_aux );
+        free_split( date_aux );
     }
     
     | date title
     { 
-        COMPILE ( "\n<HEAD>\n<TITLE>%s</TITLE>\n</HEAD>\n<h1>%s</h1>\n", $2, $1 ); 
-        LOG ( "Date = %s \nTitle = %s", $1, $2 );
+        // Realizando split
+        char** title_aux = split_str($2, S2);
+        char** date_aux = split_str($1, S2);
+
+        COMPILE ( "\n<HEAD>\n<TITLE>%s</TITLE>\n</HEAD>\n<h1>%s</h1>\n", title_aux[1], date_aux[1] );
+        LOG ( "Title = %s \nDate = %s", title_aux[1], date_aux[1] );
+
+        // Liberando memoria
+        free_split( title_aux );
+        free_split( date_aux );
     }
 ;
 
