@@ -9,6 +9,7 @@
 // GLOBALS
 typedef struct
 {
+char* name
 int col;         // Numero de colunas da noticia
 char** show;     // Ordem com que os campos devem ser imprimidos
 char** fields;   // Campos presentes na noticia
@@ -56,6 +57,10 @@ newspaper: T_NEWSPAPER
          { 
             LOG ( "Compilando..." );   
             COMPILE("<html>\n"); 
+
+            // Inicializando o vetor de news
+            list = (char**) calloc( 1, sizeof(char*) );
+            list[0] = (char*) calloc( 1, sizeof(char) );
          }
 
          '{' desc 
@@ -68,6 +73,8 @@ newspaper: T_NEWSPAPER
 
          news_list '}' 
          { 
+            LOG( "Gerando o HTML..." );
+            
             // Gerando o HTML
 
 
@@ -83,6 +90,10 @@ newspaper: T_NEWSPAPER
             // Fim do processo
             COMPILE("\n</html>");
             LOG ( "Compilacao finalizada com sucesso." );
+
+            // Limpando a memoria das variaveis globais
+
+
          }
 ;
 
@@ -103,6 +114,8 @@ news_list: news
 /* news: T_NAME '{' f_list newsStructure '}' */
 news: T_NAME '{' f_list 
     {
+        
+        
         int i;
         char** fields; 
         char** values;
