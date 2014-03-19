@@ -2,6 +2,89 @@
 
 char buffer [10000];
 
+// chamada para bullet: bgay ( root, tail, '*', "ul" )
+char* bgay ( char* root, char* tail, char type, char tag[], int firstBlood )
+{
+    int nv = 0;
+    int next = 0;
+    int diff;
+    char cc[3];
+    cc[2] = 0;
+    cc[1] = type;
+    cc[0] = '\n';
+    
+    if ( strncmp ( tail, cc, 2 ) == 0 || firstBlood )
+    {
+        if ( !firstBlood )
+        {
+            tail++;
+        }
+    }
+    else
+    {
+        return tail;
+    }
+
+    while ( *tail == type )
+    {
+        tail++;
+        nv++;
+
+        while ( *tail == type )
+        {
+            nv++;
+            tail++;
+        }
+
+        diff = next - nv;
+
+        while ( diff < 0 )
+        {
+            root = strcat ( root, "<" );
+            root = strcat ( root, tag );
+            root = strcat ( root, ">\n" );
+            diff++;
+        }
+
+        while ( diff > 0 )
+        {
+            root = strcat ( root, "</" );
+            root = strcat ( root, tag );
+            root = strcat ( root, ">\n" );
+            diff--;
+        }
+
+        root = strcat ( root, "<li>" );
+
+        while ( *tail == ' ' )
+        {
+            tail++;
+        }
+
+        while ( *tail != '\n' && *tail != 0 )
+        {
+            strncat ( root, tail, 1 );
+            tail++;
+        }
+
+        root = strcat ( root, "</li>\n" );
+        
+        next = nv;
+        nv = 0;
+        tail++;
+    }
+
+    while ( next )
+    {
+        root = strcat ( root, "</" );
+        root = strcat ( root, tag );
+        root = strcat ( root, ">\n" );
+        next--;
+    }
+    return tail;
+}
+
+
 char* lists ( char* root, char* tail, char type, char tag[], char innerTag[], int* level )
 {
     char aux [20];
@@ -460,6 +543,8 @@ char* hyperlink ( char* root, char* tail )
     //int n = strlen ( http );
     char* aux;
     int validURL = 0;
+    int isWWW = 0;
+    char url[1] = "";
 
     /* Primeiro caractere da formatação */
     if ( *tail == '[' )
@@ -484,16 +569,23 @@ char* hyperlink ( char* root, char* tail )
         if ( aux == NULL )
         {
             aux = strstr ( tail, www );
+            isWWW = 1;
         }
 
         if ( aux != NULL )
         {
             /* Montando HTML */
             root = strcat ( root, "<a href=\"" );
+            if ( isWWW )
+            {
+                strcat ( root, "http://" );
+            }
+
 
             /* Copiando corpo da URL */
             while ( *tail != ' ' && *tail != '|' && *tail != ']' )
             {
+                strncat ( url, tail, 1 );
                 strncat ( root, tail++, 1 );
             }
 
@@ -531,6 +623,10 @@ char* hyperlink ( char* root, char* tail )
             //strcat ( root, strtok_r ( tail, "]", &tail ) );
 
             /* Fechando tag </a> */
+            if ( !validURL )
+            {
+                strcat ( root, url );
+            }
             root = strcat ( root, "</a>" );
 
         }
@@ -613,7 +709,6 @@ char* hyperlink2 ( char* root, char* tail )
 char* format ( char* s )
 {
     char* c;
-    c = s;
     char open[10];
     strcpy ( open, "" );
     char* fmt = strdup ("");
@@ -622,28 +717,39 @@ char* format ( char* s )
     cc[1] = '\0';
     //int len = 0;
     int astLevel = 0;
+    c = s;
 
+    c = bgay ( root, c, '*', "ul", 1 );
+    c = bgay ( root, c, '#', "ol", 1 );
     while ( *c != 0 )
     {
         //c = lists ( root, c, '*', "ul", "li", &astLevel );
         //c = lists3 ( root, c, "*", "\n", "li", "ul", &astLevel );
+        c = bgay ( root, c, '*', "ul", 0 );
+        c = bgay ( root, c, '#', "ol", 0 );
+        /*
         c = subsRepeat ( root, c, "*", "\n", "li", "ul" );
         c = subsRepeat ( root, c, "#", "\n", "li", "ol" );
+        */
 
         c = hyperlink ( root, c );
         // simpleSubs ( char* root, char* tail, char start[], char tag[], char extra[] )
-        c = simpleSubs ( root, c, "<br />", "\n", "" );
+//        c = simpleSubs ( root, c, "<br />", "\n", "" );
         c = simpleSubs ( root, c, "\\\"", "\"", "" );
+        //c = simpleSubs ( root, c, "\n\n", "<br />", "" );
 
         //subs3 ( char* tail, char open[], char type, char lvl1[], char lvl2[], char lvl3[] )
         c = subs3 ( root, c, open, '=', "h4", "h3", "h2" );
         //subs ( char* root, char* tail, char start[], char end[], char tag[] )
         //c = subs ( root, c, "**", "\n", "li" );
-        c = subsRepeat ( root, c, "\n:", "\n", "dd", "dl" );
+        c = simpleSubs ( root, c, "\n:", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "" );
+        //c = subsRepeat ( root, c, "\n:", "\n", "dd", "dl" );
         c = subsRepeat ( root, c, " :", "\n", "dd", "dl" );
         c = subsRepeat ( root, c, "'''''", "'''''", "b", "i" );
         c = subsRepeat ( root, c, "'''", "'''", "b", "" );
         c = subsRepeat ( root, c, "''", "''", "i", "" );
+        /*
+        */
 
         //*fmt = *c;
 
@@ -669,14 +775,21 @@ int main ()
 
     scanf ( "%[^\&]s", str );
 
-    str [ strlen (str) - 1 ] = 0;
+//    str [ strlen (str) - 1 ] = 0;
 
     fmt = format ( str );
 
     printf ( "\nInput:%s\nFormatted:%s\n", str, fmt );
 
-
+    /*
     fprintf ( fp, "%s", fmt );
+    */
+
+    while ( *fmt != 0 )
+    {
+        fprintf ( fp, "%c", *fmt );
+        fmt++;
+    }
 
     fclose ( fp );
 

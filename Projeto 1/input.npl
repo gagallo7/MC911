@@ -23,6 +23,12 @@ newspaper{
         São Bernardo do Campo, São José do Rio Preto, São João da Boa Vista, São José dos Campos e Sorocaba são as outras 
         cidades."
 
+        text = " Book: \"Understanding Power\", a book by Noam Chomsky et al. Discusses about some topics:
+                *teste
+                **teste2
+                *tst
+                "
+
         structure 
         {
             col  = 1

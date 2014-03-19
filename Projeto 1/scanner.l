@@ -28,7 +28,10 @@ ERROR (^\")*
                     s= buf; 
                  } 
 <STRING>\\n     { *s++ = '\n'; } 
-<STRING>\\t     { *s++ = '\t'; } 
+<STRING>\n     { *s++ = '\n'; } 
+<STRING>\\t   
+<STRING>\t   
+
 <STRING>\\\"    { *s++ = '\"'; } 
 <STRING>\"  { 
                 *s = 0; 
