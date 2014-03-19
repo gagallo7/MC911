@@ -6,20 +6,19 @@
 #include "checker.h"
 #include "utility.h"
 
-
 // GLOBALS
-typedef struct 
+typedef struct
 {
-    int col;            // Numero de colunas da noticia
-    char** show;        // Ordem com que os campos devem ser imprimidos
-    
-    char** fields;      // Campos presentes na noticia
-    char** values;      // Valores associados dos campos
+int col;         // Numero de colunas da noticia
+char** show;     // Ordem com que os campos devem ser imprimidos
+char** fields;   // Campos presentes na noticia
+char** values;   // Valores associados dos campos
+
 } news;
 
-int col;                // Numero de colunas da pagina
-char** show;            // Ordem com que as noticias devem ser imprimidas
-news* list;             // Lista de todas as noticias da pagina
+int web_col;     // Numero de colunas da pagina
+char** web_show; // Ordem com que as noticias devem ser imprimidas
+news* list;      // Lista de todas as noticias da pagina
 
 %}
 
@@ -61,11 +60,11 @@ newspaper: T_NEWSPAPER
 
          '{' desc 
          {  
-            LOG ( "desc ready" ); 
+            LOG ( "Descricao compilada com sucesso!" ); 
          }
 
          structure
-         {  LOG ( "structure ready" ); }
+         {  LOG ( "Structure da pagina compilada com sucesso!" ); }
 
          news_list '}' 
          { 
@@ -83,9 +82,7 @@ newspaper: T_NEWSPAPER
 
             // Fim do processo
             COMPILE("\n</html>");
-
-            printf ("Completed!\n");
-            LOG ( "Completed!" );
+            LOG ( "Compilacao finalizada com sucesso." );
          }
 ;
 
@@ -236,7 +233,11 @@ desc: title date
         char** date_aux = split_str($2, S2);
 
         COMPILE ( "\n<HEAD>\n<TITLE>%s</TITLE>\n</HEAD>\n<h1>%s</h1>\n", title_aux[1], date_aux[1] );
-        LOG ( "Title = %s \nDate = %s", title_aux[1], date_aux[1] );
+        LOG( "\nDESCRICAO:");
+        LOG( "------" );
+        LOG ( "Title: %s ", title_aux[1] );
+        LOG ( "Date: %s ", date_aux[1] );
+        LOG( "------\n" );
 
         // Liberando memoria
         free_split( title_aux );
@@ -250,7 +251,11 @@ desc: title date
         char** date_aux = split_str($1, S2);
 
         COMPILE ( "\n<HEAD>\n<TITLE>%s</TITLE>\n</HEAD>\n<h1>%s</h1>\n", title_aux[1], date_aux[1] );
-        LOG ( "Title = %s \nDate = %s", title_aux[1], date_aux[1] );
+        LOG( "\nDESCRICAO:");
+        LOG( "------" );
+        LOG ( "Title: %s ", title_aux[1] );
+        LOG ( "Date: %s ", date_aux[1] );
+        LOG( "------\n" );
 
         // Liberando memoria
         free_split( title_aux );
@@ -276,15 +281,41 @@ title: T_TITLE '=' T_STRING
 /* structure: T_STRUCTURE '{' col show '}' */
 structure: T_STRUCTURE '{' col 
          {
-            LOG ( "structure possui col: %s", $3 ) ;
-            /*
-             *col = atoi($3);
-             */
+            // Realizando split
+            char** col_aux = split_str($3, S2);
+
+            web_col = atoi( col_aux[1] );                   // Setting web_col
+            LOG( "\nSTRUCTURE DA WEBPAGE:");
+            LOG( "------" );
+            LOG ( "Col: %d", web_col ) ;
+
+            // Liberando memoria
+            free_split( col_aux );
          }
          
          show '}' 
          {
-            LOG ( "show = %s", $5);
+            int i;
+
+            // Realizando split
+            char** show_aux[2];
+            
+            show_aux[0] = split_str( $5, S2 );
+            show_aux[1] = split_str( show_aux[0][1], S3 );
+
+            web_show = show_aux[1];                         // Setting web_show
+            LOG ( "Show:" ) ;
+
+            i = 0;
+            while ( web_show[i] != NULL ) 
+            {
+                LOG ( "%d.   %s", i+1, web_show[i] ) ;
+                i++; 
+            }
+            LOG( "------\n" );
+
+            // Liberando memoria
+            free_split( show_aux[0] );                      // show_aux[1] é web_show, e sera' desalocado posteriormente
          }
 ;
 
@@ -341,7 +372,6 @@ author: T_AUTHOR '=' T_STRING
 
 col: T_COL '=' T_NUMBER
    {
-        LOG ( "Dentro do col. T_NUMBER = %s", $3);
         $$ = concat(3, "col", S2, $3);
    } 
 ;
