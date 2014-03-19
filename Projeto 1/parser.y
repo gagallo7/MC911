@@ -10,7 +10,6 @@
 
 %union {
     char* str;
-    int intval;
 }
 
 %token T_NAME 
