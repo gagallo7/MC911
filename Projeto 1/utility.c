@@ -106,6 +106,35 @@ char** split_str(char* str, char* delimiter)
     return vector;
 }
 
+char* fetchField ( news nw, char* query )
+{
+    int i = 0;
+
+    while ( strcmp ( query, nw.fields[i] ) != 0 )
+    {
+        i++;
+    }
+
+    return nw.values[i];
+}
+
+int issetField ( news nw, char* field )
+{
+    int i = 0;
+    int match = 0;
+
+    while ( nw.show[i] != NULL )
+    {
+        if ( strcmp ( nw.show[i], field ) == 0 )
+        {
+            match++;
+        }
+    }
+
+    return match;
+}
+     
+
 /* =============================================================================== */ 
 void free_split(char** vector) 
 {

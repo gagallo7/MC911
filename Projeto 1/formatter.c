@@ -659,7 +659,7 @@ char* hyperlink2 ( char* root, char* tail )
     }
 
     /* Fechando tag <a> */
-    root = strcat ( root, "\">\n<figcaption>" );
+    root = strcat ( root, "\"><figcaption>\n" );
 
     /* Procurando separador '|' */
     while ( *tail == ' ' || *tail == '|' )
@@ -782,15 +782,15 @@ int main ()
 
     printf ( "\nInput:%s\nFormatted:%s\n", str, fmt );
 
-    /*
     fprintf ( fp, "%s", fmt );
-    */
 
-    while ( *fmt != 0 )
+    /*
+    while ( *fmt != 0 || *fmt == EOF )
     {
         fprintf ( fp, "%c", *fmt );
         fmt++;
     }
+    */
 
     fclose ( fp );
 

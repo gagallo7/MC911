@@ -26,6 +26,10 @@ FILE* F;
                        fprintf ( F, (X), ##__VA_ARGS__ );   \
                        fclose (F)                           \
 
+#define COMPILE_FILE(TITLE, X,...) F = fopen ((TITLE), "a");       \
+                       fprintf ( F, (X), ##__VA_ARGS__ );   \
+                       fclose (F)                           \
+
 #define LOG(X,...) F = fopen ("debug.err", "a");            \
                    fprintf ( F, (X), ##__VA_ARGS__ );       \
                    fprintf ( F, "\n" );                     \
@@ -94,7 +98,23 @@ char* sub_str(char* src, int howMany);
 // 4.   ret[3] = NULL
 char** split_str(char* str, char* delimiter);
 
+// Struct que define uma noticia, com todos os seus campos 
+// armazenados. A ideia é imprimí-la somente no final da 
+// compilação
+typedef struct
+{
+    char* name;
+    int col;         // Numero de colunas da noticia
+    char** show;     // Ordem com que os campos devem ser imprimidos
+    char** fields;   // Campos presentes na noticia
+    char** values;   // Valores associados dos campos
+} news;
 
+// Verifica se o campo existe
+int issetField ( news, char* );
+
+// Retorna o valor do campo requerido
+char* fetchField ( news, char* );
 
 // Use para liberar rapidamente a memoria retornada pelo split_str()
 void free_split(char** vector);
