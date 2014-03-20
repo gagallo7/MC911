@@ -649,6 +649,7 @@ char* hyperlink2 ( char* root, char* tail )
     while ( *tail == ' ' ) tail++;
 
     /* Montando HTML */
+    strcat ( root, "<figure style=\"float:right;\">\n" );
     root = strcat ( root, "<img src=\"" );
 
     /* Copiando corpo da URL */
@@ -658,7 +659,7 @@ char* hyperlink2 ( char* root, char* tail )
     }
 
     /* Fechando tag <a> */
-    root = strcat ( root, "\" alt=\"" );
+    root = strcat ( root, "\">\n<figcaption>" );
 
     /* Procurando separador '|' */
     while ( *tail == ' ' || *tail == '|' )
@@ -698,7 +699,7 @@ char* hyperlink2 ( char* root, char* tail )
     //strcat ( root, strtok_r ( tail, "]", &tail ) );
 
     /* Fechando tag </a> */
-    root = strcat ( root, "\">" );
+    root = strcat ( root, "\n</figcaption>\n</figure>\n" );
 
     /*
     */

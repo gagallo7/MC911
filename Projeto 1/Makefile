@@ -3,6 +3,10 @@
 CFLAGS=-g
 BISON=bison
 FLEX=flex
+
+run: parser
+	rm teste.html
+	./parser < sempre_online.npl
  
 parser: parser.o scanner.o checker.o utility.o
 	$(CC) -o parser scanner.o parser.o checker.o utility.o

@@ -1,7 +1,7 @@
 Durante minhas breves semanas de descanso, alguns leitores me escreveram "encomendando" artigos sobre a 
 lei seca e o caso Daniel Dantas. Para não descontentar ninguém, arrisco uma manobra temerária: vou comentar 
 os dois assuntos valendo-me de uma mesma chave interpretativa que me parece especialmente valiosa para 
-entender o Brasil de hoje.Comecemos pela '''lei seca'''.[[./images.jpg| Ladrao Fugitivo]] 
+entender o Brasil de hoje. Comecemos pela '''lei seca'''.[[./images.jpg| Ladrao Fugitivo]] 
 : Como ferrenho entusiasta daquilo que se convencionou chamar de ''liberdades'', defendo até as últimas 
 consequências o direito das pessoas de embriagar-se, drogar-se e fazer tudo o que bem entenderem com seus 
 próprios corpos e mentes. Ainda assim, o conceito por trás da lei seca é inatacável: você tem o direito de 

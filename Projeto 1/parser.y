@@ -77,6 +77,11 @@ newspaper: T_NEWSPAPER
             
             // Gerando o HTML
 
+            int i = 0;
+            while ( list[i] != NULL )
+            {
+                i++;
+            }
 
 
 
@@ -245,7 +250,8 @@ desc: title date
         char** title_aux = split_str($1, S2);
         char** date_aux = split_str($2, S2);
 
-        COMPILE ( "\n<HEAD>\n<TITLE>%s</TITLE>\n</HEAD>\n<h1>%s</h1>\n", title_aux[1], date_aux[1] );
+        COMPILE ( "\n<HEAD>\n<TITLE>%s</TITLE>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"stylesheet.css\">\n</HEAD>\n<h1>%s</h1>\n", title_aux[1], date_aux[1] );
+        COMPILE ( "\n<div class=\"header\">\n%s\n<p>%s</p>\n</div>\n", title_aux[1], date_aux[1] );
         LOG( "\nDESCRICAO:");
         LOG( "------" );
         LOG ( "Title: %s ", title_aux[1] );
