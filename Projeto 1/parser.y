@@ -19,7 +19,9 @@ char** values;   // Valores associados dos campos
 
 int web_col;     // Numero de colunas da pagina
 char** web_show; // Ordem com que as noticias devem ser imprimidas
-news** list;      // Lista de todas as noticias da pagina
+news** list;     // Lista de ponteiros de todas as noticias da pagina
+
+int index_news;  // Variavel auxiliar
 
 %}
 
@@ -58,9 +60,8 @@ newspaper: T_NEWSPAPER
             LOG ( "Compilando..." );   
             COMPILE("<html>\n"); 
 
-            // Inicializando o vetor de news
-            list = (news**) calloc( 1, sizeof(news*) );
-            list[0] = (news*) calloc( 1, sizeof(news) );
+            list = (news**) calloc( 1, sizeof(news*) );         // Inicializando o vetor de news
+            index_news = 0;                                     // Posicao inicial no vetor de news
          }
 
          '{' desc 
@@ -73,11 +74,17 @@ newspaper: T_NEWSPAPER
 
          news_list '}' 
          { 
-            LOG( "Gerando o HTML..." );
+            int i;
+            int j;
+
+            // Inserindo cauda na lista de noticias
+            list = (news**) realloc( list, sizeof(news*) * (index_news+1) ); 
+            list[index_news] = NULL;
             
             // Gerando o HTML
+            LOG( "Gerando o HTML..." );
 
-            int i = 0;
+            i = 0;
             while ( list[i] != NULL )
             {
                 i++;
@@ -92,13 +99,32 @@ newspaper: T_NEWSPAPER
 
 
 
-            // Fim do processo
-            COMPILE("\n</html>");
-            LOG ( "Compilacao finalizada com sucesso." );
 
             // Limpando a memoria das variaveis globais
+            free_split( web_show );
 
+            i = 0;
+            while ( list[i] != NULL ) 
+            {
+                j = 0;
+                while ( list[i]->fields[j] != NULL ) 
+                {
+                    free( list[i]->fields[j] );
+                    free( list[i]->values[j] );
+                    j++;
+                }
+                free( list[i]->fields );
+                free( list[i]->values );
+                free_split( list[i]->show );
 
+                free( list[i] );
+                i++;
+            }
+            free( list );
+
+            // Fim do processo
+            COMPILE("\n</html>");
+            LOG ( "Compilacao finalizada com sucesso!" );
          }
 ;
 
@@ -106,62 +132,64 @@ newspaper: T_NEWSPAPER
             | news_list news 
 */
 news_list: news 
-         {
-            LOG ("news");
-         }
-
          | news_list news 
-         {
-            LOG ("list + news"); 
-         }
 ;
 
 /* news: T_NAME '{' f_list newsStructure '}' */
 news: T_NAME '{' f_list 
     {
-        
-        
         int i;
         char** fields; 
         char** values;
 
-        LOG( "news name: %s\n", $1);
-        LOG ( "f_list sent to checker: %s", $3 );
+        // Realocando memoria
+        list = (news**) realloc( list, sizeof(news*) * (index_news+1) ); 
+        list[index_news] = (news*) calloc( 1, sizeof(news) );
+
+        // Preenchendo noticia
+        list[index_news]->name = strdup($1);       
+        LOG( "\n------" );
+        LOG( "NOTICIA: %s", list[index_news]->name );
+        LOG( "------\n" );
+
+        LOG( "Enviado ao checker:" );
+        LOG( "\n------" );
+        LOG( "%s", $3 );
+        LOG( "------\n" );
 
         // Verificando a validade
         if ( check_f_list($3, &fields, &values) ) 
         {
-            printf("f_list is ok!\n");
-
-            LOG ("\nCAMPOS LIDOS:");
-            i = 0;
-            while ( fields[i] != NULL ) 
-            {
-                LOG( "%s", fields[i] );      
-                i++;
-            }
+            LOG( "Os parametros obrigatorios estao presentes!" );
 
         } else 
         {
-            printf("Checker error!\n");
-            yyerror("ERROR: Some mandatory fields is missing.\n");
+            LOG( "ERRO: Um ou mais parametros obrigatorios nao foram encontrados!\n" );
+            yyerror( "ERRO: Um ou mais parametros obrigatorios nao foram encontrados!\n" );
         }
 
-        // Liberando a memoria alocada
-        LOG ( "Liberando memoria alocada para validacao...\n" );
+        // Guardando os dados encontrados da noticia
+        list[index_news]->fields = fields;
+        list[index_news]->values = values;
+
+        LOG( "\nCampos lidos:" );
+        LOG( "\n------" );
 
         i = 0;
-        while ( fields[i] != NULL ) 
+        while ( list[index_news]->fields[i] != NULL ) 
         {
-            free( fields[i] );
-            free( values[i] );
+            LOG( "%s", list[index_news]->fields[i] );
             i++;
         }
-        free(fields);
-        free(values);
+
+        LOG( "------\n" );
     }
     
-    newsStructure '}'
+    newsStructure '}' 
+    {
+        // Nesse ponto, uma noticia foi inteiramente armazenada
+        index_news++;
+    }
 ;
 
 /* f_list_comma: f_names
@@ -231,13 +259,13 @@ f_list: f_opt
 ;
 
 /* especificacoes de cada campo */
-f_opt: title        { LOG ("f_required\ttitle");    }
-     | author       { LOG ("f_required\tauthor");   }
-     | abstract     { LOG ("f_required\tabstract"); }
-     | date         { LOG ("f_opt\tdate");          }
-     | image        { LOG ("f_opt\timage");         }
-     | source       { LOG ("f_opt\tsource");        }
-     | text         { LOG ("f_opt\ttext");          }
+f_opt: title        
+     | author      
+     | abstract   
+     | date      
+     | image    
+     | source  
+     | text   
 ;
 
 
@@ -322,7 +350,7 @@ structure: T_STRUCTURE '{' col
             show_aux[0] = split_str( $5, S2 );
             show_aux[1] = split_str( show_aux[0][1], S3 );
 
-            web_show = show_aux[1];                         // Setting web_show
+            web_show = show_aux[1];                        
             LOG ( "Show:" ) ;
 
             i = 0;
@@ -342,15 +370,42 @@ structure: T_STRUCTURE '{' col
 /* newsStructure: T_STRUCTURE '{' col showNews '}' */
 newsStructure: T_STRUCTURE '{' col 
              {
-                LOG ( "structure possui col = %s", $3 ) ;
+                // Realizando split
+                char** col_aux = split_str($3, S2);
+
+                list[index_news]->col = atoi( col_aux[1] );             
+                LOG( "\nSTRUCTURE DA NOTICIA:");
+                LOG( "------" );
+                LOG ( "Col: %d", list[index_news]->col ) ;
+
+                // Liberando memoria
+                free_split( col_aux );
              }
             
-             showNews 
+             showNews '}'
              {
-                LOG ( "showNews = %s", $5 ) ;
+                int i;
+
+                // Realizando split
+                char** show_aux[2];
+                
+                show_aux[0] = split_str( $5, S2 );
+                show_aux[1] = split_str( show_aux[0][1], S3 );
+
+                list[index_news]->show = show_aux[1];                        
+                LOG ( "Show:" ) ;
+
+                i = 0;
+                while ( list[index_news]->show[i] != NULL ) 
+                {
+                    LOG ( "%d.   %s", i+1, list[index_news]->show[i] ) ;
+                    i++; 
+                }
+                LOG( "------\n" );
+
+                // Liberando memoria
+                free_split( show_aux[0] );                      // show_aux[1] é web_show, e sera' desalocado posteriormente
              }
-         
-             '}'
 ;
 
 
