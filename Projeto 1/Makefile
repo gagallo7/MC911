@@ -1,5 +1,3 @@
-
-
 CFLAGS=-g
 BISON=bison
 FLEX=flex
@@ -7,8 +5,7 @@ FLEX=flex
 all: parser
 
 
-run: parser
-	rm teste.html
+run: renew parser
 	./parser < sempre_online.npl
  
 parser: parser.o scanner.o checker.o utility.o
@@ -23,3 +20,5 @@ scanner.c: scanner.l
 clean:
 	rm -f scanner.c scanner.o parser.c parser.o parser.h parser utility.o checker.o
 
+renew:
+	rm teste.html
