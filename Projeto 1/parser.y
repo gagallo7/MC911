@@ -4,18 +4,10 @@
 #include <string.h>
 #include <stdlib.h>
 #include "checker.h"
+#include "formatter.h"
 #include "utility.h"
 
 // GLOBALS
-typedef struct
-{
-char* name;
-int col;         // Numero de colunas da noticia
-char** show;     // Ordem com que os campos devem ser imprimidos
-char** fields;   // Campos presentes na noticia
-char** values;   // Valores associados dos campos
-
-} news;
 
 int web_col;     // Numero de colunas da pagina
 char** web_show; // Ordem com que as noticias devem ser imprimidas
@@ -77,16 +69,46 @@ newspaper: T_NEWSPAPER
             
             // Gerando o HTML
 
+/*
             int i = 0;
+            int j = 0;
             while ( list[i] != NULL )
             {
+            // Gerando tag div para encapsular a notícia
+            // Com o tamanho da coluna já definido
+                COMPILE ( "\n<div style=\"float: left; width: %d;\">\n"
+                //, list[i].col
+                        );
+
+                // Título da notícia com hyperlink para texto completo
+                // Conferindo a priori se há texto completo
+                //if ( issetField ( list[i], "text" )
+                COMPILE ( "<h1><a href=\"noticias/%s.html\">%s</a></h1>\n"
+               // , fetchField ( list[i].name, list[i].name )
+                         );
+
+                j = 0;
+
+            // Gerando os campos tratados em ordem
+                while ( list[i].show[j] != NULL )
+                {
+                   COMPILE ( "%s"
+                   //, fetchField ( list[i], list[i].show[j] )
+                   );
+               }
+
+                // Finalizando implementação da notícia na página principal
+                COMPILE ( "\n</div>\n" );
+
+                // Gerando arquivo do texto completo da notícia
+                // Num arquivo html separado
+                COMPILE_FILE ( list[i].name,
+                        "<html>\n<head>\n<title>%s</title>\n</head>\n%s</html>"
+                                //, list[i].name, fetchField ( list[i], "text" ) 
+                            );
                 i++;
             }
-
-
-
-
-
+*/
 
 
 
@@ -250,8 +272,8 @@ desc: title date
         char** title_aux = split_str($1, S2);
         char** date_aux = split_str($2, S2);
 
-        COMPILE ( "\n<HEAD>\n<TITLE>%s</TITLE>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"stylesheet.css\">\n</HEAD>\n<h1>%s</h1>\n", title_aux[1], date_aux[1] );
-        COMPILE ( "\n<div class=\"header\">\n%s\n<p>%s</p>\n</div>\n", title_aux[1], date_aux[1] );
+        COMPILE ( "\n<HEAD>\n<TITLE>%s</TITLE>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"stylesheet.css\">\n</HEAD>\n", title_aux[1], date_aux[1] );
+        COMPILE ( "\n<div class=\"header\">\n<h1>%s</h1>\n<p>%s</p>\n</div>\n", title_aux[1], date_aux[1] );
         LOG( "\nDESCRICAO:");
         LOG( "------" );
         LOG ( "Title: %s ", title_aux[1] );
@@ -269,7 +291,8 @@ desc: title date
         char** title_aux = split_str($2, S2);
         char** date_aux = split_str($1, S2);
 
-        COMPILE ( "\n<HEAD>\n<TITLE>%s</TITLE>\n</HEAD>\n<h1>%s</h1>\n", title_aux[1], date_aux[1] );
+        COMPILE ( "\n<HEAD>\n<TITLE>%s</TITLE>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"stylesheet.css\">\n</HEAD>\n", title_aux[1], date_aux[1] );
+        COMPILE ( "\n<div class=\"header\">\n<h1>%s</h1>\n<p>%s</p>\n</div>\n", title_aux[1], date_aux[1] );
         LOG( "\nDESCRICAO:");
         LOG( "------" );
         LOG ( "Title: %s ", title_aux[1] );
@@ -356,14 +379,14 @@ newsStructure: T_STRUCTURE '{' col
 
 image: T_IMAGE '=' T_STRING 
      {
-        $$ = concat(3, "image", S2, $3);
+        $$ = concat(5, "image", S2, "<img src=\"", $3, "\">\n");
      } 
 ;
 
 
 source: T_SOURCE '=' T_STRING
       {
-        $$ = concat(3, "source", S2, $3);
+        $$ = concat(5, "source", S2, "<p>Fonte: ", $3, "</p>\n");
       } 
 ;
 
@@ -384,7 +407,8 @@ abstract: T_ABSTRACT '=' T_STRING
 
 author: T_AUTHOR '=' T_STRING
       {
-        $$ = concat(3, "author", S2, $3);
+        $$ = concat(5, "author", S2, "<p>Fonte: ", $3, "</p>\n");
+        LOG ( "html Author >>> %s", concat(5, "author", S2, "<p>Fonte: ", $3, "</p>\n") );
       } 
 ;
 

@@ -4,6 +4,9 @@ CFLAGS=-g
 BISON=bison
 FLEX=flex
 
+all: parser
+
+
 run: parser
 	rm teste.html
 	./parser < sempre_online.npl

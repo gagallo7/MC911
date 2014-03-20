@@ -1,6 +1,50 @@
+@font-face
+{
+    font-family: manchete;
+    src: url(abril.otf);
+    //src: url(Journal/journal.ttf);
+    //src: url(journal-webfont.woff);
+}
+
 .header
 {
-    background: black;
-    color: white;
+    background: -webkit-linear-gradient(125deg, white, lightgray); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(125deg, white, lightgray); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(125deg, white, lightgray); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(125deg, white, lightgray); /* Standard syntax */
+    border-style:groove;
+    border-width:medium;
+    border-radius: 25px;
+    box-shadow: 10px 10px 5px #888888;
+    color: #123456;
     text-align: center;
+    text: bold;
+}
+
+.header h1
+{
+    color: #babaca;
+    font-family: manchete;
+    text-shadow: 2px 2px 3px #342638;
+    font-style: oblique;
+}
+
+body
+{
+    height:200px;
+    background: -webkit-linear-gradient(white, lightgray, lightyellow); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, lightgray, lightyellow); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, lightgray, lightyellow); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, lightgray, lightyellow); /* Standard syntax (must be last) */
+}
+  
+div
+{
+    padding: 1px;
+}
+
+img
+{
+    float: left;
+    margin: 2px;
 }
