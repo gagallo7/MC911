@@ -111,10 +111,13 @@ typedef struct
 } news;
 
 // Verifica se o campo existe
-int issetField ( news, char* );
+int issetField ( news*, char* );
+
+// Retorna a noticia com tal nome
+news* fetchNews ( news**, char* );
 
 // Retorna o valor do campo requerido
-char* fetchField ( news, char* );
+char* fetchField ( news*, char* );
 
 // Use para liberar rapidamente a memoria retornada pelo split_str()
 void free_split(char** vector);

@@ -19,6 +19,7 @@
     color: #123456;
     text-align: center;
     text: bold;
+    margin: 3px;
 }
 
 .header h1
@@ -41,6 +42,9 @@ body
 div
 {
     padding: 1px;
+    margin: 2px;
+    border-style:groove;
+    border-width:thick;
 }
 
 img

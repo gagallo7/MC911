@@ -106,32 +106,49 @@ char** split_str(char* str, char* delimiter)
     return vector;
 }
 
-char* fetchField ( news nw, char* query )
+char* fetchField ( news* nw, char* query )
 {
     int i = 0;
 
-    while ( strcmp ( query, nw.fields[i] ) != 0 )
+    while ( strcmp ( query, nw->fields[i] ) != 0 )
     {
         i++;
     }
 
-    return nw.values[i];
+    return nw->values[i];
 }
 
-int issetField ( news nw, char* field )
+int issetField ( news* nw, char* field )
 {
     int i = 0;
     int match = 0;
 
-    while ( nw.show[i] != NULL )
+    while ( nw->show[i] != NULL )
     {
-        if ( strcmp ( nw.show[i], field ) == 0 )
+        if ( strcmp ( nw->show[i], field ) == 0 )
         {
             match++;
         }
+        i++;
     }
 
     return match;
+}
+
+news* fetchNews ( news** list, char* query )
+{
+    int i = 0;
+
+    while ( list[i] != NULL )
+    {
+        if ( strcmp ( query, list[i]->name ) == 0 )
+        {
+            return list[i];
+        }
+        i++;
+    }
+
+    return NULL;
 }
      
 

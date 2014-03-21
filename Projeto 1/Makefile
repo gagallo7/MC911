@@ -2,10 +2,6 @@ CFLAGS=-g
 BISON=bison
 FLEX=flex
 
-run: parser
-	rm teste.html
-	./parser < sempre_online.npl
-
 all: parser
 
 run: renew parser
@@ -24,4 +20,5 @@ clean:
 	rm -f scanner.c scanner.o parser.c parser.o parser.h parser utility.o checker.o formatter.o
 
 renew:
+	touch teste.html
 	rm teste.html

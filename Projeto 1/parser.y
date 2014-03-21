@@ -68,6 +68,9 @@ newspaper: T_NEWSPAPER
          { 
             int i;
             int j;
+            char* aux;        // Variável auxiliar para otimização
+            news* nextNews;
+            char* title = (char* ) calloc ( 200, sizeof ( char ) );
 
             // Inserindo cauda na lista de noticias
             list = (news**) realloc( list, sizeof(news*) * (index_news+1) ); 
@@ -79,40 +82,60 @@ newspaper: T_NEWSPAPER
             i = 0;
             j = 0;
 
-            while ( list[i] != NULL )
+            while ( web_show[i] != NULL )
             {
+                nextNews = fetchNews ( list, web_show[i] );
+                if ( nextNews == NULL )
+                {
+                    LOG ( "Noticia %s não encontrada!", web_show[i] );
+                    i++;
+                    continue;
+                }
+                LOG ( "Montando a notícia %s", nextNews->name );
                 // Gerando tag div para encapsular a notícia
                 // Com o tamanho da coluna já definido
-                COMPILE ( "\n<div style=\"float: left; width: %d;\">\n"
-                //, list[i].col
+                COMPILE ( "\n<div style=\"float: left; width: %d%;\">\n"
+                , (nextNews->col)*90/web_col
                         );
 
                 // Título da notícia com hyperlink para texto completo
                 // Conferindo a priori se há texto completo
-                //if ( issetField ( list[i], "text" )
-                COMPILE ( "<h1><a href=\"noticias/%s.html\">%s</a></h1>\n"
-               // , fetchField ( list[i].name, list[i].name )
-                         );
+                    LOG ( "Verificando a ausência de texto completo da notícia." );
+                aux = fetchField ( nextNews, "title" );
+                if ( issetField ( nextNews, "text" ) )
+                {
+                    LOG ( "Criando texto completo da notícia." );
+                    COMPILE_FILE ( concat ( 2, "noticias/", nextNews->name),
+                        "<html>\n<head>\n<title>%s</title>\n</head>\n%s</html>"
+                                , nextNews->name, fetchField ( nextNews, "text" ) 
+                            );
+                    sprintf ( title, "<h1><a href=\"noticias/%s.html\">%s</a></h1>\n", aux, aux );
+                 }
+                 else
+                 {
+                    sprintf ( title, "<h1>%s</h1>\n", aux );
+                 }
+
+                 aux = title;
 
                 j = 0;
 
+                LOG ( "Ordem dos campos:", nextNews->name );
+
             // Gerando os campos tratados em ordem
-                while ( list[i].show[j] != NULL )
+                while ( nextNews->show[j] != NULL )
                 {
-                   COMPILE ( "%s"
-                   //, fetchField ( list[i], list[i].show[j] )
-                   );
-               }
+                  LOG ( "\t%d. %s", j+1, nextNews->show[j] );
+                  COMPILE ( "%s", fetchField ( nextNews, nextNews->show[j] ) );
+                  j++;
+                }
 
                 // Finalizando implementação da notícia na página principal
                 COMPILE ( "\n</div>\n" );
+                LOG ( "%s finalizado!", nextNews->name );
 
                 // Gerando arquivo do texto completo da notícia
                 // Num arquivo html separado
-                COMPILE_FILE ( list[i].name,
-                        "<html>\n<head>\n<title>%s</title>\n</head>\n%s</html>"
-                                //, list[i].name, fetchField ( list[i], "text" ) 
-                            );
                 i++;
             }
 
@@ -461,7 +484,7 @@ abstract: T_ABSTRACT '=' T_STRING
 
 author: T_AUTHOR '=' T_STRING
       {
-        $$ = concat(5, "author", S2, "<p>Fonte: ", $3, "</p>\n");
+        $$ = concat(5, "author", S2, "<p><strong>Autor:</strong> ", $3, "</p>\n");
         LOG ( "html Author >>> %s", concat(5, "author", S2, "<p>Fonte: ", $3, "</p>\n") );
       } 
 ;
