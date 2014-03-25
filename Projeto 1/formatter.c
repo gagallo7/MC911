@@ -5,19 +5,30 @@ char buffer [10000];
 // chamada para bullet: bgay ( root, tail, '*', "ul" )
 char* bgay ( char* root, char* tail, char type, char tag[], int firstBlood )
 {
-    int nv = 0;
-    int next = 0;
-    int diff;
+    int nv = 0;     // Nível
+    int next = 0;   // Próximo nível
+    int diff;       // Diferenças entre níveis
     char cc[3];
-    cc[2] = 0;
-    cc[1] = type;
     cc[0] = '\n';
+    cc[1] = type;
+    cc[2] = 0;
     
     if ( strncmp ( tail, cc, 2 ) == 0 || firstBlood )
     {
         if ( !firstBlood )
         {
             tail++;
+        }
+    }
+    else if ( *(tail-1) == '\n' )
+    {
+        if ( *tail == '#' )
+        {
+            return bgay ( root, tail-1, '#', "ol", 0 );
+        }
+        else if ( *tail == '*' )
+        {
+            return bgay ( root, tail-1, '*', "ul", 0 );
         }
     }
     else
@@ -81,6 +92,13 @@ char* bgay ( char* root, char* tail, char type, char tag[], int firstBlood )
         root = strcat ( root, ">\n" );
         next--;
     }
+    if ( *( tail - 1) == '\n' )
+    {
+        if ( *tail == '*' || *tail == '#' )
+        {
+            return tail - 1;
+        }
+    }
     return tail;
 }
 
@@ -127,6 +145,34 @@ char* lists ( char* root, char* tail, char type, char tag[], char innerTag[], in
 
 
     *level = newLvl;
+
+    return tail;
+}
+
+char* simpleSubsRepeat ( char* root, char* tail, char start[], char tag[], char antecessor[] )
+{
+    int n = strlen ( start );
+    int nA = strlen ( antecessor );
+    char tostr [2];
+    tostr[1] = '\0';
+    int repeats = 0;
+
+    while ( strncmp ( tail, antecessor, nA ) == 0 )
+    {
+        repeats++;
+        tail += nA;
+        while ( strncmp ( tail, start, n ) == 0 )
+        {
+            repeats++;
+            tail++;
+        }
+        root = strcat ( root, "<br>\n" );
+        while ( repeats-- )
+        {
+            root = strcat ( root, tag );
+        }
+        repeats++;
+    }
 
     return tail;
 }
@@ -221,99 +267,6 @@ char* lists2 ( char* root, char* tail, char start[], char end[], char tag[], cha
     return tail;
 }
 
-char* lists3 ( char* root, char* tail, char start[], char end[], char tag[], char extra[], int* guls )
-{
-    int n = strlen ( start );
-    char tostr [2];
-    tostr[1] = '\0';
-    int repeats = 0;
-    int match = 0;
-    int step = 3 + strlen ( extra );
-    int luls = 0 ;
-    int diff;
-    int nClose;
-    char* leveller = tail;
-
-    char close[20] = "";
-
-    strcat ( close, "</" );
-    strcat ( close, extra );
-    strcat ( close, ">" );
-
-    nClose = strlen ( close );
-
-    while ( strncmp ( leveller, start, n ) == 0 )
-    {
-        luls++;
-    }
-    
-    diff = luls - *guls;
-
-    if ( diff > 0 )
-    {
-        leveller = root [ strlen (root) ] - nClose * guls[0];
-    }
-    else
-    {
-        leveller = root [ strlen (root) ] - nClose * luls;
-    }
-
-    *leveller = 0;
-
-    /*
-    while ( diff++ < 0 && leveller > root+step && strncmp ( leveller, close, nClose ) )
-    {
-        *leveller = 0;
-     //   tail -= step;
-    }
-    */
-
-    while ( strncmp ( tail, start, n ) == 0 )
-    {
-        match = 1;
-        tail += n;
-        diff = luls - *guls;
-        if ( strlen ( extra ) && diff-- > 0 ) 
-        {
-            root = strcat ( root, "<" );
-            root = strcat ( root, extra );
-            root = strcat ( root, ">" );
-        }
-        root = strcat ( root, "<" );
-        root = strcat ( root, tag );
-        root = strcat ( root, ">" );
-        repeats++;
-    }
-
-    if ( match )
-    {
-        n = strlen ( end );
-        while ( strncmp ( tail, end, n ) != 0 )
-        {
-            //printf ( "\nroot:%s\n", root );
-            tostr[0] = *tail;
-            strcat ( root, tostr );
-            tail++;
-        }
-
-        tail += n;
-
-        while ( repeats-- )
-        {
-            root = strcat ( root, "</" );
-            root = strcat ( root, tag );
-            root = strcat ( root, ">" );
-            if ( strlen ( extra ) ) 
-            {
-                root = strcat ( root, "</" );
-                root = strcat ( root, extra );
-                root = strcat ( root, ">" );
-            }
-        }
-    }
-
-    return tail;
-}
 
 char* subsRepeat ( char* root, char* tail, char start[], char end[], char tag[], char extra[] )
 {
@@ -720,8 +673,8 @@ char* format ( char* s )
     int astLevel = 0;
     c = s;
 
-    c = bgay ( root, c, '*', "ul", 1 );
-    c = bgay ( root, c, '#', "ol", 1 );
+    c = bgay ( root, s, '*', "ul", 1 );
+    c = bgay ( root, s, '#', "ol", 1 );
     while ( *c != 0 )
     {
         //c = lists ( root, c, '*', "ul", "li", &astLevel );
@@ -743,7 +696,7 @@ char* format ( char* s )
         c = subs3 ( root, c, open, '=', "h4", "h3", "h2" );
         //subs ( char* root, char* tail, char start[], char end[], char tag[] )
         //c = subs ( root, c, "**", "\n", "li" );
-        c = simpleSubs ( root, c, "\n:", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "" );
+        c = simpleSubsRepeat ( root, c, ":", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "\n:" );
         //c = subsRepeat ( root, c, "\n:", "\n", "dd", "dl" );
         c = subsRepeat ( root, c, " :", "\n", "dd", "dl" );
         c = subsRepeat ( root, c, "'''''", "'''''", "b", "i" );

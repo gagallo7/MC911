@@ -24,9 +24,10 @@ newspaper{
         cidades."
 
         text = " Book: \"Understanding Power\", a book by Noam Chomsky et al. Discusses about some topics:
-                *teste
-                **teste2
-                *tst
+                * teste
+		# troll
+                ** teste2
+                * tst
                 "
 
         structure 
