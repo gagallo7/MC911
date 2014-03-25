@@ -22,7 +22,7 @@
 // Macros
 FILE* F;
 
-#define COMPILE(X,...) F = fopen ("teste.html", "a");       \
+#define COMPILE(X,...) F = fopen ("index.html", "a");       \
                        fprintf ( F, (X), ##__VA_ARGS__ );   \
                        fclose (F)                           \
 

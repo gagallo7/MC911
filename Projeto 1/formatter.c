@@ -131,6 +131,34 @@ char* lists ( char* root, char* tail, char type, char tag[], char innerTag[], in
     return tail;
 }
 
+char* simpleSubsRepeat ( char* root, char* tail, char start[], char tag[], char antecessor[] )
+{
+    int n = strlen ( start );
+    int nA = strlen ( antecessor );
+    char tostr [2];
+    tostr[1] = '\0';
+    int repeats = 0;
+
+    while ( strncmp ( tail, antecessor, nA ) == 0 )
+    {
+        repeats++;
+        tail += nA;
+        while ( strncmp ( tail, start, n ) == 0 )
+        {
+            repeats++;
+            tail++;
+        }
+        root = strcat ( root, "<br>\n" );
+        while ( repeats-- )
+        {
+            root = strcat ( root, tag );
+        }
+        repeats++;
+    }
+
+    return tail;
+}
+
 char* simpleSubs ( char* root, char* tail, char start[], char tag[], char extra[] )
 {
     int n = strlen ( start );
@@ -743,7 +771,7 @@ char* format ( char* s )
         c = subs3 ( root, c, open, '=', "h4", "h3", "h2" );
         //subs ( char* root, char* tail, char start[], char end[], char tag[] )
         //c = subs ( root, c, "**", "\n", "li" );
-        c = simpleSubs ( root, c, "\n:", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "" );
+        c = simpleSubsRepeat ( root, c, ":", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "\n:" );
         //c = subsRepeat ( root, c, "\n:", "\n", "dd", "dl" );
         c = subsRepeat ( root, c, " :", "\n", "dd", "dl" );
         c = subsRepeat ( root, c, "'''''", "'''''", "b", "i" );

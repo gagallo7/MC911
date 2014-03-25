@@ -6,6 +6,10 @@ all: parser
 
 run: renew parser
 	./parser < sempre_online.npl
+
+debug:
+	$(CC) -c formatter.c -g
+	$(CC) -o parser scanner.o parser.o checker.o utility.o formatter.o
  
 parser: parser.o scanner.o checker.o utility formatter
 	$(CC) -o parser scanner.o parser.o checker.o utility.o formatter.o
@@ -26,5 +30,6 @@ clean:
 	rm -f scanner.c scanner.o parser.c parser.o parser.h parser utility.o checker.o formatter.o
 
 renew:
-	touch teste.html
-	rm teste.html
+	mkdir -p noticias
+	touch index.html
+	rm index.html

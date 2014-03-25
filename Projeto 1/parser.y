@@ -14,6 +14,8 @@ char** web_show; // Ordem com que as noticias devem ser imprimidas
 news** list;     // Lista de ponteiros de todas as noticias da pagina
 
 int index_news;  // Variavel auxiliar
+char header [1000];    // Cabeçalho HTML
+char* npTitle;          // Título do jornal
 
 %}
 
@@ -69,6 +71,7 @@ newspaper: T_NEWSPAPER
             int i;
             int j;
             char* aux;        // Variável auxiliar para otimização
+            char* Title;
             news* nextNews;
             char* title = (char* ) calloc ( 200, sizeof ( char ) );
             char* filename = (char* ) calloc ( 200, sizeof ( char ) );
@@ -83,43 +86,55 @@ newspaper: T_NEWSPAPER
             i = 0;
             j = 0;
 
+            // Varrendo a lista de noticias que devem ser impressas
             while ( web_show[i] != NULL )
             {
+                // nextNews aponta para noticia a ser impressa
                 nextNews = fetchNews ( list, web_show[i] );
+
+                // Conferindo se a noticia existe
                 if ( nextNews == NULL )
                 {
                     LOG ( "Noticia %s não encontrada!", web_show[i] );
                     i++;
                     continue;
                 }
+
                 LOG ( "Montando a notícia %s", nextNews->name );
                 // Gerando tag div para encapsular a notícia
                 // Com o tamanho da coluna já definido
-                COMPILE ( "\n<div style=\"float: left; width: %d%;\">\n"
-                , (nextNews->col)*90/web_col
+                //COMPILE ( "\n<div style=\"float: left; width: %d%;\">\n"
+                COMPILE ( "\n<div class=\"news\" style=\"width: %d%;\">\n"
+                , (nextNews->col)*96/web_col
                         );
 
-                // Título da notícia com hyperlink para texto completo
-                // Conferindo a priori se há texto completo
+                // Título da notícia com hyperlink para possível texto completo
                 aux = fetchField ( nextNews, "title" );
+
+                // Conferindo a priori se há texto completo
                 if ( fetchField ( nextNews, "text" ) > 0 )
                 {
                     LOG ( "Texto completo encontrado, gerando arquivo separado." );
-                    sprintf ( title, "<h1><a href=\"noticias/%s.html\">%s</a></h1>\n", nextNews->name, aux );
-                    sprintf ( filename, "noticias/%s.html", nextNews->name );
 
-                    aux = format (fetchField ( nextNews, "text" ) );
+                    // Formatando título com hyperlink
+                    sprintf ( title, "<h3><a href=\"noticias/%s.html\">%s</a></h3>\n", nextNews->name, aux );
+                    // Encontrando caminho da notícia
+                    sprintf ( filename, "noticias/%s.html", nextNews->name );
+                Title = fetchField ( nextNews, "title" );
+
+                    aux = format ( fetchField ( nextNews, "text" ) );
                     //LOG ( "Testando formatter: %s", format ( aux ) );
-                    COMPILE_FILE ( filename, "<html>\n<head>\n<title>%s</title>\n</head>\n%s</html>"
-                                , nextNews->name, aux  );
+                    COMPILE_FILE ( filename, "<html>\n<head>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"../stylesheet.css\">\n<title>%s - %s</title>\n</head>\n%s\n<div class=\"newsText\"><h1 class=\"title\">%s</h1>\n%s\n</div>\n</html>"
+                                , npTitle, Title, header, Title, aux  );
                  }
                  else
                  {
-                    sprintf ( title, "<h1>%s</h1>\n", aux );
+                    sprintf ( title, "<h3>%s</h3>\n", aux );
                  }
 
                  aux = title;
 
+                // Adicionando título ao arquivo HTML
                 COMPILE ( "%s", title );
 
                 j = 0;
@@ -129,7 +144,13 @@ newspaper: T_NEWSPAPER
             // Gerando os campos tratados em ordem
                 while ( nextNews->show[j] != NULL )
                 {
-                  LOG ( "\t%d. %s", j+1, nextNews->show[j] );
+                    // Não imprimir título novamente
+                  if  ( strcmp ( nextNews->show[j], "title" ) == 0 )
+                  {
+                    j++;
+                    continue;
+                  }
+                  LOG ( "\t%d. %s: %s", j+1, nextNews->show[j], fetchField ( nextNews, nextNews->show[j] ) );
                   COMPILE ( "%s", fetchField ( nextNews, nextNews->show[j] ) );
                   j++;
                 }
@@ -172,8 +193,11 @@ newspaper: T_NEWSPAPER
 
             free ( title );
             free ( filename );
+            free ( npTitle );
 
             // Fim do processo
+            // Fechando a div de conteúdo
+            COMPILE("\n</div>");
             COMPILE("\n</html>");
             LOG ( "Compilacao finalizada com sucesso!" );
          }
@@ -330,7 +354,14 @@ desc: title date
         char** date_aux = split_str($2, S2);
 
         COMPILE ( "\n<HEAD>\n<TITLE>%s</TITLE>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"stylesheet.css\">\n</HEAD>\n", title_aux[1], date_aux[1] );
-        COMPILE ( "\n<div class=\"header\">\n<h1>%s</h1>\n<p>%s</p>\n</div>\n", title_aux[1], date_aux[1] );
+        COMPILE ( "\n<div class=\"header\">\n<h1>%s</h1>\n<h2>%s</h2>\n</div>\n", title_aux[1], date_aux[1] );
+        COMPILE ( "\n<div class=\"content\">\n" );
+
+        sprintf ( header, "<div class=\"header\">\n<a href=\"../index.html\"><h1>%s</h1>\n<h2>%s</h2></a>\n</div>\n", title_aux[1], date_aux[1], title_aux[1], date_aux[1] );
+
+        npTitle = (char* ) calloc ( strlen ( title_aux[1] ), sizeof ( char ) );
+        sprintf ( npTitle, "%s", title_aux[1] );
+
         LOG( "\nDESCRICAO:");
         LOG( "------" );
         LOG ( "Title: %s ", title_aux[1] );
@@ -349,7 +380,7 @@ desc: title date
         char** date_aux = split_str($1, S2);
 
         COMPILE ( "\n<HEAD>\n<TITLE>%s</TITLE>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"stylesheet.css\">\n</HEAD>\n", title_aux[1], date_aux[1] );
-        COMPILE ( "\n<div class=\"header\">\n<h1>%s</h1>\n<p>%s</p>\n</div>\n", title_aux[1], date_aux[1] );
+        COMPILE ( "\n<div class=\"header\">\n<h1>%s</h1>\n<h2>%s</h2>\n</div>\n", title_aux[1], date_aux[1] );
         LOG( "\nDESCRICAO:");
         LOG( "------" );
         LOG ( "Title: %s ", title_aux[1] );
@@ -470,7 +501,7 @@ image: T_IMAGE '=' T_STRING
 
 source: T_SOURCE '=' T_STRING
       {
-        $$ = concat(5, "source", S2, "<p>Fonte: ", $3, "</p>\n");
+        $$ = concat(5, "source", S2, "<p><strong>Fonte:</strong> ", $3, "</p>\n");
       } 
 ;
 
@@ -492,7 +523,7 @@ abstract: T_ABSTRACT '=' T_STRING
 author: T_AUTHOR '=' T_STRING
       {
         $$ = concat(5, "author", S2, "<p><strong>Autor:</strong> ", $3, "</p>\n");
-        LOG ( "html Author >>> %s", concat(5, "author", S2, "<p>Fonte: ", $3, "</p>\n") );
+        LOG ( "html Author >>> %s", concat(5, "author", S2, "<p><strong>Fonte:</strong>: ", $3, "</p>\n") );
       } 
 ;
 
