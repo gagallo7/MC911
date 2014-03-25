@@ -1,3 +1,6 @@
+#ifndef CHECKER_H
+#define CHECKER_H
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -24,3 +27,5 @@ int check_f_list( char* f_list, char*** fields, char*** values );
 // sao unicos. Retorna 0 se o vetor contem so elementos unicos
 // ou retorna -1, caso existam elementos repetidos.
 int check_singleness( char** vector );
+
+#endif
