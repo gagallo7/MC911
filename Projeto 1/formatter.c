@@ -165,7 +165,7 @@ char* lists2 ( char* root, char* tail, char start[], char end[], char tag[], cha
             if ( diff < 0 )
             if ( strlen ( extra ) ) 
             {
-                printf ( "diff = %d\n", diff );
+                //printf ( "diff = %d\n", diff );
                 while ( diff++ < 0 )
                 {
                 root = strcat ( root, "</" );
@@ -290,7 +290,7 @@ char* lists3 ( char* root, char* tail, char start[], char end[], char tag[], cha
         n = strlen ( end );
         while ( strncmp ( tail, end, n ) != 0 )
         {
-            printf ( "\nroot:%s\n", root );
+            //printf ( "\nroot:%s\n", root );
             tostr[0] = *tail;
             strcat ( root, tostr );
             tail++;
@@ -344,7 +344,7 @@ char* subsRepeat ( char* root, char* tail, char start[], char end[], char tag[],
         n = strlen ( end );
         while ( strncmp ( tail, end, n ) != 0 )
         {
-            printf ( "\nroot:%s\n", root );
+            //printf ( "\nroot:%s\n", root );
             tostr[0] = *tail;
             strcat ( root, tostr );
             tail++;
@@ -385,7 +385,7 @@ char* subs ( char* root, char* tail, char start[], char end[], char tag[] )
         n = strlen ( end );
         while ( strncmp ( tail, end, n ) != 0 )
         {
-            printf ( "\nroot:%s\n", root );
+            //printf ( "\nroot:%s\n", root );
             tostr[0] = *tail;
             strcat ( root, tostr );
             tail++;
@@ -467,7 +467,7 @@ char* subs3 ( char* root, char* tail, char open[], char type, char lvl1[], char 
         else
         {
             /* = */
-            printf ( "open:%s\n", open );
+            //printf ( "open:%s\n", open );
             /* fim da formatacao */
             if ( strcmp ( open, tag1 ) == 0 )
             {
