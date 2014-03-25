@@ -8,6 +8,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <ctype.h>
 
 /* =============================================================================== */ 
 /* MACROS                                                                          */ 
@@ -127,6 +128,9 @@ void free_split(char** vector);
 
 // Duplica uma string
 char* str_dup ( char* );
+
+// Transforma a string pra lower-case
+void toLower( char* str );
 
 /* =============================================================================== */ 
 

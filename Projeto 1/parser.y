@@ -218,6 +218,8 @@ news: T_NAME '{' f_list
 
         // Preenchendo noticia
         list[index_news]->name = strdup($1);       
+        toLower( list[index_news]->name );
+
         LOG( "\n------" );
         LOG( "NOTICIA: %s", list[index_news]->name );
         LOG( "------\n" );
@@ -232,17 +234,25 @@ news: T_NAME '{' f_list
         {
             LOG( "Os parametros obrigatorios estao presentes!" );
 
+            // Transformandos todos os campos para minusculo
+            i = 0;
+            while ( fields[i] != NULL ) 
+            {
+                toLower( fields[i] );
+                i++;
+            }
+
         } else 
         {
             LOG( "ERRO: Um ou mais parametros obrigatorios nao foram encontrados!\n" );
-            yyerror( "ERRO: Um ou mais parametros obrigatorios nao foram encontrados!\n" );
+            yyerror( "Um ou mais parametros obrigatorios nao foram encontrados!\n" );
         }
 
         // Verificando a unicidade
         if ( check_singleness( fields ) ) 
         {
             LOG( "ERROR: Ha nomes repetidos!\n" );
-            yyerror( "ERROR: Ha nomes repetidos!\n" );
+            yyerror( "Ha nomes repetidos!\n" );
 
         } else 
         {
@@ -439,6 +449,14 @@ structure: T_STRUCTURE '{' col
             show_aux[0] = split_str( $5, S2 );
             show_aux[1] = split_str( show_aux[0][1], S3 );
 
+            // Transformandos show_aux[1] em minusculo
+            i = 0;
+            while ( show_aux[1][i] != NULL ) 
+            {
+                toLower( show_aux[1][i] );
+                i++;
+            }
+
             web_show = show_aux[1];                        
             LOG ( "Show:" ) ;
 
@@ -454,7 +472,7 @@ structure: T_STRUCTURE '{' col
             if ( check_singleness( web_show ) ) 
             {
                 LOG( "ERROR: Ha nomes repetidos!\n" );
-                yyerror( "ERROR: Ha nomes repetidos!\n" );
+                yyerror( "Ha nomes repetidos!\n" );
 
             } else 
             {
@@ -492,6 +510,14 @@ newsStructure: T_STRUCTURE '{' col
                 show_aux[0] = split_str( $5, S2 );
                 show_aux[1] = split_str( show_aux[0][1], S3 );
 
+                // Transformandos show_aux[1] em minusculo
+                i = 0;
+                while ( show_aux[1][i] != NULL ) 
+                {
+                    toLower( show_aux[1][i] );
+                    i++;
+                }
+
                 list[index_news]->show = show_aux[1];                        
                 LOG ( "Show:" ) ;
 
@@ -507,7 +533,7 @@ newsStructure: T_STRUCTURE '{' col
                 if ( check_singleness( list[index_news]->show ) ) 
                 {
                     LOG( "ERROR: Ha nomes repetidos!\n" );
-                    yyerror( "ERROR: Ha nomes repetidos!\n" );
+                    yyerror( "Ha nomes repetidos!\n" );
 
                 } else 
                 {

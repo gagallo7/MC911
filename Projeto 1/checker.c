@@ -1,7 +1,7 @@
 #include "checker.h"
 
 
-    int check_f_list( char* f_list, char*** fields, char*** values ) 
+int check_f_list( char* f_list, char*** fields, char*** values ) 
 {
     char** aux;
     char** tmp;
@@ -71,10 +71,10 @@
 
 int check_singleness( char** vector ) 
 {
-    // Duplicando o vector
     char** aux;
     int i, j;
 
+    // Duplicando o vector
     i = 0;
     while ( vector[i] != NULL ) i++;        // Tamanho do vector
 
@@ -87,18 +87,6 @@ int check_singleness( char** vector )
         i++;
     }
     aux[i] =  NULL;
-    
-    // Transformando todas as strings pra lower-case
-    i = 0;
-    while ( aux[i] != NULL ) 
-    {
-        for ( j = 0; (unsigned long) j < strlen( aux[i] ); j++ ) 
-        {
-            aux[i][j] = tolower( aux[i][j] );
-        }
-
-        i++;
-    }
     
     // Verificando unicidade
     i = 0;

@@ -37,7 +37,7 @@ newspaper{
         structure 
         {
             col  = 1
-            show = title, abstract, author
+            show = title, abstract, author, TItle
         }
     }
 }
