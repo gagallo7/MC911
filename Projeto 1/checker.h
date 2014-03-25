@@ -2,9 +2,16 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include "utility.h"
 
 
+// Separador mais externo. E' o que separa os fields.
+#define S1 "[;.1.;]"            
+
+// Separador mediano. Pode ser entendido como o "=" existente entre os fields e seus valores.
+#define S2 "[;.2.;]"            
+
+// Separador mais interno. Pode ser entendido como o "," existente entre os dados do show.
+#define S3 "[;.3.;]"            
 
 /* RESUMO
  *
