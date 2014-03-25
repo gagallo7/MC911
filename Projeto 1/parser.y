@@ -71,6 +71,7 @@ newspaper: T_NEWSPAPER
             char* aux;        // Variável auxiliar para otimização
             news* nextNews;
             char* title = (char* ) calloc ( 200, sizeof ( char ) );
+            char* filename = (char* ) calloc ( 200, sizeof ( char ) );
 
             // Inserindo cauda na lista de noticias
             list = (news**) realloc( list, sizeof(news*) * (index_news+1) ); 
@@ -100,16 +101,17 @@ newspaper: T_NEWSPAPER
 
                 // Título da notícia com hyperlink para texto completo
                 // Conferindo a priori se há texto completo
-                    LOG ( "Verificando a ausência de texto completo da notícia." );
                 aux = fetchField ( nextNews, "title" );
-                if ( issetField ( nextNews, "text" ) )
+                if ( fetchField ( nextNews, "text" ) > 0 )
                 {
-                    LOG ( "Criando texto completo da notícia." );
-                    COMPILE_FILE ( concat ( 2, "noticias/", nextNews->name),
-                        "<html>\n<head>\n<title>%s</title>\n</head>\n%s</html>"
-                                , nextNews->name, fetchField ( nextNews, "text" ) 
-                            );
-                    sprintf ( title, "<h1><a href=\"noticias/%s.html\">%s</a></h1>\n", aux, aux );
+                    LOG ( "Texto completo encontrado, gerando arquivo separado." );
+                    sprintf ( title, "<h1><a href=\"noticias/%s.html\">%s</a></h1>\n", nextNews->name, aux );
+                    sprintf ( filename, "noticias/%s.html", nextNews->name );
+
+                    aux = format (fetchField ( nextNews, "text" ) );
+                    //LOG ( "Testando formatter: %s", format ( aux ) );
+                    COMPILE_FILE ( filename, "<html>\n<head>\n<title>%s</title>\n</head>\n%s</html>"
+                                , nextNews->name, aux  );
                  }
                  else
                  {
@@ -117,6 +119,8 @@ newspaper: T_NEWSPAPER
                  }
 
                  aux = title;
+
+                COMPILE ( "%s", title );
 
                 j = 0;
 
@@ -165,6 +169,9 @@ newspaper: T_NEWSPAPER
                 i++;
             }
             free( list );
+
+            free ( title );
+            free ( filename );
 
             // Fim do processo
             COMPILE("\n</html>");

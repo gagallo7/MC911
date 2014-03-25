@@ -113,6 +113,10 @@ char* fetchField ( news* nw, char* query )
     while ( strcmp ( query, nw->fields[i] ) != 0 )
     {
         i++;
+        if ( nw->fields[i] == NULL )
+        {
+            return 0;
+        }
     }
 
     return nw->values[i];
@@ -125,14 +129,15 @@ int issetField ( news* nw, char* field )
 
     while ( nw->show[i] != NULL )
     {
+        LOG ( "issetField: Comparando %s == %s ? ", nw->show[i], field );
         if ( strcmp ( nw->show[i], field ) == 0 )
         {
-            match++;
+           return 1;
         }
         i++;
     }
 
-    return match;
+    return 0;
 }
 
 news* fetchNews ( news** list, char* query )

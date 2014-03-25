@@ -26,7 +26,7 @@ FILE* F;
                        fprintf ( F, (X), ##__VA_ARGS__ );   \
                        fclose (F)                           \
 
-#define COMPILE_FILE(TITLE, X,...) F = fopen ((TITLE), "a");       \
+#define COMPILE_FILE(TITLE, X,...) F = fopen ((TITLE), "w");       \
                        fprintf ( F, (X), ##__VA_ARGS__ );   \
                        fclose (F)                           \
 

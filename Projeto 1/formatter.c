@@ -713,7 +713,7 @@ char* format ( char* s )
     char open[10];
     strcpy ( open, "" );
     char* fmt = strdup ("");
-    char* root = fmt;
+    char* root = (char* ) calloc ( 2 * strlen ( s ), sizeof ( char ) );
     char cc[2];
     cc[1] = '\0';
     //int len = 0;
@@ -764,6 +764,7 @@ char* format ( char* s )
     return root;
 }
 
+/*
 
 int main ()
 {
@@ -784,15 +785,9 @@ int main ()
 
     fprintf ( fp, "%s", fmt );
 
-    /*
-    while ( *fmt != 0 || *fmt == EOF )
-    {
-        fprintf ( fp, "%c", *fmt );
-        fmt++;
-    }
-    */
 
     fclose ( fp );
 
     return 0;
 }
+*/
