@@ -84,8 +84,8 @@ h1, h2, h3
 {
     padding: 3px;
     margin: 2px;
-    border: 2px 2px 2px 1px;
-    border-style:groove groove groove solid ;
+    //border: 2px 2px 2px 1px;
+    //border-style:groove groove groove solid ;
     float: left;
 }
 
