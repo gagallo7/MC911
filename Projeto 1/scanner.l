@@ -28,7 +28,7 @@ ERROR (^\")*
                     s= buf; 
                  } 
 <STRING>\\n     { *s++ = '\n'; } 
-<STRING>\n     { *s++ = '\n'; } 
+<STRING>\n[ ]*     { *s++ = '\n'; } 
 <STRING>\\t   
 <STRING>\t   
 

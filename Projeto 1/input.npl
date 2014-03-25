@@ -25,7 +25,7 @@ newspaper{
 
         text = " Book: \"Understanding Power\", a book by Noam Chomsky et al. Discusses about some topics:
                 * teste
-
+		# troll
                 ** teste2
                 * tst
                 "
