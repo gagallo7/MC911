@@ -122,6 +122,7 @@ char* fetchField ( news*, char* );
 // Use para liberar rapidamente a memoria retornada pelo split_str()
 void free_split(char** vector);
 
-
+// Duplica uma string
+char* str_dup ( char* );
 
 /* =============================================================================== */ 

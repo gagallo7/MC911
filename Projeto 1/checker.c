@@ -65,3 +65,59 @@ int check_f_list( char* f_list, char*** fields, char*** values )
     else
         return 0;    
 }
+
+
+
+
+int check_singleness( char** vector ) 
+{
+    // Duplicando o vector
+    char** aux;
+    int i, j;
+
+    i = 0;
+    while ( vector[i] != NULL ) i++;        // Tamanho do vector
+
+    aux = (char**) calloc( i+2, sizeof(char*) );
+
+    i = 0;
+    while ( vector[i] != NULL ) 
+    {
+        aux[i] = (char*) str_dup( vector[i] );
+        i++;
+    }
+    aux[i] =  NULL;
+    
+    // Transformando todas as strings pra lower-case
+    i = 0;
+    while ( aux[i] != NULL ) 
+    {
+        for ( j = 0; (unsigned long) j < strlen( aux[i] ); j++ ) 
+        {
+            aux[i][j] = tolower( aux[i][j] );
+        }
+
+        i++;
+    }
+    
+    // Verificando unicidade
+    i = 0;
+    while ( aux[i] != NULL ) 
+    {
+        for ( j = i+1; aux[j] != NULL; j++ ) 
+        {
+            if ( strcmp( aux[i], aux[j] ) == 0 ) return -1;
+        }
+
+        i++;
+    }
+    
+    // Limpando memoria
+    free_split( aux );    
+    
+    // Exit
+    return 0;
+}
+
+
+

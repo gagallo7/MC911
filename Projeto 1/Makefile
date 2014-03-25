@@ -22,6 +22,9 @@ utility: utility.c
 formatter: formatter.c
 	$(CC) -c formatter.c
 
+checker: checker.c
+	$(CC) -c checker.c
+
 clean:
 	rm -f scanner.c scanner.o parser.c parser.o parser.h parser utility.o checker.o formatter.o
 

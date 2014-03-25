@@ -143,11 +143,6 @@ newspaper: T_NEWSPAPER
                 i++;
             }
 
-
-
-
-
-
             // Limpando a memoria das variaveis globais
             free_split( web_show );
 

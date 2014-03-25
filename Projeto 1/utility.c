@@ -172,7 +172,16 @@ void free_split(char** vector)
 }
 
 /* =============================================================================== */ 
+char* str_dup ( char* str ) 
+{
+    char *d = (char*) calloc( strlen( str )+1, sizeof(char) );  
+    if ( d == NULL ) return NULL;          
+    strcpy ( d ,str );                    
 
+    return d;                           
+}
+
+/* =============================================================================== */ 
 
 
 
