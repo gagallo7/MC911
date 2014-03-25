@@ -238,6 +238,17 @@ news: T_NAME '{' f_list
             yyerror( "ERRO: Um ou mais parametros obrigatorios nao foram encontrados!\n" );
         }
 
+        // Verificando a unicidade
+        if ( check_singleness( fields ) ) 
+        {
+            LOG( "ERROR: Ha nomes repetidos!\n" );
+            yyerror( "ERROR: Ha nomes repetidos!\n" );
+
+        } else 
+        {
+            LOG ( "Os nomes sao unicos!" );
+        }
+
         // Guardando os dados encontrados da noticia
         list[index_news]->fields = fields;
         list[index_news]->values = values;
@@ -439,6 +450,17 @@ structure: T_STRUCTURE '{' col
             }
             LOG( "------\n" );
 
+            // Verificando a unicidade
+            if ( check_singleness( web_show ) ) 
+            {
+                LOG( "ERROR: Ha nomes repetidos!\n" );
+                yyerror( "ERROR: Ha nomes repetidos!\n" );
+
+            } else 
+            {
+                LOG ( "Os nomes sao unicos!" );
+            }
+
             // Liberando memoria
             free_split( show_aux[0] );                      // show_aux[1] é web_show, e sera' desalocado posteriormente
          }
@@ -480,6 +502,17 @@ newsStructure: T_STRUCTURE '{' col
                     i++; 
                 }
                 LOG( "------\n" );
+
+                // Verificando a unicidade
+                if ( check_singleness( list[index_news]->show ) ) 
+                {
+                    LOG( "ERROR: Ha nomes repetidos!\n" );
+                    yyerror( "ERROR: Ha nomes repetidos!\n" );
+
+                } else 
+                {
+                    LOG ( "Os nomes sao unicos!" );
+                }
 
                 // Liberando memoria
                 free_split( show_aux[0] );                      // show_aux[1] é web_show, e sera' desalocado posteriormente

@@ -1,7 +1,7 @@
 #include "checker.h"
 
 
-int check_f_list( char* f_list, char*** fields, char*** values ) 
+    int check_f_list( char* f_list, char*** fields, char*** values ) 
 {
     char** aux;
     char** tmp;
