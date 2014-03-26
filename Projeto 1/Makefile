@@ -5,14 +5,14 @@ FLEX=flex
 all: parser
 
 run: renew parser
-	./parser < sempre_online.npl
+	./parsernpl < sempre_online.npl
 
 debug:
 	$(CC) -c formatter.c -g
 	$(CC) -o parser scanner.o parser.o checker.o utility.o formatter.o
  
 parser: parser.o scanner.o checker.o utility formatter
-	$(CC) -o parser scanner.o parser.o checker.o utility.o formatter.o
+	$(CC) -o parsernpl scanner.o parser.o checker.o utility.o formatter.o
  
 parser.c: parser.y
 	$(BISON) -d parser.y  -o parser.c

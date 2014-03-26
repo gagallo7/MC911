@@ -84,9 +84,20 @@ h1, h2, h3
 {
     padding: 3px;
     margin: 2px;
+    text-align: justify;
     //border: 2px 2px 2px 1px;
     //border-style:groove groove groove solid ;
     float: left;
+}
+
+.news img
+{
+    margin-right: 14px;
+}
+
+.news p
+{
+    text-align: center;
 }
 
 body
@@ -114,6 +125,7 @@ figure figcaption
     margin-right: auto;
     margin-top: 10px;
     border: groove;
+    text-align: justify;
     background: -webkit-linear-gradient(white, #EEeeEE, white); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(white, #EeEeEe, white); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(white, #EeEeEe, white); /* For Firefox 3.6 to 15 */
@@ -124,4 +136,5 @@ img
 {
     float: left;
     padding: 2px;
+    border: groove;
 }

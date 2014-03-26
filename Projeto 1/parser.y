@@ -577,7 +577,7 @@ abstract: T_ABSTRACT '=' T_STRING
 author: T_AUTHOR '=' T_STRING
       {
         $$ = concat(5, "author", S2, "<p><strong>Autor:</strong> ", $3, "</p>\n");
-        LOG ( "html Author >>> %s", concat(5, "author", S2, "<p><strong>Fonte:</strong>: ", $3, "</p>\n") );
+        //LOG ( "html Author >>> %s", concat(5, "author", S2, "<p><strong>Fonte:</strong>: ", $3, "</p>\n") );
       } 
 ;
 
