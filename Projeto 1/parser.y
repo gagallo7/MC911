@@ -105,7 +105,7 @@ newspaper: T_NEWSPAPER
                 // Com o tamanho da coluna já definido
                 //COMPILE ( "\n<div style=\"float: left; width: %d%;\">\n"
                 COMPILE ( "\n<div class=\"news\" style=\"width: %d%;\">\n"
-                , (nextNews->col)*90/web_col
+                , (nextNews->col)*89/web_col
                         );
 
                 // Título da notícia com hyperlink para possível texto completo
