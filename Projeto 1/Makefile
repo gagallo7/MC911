@@ -8,11 +8,11 @@ run: renew parser
 	./parsernpl < sempre_online.npl
 
 debug:
-	$(CC) -c formatter.c -g
-	$(CC) -o parser scanner.o parser.o checker.o utility.o formatter.o
+	$(CC) -c libs/formatter.c -g
+	$(CC) -o parser scanner.o parser.o libs/checker.o libs/utility.o libs/formatter.o
  
-parser: parser.o scanner.o checker.o utility formatter
-	$(CC) -o parsernpl scanner.o parser.o checker.o utility.o formatter.o
+parser: parser.o scanner.o libs/checker.o utility formatter
+	$(CC) -o parsernpl scanner.o parser.o libs/checker.o libs/utility.o libs/formatter.o
  
 parser.c: parser.y
 	$(BISON) -d parser.y  -o parser.c
@@ -20,18 +20,19 @@ parser.c: parser.y
 scanner.c: scanner.l
 	$(FLEX)  -o scanner.c scanner.l
 
-utility: utility.c
-	$(CC) -c utility.c
+utility: libs/utility.c
+	cd libs/ && $(CC) -c utility.c
 
-formatter: formatter.c
-	$(CC) -c formatter.c
+formatter: libs/formatter.c
+	cd libs/ && $(CC) -c formatter.c
 
-checker: checker.c
-	$(CC) -c checker.c
+checker: libs/checker.c
+	cd libs/ && $(CC) -c checker.c
 
 clean:
-	rm -f scanner.c scanner.o parser.c parser.o parser.h parser utility.o checker.o formatter.o
+	rm -f scanner.c scanner.o parser.c parser.o parser.h parsernpl libs/utility.o libs/checker.o libs/formatter.o
 	rm -f index.html
+	rm -f noticias/*.html
 
 renew:
 	mkdir -p noticias

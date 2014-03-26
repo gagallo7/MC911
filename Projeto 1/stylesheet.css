@@ -2,7 +2,7 @@
 {
     font-family: manchete;
     //src: url(abril.otf);
-    src: url(Olondona.otf);
+    src: url(fonts/Olondona.otf);
     //src: url(Journal/journal.ttf);
     //src: url(journal-webfont.woff);
 }
@@ -10,7 +10,7 @@
 @font-face
 {
     font-family: manchete2;
-    src: url(abril.otf);
+    src: url(fonts/abril.otf);
 }
 
 .header

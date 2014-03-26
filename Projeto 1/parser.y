@@ -3,9 +3,9 @@
 #include <stdarg.h>
 #include <string.h>
 #include <stdlib.h>
-#include "checker.h"
-#include "formatter.h"
-#include "utility.h"
+#include "libs/checker.h"
+#include "libs/formatter.h"
+#include "libs/utility.h"
 
 // GLOBALS
 
