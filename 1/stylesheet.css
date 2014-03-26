@@ -1,0 +1,146 @@
+@font-face
+{
+    font-family: manchete;
+    //src: url(abril.otf);
+    src: url(fonts/Olondona.otf);
+    //src: url(Journal/journal.ttf);
+    //src: url(journal-webfont.woff);
+}
+
+@font-face
+{
+    font-family: manchete2;
+    src: url(fonts/abril.otf);
+}
+
+.header
+{
+    background: -webkit-linear-gradient(125deg, white, lightgray); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(125deg, white, lightgray); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(125deg, white, lightgray); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(125deg, white, lightgray); /* Standard syntax */
+    border-style:groove;
+    border-width:medium;
+    border-radius: 25px;
+    box-shadow: 10px 10px 5px #888888;
+    color: #123456;
+    text-align: center;
+    text: bold;
+    margin: 3px;
+}
+
+.title
+{
+    color: #FFFFFF;
+    padding: 4px;
+    background: #252525;
+    font-family: manchete;
+    text-align: center;
+    text-shadow: -1px 1px 3px gray;
+    font-style: oblique;
+}
+
+h1, h2, h3
+{
+    text-align: center;
+}
+
+.header h1
+{
+    color: #252525;
+    font-family: manchete;
+    //text-shadow: 1px 1px 1px #342638;
+    text-align: center;
+    font-style: oblique;
+}
+
+.header h2
+{
+    color: #FAFAFA;
+    font-family: manchete;
+    text-shadow: 2px 2px 2px #342638;
+    font-style: bold;
+}
+
+.content
+{
+    width: 89%;
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.content h3
+{
+    font-family: manchete2;
+}
+
+.content a
+{
+    color: #000099;
+}
+
+.news
+{
+    padding: 3px;
+    margin: 8px;
+    text-align: justify;
+    //border: 2px 2px 2px 1px;
+    //border-style:groove groove groove solid ;
+    float: left;
+}
+
+.news img
+{
+    margin-right: 14px;
+}
+
+.news p
+{
+    text-align: center;
+}
+
+body
+{
+    height:100%;
+    background: -webkit-linear-gradient(white, #FFFFDD, lightyellow); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, #FFFFDD, lightyellow); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, #FFFFDD, lightyellow); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, #FFFFDD, lightyellow); /* Standard syntax (must be last) */
+    text-align: center;
+}
+
+figure
+{
+    background: #DDddFF;
+    border: groove;
+}
+
+figure figcaption
+{
+    text-align: center !important;
+    font-style: bold;
+}
+
+.newsText
+{
+    text-align: left;
+    padding: 4px;
+    width:  90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    border: groove;
+    text-align: justify;
+    background: -webkit-linear-gradient(white, #EEeeEE, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, #EeEeEe, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, #EeEeEe, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, #EeEeEe, white); /* Standard syntax (must be last) */
+}
+
+img
+{
+    float: left;
+    padding: 2px;
+    border: groove;
+}
