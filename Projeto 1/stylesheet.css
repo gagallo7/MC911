@@ -110,6 +110,12 @@ body
     text-align: center;
 }
 
+figure
+{
+    background: #DDddFF;
+    border: groove;
+}
+
 figure figcaption
 {
     text-align: center !important;
