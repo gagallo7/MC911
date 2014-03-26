@@ -31,8 +31,8 @@ checker: checker.c
 
 clean:
 	rm -f scanner.c scanner.o parser.c parser.o parser.h parser utility.o checker.o formatter.o
+	rm -f index.html
 
 renew:
 	mkdir -p noticias
-	touch index.html
-	rm index.html
+	rm -f index.html

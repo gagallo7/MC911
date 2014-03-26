@@ -105,7 +105,7 @@ newspaper: T_NEWSPAPER
                 // Com o tamanho da coluna já definido
                 //COMPILE ( "\n<div style=\"float: left; width: %d%;\">\n"
                 COMPILE ( "\n<div class=\"news\" style=\"width: %d%;\">\n"
-                , (nextNews->col)*96/web_col
+                , (nextNews->col)*90/web_col
                         );
 
                 // Título da notícia com hyperlink para possível texto completo
@@ -246,13 +246,15 @@ news: T_NAME '{' f_list
         {
             LOG( "ERRO: Um ou mais parametros obrigatorios nao foram encontrados!\n" );
             yyerror( "Um ou mais parametros obrigatorios nao foram encontrados!\n" );
+            exit (-2);
         }
 
         // Verificando a unicidade
         if ( check_singleness( fields ) ) 
         {
-            LOG( "ERROR: Ha nomes repetidos!\n" );
+            LOG( "ERRO: Ha nomes repetidos!\n" );
             yyerror( "Ha nomes repetidos!\n" );
+            exit (-1);
 
         } else 
         {
@@ -471,8 +473,9 @@ structure: T_STRUCTURE '{' col
             // Verificando a unicidade
             if ( check_singleness( web_show ) ) 
             {
-                LOG( "ERROR: Ha nomes repetidos!\n" );
+                LOG( "ERRO: Ha nomes repetidos!\n" );
                 yyerror( "Ha nomes repetidos!\n" );
+                exit ( -3 );
 
             } else 
             {
@@ -621,7 +624,7 @@ sComponents: T_NAME
 
 %%
 
-int yyerror(const char* errmsg) { printf("\n*** Erro: %s\n", errmsg); } 
+int yyerror(const char* errmsg) { printf("\n*** ERRO: %s\n", errmsg); } 
 int yywrap(void) { return 1; } 
 extern int yy_flex_debug;
 
