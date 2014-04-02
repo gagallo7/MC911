@@ -18,7 +18,7 @@ all: clean compile
 	@echo ""
 
 clean:
-	rm -f src/llvm/*.class src/llvmast/*.class
+	find .. -name "*.class" | xargs -I file rm file
 
 compile:
 	javac -classpath lib/projeto2.jar src/llvm/Codegen.java src/llvmast/*.java
