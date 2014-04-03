@@ -2,6 +2,7 @@
 *.slo
 *.lo
 *.o
+*.class
 
 # Compiled Dynamic libraries
 *.so
@@ -14,3 +15,4 @@
 
 # Auxiliary Files from Flex/Bison
 scanner.c scanner.o parser.c parser.o parser.h parser
+/2/pacote/Projeto 2/nbproject/private/
