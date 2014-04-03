@@ -1,4 +1,4 @@
-#
+
 # pacote v03
 # 
 # Como compilar:
@@ -12,9 +12,12 @@
 #
 # Como executar o bytecode:
 # $ lli teste.bc
-#
 
-all: clean compile
+INPUT_run = test/teste.java
+OUTPUT_run = teste.s
+OUTPUT_bytecode = teste.bc
+
+all: clean compile run bytecode exec
 	@echo ""
 
 clean:
@@ -24,12 +27,10 @@ compile:
 	javac -classpath lib/projeto2.jar src/llvm/Codegen.java src/llvmast/*.java
 
 run:
-	java -classpath src:lib/projeto2.jar main/Main $(INPUT) $(OUTPUT)
-
-itEasy:
-	java -classpath src:lib/projeto2.jar main/Main INPUT=test/$(INPUT).java OUTPUT=$(INPUT).s
-	make bytecode INPUT=$(INPUT).s OUTPUT=$(INPUT).bc	
-	lli $(INPUT).bc
+	java -classpath src:lib/projeto2.jar main/Main $(INPUT_run) $(OUTPUT_run)
 
 bytecode:
-	llvm-as $(INPUT) -o $(OUTPUT)
+	llvm-as $(OUTPUT_run) -o $(OUTPUT_bytecode)
+
+exec:
+	lli $(OUTPUT_bytecode)

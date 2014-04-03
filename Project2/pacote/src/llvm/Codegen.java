@@ -20,8 +20,8 @@ implementadas:
 
 // llvmasm/LlvmBranch.java
 // llvmasm/LlvmIcmp.java
-// llvmasm/LlvmMinus.java
-// llvmasm/LlvmTimes.java
+// llvmasm/LlvmMinus.java           DONE
+// llvmasm/LlvmTimes.java           DONE
 
 
 Todas as assinaturas de métodos e construtores 
