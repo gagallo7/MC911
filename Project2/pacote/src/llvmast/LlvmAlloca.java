@@ -1,11 +1,11 @@
 package llvmast;
 import java.util.*;
 public  class LlvmAlloca extends LlvmInstruction{
-    public LlvmRegister lhs;
+    public LlvmValue lhs;
     public LlvmType type;
     public List<LlvmValue> numbers;
 
-    public LlvmAlloca(LlvmRegister lhs, LlvmType type, List<LlvmValue> numbers){
+    public LlvmAlloca(LlvmValue lhs, LlvmType type, List<LlvmValue> numbers){
 	this.lhs = lhs;
 	this.type = type;
 	this.numbers = numbers;

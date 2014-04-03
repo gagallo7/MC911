@@ -1,9 +1,9 @@
 package llvmast;
 public class LlvmStore extends LlvmInstruction{
     public LlvmValue content; 
-    public LlvmRegister address; 
+    public LlvmValue address; 
 
-    public LlvmStore(LlvmValue content, LlvmRegister address){
+    public LlvmStore(LlvmValue content, LlvmValue address){
 	this.content=content;
 	this.address=address;
     }

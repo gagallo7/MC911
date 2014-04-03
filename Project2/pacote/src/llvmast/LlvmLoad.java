@@ -1,9 +1,9 @@
 package llvmast;
 public class LlvmLoad extends LlvmInstruction{
     public LlvmValue lhs;
-    public LlvmRegister address; // includes its type
+    public LlvmValue address; // includes its type
 
-    public LlvmLoad(LlvmValue lhs, LlvmRegister address){
+    public LlvmLoad(LlvmValue lhs, LlvmValue address){
 	this.lhs=lhs;
 	this.address=address;
     }

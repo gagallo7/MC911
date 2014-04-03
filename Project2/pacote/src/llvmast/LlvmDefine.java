@@ -3,9 +3,9 @@ import java.util.*;
 public class LlvmDefine extends LlvmInstruction{
     public String name;
     public LlvmType resultType;
-    public List<LlvmRegister> args;
+    public List<LlvmValue> args;
     
-    public LlvmDefine(String name, LlvmType resultType, List<LlvmRegister> args){
+    public LlvmDefine(String name, LlvmType resultType, List<LlvmValue> args){
 	this.name = name;
 	this.resultType = resultType;
 	this.args = args;

@@ -1,11 +1,11 @@
 package llvmast;
 import  java.util.*;
 public class LlvmGetElementPointer extends LlvmInstruction{
-    public LlvmRegister lhs;
-    public LlvmRegister source;
+    public LlvmValue lhs;
+    public LlvmValue source;
     public List<LlvmValue> offsets;
 
-    public LlvmGetElementPointer(LlvmRegister lhs, LlvmRegister source, List<LlvmValue> offsets){
+    public LlvmGetElementPointer(LlvmValue lhs, LlvmValue source, List<LlvmValue> offsets){
 	this.lhs = lhs;
 	this.source = source;
 	this.offsets = offsets;

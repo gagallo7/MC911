@@ -1,5 +1,5 @@
 #
-# pacote v02
+# pacote v03
 # 
 # Como compilar:
 # $ make compile

@@ -1,15 +1,15 @@
 package llvmast;
 public class LlvmBool extends LlvmValue{
-	int B;
+	public int val;
     public LlvmBool(int B){
     	type = LlvmPrimitiveType.I1;
-    	this.B = B;
+    	this.val = B;
     }
     
     public String toString(){
-    	switch (B){
-    	case FALSE : {return "0";}
-    	case TRUE  : {return "1";}
+    	switch (this.val){
+    	case FALSE : {return "false";}
+    	case TRUE  : {return "true";}
     		
     	}
 		return null;

@@ -10,7 +10,17 @@ public class LlvmRegister extends LlvmValue{
 		this.name = "%tmp"+numberReg++;
 
 	}
-	
+
+	public LlvmRegister(String name, LlvmType type){
+		this.type = type;
+		this.name = name;
+
+	}
+
+	public static void rewind(){
+		numberReg = 0;
+	}
+
 	public String toString(){
 		return name; 
 	}

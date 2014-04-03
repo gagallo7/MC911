@@ -65,6 +65,10 @@ public class Codegen extends VisitorAdapter{
 		pts.add(new LlvmPointer(LlvmPrimitiveType.I8));
 		pts.add(LlvmPrimitiveType.DOTDOTDOT);
 		codeGenerator.assembler.add(new LlvmExternalDeclaration("@printf", LlvmPrimitiveType.I32, pts)); 
+		List<LlvmType> mallocpts = new LinkedList<LlvmType>();
+		mallocpts.add(LlvmPrimitiveType.I32);
+		codeGenerator.assembler.add(new LlvmExternalDeclaration("@malloc", new LlvmPointer(LlvmPrimitiveType.I8),mallocpts)); 
+
 
 		String r = new String();
 		for(LlvmInstruction instr : codeGenerator.assembler)
@@ -84,7 +88,7 @@ public class Codegen extends VisitorAdapter{
 	public LlvmValue visit(MainClass n){
 		
 		// definicao do main 
-		assembler.add(new LlvmDefine("@main", LlvmPrimitiveType.I32, new LinkedList<LlvmRegister>()));
+		assembler.add(new LlvmDefine("@main", LlvmPrimitiveType.I32, new LinkedList<LlvmValue>()));
 		assembler.add(new LlvmLabel(new LlvmLabelValue("entry")));
 		LlvmRegister R1 = new LlvmRegister(new LlvmPointer(LlvmPrimitiveType.I32));
 		assembler.add(new LlvmAlloca(R1, LlvmPrimitiveType.I32, new LinkedList<LlvmValue>()));
