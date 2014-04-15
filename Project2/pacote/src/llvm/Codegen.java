@@ -158,7 +158,32 @@ public class Codegen extends VisitorAdapter {
 
 	// Todos os visit's que devem ser implementados
 	public LlvmValue visit(ClassDeclSimple n) {
-		System.out.println("AST: ClassDeclSimple");
+        LlvmValue name = n.varList.head.accept(this);
+        
+		System.out.println("AST: ClassDeclSimple: " + n.name.toString() );
+        //LinkedList<LlvmValue> lv = n.accept(this);
+		// definicao do main
+		assembler.add(new LlvmDefine("@"+n.name, LlvmPrimitiveType.I32,
+				new LinkedList<LlvmValue>()));
+		assembler.add(new LlvmLabel(new LlvmLabelValue("entry")));
+		LlvmRegister R1 = new LlvmRegister(new LlvmPointer(
+				LlvmPrimitiveType.I32));
+		assembler.add(new LlvmAlloca(R1, LlvmPrimitiveType.I32,
+				new LinkedList<LlvmValue>()));
+		assembler.add(new LlvmStore(new LlvmIntegerLiteral(0), R1));
+
+		// Statement é uma classe abstrata
+		// Portanto, o accept chamado é da classe que implementa Statement, por
+		// exemplo, a classe "Print".
+		//n.stm.accept(this);
+
+		// Final do Main
+		LlvmRegister R2 = new LlvmRegister(LlvmPrimitiveType.I32);
+		assembler.add(new LlvmLoad(R2, R1));
+		assembler.add(new LlvmRet(R2));
+		assembler.add(new LlvmCloseDefinition());
+        
+        
 		return null;
 	}
 
@@ -169,6 +194,7 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(VarDecl n) {
 		System.out.println("AST: VarDecl");
+		System.out.println( "line " + n.line + " name " + n.name + " row " + n.row + " type " + n.type );
 		return null;
 	}
 

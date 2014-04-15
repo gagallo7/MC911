@@ -6,4 +6,7 @@ class a
     }
 }
 
-
+class b
+{
+    int a;
+}

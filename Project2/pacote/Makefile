@@ -32,5 +32,8 @@ run:
 bytecode:
 	llvm-as $(OUTPUT_run) -o $(OUTPUT_bytecode)
 
+clang:
+	clang $(INPUT_run) -S -emit-llvm -o $(OUTPUT_bytecode)
+
 exec:
 	lli $(OUTPUT_bytecode)
