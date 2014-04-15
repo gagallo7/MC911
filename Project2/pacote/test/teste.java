@@ -9,4 +9,5 @@ class a
 class b
 {
     int a;
+    float b;
 }

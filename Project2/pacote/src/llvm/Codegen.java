@@ -46,6 +46,10 @@ public class Codegen extends VisitorAdapter {
 	private List<LlvmInstruction> assembler;
 	private Codegen codeGenerator;
 
+	private SymTab symTab;
+	private ClassNode classEnv; 	// Aponta para a classe atualmente em uso em symTab
+	private MethodNode methodEnv; 	// Aponta para a metodo atualmente em uso em symTab
+	
 	public Codegen() {
 		assembler = new LinkedList<LlvmInstruction>();
 	}
@@ -54,6 +58,10 @@ public class Codegen extends VisitorAdapter {
 	public String translate(Program p, Env env) {
 		codeGenerator = new Codegen();
 
+		// Preenchendo a Tabela de Símbolos
+		// Quem quiser usar 'env', apenas comente essa linha
+		// codeGenerator.symTab.FillTabSymbol(p);
+		
 		// Formato da String para o System.out.printlnijava "%d\n"
 		codeGenerator.assembler.add(new LlvmConstantDeclaration(
 				"@.formatting.string",
@@ -158,7 +166,11 @@ public class Codegen extends VisitorAdapter {
 
 	// Todos os visit's que devem ser implementados
 	public LlvmValue visit(ClassDeclSimple n) {
-        LlvmValue name = n.varList.head.accept(this);
+        // Constroi TypeList com os tipos das variáveis da Classe (vai formar a Struct da classe)
+
+        // Constroi VarList com as Variáveis da Classe
+
+    	// Percorre n.methodList visitando cada método
         
 		System.out.println("AST: ClassDeclSimple: " + n.name.toString() );
         //LinkedList<LlvmValue> lv = n.accept(this);
@@ -172,10 +184,9 @@ public class Codegen extends VisitorAdapter {
 				new LinkedList<LlvmValue>()));
 		assembler.add(new LlvmStore(new LlvmIntegerLiteral(0), R1));
 
-		// Statement é uma classe abstrata
-		// Portanto, o accept chamado é da classe que implementa Statement, por
-		// exemplo, a classe "Print".
-		//n.stm.accept(this);
+        LlvmValue name = n.varList.head.accept(this);
+        System.out.println ( "printing args " + n.toString() + " detected..." );
+        List<LlvmType> typeList = null;
 
 		// Final do Main
 		LlvmRegister R2 = new LlvmRegister(LlvmPrimitiveType.I32);
@@ -193,9 +204,13 @@ public class Codegen extends VisitorAdapter {
 	}
 
 	public LlvmValue visit(VarDecl n) {
+        LlvmValue nAccepted = n.type.accept(this);
+        LlvmType ltype = nAccepted.type;
 		System.out.println("AST: VarDecl");
 		System.out.println( "line " + n.line + " name " + n.name + " row " + n.row + " type " + n.type );
-		return null;
+        //assembler.add ( new LlvmDefine ( "%" + n.name, ltype, new LinkedList<LlvmValue> () ) );
+        assembler.add ( new LlvmAlloca ( nAccepted, ltype, new LinkedList<LlvmValue>() ) );
+        return null;
 	}
 
 	public LlvmValue visit(MethodDecl n) {
@@ -220,7 +235,7 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(IntegerType n) {
 		System.out.println("AST: IntegerType");
-		return null;
+		return new LlvmIntegerLiteral (0);
 	}
 
 	public LlvmValue visit(IdentifierType n) {
@@ -341,6 +356,7 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(Identifier n) {
 		System.out.println("AST: Identifier");
+		System.out.println("----s: " + n.s );
 		return null;
 	}
 }
