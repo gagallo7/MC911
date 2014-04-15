@@ -56,6 +56,7 @@ public class Codegen extends VisitorAdapter {
 
 	// Método de entrada do Codegen
 	public String translate(Program p, Env env) {
+		System.out.println("++++++++++AST: translate");
 		codeGenerator = new Codegen();
 
 		// Preenchendo a Tabela de Símbolos
@@ -99,6 +100,7 @@ public class Codegen extends VisitorAdapter {
 	}
 
 	public LlvmValue visit(MainClass n) {
+		System.out.println("++++++++++AST: MainClass");
 
 		// definicao do main
 		assembler.add(new LlvmDefine("@main", LlvmPrimitiveType.I32,
@@ -124,6 +126,8 @@ public class Codegen extends VisitorAdapter {
 	}
 
 	public LlvmValue visit(Plus n) {
+		System.out.println("++++++++++AST: Plus");
+
 		LlvmValue v1 = n.lhs.accept(this);
 		LlvmValue v2 = n.rhs.accept(this);
 		LlvmRegister lhs = new LlvmRegister(LlvmPrimitiveType.I32);
@@ -132,6 +136,7 @@ public class Codegen extends VisitorAdapter {
 	}
 
 	public LlvmValue visit(Print n) {
+		System.out.println("++++++++++AST: Print");
 
 		LlvmValue v = n.exp.accept(this);
 
@@ -161,6 +166,7 @@ public class Codegen extends VisitorAdapter {
 	}
 
 	public LlvmValue visit(IntegerLiteral n) {
+		System.out.println("++++++++++AST: IntegerLiteral");
 		return new LlvmIntegerLiteral(n.value);
 	};
 
@@ -172,7 +178,7 @@ public class Codegen extends VisitorAdapter {
 
     	// Percorre n.methodList visitando cada método
         
-		System.out.println("AST: ClassDeclSimple: " + n.name.toString() );
+		System.out.println("++++++++++AST: ClassDeclSimple: " + n.name.toString() );
         //LinkedList<LlvmValue> lv = n.accept(this);
 		// definicao do main
 		assembler.add(new LlvmDefine("@"+n.name, LlvmPrimitiveType.I32,
@@ -194,19 +200,18 @@ public class Codegen extends VisitorAdapter {
 		assembler.add(new LlvmRet(R2));
 		assembler.add(new LlvmCloseDefinition());
         
-        
 		return null;
 	}
 
 	public LlvmValue visit(ClassDeclExtends n) {
-		System.out.println("AST: ClassDeclExtends");
+		System.out.println("++++++++++AST: ClassDeclExtends");
 		return null;
 	}
 
 	public LlvmValue visit(VarDecl n) {
+		System.out.println("++++++++++AST: VarDecl");
         LlvmValue nAccepted = n.type.accept(this);
         LlvmType ltype = nAccepted.type;
-		System.out.println("AST: VarDecl");
 		System.out.println( "line " + n.line + " name " + n.name + " row " + n.row + " type " + n.type );
         //assembler.add ( new LlvmDefine ( "%" + n.name, ltype, new LinkedList<LlvmValue> () ) );
         assembler.add ( new LlvmAlloca ( nAccepted, ltype, new LinkedList<LlvmValue>() ) );
@@ -214,42 +219,42 @@ public class Codegen extends VisitorAdapter {
 	}
 
 	public LlvmValue visit(MethodDecl n) {
-		System.out.println("AST: MethodDecl");
+		System.out.println("++++++++++AST: MethodDecl");
 		return null;
 	}
 
 	public LlvmValue visit(Formal n) {
-		System.out.println("AST: Formal");
+		System.out.println("++++++++++AST: Formal");
 		return null;
 	}
 
 	public LlvmValue visit(IntArrayType n) {
-		System.out.println("AST: IntArrayType");
+		System.out.println("++++++++++AST: IntArrayType");
 		return null;
 	}
 
 	public LlvmValue visit(BooleanType n) {
-		System.out.println("AST: BooleanType");
+		System.out.println("++++++++++AST: BooleanType");
 		return null;
 	}
 
 	public LlvmValue visit(IntegerType n) {
-		System.out.println("AST: IntegerType");
+		System.out.println("++++++++++AST: IntegerType");
 		return new LlvmIntegerLiteral (0);
 	}
 
 	public LlvmValue visit(IdentifierType n) {
-		System.out.println("AST: IdentifierType");
+		System.out.println("++++++++++AST: IdentifierType");
 		return null;
 	}
 
 	public LlvmValue visit(Block n) {
-		System.out.println("AST: Block");
+		System.out.println("++++++++++AST: Block");
 		return null;
 	}
 
 	public LlvmValue visit(If n) {
-		System.out.println("AST: If");
+		System.out.println("++++++++++AST: If");
 		LlvmValue cond = n.condition.accept(this);
 		LlvmType type = cond.type;
 		LlvmValue Then = n.thenClause.accept(this);
@@ -260,26 +265,27 @@ public class Codegen extends VisitorAdapter {
 	}
 
 	public LlvmValue visit(While n) {
-		System.out.println("AST: While");
+		System.out.println("++++++++++AST: While");
 		return null;
 	}
 
 	public LlvmValue visit(Assign n) {
-		System.out.println("AST: Assign");
+		System.out.println("++++++++++AST: Assign");
 		return null;
 	}
 
 	public LlvmValue visit(ArrayAssign n) {
-		System.out.println("AST: ArrayAssign");
+		System.out.println("++++++++++AST: ArrayAssign");
 		return null;
 	}
 
 	public LlvmValue visit(And n) {
-		System.out.println("AST: And");
+		System.out.println("++++++++++AST: And");
 		return null;
 	}
 
 	public LlvmValue visit(LessThan n) {
+		System.out.println("++++++++++AST: LessThan");
 		LlvmValue l1 = n.lhs.accept(this);
 		LlvmValue l2 = n.rhs.accept(this);
 		LlvmValue type = n.type.accept(this);
@@ -289,6 +295,7 @@ public class Codegen extends VisitorAdapter {
 	}
 
 	public LlvmValue visit(Minus n) {
+		System.out.println("++++++++++AST: Minus");
 		LlvmValue v1 = n.lhs.accept(this);
 		LlvmValue v2 = n.rhs.accept(this);
 		LlvmRegister lhs = new LlvmRegister(LlvmPrimitiveType.I32);
@@ -297,6 +304,7 @@ public class Codegen extends VisitorAdapter {
 	}
 
 	public LlvmValue visit(Times n) {
+		System.out.println("++++++++++AST: Times");
 		LlvmValue v1 = n.lhs.accept(this);
 		LlvmValue v2 = n.rhs.accept(this);
 		LlvmRegister lhs = new LlvmRegister(LlvmPrimitiveType.I32);
@@ -305,57 +313,57 @@ public class Codegen extends VisitorAdapter {
 	}
 
 	public LlvmValue visit(ArrayLookup n) {
-		System.out.println("AST: ArrayLookup");
+		System.out.println("++++++++++AST: ArrayLookup");
 		return null;
 	}
 
 	public LlvmValue visit(ArrayLength n) {
-		System.out.println("AST: ArrayLength");
+		System.out.println("++++++++++AST: ArrayLength");
 		return null;
 	}
 
 	public LlvmValue visit(Call n) {
-		System.out.println("AST: Call");
+		System.out.println("++++++++++AST: Call");
 		return null;
 	}
 
 	public LlvmValue visit(True n) {
-		System.out.println("AST: True");
+		System.out.println("++++++++++AST: True");
 		return null;
 	}
 
 	public LlvmValue visit(False n) {
-		System.out.println("AST: False");
+		System.out.println("++++++++++AST: False");
 		return null;
 	}
 
 	public LlvmValue visit(IdentifierExp n) {
-		System.out.println("AST: IdentifierExp");
+		System.out.println("++++++++++AST: IdentifierExp");
 		return null;
 	}
 
 	public LlvmValue visit(This n) {
-		System.out.println("AST: This");
+		System.out.println("++++++++++AST: This");
 		return null;
 	}
 
 	public LlvmValue visit(NewArray n) {
-		System.out.println("AST: NewArray");
+		System.out.println("++++++++++AST: NewArray");
 		return null;
 	}
 
 	public LlvmValue visit(NewObject n) {
-		System.out.println("AST: NewObject");
+		System.out.println("++++++++++AST: NewObject");
 		return null;
 	}
 
 	public LlvmValue visit(Not n) {
-		System.out.println("AST: Not");
+		System.out.println("++++++++++AST: Not");
 		return null;
 	}
 
 	public LlvmValue visit(Identifier n) {
-		System.out.println("AST: Identifier");
+		System.out.println("++++++++++AST: Identifier");
 		System.out.println("----s: " + n.s );
 		return null;
 	}
@@ -373,46 +381,70 @@ class SymTab extends VisitorAdapter{
     private ClassNode classEnv;    //aponta para a classe em uso
 
     public LlvmValue FillTabSymbol(Program n){
-	n.accept(this);
-	return null;
-}
-public LlvmValue visit(Program n){
-	n.mainClass.accept(this);
+        n.accept(this);
+        return null;
+    }
+    public LlvmValue visit(Program n){
+        n.mainClass.accept(this);
 
-	for (util.List<ClassDecl> c = n.classList; c != null; c = c.tail)
-		c.head.accept(this);
+        for (util.List<ClassDecl> c = n.classList; c != null; c = c.tail)
+            c.head.accept(this);
 
-	return null;
-}
+        return null;
+    }
 
-public LlvmValue visit(MainClass n){
-	classes.put(n.className.s, new ClassNode(n.className.s, null, null));
-	return null;
-}
+    public LlvmValue visit(MainClass n){
+        classes.put(n.className.s, new ClassNode(n.className.s, null, null));
+        return null;
+    }
 
-public LlvmValue visit(ClassDeclSimple n){
-	List<LlvmType> typeList = null;
-	// Constroi TypeList com os tipos das variáveis da Classe (vai formar a Struct da classe)
-	
-	List<LlvmValue> varList = null;
-	// Constroi VarList com as Variáveis da Classe
+    public LlvmValue visit(ClassDeclSimple n){
+        List<LlvmType> typeList = null;
+        // Constroi TypeList com os tipos das variáveis da Classe (vai formar a Struct da classe)
 
-	classes.put(n.name.s, new ClassNode(n.name.s, 
-										new LlvmStructure(typeList), 
-										varList)
-      			);
-    	// Percorre n.methodList visitando cada método
-	return null;
-}
+        List<LlvmValue> varList = null;
+        // Constroi VarList com as Variáveis da Classe
 
-	public LlvmValue visit(ClassDeclExtends n){return null;}
-	public LlvmValue visit(VarDecl n){return null;}
-	public LlvmValue visit(Formal n){return null;}
-	public LlvmValue visit(MethodDecl n){return null;}
-	public LlvmValue visit(IdentifierType n){return null;}
-	public LlvmValue visit(IntArrayType n){return null;}
-	public LlvmValue visit(BooleanType n){return null;}
-	public LlvmValue visit(IntegerType n){return null;}
+        classes.put(n.name.s, new ClassNode(n.name.s, 
+                    new LlvmStructure(typeList), 
+                    varList)
+                );
+        // Percorre n.methodList visitando cada método
+        return null;
+    }
+
+    public LlvmValue visit(ClassDeclExtends n){
+        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        return null;
+    }
+    public LlvmValue visit(VarDecl n){
+        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        return null;
+    }
+    public LlvmValue visit(Formal n){
+        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        return null;
+    }
+    public LlvmValue visit(MethodDecl n){
+        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        return null;
+    }
+    public LlvmValue visit(IdentifierType n){
+        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        return null;
+    }
+    public LlvmValue visit(IntArrayType n){
+        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        return null;
+    }
+    public LlvmValue visit(BooleanType n){
+        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        return null;
+    }
+    public LlvmValue visit(IntegerType n){
+        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        return null;
+    }
 }
 
 class ClassNode extends LlvmType {
