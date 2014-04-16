@@ -24,7 +24,7 @@ clean:
 	find .. -name "*.class" | xargs -I file rm file
 
 compile:
-	javac -classpath lib/projeto2.jar src/llvm/Codegen.java src/llvmast/*.java
+	javac -classpath lib/projeto2.jar src/llvm/*.java src/llvmast/*.java
 
 run:
 	java -classpath src:lib/projeto2.jar main/Main $(INPUT_run) $(OUTPUT_run)

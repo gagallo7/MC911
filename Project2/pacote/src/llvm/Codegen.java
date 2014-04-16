@@ -41,6 +41,7 @@ import visitor.Visitor;
 import llvmast.*;
 
 import java.util.*;
+//import util.*;
 
 public class Codegen extends VisitorAdapter {
 	private List<LlvmInstruction> assembler;
@@ -172,13 +173,24 @@ public class Codegen extends VisitorAdapter {
 
 	// Todos os visit's que devem ser implementados
 	public LlvmValue visit(ClassDeclSimple n) {
+		System.out.println("++++++++++AST: ClassDeclSimple: " + n.name.toString() );
+
+        List < VarDecl > vdl = llvm.LlvmUtility.getList( n.varList );
+
+        for ( VarDecl vd : vdl )
+        {
+            System.out.println ( "name: " + vd.name );
+            System.out.println ( "type: " + vd.type );
+        }
+
+        System.out.println ( "name of the head of " + n.name + ": " + n.varList.head.name );
+        
         // Constroi TypeList com os tipos das variáveis da Classe (vai formar a Struct da classe)
 
         // Constroi VarList com as Variáveis da Classe
 
     	// Percorre n.methodList visitando cada método
         
-		System.out.println("++++++++++AST: ClassDeclSimple: " + n.name.toString() );
         //LinkedList<LlvmValue> lv = n.accept(this);
 		// definicao do main
 		assembler.add(new LlvmDefine("@"+n.name, LlvmPrimitiveType.I32,
