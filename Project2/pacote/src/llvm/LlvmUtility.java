@@ -14,10 +14,23 @@ public class LlvmUtility
         }
         return res;
     }
+
     public static final java.util.List < MethodDecl > getMethodList ( util.List < MethodDecl > arg )
     {
         util.List < MethodDecl > aux = arg;
         java.util.List < MethodDecl > res = new java.util.LinkedList < MethodDecl > ();
+        while ( aux != null )
+        {
+            res.add ( aux.head );
+            aux = aux.tail;
+        }
+        return res;
+    }
+
+    public static final java.util.List < Statement > getStatementList ( util.List < Statement > arg )
+    {
+        util.List < Statement > aux = arg;
+        java.util.List < Statement > res = new java.util.LinkedList < Statement > ();
         while ( aux != null )
         {
             res.add ( aux.head );
