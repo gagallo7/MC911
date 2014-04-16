@@ -42,9 +42,10 @@ var NAVTREEINDEX0 =
 "classllvm_1_1Codegen.html":[1,0,0,1],
 "classllvm_1_1Codegen.html#a0174b43fc00626821670810cee63db88":[1,0,0,1,24],
 "classllvm_1_1Codegen.html#a0b0e743c7709167e508a1691a3895630":[1,0,0,1,10],
+"classllvm_1_1Codegen.html#a11e61d4cc0012c1159d88dcc634f6c2d":[1,0,0,1,40],
 "classllvm_1_1Codegen.html#a184f73b81044307af056d8663c1161f2":[1,0,0,1,25],
 "classllvm_1_1Codegen.html#a22446843d555a3f30d668e663b857d41":[1,0,0,1,36],
-"classllvm_1_1Codegen.html#a2d4cb3785cf414cecf336ce593cde894":[1,0,0,1,37],
+"classllvm_1_1Codegen.html#a2d4cb3785cf414cecf336ce593cde894":[1,0,0,1,38],
 "classllvm_1_1Codegen.html#a33732aa1cee20ad8b92eda9ec9fc02aa":[1,0,0,1,32],
 "classllvm_1_1Codegen.html#a3648fd8080d82e4b31f90c49e3fec0e3":[1,0,0,1,28],
 "classllvm_1_1Codegen.html#a40232f09597a8915b10d9a318c31fc78":[1,0,0,1,3],
@@ -61,8 +62,10 @@ var NAVTREEINDEX0 =
 "classllvm_1_1Codegen.html#a75a3a0369047ebef549cfc48707a5811":[1,0,0,1,16],
 "classllvm_1_1Codegen.html#a7ef68dbedc1b66a7fb0d159cefaf61e5":[1,0,0,1,14],
 "classllvm_1_1Codegen.html#a94ed343924d366736194e47fc07efb55":[1,0,0,1,26],
+"classllvm_1_1Codegen.html#aab69839e12726f5adfde15786ddc4ee2":[1,0,0,1,37],
 "classllvm_1_1Codegen.html#ab1c8a9f078768ec9a0fbe0aa68641c4b":[1,0,0,1,21],
 "classllvm_1_1Codegen.html#ab1f81ed10c2d46d91901b3c3ee7c7768":[1,0,0,1,22],
+"classllvm_1_1Codegen.html#ab34e1a84269c8dd8f6cd6a9036b2aeef":[1,0,0,1,39],
 "classllvm_1_1Codegen.html#ab4504b6dc2288d88bdf82d5e2d889eed":[1,0,0,1,27],
 "classllvm_1_1Codegen.html#ab457dc2653cf0598df0fec3be68df1c3":[1,0,0,1,1],
 "classllvm_1_1Codegen.html#ab71dbadb1f2ec99a22ab10840cd121f2":[1,0,0,1,8],
@@ -246,8 +249,5 @@ var NAVTREEINDEX0 =
 "classllvmast_1_1LlvmRet.html":[1,0,1,25],
 "classllvmast_1_1LlvmRet.html#a016271337da46ed36f38294d2f8e4832":[1,0,1,25,1],
 "classllvmast_1_1LlvmRet.html#a4de728641850df6c66039df8fadf6fcf":[1,0,1,25,0],
-"classllvmast_1_1LlvmRet.html#ace2448206597e93e15ab44bb59306739":[1,0,1,25,2],
-"classllvmast_1_1LlvmStore.html":[1,0,1,26],
-"classllvmast_1_1LlvmStore.html#a10f2d446f89fed4e10e4371e945d06d5":[1,0,1,26,3],
-"classllvmast_1_1LlvmStore.html#a50553b9dc4de80dfcd7b751bd7ccab2a":[1,0,1,26,0]
+"classllvmast_1_1LlvmRet.html#ace2448206597e93e15ab44bb59306739":[1,0,1,25,2]
 };
