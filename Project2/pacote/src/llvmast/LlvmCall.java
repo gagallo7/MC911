@@ -17,8 +17,14 @@ public  class LlvmCall extends LlvmInstruction{
 	this.args = args;
     }
 
-    public LlvmCall(LlvmRegister lhs, LlvmType type, List<LlvmType> fnType,
-			String fnName, List<LlvmValue> args) {
+    public LlvmCall(LlvmRegister lhs, LlvmType type, String fnName, List<LlvmValue> args){
+	this.lhs = lhs;
+	this.type = type;
+	this.fnName = fnName;
+	this.args = args;
+    }
+
+    public LlvmCall(LlvmRegister lhs, LlvmType type, List<LlvmType> fnType, String fnName, List<LlvmValue> args) {
     	this.lhs = lhs;
     	this.type = type;
     	this.fnTypeList = fnType;
@@ -48,10 +54,9 @@ public  class LlvmCall extends LlvmInstruction{
 		fnTypeResult += ")*";
 	} else 
 	{
-		fnTypeResult = fnType.toString();
+		if (fnType != null)
+			fnTypeResult = fnType.toString();
 	}
-
-	
 
 	return "  " + lhs + " = " + "call " + type + " " + fnTypeResult + " " + fnName +  "(" + arguments + ")"; 
     }
