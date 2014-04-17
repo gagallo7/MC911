@@ -9,7 +9,7 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ]
       ] ]
@@ -23,7 +23,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Codegen_8java.html",
-"classllvmast_1_1LlvmStore.html"
+"classllvmast_1_1LlvmRegister.html#ab1acfd752fb2773e1d3dec7c78ff403a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

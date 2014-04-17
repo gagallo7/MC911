@@ -5,5 +5,8 @@ var dir_b491cf9eca74ba523d9a3aecb14cc80d =
       [ "Codegen", "classllvm_1_1Codegen.html", "classllvm_1_1Codegen" ],
       [ "MethodNode", "classllvm_1_1MethodNode.html", null ],
       [ "SymTab", "classllvm_1_1SymTab.html", "classllvm_1_1SymTab" ]
+    ] ],
+    [ "LlvmUtility.java", "LlvmUtility_8java.html", [
+      [ "LlvmUtility", "classllvm_1_1LlvmUtility.html", "classllvm_1_1LlvmUtility" ]
     ] ]
 ];

@@ -1,6 +1,7 @@
 var hierarchy =
 [
     [ "a", "classa.html", null ],
+    [ "b", "classb.html", null ],
     [ "llvmast.LlvmInstruction", "classllvmast_1_1LlvmInstruction.html", [
       [ "llvmast.LlvmAlloca", "classllvmast_1_1LlvmAlloca.html", null ],
       [ "llvmast.LlvmBitcast", "classllvmast_1_1LlvmBitcast.html", null ],
@@ -32,6 +33,7 @@ var hierarchy =
     [ "LlvmType", null, [
       [ "llvm.ClassNode", "classllvm_1_1ClassNode.html", null ]
     ] ],
+    [ "llvm.LlvmUtility", "classllvm_1_1LlvmUtility.html", null ],
     [ "llvmast.LlvmValue", "classllvmast_1_1LlvmValue.html", [
       [ "llvmast.LlvmBool", "classllvmast_1_1LlvmBool.html", null ],
       [ "llvmast.LlvmIntegerLiteral", "classllvmast_1_1LlvmIntegerLiteral.html", null ],
