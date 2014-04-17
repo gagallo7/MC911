@@ -12,6 +12,6 @@ public class LlvmLabelValue extends LlvmValue
 
     public String toString()
     {
-	    return ""+ value;
+	    return "" + value;
     }
 }

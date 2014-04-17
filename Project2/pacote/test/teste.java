@@ -6,8 +6,15 @@ class a
     }
 }
 
-class b
+class b 
 {
-    int a;
-    float f;
+        int x;
+        int y;
+        int z;
+        c class_test;
+}
+
+class c 
+{
+    int aux;
 }

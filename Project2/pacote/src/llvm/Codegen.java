@@ -18,8 +18,8 @@ que auxiliam a geração de código em LLVM-IR. Quase todas
 as classes estão prontas; apenas as seguintes precisam ser 
 implementadas: 
 
-// llvmasm/LlvmBranch.java
-// llvmasm/LlvmIcmp.java
+// llvmasm/LlvmBranch.java          DONE
+// llvmasm/LlvmIcmp.java            DONE
 // llvmasm/LlvmMinus.java           DONE
 // llvmasm/LlvmTimes.java           DONE
 
@@ -142,10 +142,8 @@ public class Codegen extends VisitorAdapter {
 		LlvmValue v = n.exp.accept(this);
 
 		// getelementptr:
-		LlvmRegister lhs = new LlvmRegister(new LlvmPointer(
-				LlvmPrimitiveType.I8));
-		LlvmRegister src = new LlvmNamedValue("@.formatting.string",
-				new LlvmPointer(new LlvmArray(4, LlvmPrimitiveType.I8)));
+		LlvmRegister lhs = new LlvmRegister(new LlvmPointer( LlvmPrimitiveType.I8) );
+		LlvmRegister src = new LlvmNamedValue("@.formatting.string", new LlvmPointer( new LlvmArray(4, LlvmPrimitiveType.I8) ) );
 		List<LlvmValue> offsets = new LinkedList<LlvmValue>();
 		offsets.add(new LlvmIntegerLiteral(0));
 		offsets.add(new LlvmIntegerLiteral(0));
@@ -175,15 +173,17 @@ public class Codegen extends VisitorAdapter {
 	public LlvmValue visit(ClassDeclSimple n) {
 		System.out.println("++++++++++AST: ClassDeclSimple: " + n.name.toString() );
 
-        List < VarDecl > vdl = llvm.LlvmUtility.getList( n.varList );
-
-        for ( VarDecl vd : vdl )
+        List<LlvmType> attr_aux = new LinkedList<LlvmType>();
+        List < VarDecl > varList = LlvmUtility.getList( n.varList );
+        for ( VarDecl var : varList )
         {
-            System.out.println ( "name: " + vd.name );
-            System.out.println ( "type: " + vd.type );
+            System.out.println ( var.name );
+            attr_aux.add( var.accept(this).type );
         }
 
-        System.out.println ( "name of the head of " + n.name + ": " + n.varList.head.name );
+        LlvmStructure attributes = new LlvmStructure( attr_aux );
+        LlvmConstantDeclaration class_decl = new LlvmConstantDeclaration( "%class." + n.name.toString(), "type " + attributes.toString() );
+        assembler.add( class_decl );
         
         // Constroi TypeList com os tipos das variáveis da Classe (vai formar a Struct da classe)
 
@@ -192,26 +192,18 @@ public class Codegen extends VisitorAdapter {
     	// Percorre n.methodList visitando cada método
         
         //LinkedList<LlvmValue> lv = n.accept(this);
-		// definicao do main
-		assembler.add(new LlvmDefine("@"+n.name, LlvmPrimitiveType.I32,
-				new LinkedList<LlvmValue>()));
-		assembler.add(new LlvmLabel(new LlvmLabelValue("entry")));
-		LlvmRegister R1 = new LlvmRegister(new LlvmPointer(
-				LlvmPrimitiveType.I32));
-		assembler.add(new LlvmAlloca(R1, LlvmPrimitiveType.I32,
-				new LinkedList<LlvmValue>()));
-		assembler.add(new LlvmStore(new LlvmIntegerLiteral(0), R1));
 
-        LlvmValue name = n.varList.head.accept(this);
-        System.out.println ( "printing args " + n.toString() + " detected..." );
-        List<LlvmType> typeList = null;
-
-		// Final do Main
-		LlvmRegister R2 = new LlvmRegister(LlvmPrimitiveType.I32);
-		assembler.add(new LlvmLoad(R2, R1));
-		assembler.add(new LlvmRet(R2));
-		assembler.add(new LlvmCloseDefinition());
-        
+		// definicao dos metodos ocorrera aqui
+        /*
+         *assembler.add(new LlvmDefine("@"+n.name, LlvmPrimitiveType.I32, new LinkedList<LlvmValue>()));
+         *assembler.add(new LlvmLabel(new LlvmLabelValue("entry")));
+         *LlvmRegister R1 = new LlvmRegister(new LlvmPointer(LlvmPrimitiveType.I32));
+         *assembler.add(new LlvmAlloca(R1, LlvmPrimitiveType.I32, new LinkedList<LlvmValue>()));
+         *assembler.add(new LlvmStore(new LlvmIntegerLiteral(0), R1));
+         *System.out.println ( "printing args " + n.toString() + " detected..." );
+         *assembler.add(new LlvmCloseDefinition());
+         */
+		
 		return null;
 	}
 
@@ -222,12 +214,8 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(VarDecl n) {
 		System.out.println("++++++++++AST: VarDecl");
-        LlvmValue nAccepted = n.type.accept(this);
-        LlvmType ltype = nAccepted.type;
-		System.out.println( "line " + n.line + " name " + n.name + " row " + n.row + " type " + n.type );
-        //assembler.add ( new LlvmDefine ( "%" + n.name, ltype, new LinkedList<LlvmValue> () ) );
-        assembler.add ( new LlvmAlloca ( nAccepted, ltype, new LinkedList<LlvmValue>() ) );
-        return null;
+
+        return n.type.accept(this);
 	}
 
 	public LlvmValue visit(MethodDecl n) {
@@ -257,7 +245,7 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(IdentifierType n) {
 		System.out.println("++++++++++AST: IdentifierType");
-		return null;
+		return new LlvmLabelValue( "%class." + n.name + " *" );
 	}
 
 	public LlvmValue visit(Block n) {
