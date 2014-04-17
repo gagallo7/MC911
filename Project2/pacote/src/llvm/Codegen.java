@@ -181,9 +181,10 @@ public class Codegen extends VisitorAdapter {
             attr_aux.add( var.accept(this).type );
         }
 
+        LlvmClass class_aux = new LlvmClass( n.name.toString() );
         LlvmStructure attributes = new LlvmStructure( attr_aux );
-        LlvmConstantDeclaration class_decl = new LlvmConstantDeclaration( "%class." + n.name.toString(), "type " + attributes.toString() );
-        assembler.add( class_decl );
+        LlvmClassDecl class_decl_aux = new LlvmClassDecl( class_aux, attributes );
+        assembler.add( class_decl_aux );
         
         // Constroi TypeList com os tipos das variáveis da Classe (vai formar a Struct da classe)
 
@@ -245,7 +246,8 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(IdentifierType n) {
 		System.out.println("++++++++++AST: IdentifierType");
-		return new LlvmLabelValue( "%class." + n.name + " *" );
+        // LlvmPointer classPointer = new LlvmPointer( new LlvmClass(n.name) );
+		return null;
 	}
 
 	public LlvmValue visit(Block n) {

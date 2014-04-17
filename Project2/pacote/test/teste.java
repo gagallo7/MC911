@@ -11,10 +11,5 @@ class b
         int x;
         int y;
         int z;
-        c class_test;
 }
 
-class c 
-{
-    int aux;
-}

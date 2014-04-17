@@ -1,4 +1,5 @@
 package llvmast;
+
 public  class LlvmPlus extends LlvmInstruction
 {
     public LlvmRegister lhs;
