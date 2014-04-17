@@ -10,11 +10,18 @@ class b
 {
         int x;
         int y;
-        int z;
+
+        public int method_test() 
+        {
+            int a;
+            int b;
+
+            x = 10;
+            a = 5;
+            b = 7;
+
+            return a + b + x; 
+        }
 }
 
-class c 
-{
-    b class_test;
-}
 

@@ -174,15 +174,30 @@ public class Codegen extends VisitorAdapter {
 		System.out.println("++++++++++AST: ClassDeclSimple: " + n.name.toString() );
 
         List<LlvmType> attr_aux = new LinkedList<LlvmType>();
-        List < VarDecl > varList = LlvmUtility.getList( n.varList );
+        List<VarDecl> varList = LlvmUtility.getVarList( n.varList );
         for ( VarDecl var : varList )
         {
             System.out.println ( var.name );
             attr_aux.add( var.accept(this).type );
         }
 
-        LlvmStructure attributes = new LlvmStructure( attr_aux );
-        
+        LlvmStructure struct_attr = new LlvmStructure( attr_aux );
+        LlvmConstantDeclaration const_attr = new LlvmConstantDeclaration( "\n%class." + n.name.toString(), "type " + struct_attr.toString() + "\n" );
+        assembler.add( const_attr );
+
+        List<LlvmType> meth_aux = new LinkedList<LlvmType>();
+        List<MethodDecl> methodList = LlvmUtility.getMethodList( n.methodList );
+        for ( MethodDecl method : methodList )
+        {
+            System.out.println ( method.name );
+            attr_aux.add( method.accept(this).type );
+        }
+
+        LlvmStructure struct_meth = new LlvmStructure( meth_aux );
+        LlvmConstantDeclaration const_meth = new LlvmConstantDeclaration( "\n%class." + n.name.toString(), "type " + struct_meth.toString() + "\n" );
+        assembler.add( const_meth );
+
+
         // Constroi TypeList com os tipos das variáveis da Classe (vai formar a Struct da classe)
 
         // Constroi VarList com as Variáveis da Classe
@@ -212,12 +227,19 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(VarDecl n) {
 		System.out.println("++++++++++AST: VarDecl");
-
         return n.type.accept(this);
 	}
 
 	public LlvmValue visit(MethodDecl n) {
 		System.out.println("++++++++++AST: MethodDecl");
+
+        List<Statement> bodyList = LlvmUtility.getStatementList( n.body );
+        
+        for ( Statement var : bodyList )
+        {
+            System.out.println ( var.toString() );
+        }
+
 		return null;
 	}
 
@@ -382,6 +404,7 @@ class SymTab extends VisitorAdapter{
         n.accept(this);
         return null;
     }
+
     public LlvmValue visit(Program n){
         n.mainClass.accept(this);
 
@@ -397,27 +420,32 @@ class SymTab extends VisitorAdapter{
     }
 
     public LlvmValue visit(ClassDeclSimple n){
-        List<LlvmType> typeList = null;
-        // Constroi TypeList com os tipos das variáveis da Classe (vai formar a Struct da classe)
+        System.out.println("001B[32m ++++++++++AST: --001B[0m");
 
-        List<LlvmValue> varList = null;
-        // Constroi VarList com as Variáveis da Classe
+        List<LlvmType> attr_type = new LinkedList<LlvmType>();
+        List<LlvmValue> attr_value = new LinkedList<LlvmValue>();
+        List < VarDecl > varList = LlvmUtility.getVarList( n.varList );
+        
+        for ( VarDecl var : varList )
+        {
+            System.out.println ( var.name );
+            attr_type.add( var.accept(this).type );
+            attr_value.add( var.accept(this) );
+        }
 
-        classes.put(n.name.s, new ClassNode(n.name.s, 
-                    new LlvmStructure(typeList), 
-                    varList)
-                );
-        // Percorre n.methodList visitando cada método
+        classes.put( n.name.s, new ClassNode( n.name.s, new LlvmStructure( attr_type ), attr_value ) );
+
         return null;
     }
 
     public LlvmValue visit(ClassDeclExtends n){
         System.out.println("001B[32m ++++++++++AST: --001B[0m");
+
         return null;
     }
     public LlvmValue visit(VarDecl n){
         System.out.println("001B[32m ++++++++++AST: --001B[0m");
-        return null;
+        return n.type.accept(this);
     }
     public LlvmValue visit(Formal n){
         System.out.println("001B[32m ++++++++++AST: --001B[0m");
