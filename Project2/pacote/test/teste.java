@@ -13,3 +13,8 @@ class b
         int z;
 }
 
+class c 
+{
+    b class_test;
+}
+

@@ -21,7 +21,7 @@ implementadas:
 // llvmasm/LlvmBranch.java          DONE
 // llvmasm/LlvmIcmp.java            DONE
 // llvmasm/LlvmMinus.java           DONE
-// llvmasm/LlvmTimes.java           DONE
+//llvmasm/LlvmTimes.java           DONE
 
 
 Todas as assinaturas de métodos e construtores 
@@ -181,10 +181,7 @@ public class Codegen extends VisitorAdapter {
             attr_aux.add( var.accept(this).type );
         }
 
-        LlvmClass class_aux = new LlvmClass( n.name.toString() );
         LlvmStructure attributes = new LlvmStructure( attr_aux );
-        LlvmClassDecl class_decl_aux = new LlvmClassDecl( class_aux, attributes );
-        assembler.add( class_decl_aux );
         
         // Constroi TypeList com os tipos das variáveis da Classe (vai formar a Struct da classe)
 
@@ -246,7 +243,6 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(IdentifierType n) {
 		System.out.println("++++++++++AST: IdentifierType");
-        // LlvmPointer classPointer = new LlvmPointer( new LlvmClass(n.name) );
 		return null;
 	}
 
