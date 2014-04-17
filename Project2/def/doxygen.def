@@ -2555,7 +2555,7 @@ class = {
     ref-virt = non-virtual;
   };
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-  cp-fileline  = '418';
+  cp-fileline  = '450';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2699,7 +2699,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '92';
+      sec-mem-desc-line = '93';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2723,7 +2723,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '101';
+      sec-mem-desc-line = '102';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2752,7 +2752,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '126';
+      sec-mem-desc-line = '128';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2781,7 +2781,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '134';
+      sec-mem-desc-line = '138';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2810,7 +2810,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '163';
+      sec-mem-desc-line = '168';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2834,7 +2834,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '168';
+      sec-mem-desc-line = '174';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2863,7 +2863,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '201';
+      sec-mem-desc-line = '206';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2887,7 +2887,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '206';
+      sec-mem-desc-line = '211';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2916,7 +2916,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '216';
+      sec-mem-desc-line = '221';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2940,7 +2940,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '221';
+      sec-mem-desc-line = '226';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2964,7 +2964,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '226';
+      sec-mem-desc-line = '231';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2988,7 +2988,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '231';
+      sec-mem-desc-line = '236';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3012,7 +3012,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '236';
+      sec-mem-desc-line = '241';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3036,7 +3036,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '241';
+      sec-mem-desc-line = '246';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3060,7 +3060,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '246';
+      sec-mem-desc-line = '251';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3084,7 +3084,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '251';
+      sec-mem-desc-line = '256';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3108,7 +3108,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '262';
+      sec-mem-desc-line = '267';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3132,7 +3132,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '267';
+      sec-mem-desc-line = '272';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3156,7 +3156,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '272';
+      sec-mem-desc-line = '277';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3180,7 +3180,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '277';
+      sec-mem-desc-line = '282';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3204,7 +3204,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '282';
+      sec-mem-desc-line = '287';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3228,7 +3228,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '291';
+      sec-mem-desc-line = '297';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3257,7 +3257,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '299';
+      sec-mem-desc-line = '306';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3286,7 +3286,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '307';
+      sec-mem-desc-line = '315';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3310,7 +3310,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '312';
+      sec-mem-desc-line = '320';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3334,7 +3334,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '317';
+      sec-mem-desc-line = '325';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3358,7 +3358,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '322';
+      sec-mem-desc-line = '330';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3382,7 +3382,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '327';
+      sec-mem-desc-line = '335';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3406,7 +3406,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '332';
+      sec-mem-desc-line = '340';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3430,7 +3430,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '337';
+      sec-mem-desc-line = '345';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3454,7 +3454,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '342';
+      sec-mem-desc-line = '350';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3478,7 +3478,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '347';
+      sec-mem-desc-line = '355';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3502,7 +3502,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '352';
+      sec-mem-desc-line = '360';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3526,7 +3526,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '357';
+      sec-mem-desc-line = '365';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3566,7 +3566,7 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'Codegen_8java_1a40232f09597a8915b10d9a318c31fc78';
-        sec-mem-ref-line = '101';
+        sec-mem-ref-line = '102';
         sec-mem-ref-name = 'llvm.Codegen::visit';
     };
     }; /* sec-member */
@@ -5859,7 +5859,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'numbers';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmAlloca.java';
-      sec-mem-desc-line = '8';
+      sec-mem-desc-line = '11';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -5868,17 +5868,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmAlloca_8java_1a79383ad3439c66792f672127ab7f1f9d';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmAlloca::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmAlloca_8java_1a81c33f67ca5968bbf7eb9b78c6cc68d1';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmAlloca::numbers';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmAlloca_8java_1acb3abed53f945c0bb946ed1dbda693c0';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmAlloca::type';
     };
     }; /* sec-member */
@@ -5892,7 +5892,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmAlloca.java';
-      sec-mem-desc-line = '14';
+      sec-mem-desc-line = '18';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -5901,17 +5901,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmAlloca_8java_1a79383ad3439c66792f672127ab7f1f9d';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmAlloca::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmAlloca_8java_1a81c33f67ca5968bbf7eb9b78c6cc68d1';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmAlloca::numbers';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmAlloca_8java_1acb3abed53f945c0bb946ed1dbda693c0';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmAlloca::type';
     };
     }; /* sec-member */
@@ -5928,7 +5928,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'lhs';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmAlloca.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -5937,12 +5937,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmAlloca_8java_1a5c2fbdca59c7b80940da5a207c6126f6';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmAlloca::LlvmAlloca';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmAlloca_8java_1a66136ec93c5cecbe8fad0a273e6fa2f4';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmAlloca::toString';
     };
     }; /* sec-member */
@@ -5956,7 +5956,7 @@ List< LlvmValue >
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'numbers';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmAlloca.java';
-      sec-mem-desc-line = '6';
+      sec-mem-desc-line = '8';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -5965,12 +5965,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmAlloca_8java_1a5c2fbdca59c7b80940da5a207c6126f6';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmAlloca::LlvmAlloca';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmAlloca_8java_1a66136ec93c5cecbe8fad0a273e6fa2f4';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmAlloca::toString';
     };
     }; /* sec-member */
@@ -5984,7 +5984,7 @@ LlvmType
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'type';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmAlloca.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '7';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -5993,18 +5993,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmAlloca_8java_1a5c2fbdca59c7b80940da5a207c6126f6';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmAlloca::LlvmAlloca';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmAlloca_8java_1a66136ec93c5cecbe8fad0a273e6fa2f4';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmAlloca::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmAlloca.java';
-  cp-fileline  = '3';
+  cp-fileline  = '5';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6325,7 +6325,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'toType';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBitcast.java';
-      sec-mem-desc-line = '8';
+      sec-mem-desc-line = '10';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6334,17 +6334,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBitcast_8java_1a33c818db97347f40d89b948a76128410';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmBitcast::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBitcast_8java_1a019b7d4fef0376f0e017b177c29e833c';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmBitcast::source';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBitcast_8java_1a08058e2851f37787f912a30e8ecc0ce7';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmBitcast::toType';
     };
     }; /* sec-member */
@@ -6358,7 +6358,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBitcast.java';
-      sec-mem-desc-line = '14';
+      sec-mem-desc-line = '16';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6367,22 +6367,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBitcast_8java_1a33c818db97347f40d89b948a76128410';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmBitcast::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBitcast_8java_1a019b7d4fef0376f0e017b177c29e833c';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmBitcast::source';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBitcast_8java_1a08058e2851f37787f912a30e8ecc0ce7';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmBitcast::toType';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmValue_8java_1a6edb4a2900c71b0a4fb6ba7a531847b2';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmValue::type';
     };
     }; /* sec-member */
@@ -6399,7 +6399,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'lhs';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBitcast.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6408,12 +6408,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmBitcast_8java_1a7c4b45c8f4162632df644dcf5caa0016';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmBitcast::LlvmBitcast';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmBitcast_8java_1a7e2407e4d063f0d4631b1b6fc968bdc3';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '16';
         sec-mem-ref-name = 'llvmast.LlvmBitcast::toString';
     };
     }; /* sec-member */
@@ -6427,7 +6427,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'source';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBitcast.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6436,12 +6436,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmBitcast_8java_1a7c4b45c8f4162632df644dcf5caa0016';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmBitcast::LlvmBitcast';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmBitcast_8java_1a7e2407e4d063f0d4631b1b6fc968bdc3';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '16';
         sec-mem-ref-name = 'llvmast.LlvmBitcast::toString';
     };
     }; /* sec-member */
@@ -6455,7 +6455,7 @@ LlvmType
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toType';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBitcast.java';
-      sec-mem-desc-line = '6';
+      sec-mem-desc-line = '7';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6464,18 +6464,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmBitcast_8java_1a7c4b45c8f4162632df644dcf5caa0016';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmBitcast::LlvmBitcast';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmBitcast_8java_1a7e2407e4d063f0d4631b1b6fc968bdc3';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '16';
         sec-mem-ref-name = 'llvmast.LlvmBitcast::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBitcast.java';
-  cp-fileline  = '3';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6588,7 +6588,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'B';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBool.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '8';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6597,17 +6597,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1a5c7f67abe801f7d045c28ec79ed04495';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::I1';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmValue_8java_1a6edb4a2900c71b0a4fb6ba7a531847b2';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmValue::type';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBool_8java_1a266c5dc86f179aecdcab803776235f73';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmBool::val';
     };
     }; /* sec-member */
@@ -6621,7 +6621,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBool.java';
-      sec-mem-desc-line = '9';
+      sec-mem-desc-line = '14';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6630,17 +6630,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBool_8java_1a1af71636495a8ab7e3017146b2375519';
-        sec-mem-ref-line = '18';
+        sec-mem-ref-line = '23';
         sec-mem-ref-name = 'llvmast.LlvmBool::FALSE';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBool_8java_1a47637c613d39a2f68648bf901e916acf';
-        sec-mem-ref-line = '19';
+        sec-mem-ref-line = '24';
         sec-mem-ref-name = 'llvmast.LlvmBool::TRUE';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBool_8java_1a266c5dc86f179aecdcab803776235f73';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmBool::val';
     };
     }; /* sec-member */
@@ -6657,7 +6657,7 @@ int
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'val';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBool.java';
-      sec-mem-desc-line = '3';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6666,12 +6666,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmBool_8java_1af8ea51222739e36c07a5170b9f18dc7d';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmBool::LlvmBool';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmBool_8java_1aa62365ac12fe19f5303f59ac970f5a3d';
-        sec-mem-ref-line = '9';
+        sec-mem-ref-line = '13';
         sec-mem-ref-name = 'llvmast.LlvmBool::toString';
     };
     }; /* sec-member */
@@ -6691,7 +6691,7 @@ _EnD_oF_dEf_TeXt_;
 = 0
 _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBool.java';
-      sec-mem-desc-line = '18';
+      sec-mem-desc-line = '23';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6700,7 +6700,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmBool_8java_1aa62365ac12fe19f5303f59ac970f5a3d';
-        sec-mem-ref-line = '9';
+        sec-mem-ref-line = '13';
         sec-mem-ref-name = 'llvmast.LlvmBool::toString';
     };
     }; /* sec-member */
@@ -6717,7 +6717,7 @@ _EnD_oF_dEf_TeXt_;
 = 1
 _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBool.java';
-      sec-mem-desc-line = '19';
+      sec-mem-desc-line = '24';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6726,13 +6726,13 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmBool_8java_1aa62365ac12fe19f5303f59ac970f5a3d';
-        sec-mem-ref-line = '9';
+        sec-mem-ref-line = '13';
         sec-mem-ref-name = 'llvmast.LlvmBool::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBool.java';
-  cp-fileline  = '2';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6823,7 +6823,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'label';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBranch.java';
-      sec-mem-desc-line = '7';
+      sec-mem-desc-line = '10';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6832,12 +6832,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBranch_8java_1ab2e4c5dca6336c181cdb2e9c527a2c35';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmBranch::l1';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBranch_8java_1a6241a799edc9639e1e0ddedcae406069';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmBranch::l2';
     };
     }; /* sec-member */
@@ -6869,7 +6869,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'brFalse';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBranch.java';
-      sec-mem-desc-line = '12';
+      sec-mem-desc-line = '16';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6878,12 +6878,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBranch_8java_1ab2e4c5dca6336c181cdb2e9c527a2c35';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmBranch::l1';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBranch_8java_1a6241a799edc9639e1e0ddedcae406069';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmBranch::l2';
     };
     }; /* sec-member */
@@ -6897,7 +6897,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBranch.java';
-      sec-mem-desc-line = '17';
+      sec-mem-desc-line = '22';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6906,17 +6906,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBranch_8java_1a2568a9f9c3bfec8d64c4673bc796564f';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmBranch::cond';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBranch_8java_1ab2e4c5dca6336c181cdb2e9c527a2c35';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmBranch::l1';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmBranch_8java_1a6241a799edc9639e1e0ddedcae406069';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmBranch::l2';
     };
     }; /* sec-member */
@@ -6933,7 +6933,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'cond';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBranch.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '7';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6942,7 +6942,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmBranch_8java_1a18631ba99943b4750919109bc9ba3656';
-        sec-mem-ref-line = '17';
+        sec-mem-ref-line = '21';
         sec-mem-ref-name = 'llvmast.LlvmBranch::toString';
     };
     }; /* sec-member */
@@ -6956,7 +6956,7 @@ LlvmLabelValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'l1';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBranch.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6965,12 +6965,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmBranch_8java_1a9f4200a6100c13f6632a6deff253192a';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmBranch::LlvmBranch';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmBranch_8java_1a18631ba99943b4750919109bc9ba3656';
-        sec-mem-ref-line = '17';
+        sec-mem-ref-line = '21';
         sec-mem-ref-name = 'llvmast.LlvmBranch::toString';
     };
     }; /* sec-member */
@@ -6984,7 +6984,7 @@ LlvmRegister
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'lhs';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBranch.java';
-      sec-mem-desc-line = '3';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -6994,7 +6994,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmBranch.java';
-  cp-fileline  = '2';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7160,7 +7160,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'args';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmCall.java';
-      sec-mem-desc-line = '12';
+      sec-mem-desc-line = '14';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7169,27 +7169,27 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a8ef32924deccac85ce9632008ea7554a';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '11';
         sec-mem-ref-name = 'llvmast.LlvmCall::args';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a6df193cabea3519a981abbd720d99ed0';
-        sec-mem-ref-line = '9';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmCall::fnName';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a4cf151c582ca2ca760855df808b54fa1';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmCall::fnType';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1aefc49cde1d17ad8ca4f6908c4edee00c';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmCall::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a30e992c8b9fa943fef55faacbf741ee6';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmCall::type';
     };
     }; /* sec-member */
@@ -7227,7 +7227,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'args';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmCall.java';
-      sec-mem-desc-line = '20';
+      sec-mem-desc-line = '23';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7236,22 +7236,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a8ef32924deccac85ce9632008ea7554a';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '11';
         sec-mem-ref-name = 'llvmast.LlvmCall::args';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a6df193cabea3519a981abbd720d99ed0';
-        sec-mem-ref-line = '9';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmCall::fnName';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1aefc49cde1d17ad8ca4f6908c4edee00c';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmCall::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a30e992c8b9fa943fef55faacbf741ee6';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmCall::type';
     };
     }; /* sec-member */
@@ -7295,7 +7295,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'args';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmCall.java';
-      sec-mem-desc-line = '27';
+      sec-mem-desc-line = '31';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7304,32 +7304,32 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a8ef32924deccac85ce9632008ea7554a';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '11';
         sec-mem-ref-name = 'llvmast.LlvmCall::args';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a6df193cabea3519a981abbd720d99ed0';
-        sec-mem-ref-line = '9';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmCall::fnName';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a4cf151c582ca2ca760855df808b54fa1';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmCall::fnType';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a763acc38ab1265a8070c6c3887e391a8';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmCall::fnTypeList';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1aefc49cde1d17ad8ca4f6908c4edee00c';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmCall::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a30e992c8b9fa943fef55faacbf741ee6';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmCall::type';
     };
     }; /* sec-member */
@@ -7343,7 +7343,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmCall.java';
-      sec-mem-desc-line = '35';
+      sec-mem-desc-line = '40';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7352,27 +7352,27 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a8ef32924deccac85ce9632008ea7554a';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '11';
         sec-mem-ref-name = 'llvmast.LlvmCall::args';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a6df193cabea3519a981abbd720d99ed0';
-        sec-mem-ref-line = '9';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmCall::fnName';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a4cf151c582ca2ca760855df808b54fa1';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmCall::fnType';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a763acc38ab1265a8070c6c3887e391a8';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmCall::fnTypeList';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1aefc49cde1d17ad8ca4f6908c4edee00c';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmCall::lhs';
     };
       sec-mem-referenceto = {
@@ -7382,7 +7382,7 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmCall_8java_1a30e992c8b9fa943fef55faacbf741ee6';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmCall::type';
     };
     }; /* sec-member */
@@ -7399,7 +7399,7 @@ List< LlvmValue >
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'args';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmCall.java';
-      sec-mem-desc-line = '10';
+      sec-mem-desc-line = '11';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7408,12 +7408,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmCall_8java_1ae972330d1e72ab0d5dbc6e8e2e4742a5';
-        sec-mem-ref-line = '12';
+        sec-mem-ref-line = '13';
         sec-mem-ref-name = 'llvmast.LlvmCall::LlvmCall';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmCall_8java_1ad11c3c6383f2da1e2796eccda150c4f7';
-        sec-mem-ref-line = '35';
+        sec-mem-ref-line = '39';
         sec-mem-ref-name = 'llvmast.LlvmCall::toString';
     };
     }; /* sec-member */
@@ -7427,7 +7427,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'fnName';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmCall.java';
-      sec-mem-desc-line = '9';
+      sec-mem-desc-line = '10';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7436,12 +7436,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmCall_8java_1ae972330d1e72ab0d5dbc6e8e2e4742a5';
-        sec-mem-ref-line = '12';
+        sec-mem-ref-line = '13';
         sec-mem-ref-name = 'llvmast.LlvmCall::LlvmCall';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmCall_8java_1ad11c3c6383f2da1e2796eccda150c4f7';
-        sec-mem-ref-line = '35';
+        sec-mem-ref-line = '39';
         sec-mem-ref-name = 'llvmast.LlvmCall::toString';
     };
     }; /* sec-member */
@@ -7458,7 +7458,7 @@ _EnD_oF_dEf_TeXt_;
 = null
 _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmCall.java';
-      sec-mem-desc-line = '7';
+      sec-mem-desc-line = '8';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7467,12 +7467,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmCall_8java_1ae972330d1e72ab0d5dbc6e8e2e4742a5';
-        sec-mem-ref-line = '12';
+        sec-mem-ref-line = '13';
         sec-mem-ref-name = 'llvmast.LlvmCall::LlvmCall';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmCall_8java_1ad11c3c6383f2da1e2796eccda150c4f7';
-        sec-mem-ref-line = '35';
+        sec-mem-ref-line = '39';
         sec-mem-ref-name = 'llvmast.LlvmCall::toString';
     };
     }; /* sec-member */
@@ -7489,7 +7489,7 @@ _EnD_oF_dEf_TeXt_;
 = null
 _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmCall.java';
-      sec-mem-desc-line = '8';
+      sec-mem-desc-line = '9';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7498,12 +7498,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmCall_8java_1a262df17a2e3e88ca1be5a86ceca404a7';
-        sec-mem-ref-line = '27';
+        sec-mem-ref-line = '30';
         sec-mem-ref-name = 'llvmast.LlvmCall::LlvmCall';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmCall_8java_1ad11c3c6383f2da1e2796eccda150c4f7';
-        sec-mem-ref-line = '35';
+        sec-mem-ref-line = '39';
         sec-mem-ref-name = 'llvmast.LlvmCall::toString';
     };
     }; /* sec-member */
@@ -7517,7 +7517,7 @@ LlvmRegister
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'lhs';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmCall.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7526,12 +7526,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmCall_8java_1ae972330d1e72ab0d5dbc6e8e2e4742a5';
-        sec-mem-ref-line = '12';
+        sec-mem-ref-line = '13';
         sec-mem-ref-name = 'llvmast.LlvmCall::LlvmCall';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmCall_8java_1ad11c3c6383f2da1e2796eccda150c4f7';
-        sec-mem-ref-line = '35';
+        sec-mem-ref-line = '39';
         sec-mem-ref-name = 'llvmast.LlvmCall::toString';
     };
     }; /* sec-member */
@@ -7545,7 +7545,7 @@ LlvmType
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'type';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmCall.java';
-      sec-mem-desc-line = '6';
+      sec-mem-desc-line = '7';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7554,18 +7554,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmCall_8java_1ae972330d1e72ab0d5dbc6e8e2e4742a5';
-        sec-mem-ref-line = '12';
+        sec-mem-ref-line = '13';
         sec-mem-ref-name = 'llvmast.LlvmCall::LlvmCall';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmCall_8java_1ad11c3c6383f2da1e2796eccda150c4f7';
-        sec-mem-ref-line = '35';
+        sec-mem-ref-line = '39';
         sec-mem-ref-name = 'llvmast.LlvmCall::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmCall.java';
-  cp-fileline  = '4';
+  cp-fileline  = '5';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7707,7 +7707,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmCloseDefinition.java';
-      sec-mem-desc-line = '3';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7717,7 +7717,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmCloseDefinition.java';
-  cp-fileline  = '2';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7800,7 +7800,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'rhs';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmConstantDeclaration.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '9';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7809,12 +7809,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmConstantDeclaration_8java_1a7b1ca85382ab3af24b60a74d57fff48c';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmConstantDeclaration::name';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmConstantDeclaration_8java_1af65c9b9c94315f3d68b7d2beff35915a';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmConstantDeclaration::rhs';
     };
     }; /* sec-member */
@@ -7828,7 +7828,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmConstantDeclaration.java';
-      sec-mem-desc-line = '10';
+      sec-mem-desc-line = '15';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7837,12 +7837,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmConstantDeclaration_8java_1a7b1ca85382ab3af24b60a74d57fff48c';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmConstantDeclaration::name';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmConstantDeclaration_8java_1af65c9b9c94315f3d68b7d2beff35915a';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmConstantDeclaration::rhs';
     };
     }; /* sec-member */
@@ -7859,7 +7859,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'name';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmConstantDeclaration.java';
-      sec-mem-desc-line = '3';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7868,12 +7868,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmConstantDeclaration_8java_1ac4aef4ec860e049f9ad9d5d10596d44f';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmConstantDeclaration::LlvmConstantDeclaration';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmConstantDeclaration_8java_1a17765937f43896e719116a4d96f87f96';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '14';
         sec-mem-ref-name = 'llvmast.LlvmConstantDeclaration::toString';
     };
     }; /* sec-member */
@@ -7887,7 +7887,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'rhs';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmConstantDeclaration.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7896,18 +7896,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmConstantDeclaration_8java_1ac4aef4ec860e049f9ad9d5d10596d44f';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmConstantDeclaration::LlvmConstantDeclaration';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmConstantDeclaration_8java_1a17765937f43896e719116a4d96f87f96';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '14';
         sec-mem-ref-name = 'llvmast.LlvmConstantDeclaration::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmConstantDeclaration.java';
-  cp-fileline  = '2';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -7996,7 +7996,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'args';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmDefine.java';
-      sec-mem-desc-line = '8';
+      sec-mem-desc-line = '11';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8005,17 +8005,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmDefine_8java_1a3a19cc04415fbdadaadfc1a0861a42fa';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmDefine::args';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmDefine_8java_1a6c5c8a8ea0abf586da85d39e822d22fc';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmDefine::name';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmDefine_8java_1a3ef1f2964c3e69989061877f82be9195';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmDefine::resultType';
     };
     }; /* sec-member */
@@ -8029,7 +8029,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmDefine.java';
-      sec-mem-desc-line = '14';
+      sec-mem-desc-line = '18';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8038,17 +8038,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmDefine_8java_1a3a19cc04415fbdadaadfc1a0861a42fa';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmDefine::args';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmDefine_8java_1a6c5c8a8ea0abf586da85d39e822d22fc';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmDefine::name';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmDefine_8java_1a3ef1f2964c3e69989061877f82be9195';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmDefine::resultType';
     };
     }; /* sec-member */
@@ -8065,7 +8065,7 @@ List< LlvmValue >
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'args';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmDefine.java';
-      sec-mem-desc-line = '6';
+      sec-mem-desc-line = '8';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8074,12 +8074,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmDefine_8java_1ad8c645b17fbe2dd049d592b26500473d';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmDefine::LlvmDefine';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmDefine_8java_1a31d261378a60176010e6fb9ba773c513';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmDefine::toString';
     };
     }; /* sec-member */
@@ -8093,7 +8093,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'name';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmDefine.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8102,12 +8102,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmDefine_8java_1ad8c645b17fbe2dd049d592b26500473d';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmDefine::LlvmDefine';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmDefine_8java_1a31d261378a60176010e6fb9ba773c513';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmDefine::toString';
     };
     }; /* sec-member */
@@ -8121,7 +8121,7 @@ LlvmType
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'resultType';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmDefine.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '7';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8130,18 +8130,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmDefine_8java_1ad8c645b17fbe2dd049d592b26500473d';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmDefine::LlvmDefine';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmDefine_8java_1a31d261378a60176010e6fb9ba773c513';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmDefine::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmDefine.java';
-  cp-fileline  = '3';
+  cp-fileline  = '5';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8244,7 +8244,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'parameterTypes';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmExternalDeclaration.java';
-      sec-mem-desc-line = '8';
+      sec-mem-desc-line = '11';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8253,17 +8253,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmExternalDeclaration_8java_1ad86d40fe92103db15f7d0a6275cc96d2';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmExternalDeclaration::name';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmExternalDeclaration_8java_1a33c345bf0d07bfb179e132d5474111a4';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmExternalDeclaration::parameterTypes';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmExternalDeclaration_8java_1ac43ce4d9feed5c8a6e1af8a8707728c3';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmExternalDeclaration::resultType';
     };
     }; /* sec-member */
@@ -8277,7 +8277,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmExternalDeclaration.java';
-      sec-mem-desc-line = '14';
+      sec-mem-desc-line = '18';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8286,17 +8286,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmExternalDeclaration_8java_1ad86d40fe92103db15f7d0a6275cc96d2';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmExternalDeclaration::name';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmExternalDeclaration_8java_1a33c345bf0d07bfb179e132d5474111a4';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmExternalDeclaration::parameterTypes';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmExternalDeclaration_8java_1ac43ce4d9feed5c8a6e1af8a8707728c3';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmExternalDeclaration::resultType';
     };
     }; /* sec-member */
@@ -8313,7 +8313,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'name';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmExternalDeclaration.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8322,12 +8322,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmExternalDeclaration_8java_1aab943154643e18e34cd079b311e17278';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmExternalDeclaration::LlvmExternalDeclaration';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmExternalDeclaration_8java_1a40a560c157e09834e1a3c545861d99ce';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmExternalDeclaration::toString';
     };
     }; /* sec-member */
@@ -8341,7 +8341,7 @@ List< LlvmType >
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'parameterTypes';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmExternalDeclaration.java';
-      sec-mem-desc-line = '6';
+      sec-mem-desc-line = '8';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8350,12 +8350,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmExternalDeclaration_8java_1aab943154643e18e34cd079b311e17278';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmExternalDeclaration::LlvmExternalDeclaration';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmExternalDeclaration_8java_1a40a560c157e09834e1a3c545861d99ce';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmExternalDeclaration::toString';
     };
     }; /* sec-member */
@@ -8369,7 +8369,7 @@ LlvmType
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'resultType';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmExternalDeclaration.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '7';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8378,18 +8378,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmExternalDeclaration_8java_1aab943154643e18e34cd079b311e17278';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmExternalDeclaration::LlvmExternalDeclaration';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmExternalDeclaration_8java_1a40a560c157e09834e1a3c545861d99ce';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmExternalDeclaration::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmExternalDeclaration.java';
-  cp-fileline  = '3';
+  cp-fileline  = '5';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8486,7 +8486,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'parametersTypes';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmFunctionType.java';
-      sec-mem-desc-line = '7';
+      sec-mem-desc-line = '9';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8495,12 +8495,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmFunctionType_8java_1a52cf2360665c754c672e7766ee8a53cc';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmFunctionType::parametersTypes';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmFunctionType_8java_1a633559a3f55f42bb17edf5f46c8b641a';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmFunctionType::resultType';
     };
     }; /* sec-member */
@@ -8517,7 +8517,7 @@ List< LlvmType >
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'parametersTypes';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmFunctionType.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '7';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8526,7 +8526,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmFunctionType_8java_1afc29f701079d35828e55611e2fad36f5';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmFunctionType::LlvmFunctionType';
     };
     }; /* sec-member */
@@ -8540,7 +8540,7 @@ LlvmType
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'resultType';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmFunctionType.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8549,13 +8549,13 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmFunctionType_8java_1afc29f701079d35828e55611e2fad36f5';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmFunctionType::LlvmFunctionType';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmFunctionType.java';
-  cp-fileline  = '3';
+  cp-fileline  = '5';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8651,7 +8651,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'offsets';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmGetElementPointer.java';
-      sec-mem-desc-line = '8';
+      sec-mem-desc-line = '11';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8660,17 +8660,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmGetElementPointer_8java_1a6230cefe77904d44bd5f75c91da6307a';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmGetElementPointer::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmGetElementPointer_8java_1a0aa9353a47dba64a1223852261435125';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmGetElementPointer::offsets';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmGetElementPointer_8java_1ab9a19384bdee9608af66af0c1e889de2';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmGetElementPointer::source';
     };
     }; /* sec-member */
@@ -8684,7 +8684,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmGetElementPointer.java';
-      sec-mem-desc-line = '14';
+      sec-mem-desc-line = '18';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8693,22 +8693,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmGetElementPointer_8java_1a6230cefe77904d44bd5f75c91da6307a';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmGetElementPointer::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmGetElementPointer_8java_1a0aa9353a47dba64a1223852261435125';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmGetElementPointer::offsets';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmGetElementPointer_8java_1ab9a19384bdee9608af66af0c1e889de2';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmGetElementPointer::source';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmValue_8java_1a6edb4a2900c71b0a4fb6ba7a531847b2';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmValue::type';
     };
     }; /* sec-member */
@@ -8725,7 +8725,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'lhs';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmGetElementPointer.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8734,12 +8734,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmGetElementPointer_8java_1a7ed0522faa3977a9cced416e6e5b8b96';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmGetElementPointer::LlvmGetElementPointer';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmGetElementPointer_8java_1a647cdd3335f49e40918e125d5edc1a04';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmGetElementPointer::toString';
     };
     }; /* sec-member */
@@ -8753,7 +8753,7 @@ List< LlvmValue >
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'offsets';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmGetElementPointer.java';
-      sec-mem-desc-line = '6';
+      sec-mem-desc-line = '8';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8762,12 +8762,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmGetElementPointer_8java_1a7ed0522faa3977a9cced416e6e5b8b96';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmGetElementPointer::LlvmGetElementPointer';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmGetElementPointer_8java_1a647cdd3335f49e40918e125d5edc1a04';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmGetElementPointer::toString';
     };
     }; /* sec-member */
@@ -8781,7 +8781,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'source';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmGetElementPointer.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '7';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8790,18 +8790,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmGetElementPointer_8java_1a7ed0522faa3977a9cced416e6e5b8b96';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmGetElementPointer::LlvmGetElementPointer';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmGetElementPointer_8java_1a647cdd3335f49e40918e125d5edc1a04';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmGetElementPointer::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmGetElementPointer.java';
-  cp-fileline  = '3';
+  cp-fileline  = '5';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8931,7 +8931,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'op2';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmIcmp.java';
-      sec-mem-desc-line = '10';
+      sec-mem-desc-line = '12';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8940,27 +8940,27 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1a099fcb8921968aa36458354b8617dac0';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::conditionCode';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1a0322d1ca1d4c9dac3143e8a3b3aff150';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1ace0aadfab1fcb2ed2e0f2f27de1abf65';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::op1';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1af0b5c6bca8957dfcf30a1000149541b1';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::op2';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1ab20e417c4c2e0878607bba8a2390bfe3';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::type';
     };
     }; /* sec-member */
@@ -8974,7 +8974,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmIcmp.java';
-      sec-mem-desc-line = '18';
+      sec-mem-desc-line = '21';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -8983,27 +8983,27 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1a099fcb8921968aa36458354b8617dac0';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::conditionCode';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1a0322d1ca1d4c9dac3143e8a3b3aff150';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1ace0aadfab1fcb2ed2e0f2f27de1abf65';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::op1';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1af0b5c6bca8957dfcf30a1000149541b1';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::op2';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1ab20e417c4c2e0878607bba8a2390bfe3';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::type';
     };
     }; /* sec-member */
@@ -9020,7 +9020,7 @@ int
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'conditionCode';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmIcmp.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -9029,12 +9029,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1a8b57ce4030fee38f9be2cc80fbe5fbe4';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '11';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::LlvmIcmp';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1af68f035632b3d6cd6324fe7e38a0020b';
-        sec-mem-ref-line = '18';
+        sec-mem-ref-line = '20';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::toString';
     };
     }; /* sec-member */
@@ -9048,7 +9048,7 @@ LlvmRegister
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'lhs';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmIcmp.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -9057,12 +9057,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1a8b57ce4030fee38f9be2cc80fbe5fbe4';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '11';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::LlvmIcmp';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1af68f035632b3d6cd6324fe7e38a0020b';
-        sec-mem-ref-line = '18';
+        sec-mem-ref-line = '20';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::toString';
     };
     }; /* sec-member */
@@ -9076,7 +9076,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'op1';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmIcmp.java';
-      sec-mem-desc-line = '7';
+      sec-mem-desc-line = '8';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -9085,12 +9085,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1a8b57ce4030fee38f9be2cc80fbe5fbe4';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '11';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::LlvmIcmp';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1af68f035632b3d6cd6324fe7e38a0020b';
-        sec-mem-ref-line = '18';
+        sec-mem-ref-line = '20';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::toString';
     };
     }; /* sec-member */
@@ -9104,7 +9104,7 @@ LlvmType
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'type';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmIcmp.java';
-      sec-mem-desc-line = '6';
+      sec-mem-desc-line = '7';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -9113,18 +9113,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1a8b57ce4030fee38f9be2cc80fbe5fbe4';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '11';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::LlvmIcmp';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmIcmp_8java_1af68f035632b3d6cd6324fe7e38a0020b';
-        sec-mem-ref-line = '18';
+        sec-mem-ref-line = '20';
         sec-mem-ref-name = 'llvmast.LlvmIcmp::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmIcmp.java';
-  cp-fileline  = '3';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -9340,7 +9340,7 @@ class = {
     ref-virt = non-virtual;
   };
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmInstruction.java';
-  cp-fileline  = '2';
+  cp-fileline  = '3';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -9583,7 +9583,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'value';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmIntegerLiteral.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '8';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -9592,17 +9592,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1a7537618f20a3611e8c1f318435c7c7da';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::I32';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmValue_8java_1a6edb4a2900c71b0a4fb6ba7a531847b2';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmValue::type';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmIntegerLiteral_8java_1a20b07a81f86f1a00705a0bf4764bc68e';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmIntegerLiteral::value';
     };
     }; /* sec-member */
@@ -9616,7 +9616,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmIntegerLiteral.java';
-      sec-mem-desc-line = '9';
+      sec-mem-desc-line = '14';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -9625,7 +9625,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmIntegerLiteral_8java_1a20b07a81f86f1a00705a0bf4764bc68e';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmIntegerLiteral::value';
     };
     }; /* sec-member */
@@ -9642,7 +9642,7 @@ int
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'value';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmIntegerLiteral.java';
-      sec-mem-desc-line = '3';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -9651,18 +9651,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmIntegerLiteral_8java_1a99807813d4f3bc228d2b6e4be2eaf921';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmIntegerLiteral::LlvmIntegerLiteral';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmIntegerLiteral_8java_1ad3bbbc4e0bd2792a8bbe77182dab3ab0';
-        sec-mem-ref-line = '9';
+        sec-mem-ref-line = '13';
         sec-mem-ref-name = 'llvmast.LlvmIntegerLiteral::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmIntegerLiteral.java';
-  cp-fileline  = '2';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -9753,7 +9753,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'label';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmLabel.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '7';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -9762,7 +9762,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmLabel_8java_1a229f575198bcf190b322fb581ed1a020';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmLabel::label';
     };
     }; /* sec-member */
@@ -9776,7 +9776,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmLabel.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '10';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -9785,7 +9785,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmLabel_8java_1a229f575198bcf190b322fb581ed1a020';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmLabel::label';
     };
     }; /* sec-member */
@@ -9802,7 +9802,7 @@ LlvmLabelValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'label';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmLabel.java';
-      sec-mem-desc-line = '3';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -9811,18 +9811,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmLabel_8java_1a7fcaa6da79a9e926315a938942b35650';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmLabel::LlvmLabel';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmLabel_8java_1a866308c8da157b414a4b7c25ce4b28e8';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmLabel::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmLabel.java';
-  cp-fileline  = '2';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -9938,7 +9938,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'value';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmLabelValue.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '8';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -9947,17 +9947,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1a98cb4d3437226ffaa27105b52c440a09';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::LABEL';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmValue_8java_1a6edb4a2900c71b0a4fb6ba7a531847b2';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmValue::type';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmLabelValue_8java_1aa4e9424aea266166a985ab1340f0814a';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmLabelValue::value';
     };
     }; /* sec-member */
@@ -9971,7 +9971,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmLabelValue.java';
-      sec-mem-desc-line = '9';
+      sec-mem-desc-line = '14';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -9980,7 +9980,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmLabelValue_8java_1aa4e9424aea266166a985ab1340f0814a';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmLabelValue::value';
     };
     }; /* sec-member */
@@ -9997,7 +9997,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'value';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmLabelValue.java';
-      sec-mem-desc-line = '3';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10006,18 +10006,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmLabelValue_8java_1a28e44ede5539bb10bf9d19100eb9be0b';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmLabelValue::LlvmLabelValue';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmLabelValue_8java_1a7e286212e16490170d93b5ce041e0383';
-        sec-mem-ref-line = '9';
+        sec-mem-ref-line = '13';
         sec-mem-ref-name = 'llvmast.LlvmLabelValue::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmLabelValue.java';
-  cp-fileline  = '2';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10114,7 +10114,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'address';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmLoad.java';
-      sec-mem-desc-line = '6';
+      sec-mem-desc-line = '9';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10123,12 +10123,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmLoad_8java_1a421b4f3f1a1c5d173e07c3842d3d3bac';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmLoad::address';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmLoad_8java_1a7454e98198918f155999bca3cce8736e';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmLoad::lhs';
     };
     }; /* sec-member */
@@ -10142,7 +10142,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmLoad.java';
-      sec-mem-desc-line = '11';
+      sec-mem-desc-line = '15';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10151,17 +10151,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmLoad_8java_1a421b4f3f1a1c5d173e07c3842d3d3bac';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmLoad::address';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmLoad_8java_1a7454e98198918f155999bca3cce8736e';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmLoad::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmValue_8java_1a6edb4a2900c71b0a4fb6ba7a531847b2';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmValue::type';
     };
     }; /* sec-member */
@@ -10178,7 +10178,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'address';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmLoad.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10187,12 +10187,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmLoad_8java_1a9a09cb00e46fb8005df61deb006c56dd';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmLoad::LlvmLoad';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmLoad_8java_1a5f04923aeffdb6103778dabe4236dbc4';
-        sec-mem-ref-line = '11';
+        sec-mem-ref-line = '14';
         sec-mem-ref-name = 'llvmast.LlvmLoad::toString';
     };
     }; /* sec-member */
@@ -10206,7 +10206,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'lhs';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmLoad.java';
-      sec-mem-desc-line = '3';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10215,18 +10215,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmLoad_8java_1a9a09cb00e46fb8005df61deb006c56dd';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmLoad::LlvmLoad';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmLoad_8java_1a5f04923aeffdb6103778dabe4236dbc4';
-        sec-mem-ref-line = '11';
+        sec-mem-ref-line = '14';
         sec-mem-ref-name = 'llvmast.LlvmLoad::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmLoad.java';
-  cp-fileline  = '2';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10338,7 +10338,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'size';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMalloc.java';
-      sec-mem-desc-line = '27';
+      sec-mem-desc-line = '28';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Construtor Malloc: recebe apenas o tamanho em bytes que se deseja alocar
 Cabe a você calcular qual será esse tamanho.
@@ -10349,22 +10349,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1adf9dab7a66378a3e8fa7b1c06a43ee34';
-        sec-mem-ref-line = '17';
+        sec-mem-ref-line = '18';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::bitcast';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a6ec7f72634b6e87febce33e33226c7e0';
-        sec-mem-ref-line = '17';
+        sec-mem-ref-line = '18';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::call';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1a65fc5ac3e92115b5c31e00c2fb0f1f33';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::I8';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a8798b33ee5f0d95e0f16c34a91ed3499';
-        sec-mem-ref-line = '15';
+        sec-mem-ref-line = '16';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::lhsCall';
     };
     }; /* sec-member */
@@ -10396,7 +10396,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'className';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMalloc.java';
-      sec-mem-desc-line = '47';
+      sec-mem-desc-line = '49';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Construtor para Alocar objetos de Classe: recebe o tipo (que deve ser LlvmStructure)
 e o nome da Classe (objName)
@@ -10408,7 +10408,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a4c576eb393d6dfc644ceae13ff90f85a';
-        sec-mem-ref-line = '70';
+        sec-mem-ref-line = '73';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::MallocImpl';
     };
     }; /* sec-member */
@@ -10440,7 +10440,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'nElements';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMalloc.java';
-      sec-mem-desc-line = '61';
+      sec-mem-desc-line = '64';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Construtor para Alocar Vetor de Inteiros: recebe o tipo (que deve ser I32)
 e o numero de elementos.
@@ -10452,7 +10452,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a4c576eb393d6dfc644ceae13ff90f85a';
-        sec-mem-ref-line = '70';
+        sec-mem-ref-line = '73';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::MallocImpl';
     };
     }; /* sec-member */
@@ -10466,7 +10466,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMalloc.java';
-      sec-mem-desc-line = '102';
+      sec-mem-desc-line = '115';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10475,17 +10475,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1adf9dab7a66378a3e8fa7b1c06a43ee34';
-        sec-mem-ref-line = '17';
+        sec-mem-ref-line = '18';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::bitcast';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a6ec7f72634b6e87febce33e33226c7e0';
-        sec-mem-ref-line = '17';
+        sec-mem-ref-line = '18';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::call';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a43998a3df109e399392c80369f9d4f02';
-        sec-mem-ref-line = '17';
+        sec-mem-ref-line = '18';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::times';
     };
     }; /* sec-member */
@@ -10502,7 +10502,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'lhs';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMalloc.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10511,7 +10511,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a4c576eb393d6dfc644ceae13ff90f85a';
-        sec-mem-ref-line = '70';
+        sec-mem-ref-line = '73';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::MallocImpl';
     };
     }; /* sec-member */
@@ -10525,7 +10525,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'nElements';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMalloc.java';
-      sec-mem-desc-line = '6';
+      sec-mem-desc-line = '7';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10534,7 +10534,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a4c576eb393d6dfc644ceae13ff90f85a';
-        sec-mem-ref-line = '70';
+        sec-mem-ref-line = '73';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::MallocImpl';
     };
     }; /* sec-member */
@@ -10548,7 +10548,7 @@ LlvmType
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'type';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMalloc.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10557,7 +10557,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a4c576eb393d6dfc644ceae13ff90f85a';
-        sec-mem-ref-line = '70';
+        sec-mem-ref-line = '73';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::MallocImpl';
     };
     }; /* sec-member */
@@ -10577,7 +10577,7 @@ _EnD_oF_dEf_TeXt_;
 = null
 _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMalloc.java';
-      sec-mem-desc-line = '10';
+      sec-mem-desc-line = '11';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10586,7 +10586,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a4c576eb393d6dfc644ceae13ff90f85a';
-        sec-mem-ref-line = '70';
+        sec-mem-ref-line = '73';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::MallocImpl';
     };
     }; /* sec-member */
@@ -10627,7 +10627,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'className';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMalloc.java';
-      sec-mem-desc-line = '70';
+      sec-mem-desc-line = '74';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 Implementação.
 _EnD_oF_dEf_TeXt_;
@@ -10636,67 +10636,67 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1adf9dab7a66378a3e8fa7b1c06a43ee34';
-        sec-mem-ref-line = '17';
+        sec-mem-ref-line = '18';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::bitcast';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a6ec7f72634b6e87febce33e33226c7e0';
-        sec-mem-ref-line = '17';
+        sec-mem-ref-line = '18';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::call';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1a7537618f20a3611e8c1f318435c7c7da';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::I32';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1a65fc5ac3e92115b5c31e00c2fb0f1f33';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::I8';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a640e67fcad1197f931d9819c1cc2fb3e';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '11';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::lastArraySize';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1adf3538eff6c9512613b23f049a45b12b';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a8798b33ee5f0d95e0f16c34a91ed3499';
-        sec-mem-ref-line = '15';
+        sec-mem-ref-line = '16';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::lhsCall';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a9756a8f255360d8b8352316566652589';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '15';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::lhsTimes';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a361a03574c9e1df59b8c894fed665a2f';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::nElements';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a6fc0198e8ddb57b9c64756d7a50e6878';
-        sec-mem-ref-line = '13';
+        sec-mem-ref-line = '14';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::size';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a43998a3df109e399392c80369f9d4f02';
-        sec-mem-ref-line = '17';
+        sec-mem-ref-line = '18';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::times';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1ad0055b41dd3cc6f23f9d5e922dd40229';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::type';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1aee2402701319a7192682575f38ec4c6d';
-        sec-mem-ref-line = '47';
+        sec-mem-ref-line = '48';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::LlvmMalloc';
     };
     }; /* sec-member */
@@ -10713,7 +10713,7 @@ LlvmRegister
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'lhsCall';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMalloc.java';
-      sec-mem-desc-line = '15';
+      sec-mem-desc-line = '16';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10722,12 +10722,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1aa272b8b5e5f7b84004112cd408449eea';
-        sec-mem-ref-line = '27';
+        sec-mem-ref-line = '28';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::LlvmMalloc';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a4c576eb393d6dfc644ceae13ff90f85a';
-        sec-mem-ref-line = '70';
+        sec-mem-ref-line = '73';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::MallocImpl';
     };
     }; /* sec-member */
@@ -10741,7 +10741,7 @@ LlvmRegister
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'lhsTimes';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMalloc.java';
-      sec-mem-desc-line = '14';
+      sec-mem-desc-line = '15';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10750,7 +10750,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a4c576eb393d6dfc644ceae13ff90f85a';
-        sec-mem-ref-line = '70';
+        sec-mem-ref-line = '73';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::MallocImpl';
     };
     }; /* sec-member */
@@ -10764,7 +10764,7 @@ int
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'size';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMalloc.java';
-      sec-mem-desc-line = '13';
+      sec-mem-desc-line = '14';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10773,13 +10773,13 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a4c576eb393d6dfc644ceae13ff90f85a';
-        sec-mem-ref-line = '70';
+        sec-mem-ref-line = '73';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::MallocImpl';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMalloc.java';
-  cp-fileline  = '3';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10930,7 +10930,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'op2';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMinus.java';
-      sec-mem-desc-line = '8';
+      sec-mem-desc-line = '11';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10939,22 +10939,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMinus_8java_1ae8e60d1eb1c883981a8ab8cc28d66dc7';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmMinus::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMinus_8java_1a69a2122ff553b5fef4fdb9aac5653c6c';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmMinus::op1';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMinus_8java_1a34c844b50fa18101eddf5d569e1b76a5';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmMinus::op2';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMinus_8java_1a13694b6275055dd79f825ebe4ba4b9fc';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmMinus::type';
     };
     }; /* sec-member */
@@ -10968,7 +10968,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMinus.java';
-      sec-mem-desc-line = '16';
+      sec-mem-desc-line = '20';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -10977,22 +10977,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMinus_8java_1ae8e60d1eb1c883981a8ab8cc28d66dc7';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmMinus::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMinus_8java_1a69a2122ff553b5fef4fdb9aac5653c6c';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmMinus::op1';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMinus_8java_1a34c844b50fa18101eddf5d569e1b76a5';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmMinus::op2';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmMinus_8java_1a13694b6275055dd79f825ebe4ba4b9fc';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmMinus::type';
     };
     }; /* sec-member */
@@ -11009,7 +11009,7 @@ LlvmRegister
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'lhs';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMinus.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11018,12 +11018,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMinus_8java_1aa78480bed5ddd2c03ff6a70e3d2bd015';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmMinus::LlvmMinus';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMinus_8java_1a9a2b76b4136f9832a78839535e8c10af';
-        sec-mem-ref-line = '16';
+        sec-mem-ref-line = '19';
         sec-mem-ref-name = 'llvmast.LlvmMinus::toString';
     };
     }; /* sec-member */
@@ -11037,7 +11037,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'op1';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMinus.java';
-      sec-mem-desc-line = '6';
+      sec-mem-desc-line = '8';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11046,12 +11046,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMinus_8java_1aa78480bed5ddd2c03ff6a70e3d2bd015';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmMinus::LlvmMinus';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMinus_8java_1a9a2b76b4136f9832a78839535e8c10af';
-        sec-mem-ref-line = '16';
+        sec-mem-ref-line = '19';
         sec-mem-ref-name = 'llvmast.LlvmMinus::toString';
     };
     }; /* sec-member */
@@ -11065,7 +11065,7 @@ LlvmType
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'type';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMinus.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '7';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11074,18 +11074,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMinus_8java_1aa78480bed5ddd2c03ff6a70e3d2bd015';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmMinus::LlvmMinus';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMinus_8java_1a9a2b76b4136f9832a78839535e8c10af';
-        sec-mem-ref-line = '16';
+        sec-mem-ref-line = '19';
         sec-mem-ref-name = 'llvmast.LlvmMinus::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmMinus.java';
-  cp-fileline  = '3';
+  cp-fileline  = '5';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11222,7 +11222,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'type';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmNamedValue.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11245,7 +11245,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmNamedValue.java';
-      sec-mem-desc-line = '9';
+      sec-mem-desc-line = '12';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11260,7 +11260,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmNamedValue.java';
-  cp-fileline  = '2';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11391,7 +11391,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'op2';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPlus.java';
-      sec-mem-desc-line = '7';
+      sec-mem-desc-line = '9';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11400,22 +11400,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a50ce05345f452a29ede35667b7658356';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '4';
         sec-mem-ref-name = 'llvmast.LlvmPlus::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a23f1b6de41c2da2ba0b6c15a1692fc06';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmPlus::op1';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPlus_8java_1ad4d777133f5cb379263f7564dd2b42cc';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmPlus::op2';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a2b55eca324fa6236758de37122a96686';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmPlus::type';
     };
     }; /* sec-member */
@@ -11429,7 +11429,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPlus.java';
-      sec-mem-desc-line = '14';
+      sec-mem-desc-line = '17';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11438,22 +11438,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a50ce05345f452a29ede35667b7658356';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '4';
         sec-mem-ref-name = 'llvmast.LlvmPlus::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a23f1b6de41c2da2ba0b6c15a1692fc06';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmPlus::op1';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPlus_8java_1ad4d777133f5cb379263f7564dd2b42cc';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmPlus::op2';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a2b55eca324fa6236758de37122a96686';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmPlus::type';
     };
     }; /* sec-member */
@@ -11470,7 +11470,7 @@ LlvmRegister
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'lhs';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPlus.java';
-      sec-mem-desc-line = '3';
+      sec-mem-desc-line = '4';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11479,12 +11479,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a90a075006cc491a1032bd4ffc9778907';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmPlus::LlvmPlus';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPlus_8java_1ae9993cce6fe682906f6226aa585a8287';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '16';
         sec-mem-ref-name = 'llvmast.LlvmPlus::toString';
     };
     }; /* sec-member */
@@ -11498,7 +11498,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'op1';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPlus.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11507,12 +11507,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a90a075006cc491a1032bd4ffc9778907';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmPlus::LlvmPlus';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPlus_8java_1ae9993cce6fe682906f6226aa585a8287';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '16';
         sec-mem-ref-name = 'llvmast.LlvmPlus::toString';
     };
     }; /* sec-member */
@@ -11526,7 +11526,7 @@ LlvmType
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'type';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPlus.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11535,18 +11535,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a90a075006cc491a1032bd4ffc9778907';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmPlus::LlvmPlus';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPlus_8java_1ae9993cce6fe682906f6226aa585a8287';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '16';
         sec-mem-ref-name = 'llvmast.LlvmPlus::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPlus.java';
-  cp-fileline  = '2';
+  cp-fileline  = '3';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11714,7 +11714,7 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmCall_8java_1ad11c3c6383f2da1e2796eccda150c4f7';
-        sec-mem-ref-line = '35';
+        sec-mem-ref-line = '39';
         sec-mem-ref-name = 'llvmast.LlvmCall::toString';
     };
     }; /* sec-member */
@@ -11829,7 +11829,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPrimitiveType.java';
-      sec-mem-desc-line = '10';
+      sec-mem-desc-line = '12';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11838,32 +11838,32 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1acca19034f166ea14b0b9370c221c83f4';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '10';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::DOTDOTDOT';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1a5c7f67abe801f7d045c28ec79ed04495';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::I1';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1a7537618f20a3611e8c1f318435c7c7da';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::I32';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1a65fc5ac3e92115b5c31e00c2fb0f1f33';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::I8';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1a98cb4d3437226ffaa27105b52c440a09';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::LABEL';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1aa9023c082e3f4aa92083e915acccb0ea';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::VOID';
     };
     }; /* sec-member */
@@ -11883,7 +11883,7 @@ _EnD_oF_dEf_TeXt_;
 = new LlvmPrimitiveType()
 _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPrimitiveType.java';
-      sec-mem-desc-line = '8';
+      sec-mem-desc-line = '10';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11892,7 +11892,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1ad3b669267441b8e32e017595fdd904bd';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '12';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::toString';
     };
     }; /* sec-member */
@@ -11909,7 +11909,7 @@ _EnD_oF_dEf_TeXt_;
 = new LlvmPrimitiveType()
 _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPrimitiveType.java';
-      sec-mem-desc-line = '3';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11918,12 +11918,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmBool_8java_1af8ea51222739e36c07a5170b9f18dc7d';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmBool::LlvmBool';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1ad3b669267441b8e32e017595fdd904bd';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '12';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::toString';
     };
     }; /* sec-member */
@@ -11940,7 +11940,7 @@ _EnD_oF_dEf_TeXt_;
 = new LlvmPrimitiveType()
 _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPrimitiveType.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '7';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11949,17 +11949,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmIntegerLiteral_8java_1a99807813d4f3bc228d2b6e4be2eaf921';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmIntegerLiteral::LlvmIntegerLiteral';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a4c576eb393d6dfc644ceae13ff90f85a';
-        sec-mem-ref-line = '70';
+        sec-mem-ref-line = '73';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::MallocImpl';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1ad3b669267441b8e32e017595fdd904bd';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '12';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::toString';
     };
     }; /* sec-member */
@@ -11976,7 +11976,7 @@ _EnD_oF_dEf_TeXt_;
 = new LlvmPrimitiveType()
 _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPrimitiveType.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11985,17 +11985,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1aa272b8b5e5f7b84004112cd408449eea';
-        sec-mem-ref-line = '27';
+        sec-mem-ref-line = '28';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::LlvmMalloc';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmMalloc_8java_1a4c576eb393d6dfc644ceae13ff90f85a';
-        sec-mem-ref-line = '70';
+        sec-mem-ref-line = '73';
         sec-mem-ref-name = 'llvmast.LlvmMalloc::MallocImpl';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1ad3b669267441b8e32e017595fdd904bd';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '12';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::toString';
     };
     }; /* sec-member */
@@ -12012,7 +12012,7 @@ _EnD_oF_dEf_TeXt_;
 = new LlvmPrimitiveType()
 _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPrimitiveType.java';
-      sec-mem-desc-line = '7';
+      sec-mem-desc-line = '9';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12021,12 +12021,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmLabelValue_8java_1a28e44ede5539bb10bf9d19100eb9be0b';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmLabelValue::LlvmLabelValue';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1ad3b669267441b8e32e017595fdd904bd';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '12';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::toString';
     };
     }; /* sec-member */
@@ -12043,7 +12043,7 @@ _EnD_oF_dEf_TeXt_;
 = new LlvmPrimitiveType()
 _EnD_oF_dEf_TeXt_;
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPrimitiveType.java';
-      sec-mem-desc-line = '6';
+      sec-mem-desc-line = '8';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12052,13 +12052,13 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPrimitiveType_8java_1ad3b669267441b8e32e017595fdd904bd';
-        sec-mem-ref-line = '10';
+        sec-mem-ref-line = '12';
         sec-mem-ref-name = 'llvmast.LlvmPrimitiveType::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPrimitiveType.java';
-  cp-fileline  = '2';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12153,7 +12153,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'type';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmRegister.java';
-      sec-mem-desc-line = '8';
+      sec-mem-desc-line = '9';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12172,7 +12172,7 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmValue_8java_1a6edb4a2900c71b0a4fb6ba7a531847b2';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmValue::type';
     };
     }; /* sec-member */
@@ -12198,7 +12198,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'type';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmRegister.java';
-      sec-mem-desc-line = '14';
+      sec-mem-desc-line = '16';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12212,7 +12212,7 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmValue_8java_1a6edb4a2900c71b0a4fb6ba7a531847b2';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmValue::type';
     };
     }; /* sec-member */
@@ -12226,7 +12226,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmRegister.java';
-      sec-mem-desc-line = '24';
+      sec-mem-desc-line = '28';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12261,7 +12261,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmNamedValue_8java_1ab6139908853b68f88ed7994bb8e74509';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmNamedValue::LlvmNamedValue';
     };
       sec-mem-referenceby = {
@@ -12271,12 +12271,12 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmNamedValue_8java_1af2d095ce1978ef7de9769b56ed28b3e1';
-        sec-mem-ref-line = '9';
+        sec-mem-ref-line = '11';
         sec-mem-ref-name = 'llvmast.LlvmNamedValue::toString';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmRegister_8java_1a68fd961ab2965c2650d2aedaa2d4b8a4';
-        sec-mem-ref-line = '24';
+        sec-mem-ref-line = '27';
         sec-mem-ref-name = 'llvmast.LlvmRegister::toString';
     };
     }; /* sec-member */
@@ -12293,7 +12293,7 @@ static void
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'rewind';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmRegister.java';
-      sec-mem-desc-line = '20';
+      sec-mem-desc-line = '23';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12410,7 +12410,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'v';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmRet.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '8';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12419,7 +12419,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmRet_8java_1ace2448206597e93e15ab44bb59306739';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmRet::v';
     };
     }; /* sec-member */
@@ -12433,7 +12433,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmRet.java';
-      sec-mem-desc-line = '8';
+      sec-mem-desc-line = '13';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12442,12 +12442,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmValue_8java_1a6edb4a2900c71b0a4fb6ba7a531847b2';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmValue::type';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmRet_8java_1ace2448206597e93e15ab44bb59306739';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmRet::v';
     };
     }; /* sec-member */
@@ -12464,7 +12464,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'v';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmRet.java';
-      sec-mem-desc-line = '3';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12473,18 +12473,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmRet_8java_1a4de728641850df6c66039df8fadf6fcf';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmRet::LlvmRet';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmRet_8java_1a016271337da46ed36f38294d2f8e4832';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '12';
         sec-mem-ref-name = 'llvmast.LlvmRet::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmRet.java';
-  cp-fileline  = '2';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12595,7 +12595,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'address';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmStore.java';
-      sec-mem-desc-line = '6';
+      sec-mem-desc-line = '9';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12604,12 +12604,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmStore_8java_1a6503d39d4e64fc4aea972541574fdf0a';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmStore::address';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmStore_8java_1a10f2d446f89fed4e10e4371e945d06d5';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmStore::content';
     };
     }; /* sec-member */
@@ -12623,7 +12623,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmStore.java';
-      sec-mem-desc-line = '11';
+      sec-mem-desc-line = '15';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12632,17 +12632,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmStore_8java_1a6503d39d4e64fc4aea972541574fdf0a';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmStore::address';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmStore_8java_1a10f2d446f89fed4e10e4371e945d06d5';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmStore::content';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmValue_8java_1a6edb4a2900c71b0a4fb6ba7a531847b2';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmValue::type';
     };
     }; /* sec-member */
@@ -12659,7 +12659,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'address';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmStore.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12668,12 +12668,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmStore_8java_1a50553b9dc4de80dfcd7b751bd7ccab2a';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmStore::LlvmStore';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmStore_8java_1ad4e493e02ddf89b9f898a01f309882e6';
-        sec-mem-ref-line = '11';
+        sec-mem-ref-line = '14';
         sec-mem-ref-name = 'llvmast.LlvmStore::toString';
     };
     }; /* sec-member */
@@ -12687,7 +12687,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'content';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmStore.java';
-      sec-mem-desc-line = '3';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12696,18 +12696,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmStore_8java_1a50553b9dc4de80dfcd7b751bd7ccab2a';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '8';
         sec-mem-ref-name = 'llvmast.LlvmStore::LlvmStore';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmStore_8java_1ad4e493e02ddf89b9f898a01f309882e6';
-        sec-mem-ref-line = '11';
+        sec-mem-ref-line = '14';
         sec-mem-ref-name = 'llvmast.LlvmStore::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmStore.java';
-  cp-fileline  = '2';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12813,7 +12813,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'typeList';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmStructure.java';
-      sec-mem-desc-line = '9';
+      sec-mem-desc-line = '10';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12841,7 +12841,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmStructure.java';
-      sec-mem-desc-line = '28';
+      sec-mem-desc-line = '37';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -12904,7 +12904,7 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmStructure_8java_1a9c886f8e10f4501df70cb14b91442510';
-        sec-mem-ref-line = '28';
+        sec-mem-ref-line = '36';
         sec-mem-ref-name = 'llvmast.LlvmStructure::toString';
     };
     }; /* sec-member */
@@ -13005,7 +13005,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'op2';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmTimes.java';
-      sec-mem-desc-line = '7';
+      sec-mem-desc-line = '10';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -13014,22 +13014,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmTimes_8java_1a494e827b8a3c55a7e0bb0dcb0b22d158';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmTimes::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmTimes_8java_1a7ea98ad2d17c1f255e00d9951ee55ee0';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmTimes::op1';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmTimes_8java_1ab3b268abb9f8f5bcf641ef27b24a1efa';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmTimes::op2';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmTimes_8java_1aced4a387bc86cae7c41464432a89c47a';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmTimes::type';
     };
     }; /* sec-member */
@@ -13043,7 +13043,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmTimes.java';
-      sec-mem-desc-line = '14';
+      sec-mem-desc-line = '18';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -13052,22 +13052,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmTimes_8java_1a494e827b8a3c55a7e0bb0dcb0b22d158';
-        sec-mem-ref-line = '3';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmTimes::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmTimes_8java_1a7ea98ad2d17c1f255e00d9951ee55ee0';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmTimes::op1';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmTimes_8java_1ab3b268abb9f8f5bcf641ef27b24a1efa';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmTimes::op2';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmTimes_8java_1aced4a387bc86cae7c41464432a89c47a';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmTimes::type';
     };
     }; /* sec-member */
@@ -13084,7 +13084,7 @@ LlvmRegister
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'lhs';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmTimes.java';
-      sec-mem-desc-line = '3';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -13093,12 +13093,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmTimes_8java_1aff7959b94721f38ebf99473d70d0ae6d';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmTimes::LlvmTimes';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmTimes_8java_1a1790fd4abcad558e345e975f670a6240';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmTimes::toString';
     };
     }; /* sec-member */
@@ -13112,7 +13112,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'op1';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmTimes.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '7';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -13121,12 +13121,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmTimes_8java_1aff7959b94721f38ebf99473d70d0ae6d';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmTimes::LlvmTimes';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmTimes_8java_1a1790fd4abcad558e345e975f670a6240';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmTimes::toString';
     };
     }; /* sec-member */
@@ -13140,7 +13140,7 @@ LlvmType
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'type';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmTimes.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -13149,18 +13149,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmTimes_8java_1aff7959b94721f38ebf99473d70d0ae6d';
-        sec-mem-ref-line = '7';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmTimes::LlvmTimes';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmTimes_8java_1a1790fd4abcad558e345e975f670a6240';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmTimes::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmTimes.java';
-  cp-fileline  = '2';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -13304,7 +13304,7 @@ class = {
     ref-virt = non-virtual;
   };
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmType.java';
-  cp-fileline  = '2';
+  cp-fileline  = '3';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -13398,7 +13398,7 @@ class = {
     ref-virt = non-virtual;
   };
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-  cp-fileline  = '418';
+  cp-fileline  = '450';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -13463,7 +13463,7 @@ LlvmType
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'type';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmValue.java';
-      sec-mem-desc-line = '3';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -13472,17 +13472,17 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmBool_8java_1af8ea51222739e36c07a5170b9f18dc7d';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmBool::LlvmBool';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmIntegerLiteral_8java_1a99807813d4f3bc228d2b6e4be2eaf921';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmIntegerLiteral::LlvmIntegerLiteral';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmLabelValue_8java_1a28e44ede5539bb10bf9d19100eb9be0b';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmLabelValue::LlvmLabelValue';
     };
       sec-mem-referenceby = {
@@ -13492,33 +13492,33 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmRet_8java_1a016271337da46ed36f38294d2f8e4832';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '12';
         sec-mem-ref-name = 'llvmast.LlvmRet::toString';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmStore_8java_1ad4e493e02ddf89b9f898a01f309882e6';
-        sec-mem-ref-line = '11';
+        sec-mem-ref-line = '14';
         sec-mem-ref-name = 'llvmast.LlvmStore::toString';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmLoad_8java_1a5f04923aeffdb6103778dabe4236dbc4';
-        sec-mem-ref-line = '11';
+        sec-mem-ref-line = '14';
         sec-mem-ref-name = 'llvmast.LlvmLoad::toString';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmBitcast_8java_1a7e2407e4d063f0d4631b1b6fc968bdc3';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '16';
         sec-mem-ref-name = 'llvmast.LlvmBitcast::toString';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmGetElementPointer_8java_1a647cdd3335f49e40918e125d5edc1a04';
-        sec-mem-ref-line = '14';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmGetElementPointer::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmValue.java';
-  cp-fileline  = '2';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -13625,7 +13625,7 @@ class = {
     ref-virt = non-virtual;
   };
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmVoid.java';
-  cp-fileline  = '2';
+  cp-fileline  = '3';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -13863,7 +13863,7 @@ class = {
   cp-id     = 'classllvm_1_1MethodNode';
   cp-name   = 'llvm::MethodNode';
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-  cp-fileline  = '423';
+  cp-fileline  = '455';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15223,7 +15223,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '375';
+      sec-mem-desc-line = '383';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15247,7 +15247,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '379';
+      sec-mem-desc-line = '387';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15271,7 +15271,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '388';
+      sec-mem-desc-line = '396';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15280,7 +15280,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'Codegen_8java_1abff6b618038338001180dbf340f67f01';
-        sec-mem-ref-line = '372';
+        sec-mem-ref-line = '380';
         sec-mem-ref-name = 'llvm.SymTab::classes';
     };
     }; /* sec-member */
@@ -15300,7 +15300,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '393';
+      sec-mem-desc-line = '401';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15309,7 +15309,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'Codegen_8java_1abff6b618038338001180dbf340f67f01';
-        sec-mem-ref-line = '372';
+        sec-mem-ref-line = '380';
         sec-mem-ref-name = 'llvm.SymTab::classes';
     };
     }; /* sec-member */
@@ -15329,7 +15329,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '408';
+      sec-mem-desc-line = '416';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15353,7 +15353,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '409';
+      sec-mem-desc-line = '420';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15377,7 +15377,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '410';
+      sec-mem-desc-line = '424';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15401,7 +15401,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '411';
+      sec-mem-desc-line = '428';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15425,7 +15425,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '412';
+      sec-mem-desc-line = '432';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15449,7 +15449,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '413';
+      sec-mem-desc-line = '436';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15473,7 +15473,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '414';
+      sec-mem-desc-line = '440';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15497,7 +15497,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '415';
+      sec-mem-desc-line = '444';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15518,7 +15518,7 @@ Map< String, ClassNode >
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'classes';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '372';
+      sec-mem-desc-line = '380';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15527,7 +15527,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'Codegen_8java_1ac3d8690b58a590203619830ed20c5951';
-        sec-mem-ref-line = '388';
+        sec-mem-ref-line = '396';
         sec-mem-ref-name = 'llvm.SymTab::visit';
     };
     }; /* sec-member */
@@ -15544,7 +15544,7 @@ ClassNode
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'classEnv';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '373';
+      sec-mem-desc-line = '381';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15554,7 +15554,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-  cp-fileline  = '371';
+  cp-fileline  = '379';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -16160,7 +16160,7 @@ class = {
     ref-virt = non-virtual;
   };
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-  cp-fileline  = '371';
+  cp-fileline  = '379';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;

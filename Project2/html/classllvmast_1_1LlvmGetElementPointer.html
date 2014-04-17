@@ -170,11 +170,11 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>References <a class="el" href="classllvmast_1_1LlvmGetElementPointer.html#a6230cefe77904d44bd5f75c91da6307a">llvmast.LlvmGetElementPointer.lhs</a>, <a class="el" href="classllvmast_1_1LlvmGetElementPointer.html#a0aa9353a47dba64a1223852261435125">llvmast.LlvmGetElementPointer.offsets</a>, and <a class="el" href="classllvmast_1_1LlvmGetElementPointer.html#ab9a19384bdee9608af66af0c1e889de2">llvmast.LlvmGetElementPointer.source</a>.</p>
-<div class="fragment"><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;                                                                                          {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    this.<a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a6230cefe77904d44bd5f75c91da6307a">lhs</a> = <a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a6230cefe77904d44bd5f75c91da6307a">lhs</a>;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    this.<a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#ab9a19384bdee9608af66af0c1e889de2">source</a> = <a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#ab9a19384bdee9608af66af0c1e889de2">source</a>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    this.<a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a0aa9353a47dba64a1223852261435125">offsets</a> = <a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a0aa9353a47dba64a1223852261435125">offsets</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        this.<a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a6230cefe77904d44bd5f75c91da6307a">lhs</a> = <a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a6230cefe77904d44bd5f75c91da6307a">lhs</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        this.<a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#ab9a19384bdee9608af66af0c1e889de2">source</a> = <a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#ab9a19384bdee9608af66af0c1e889de2">source</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        this.<a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a0aa9353a47dba64a1223852261435125">offsets</a> = <a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a0aa9353a47dba64a1223852261435125">offsets</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -193,16 +193,20 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>References <a class="el" href="classllvmast_1_1LlvmGetElementPointer.html#a6230cefe77904d44bd5f75c91da6307a">llvmast.LlvmGetElementPointer.lhs</a>, <a class="el" href="classllvmast_1_1LlvmGetElementPointer.html#a0aa9353a47dba64a1223852261435125">llvmast.LlvmGetElementPointer.offsets</a>, <a class="el" href="classllvmast_1_1LlvmGetElementPointer.html#ab9a19384bdee9608af66af0c1e889de2">llvmast.LlvmGetElementPointer.source</a>, and <a class="el" href="classllvmast_1_1LlvmValue.html#a6edb4a2900c71b0a4fb6ba7a531847b2">llvmast.LlvmValue.type</a>.</p>
-<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                            {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    String ps = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i&lt;<a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a0aa9353a47dba64a1223852261435125">offsets</a>.size(); i++){</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        ps = ps + <a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a0aa9353a47dba64a1223852261435125">offsets</a>.get(i).type + <span class="stringliteral">&quot; &quot;</span> + <a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a0aa9353a47dba64a1223852261435125">offsets</a>.get(i);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordflow">if</span>(i+1&lt;<a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a0aa9353a47dba64a1223852261435125">offsets</a>.size()) </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        ps = ps + <span class="stringliteral">&quot;, &quot;</span>;</div>
+<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        String ps = <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&quot;  &quot;</span> + <a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a6230cefe77904d44bd5f75c91da6307a">lhs</a> + <span class="stringliteral">&quot; = getelementptr &quot;</span> + <a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#ab9a19384bdee9608af66af0c1e889de2">source</a>.<a class="code" href="classllvmast_1_1LlvmValue.html#a6edb4a2900c71b0a4fb6ba7a531847b2">type</a> + <span class="stringliteral">&quot; &quot;</span> + <a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#ab9a19384bdee9608af66af0c1e889de2">source</a> +<span class="stringliteral">&quot;, &quot;</span> + ps;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i&lt;<a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a0aa9353a47dba64a1223852261435125">offsets</a>.size(); i++)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            ps = ps + <a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a0aa9353a47dba64a1223852261435125">offsets</a>.get(i).type + <span class="stringliteral">&quot; &quot;</span> + <a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a0aa9353a47dba64a1223852261435125">offsets</a>.get(i);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordflow">if</span>(i+1&lt;<a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a0aa9353a47dba64a1223852261435125">offsets</a>.size()) </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                ps = ps + <span class="stringliteral">&quot;, &quot;</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;  &quot;</span> + <a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#a6230cefe77904d44bd5f75c91da6307a">lhs</a> + <span class="stringliteral">&quot; = getelementptr &quot;</span> + <a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#ab9a19384bdee9608af66af0c1e889de2">source</a>.<a class="code" href="classllvmast_1_1LlvmValue.html#a6edb4a2900c71b0a4fb6ba7a531847b2">type</a> + <span class="stringliteral">&quot; &quot;</span> + <a class="code" href="classllvmast_1_1LlvmGetElementPointer.html#ab9a19384bdee9608af66af0c1e889de2">source</a> +<span class="stringliteral">&quot;, &quot;</span> + ps;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
