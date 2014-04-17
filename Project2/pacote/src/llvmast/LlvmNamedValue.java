@@ -1,12 +1,15 @@
 package llvmast;
-public class LlvmNamedValue extends LlvmRegister{
 
-	public LlvmNamedValue(String name, LlvmType type){
+public class LlvmNamedValue extends LlvmRegister
+{
+	public LlvmNamedValue(String name, LlvmType type)
+	{
 		super(name, type);
-		this.name = name;
+		this.name = name;       // TODO: Why?
 	}
-	
-	public String toString(){
+
+	public String toString()
+	{
 		return name; 
 	}
 }
