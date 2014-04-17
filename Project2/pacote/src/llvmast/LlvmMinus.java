@@ -1,11 +1,14 @@
 package llvmast;
+
 // will be used even for -x
-public  class LlvmMinus extends LlvmInstruction{
+public  class LlvmMinus extends LlvmInstruction
+{
     public LlvmRegister lhs;
     public LlvmType type;
     public LlvmValue op1, op2;
 
-    public LlvmMinus(LlvmRegister lhs, LlvmType type, LlvmValue op1, LlvmValue op2){
+    public LlvmMinus(LlvmRegister lhs, LlvmType type, LlvmValue op1, LlvmValue op2)
+    {
         this.lhs = lhs;
         this.type = type;
         this.op1 = op1;
@@ -13,7 +16,8 @@ public  class LlvmMinus extends LlvmInstruction{
 
     }
 
-    public String toString(){
+    public String toString()
+    {
         return "  " +lhs + " = sub " + type + " " + op1 + ", " + op2;
     }
 }

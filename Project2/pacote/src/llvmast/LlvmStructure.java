@@ -1,6 +1,5 @@
 package llvmast;
 import java.util.*;
-// import syntaxtree.VarDecl;   TODO: Why?
 
 public class LlvmStructure extends LlvmType
 {
