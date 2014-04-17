@@ -237,6 +237,7 @@ public class Codegen extends VisitorAdapter {
         
         for ( Statement var : bodyList )
         {
+            var.accept(this);
             System.out.println ( var.toString() );
         }
 
@@ -291,6 +292,10 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(Assign n) {
 		System.out.println("++++++++++AST: Assign");
+        System.out.println ( "var = " + n.var +  " exp = " +  n.exp.toString() );
+        LlvmValue lhs = n.var.accept(this);
+        n.exp.accept(this);
+
 		return null;
 	}
 
@@ -384,8 +389,8 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(Identifier n) {
 		System.out.println("++++++++++AST: Identifier");
-		System.out.println("----s: " + n.s );
-		return null;
+		System.out.println( "s: " + n.s );
+		return new LlvmLabelValue ( "%" + n.s );
 	}
 }
 
@@ -420,7 +425,7 @@ class SymTab extends VisitorAdapter{
     }
 
     public LlvmValue visit(ClassDeclSimple n){
-        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        System.out.println("++++++++++AST: ClassDeclSimple ");
 
         List<LlvmType> attr_type = new LinkedList<LlvmType>();
         List<LlvmValue> attr_value = new LinkedList<LlvmValue>();
@@ -439,36 +444,36 @@ class SymTab extends VisitorAdapter{
     }
 
     public LlvmValue visit(ClassDeclExtends n){
-        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        System.out.println("++++++++++AST: ClassDeclExtends ");
 
         return null;
     }
     public LlvmValue visit(VarDecl n){
-        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        System.out.println("++++++++++AST: VarDecl ");
         return n.type.accept(this);
     }
     public LlvmValue visit(Formal n){
-        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        System.out.println("++++++++++AST: Formal ");
         return null;
     }
     public LlvmValue visit(MethodDecl n){
-        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        System.out.println("++++++++++AST: MethodDecl ");
         return null;
     }
     public LlvmValue visit(IdentifierType n){
-        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        System.out.println("++++++++++AST: IdentifierType ");
         return null;
     }
     public LlvmValue visit(IntArrayType n){
-        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        System.out.println("++++++++++AST: IntArrayType ");
         return null;
     }
     public LlvmValue visit(BooleanType n){
-        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        System.out.println("++++++++++AST: BooleanType ");
         return null;
     }
     public LlvmValue visit(IntegerType n){
-        System.out.println("001B[32m ++++++++++AST: --001B[0m");
+        System.out.println("++++++++++AST: IntegerType ");
         return null;
     }
 }
