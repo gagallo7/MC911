@@ -209,7 +209,7 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(VarDecl n) {
 		System.out.println("++++++++++AST: VarDecl");
-        //LlvmValue newReg = new LlvmRegister ( n.name.toString(), n.type.accept(this).type );
+        //LlvmValue newReg = new LlvmRegister ( n.name.toString(), n.type.accept(this).type )
         return n.type.accept(this);
         //return newReg;
 	}
@@ -227,7 +227,8 @@ public class Codegen extends VisitorAdapter {
         List < LlvmValue > argsList = new LinkedList < LlvmValue > ();
 
         // Adicionando o ponteiro para classe
-        argsList.add( new LlvmNamedValue ( classEnv.name + " * %this" , classEnv.type ) );
+        argsList.add( new LlvmNamedValue (  "* %this" , classEnv) );
+
         for ( Formal formal : FormalList )
         {
             argsList.add( formal.accept(this) );
@@ -257,7 +258,7 @@ public class Codegen extends VisitorAdapter {
 	public LlvmValue visit(Formal n) {
 		System.out.println("++++++++++AST: Formal");
         
-        LlvmRegister R1 = new LlvmRegister(n.name.accept(this).toString(), new LlvmPointer(
+        LlvmRegister R1 = new LlvmRegister("%"+n.name.accept(this).toString(), new LlvmPointer(
 				LlvmPrimitiveType.I32));
              
 		return R1;
@@ -503,6 +504,12 @@ class ClassNode extends LlvmType {
         this.type = classType;
         this.varList = varList;
 	}
+
+    public String toString ()
+    {
+        return "\n%class." + this.name;
+    }
+    
 }
 
 class MethodNode {
