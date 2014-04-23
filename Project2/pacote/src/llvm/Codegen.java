@@ -183,6 +183,14 @@ public class Codegen extends VisitorAdapter {
             attr_aux.add( var.accept(this).type );
         }
 
+        List<MethodDecl> methodList = LlvmUtility.getMethodList( n.methodList );
+        for ( MethodDecl method : methodList )
+        {
+            System.out.println ( method.name );
+            //attr_aux.add( method.accept(this).type );
+            method.accept(this);
+        }
+
         LlvmStructure struct_attr = new LlvmStructure( attr_aux );
         LlvmConstantDeclaration const_attr = new LlvmConstantDeclaration( "\n%class." + n.name.toString(), "type " + struct_attr.toString() + "\n" );
         assembler.add( const_attr );
