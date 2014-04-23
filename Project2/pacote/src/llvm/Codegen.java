@@ -177,11 +177,16 @@ public class Codegen extends VisitorAdapter {
         List<VarDecl> varList = util.getTList( n.varList );
 
         List<LlvmType> attr_aux = new LinkedList<LlvmType>();
+        List<LlvmValue> var_aux = new LinkedList<LlvmValue>();
+
         for ( VarDecl var : varList )
         {
             System.out.println ( var.name );
             attr_aux.add( var.accept(this).type );
+            var_aux.add( var.accept(this) );
         }
+        LlvmStructure struct_attr = new LlvmStructure( attr_aux );
+        classEnv = new ClassNode ( n.name.toString(), struct_attr, var_aux );
 
         List<MethodDecl> methodList = LlvmUtility.getMethodList( n.methodList );
         for ( MethodDecl method : methodList )
@@ -191,7 +196,6 @@ public class Codegen extends VisitorAdapter {
             method.accept(this);
         }
 
-        LlvmStructure struct_attr = new LlvmStructure( attr_aux );
         LlvmConstantDeclaration const_attr = new LlvmConstantDeclaration( "\n%class." + n.name.toString(), "type " + struct_attr.toString() + "\n" );
         assembler.add( const_attr );
 
@@ -222,6 +226,8 @@ public class Codegen extends VisitorAdapter {
 
         List < LlvmValue > argsList = new LinkedList < LlvmValue > ();
 
+        // Adicionando o ponteiro para classe
+        argsList.add( new LlvmNamedValue ( classEnv.name + " * %this" , classEnv.type ) );
         for ( Formal formal : FormalList )
         {
             argsList.add( formal.accept(this) );
@@ -489,7 +495,13 @@ class SymTab extends VisitorAdapter{
 }
 
 class ClassNode extends LlvmType {
+    String name;
+    LlvmStructure type;
+    List < LlvmValue > varList;
 	ClassNode (String nameClass, LlvmStructure classType, List<LlvmValue> varList){
+        this.name = nameClass;
+        this.type = classType;
+        this.varList = varList;
 	}
 }
 
