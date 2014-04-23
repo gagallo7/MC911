@@ -228,7 +228,9 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(VarDecl n) {
 		System.out.println("++++++++++AST: VarDecl");
+        //LlvmValue newReg = new LlvmRegister ( n.name.toString(), n.type.accept(this).type );
         return n.type.accept(this);
+        //return newReg;
 	}
 
 	public LlvmValue visit(MethodDecl n) {
@@ -242,11 +244,15 @@ public class Codegen extends VisitorAdapter {
         List < Formal > FormalList = luFormal.getTList ( n.formals );
 
         List < LlvmValue > argsList = new LinkedList < LlvmValue > ();
+
         for ( Formal formal : FormalList )
         {
             argsList.add( formal.accept(this) );
             System.out.println ( formal.toString() );
         }
+		assembler.add(new LlvmDefine( "@"+name.toString(), retType.type,
+			argsList	));
+		assembler.add(new LlvmLabel(new LlvmLabelValue("entry")));
 
         List<Statement> bodyList = LlvmUtility.getStatementList( n.body );
         
@@ -257,15 +263,21 @@ public class Codegen extends VisitorAdapter {
         }
         n.returnExp.accept(this);
 
-        LlvmInstruction const_attr = new LlvmDefine ( name.toString(), retType.type, argsList );
+        //LlvmInstruction const_attr = new LlvmDefine ( name.toString(), retType.type, argsList );
         //assembler.add( const_attr );
+		//assembler.add(new LlvmRet(R2));
+		assembler.add(new LlvmCloseDefinition());
 
 		return null;
 	}
 
 	public LlvmValue visit(Formal n) {
 		System.out.println("++++++++++AST: Formal");
-		return null;
+        
+        LlvmRegister R1 = new LlvmRegister(n.name.accept(this).toString(), new LlvmPointer(
+				LlvmPrimitiveType.I32));
+             
+		return R1;
 	}
 
 	public LlvmValue visit(IntArrayType n) {
@@ -280,6 +292,8 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(IntegerType n) {
 		System.out.println("++++++++++AST: IntegerType");
+        System.out.println ( "toString of IntType: " + n.toString() );
+
 		return new LlvmIntegerLiteral (0);
 	}
 
@@ -409,7 +423,7 @@ public class Codegen extends VisitorAdapter {
 	public LlvmValue visit(Identifier n) {
 		System.out.println("++++++++++AST: Identifier");
 		System.out.println( "s: " + n.s );
-		return new LlvmLabelValue ( "%" + n.s );
+		return new LlvmLabelValue ( n.s );
 	}
 }
 

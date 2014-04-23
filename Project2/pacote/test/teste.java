@@ -6,6 +6,15 @@ class a
     }
 }
 
+class Matematica {
+    int x;
+    public int Soma(int a, int b){
+        int y;
+        y = 10;
+        return 1;
+    }
+}
+
 class b 
 {
         int x;
