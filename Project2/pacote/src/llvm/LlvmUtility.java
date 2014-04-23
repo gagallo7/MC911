@@ -1,8 +1,20 @@
 package llvm;
 import syntaxtree.*;
 
-public class LlvmUtility
+public class LlvmUtility < T >
 {
+    public final java.util.List < T > getTList ( util.List < T > arg )
+    {
+        util.List < T > aux = arg;
+        java.util.List < T > res = new java.util.LinkedList < T > ();
+        while ( aux != null )
+        {
+            res.add ( aux.head );
+            aux = aux.tail;
+        }
+        return res;
+    }
+
     public static final java.util.List < VarDecl > getVarList ( util.List < VarDecl > arg )
     {
         util.List < VarDecl > aux = arg;

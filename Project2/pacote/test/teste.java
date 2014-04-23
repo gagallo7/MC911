@@ -11,7 +11,7 @@ class b
         int x;
         int y;
 
-        public int method_test() 
+        public int method_test( int arg ) 
         {
             int a;
             int b;

@@ -190,7 +190,8 @@ public class Codegen extends VisitorAdapter {
         for ( MethodDecl method : methodList )
         {
             System.out.println ( method.name );
-            attr_aux.add( method.accept(this).type );
+            //attr_aux.add( method.accept(this).type );
+            method.accept(this);
         }
 
         LlvmStructure struct_meth = new LlvmStructure( meth_aux );
@@ -232,6 +233,20 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(MethodDecl n) {
 		System.out.println("++++++++++AST: MethodDecl");
+        LlvmUtility < Formal > luFormal = new LlvmUtility < Formal > ();
+
+        LlvmValue retType = n.returnType.accept ( this );
+
+        LlvmValue name = n.name.accept(this);
+
+        List < Formal > FormalList = luFormal.getTList ( n.formals );
+
+        List < LlvmValue > argsList = new LinkedList < LlvmValue > ();
+        for ( Formal formal : FormalList )
+        {
+            argsList.add( formal.accept(this) );
+            System.out.println ( formal.toString() );
+        }
 
         List<Statement> bodyList = LlvmUtility.getStatementList( n.body );
         
@@ -240,6 +255,10 @@ public class Codegen extends VisitorAdapter {
             var.accept(this);
             System.out.println ( var.toString() );
         }
+        n.returnExp.accept(this);
+
+        LlvmInstruction const_attr = new LlvmDefine ( name.toString(), retType.type, argsList );
+        //assembler.add( const_attr );
 
 		return null;
 	}
