@@ -215,8 +215,40 @@ _EnD_oF_dEf_TeXt_;
 class = {
   cp-id     = 'classb';
   cp-name   = 'b';
+  cp-section = {
+    sec-kind = 'public-func';
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classb_1a5253388f2b02255706e703c791590fcc';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'method_test';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'arg';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/test/teste.java';
+      sec-mem-desc-line = '24';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = 'teste_8java_1aa7de47f3dccfa7e3a3246c4aa0d36334';
+        sec-mem-ref-line = '20';
+        sec-mem-ref-name = 'x';
+    };
+    }; /* sec-member */
+  }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/test/teste.java';
-  cp-fileline  = '10';
+  cp-fileline  = '19';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2567,7 +2599,7 @@ class = {
     ref-virt = non-virtual;
   };
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-  cp-fileline  = '462';
+  cp-fileline  = '497';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2822,7 +2854,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '169';
+      sec-mem-desc-line = '167';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2846,7 +2878,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '175';
+      sec-mem-desc-line = '173';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2857,6 +2889,11 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-ref-id = 'Codegen_8java_1a22446843d555a3f30d668e663b857d41';
         sec-mem-ref-line = '47';
         sec-mem-ref-name = 'llvm.Codegen::assembler';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = 'Codegen_8java_1aab69839e12726f5adfde15786ddc4ee2';
+        sec-mem-ref-line = '51';
+        sec-mem-ref-name = 'llvm.Codegen::classEnv';
     };
     }; /* sec-member */
     sec-member = {
@@ -2875,7 +2912,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '218';
+      sec-mem-desc-line = '205';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2899,18 +2936,13 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '223';
+      sec-mem-desc-line = '210';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
-      sec-mem-referenceto = {
-        sec-mem-ref-id = 'Codegen_8java_1a22446843d555a3f30d668e663b857d41';
-        sec-mem-ref-line = '47';
-        sec-mem-ref-name = 'llvm.Codegen::assembler';
-    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -2928,13 +2960,33 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '233';
+      sec-mem-desc-line = '217';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = 'Codegen_8java_1a22446843d555a3f30d668e663b857d41';
+        sec-mem-ref-line = '47';
+        sec-mem-ref-name = 'llvm.Codegen::assembler';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = 'Codegen_8java_1aab69839e12726f5adfde15786ddc4ee2';
+        sec-mem-ref-line = '51';
+        sec-mem-ref-name = 'llvm.Codegen::classEnv';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = 'Codegen_8java_1ac7922abd07577318a8b34bcecb76afbe';
+        sec-mem-ref-line = '498';
+        sec-mem-ref-name = 'llvm.ClassNode::name';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = 'Codegen_8java_1ab277f14a02d23e02c071b97df3007dac';
+        sec-mem-ref-line = '499';
+        sec-mem-ref-name = 'llvm.ClassNode::type';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
@@ -2952,7 +3004,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '238';
+      sec-mem-desc-line = '257';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2976,7 +3028,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '243';
+      sec-mem-desc-line = '266';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3000,7 +3052,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '248';
+      sec-mem-desc-line = '271';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3024,7 +3076,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '253';
+      sec-mem-desc-line = '276';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3048,7 +3100,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '258';
+      sec-mem-desc-line = '283';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3072,7 +3124,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '263';
+      sec-mem-desc-line = '288';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3096,7 +3148,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '268';
+      sec-mem-desc-line = '293';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3120,7 +3172,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '279';
+      sec-mem-desc-line = '304';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3144,7 +3196,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '284';
+      sec-mem-desc-line = '309';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3168,7 +3220,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '289';
+      sec-mem-desc-line = '318';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3192,7 +3244,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '294';
+      sec-mem-desc-line = '323';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3216,7 +3268,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '299';
+      sec-mem-desc-line = '328';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3240,7 +3292,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '309';
+      sec-mem-desc-line = '338';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3269,7 +3321,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '318';
+      sec-mem-desc-line = '347';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3298,7 +3350,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '327';
+      sec-mem-desc-line = '356';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3322,7 +3374,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '332';
+      sec-mem-desc-line = '361';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3346,7 +3398,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '337';
+      sec-mem-desc-line = '366';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3370,7 +3422,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '342';
+      sec-mem-desc-line = '371';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3394,7 +3446,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '347';
+      sec-mem-desc-line = '376';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3418,7 +3470,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '352';
+      sec-mem-desc-line = '381';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3442,7 +3494,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '357';
+      sec-mem-desc-line = '386';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3466,7 +3518,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '362';
+      sec-mem-desc-line = '391';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3490,7 +3542,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '367';
+      sec-mem-desc-line = '396';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3514,7 +3566,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '372';
+      sec-mem-desc-line = '401';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3538,7 +3590,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '377';
+      sec-mem-desc-line = '406';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3599,6 +3651,11 @@ _EnD_oF_dEf_TeXt_;
       sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
+      sec-mem-referenceby = {
+        sec-mem-ref-id = 'Codegen_8java_1a6f340551aaac8cb0fb8740be1c1f3761';
+        sec-mem-ref-line = '173';
+        sec-mem-ref-name = 'llvm.Codegen::visit';
+    };
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'variable';
@@ -3942,8 +3999,8 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
 }; /* class */
 class = {
-  cp-id     = 'classstd_1_1deque_1_1const__iterator';
-  cp-name   = 'std::deque::const_iterator';
+  cp-id     = 'classstd_1_1string_1_1const__iterator';
+  cp-name   = 'std::string::const_iterator';
   cp-filename  = '[STL]';
   cp-fileline  = '1';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
@@ -3954,8 +4011,8 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
 }; /* class */
 class = {
-  cp-id     = 'classstd_1_1string_1_1const__iterator';
-  cp-name   = 'std::string::const_iterator';
+  cp-id     = 'classstd_1_1deque_1_1const__iterator';
+  cp-name   = 'std::deque::const_iterator';
   cp-filename  = '[STL]';
   cp-fileline  = '1';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
@@ -4004,6 +4061,18 @@ _EnD_oF_dEf_TeXt_;
 class = {
   cp-id     = 'classstd_1_1unordered__map_1_1const__reverse__iterator';
   cp-name   = 'std::unordered_map::const_reverse_iterator';
+  cp-filename  = '[STL]';
+  cp-fileline  = '1';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+STL iterator class.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
+  cp-id     = 'classstd_1_1basic__string_1_1const__reverse__iterator';
+  cp-name   = 'std::basic_string::const_reverse_iterator';
   cp-filename  = '[STL]';
   cp-fileline  = '1';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
@@ -4112,18 +4181,6 @@ _EnD_oF_dEf_TeXt_;
 class = {
   cp-id     = 'classstd_1_1vector_1_1const__reverse__iterator';
   cp-name   = 'std::vector::const_reverse_iterator';
-  cp-filename  = '[STL]';
-  cp-fileline  = '1';
-  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
-STL iterator class.
-_EnD_oF_dEf_TeXt_;
-  cp-documentation = <<_EnD_oF_dEf_TeXt_
-
-_EnD_oF_dEf_TeXt_;
-}; /* class */
-class = {
-  cp-id     = 'classstd_1_1basic__string_1_1const__reverse__iterator';
-  cp-name   = 'std::basic_string::const_reverse_iterator';
   cp-filename  = '[STL]';
   cp-fileline  = '1';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
@@ -5562,18 +5619,6 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
 }; /* class */
 class = {
-  cp-id     = 'classstd_1_1set_1_1iterator';
-  cp-name   = 'std::set::iterator';
-  cp-filename  = '[STL]';
-  cp-fileline  = '1';
-  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
-STL iterator class.
-_EnD_oF_dEf_TeXt_;
-  cp-documentation = <<_EnD_oF_dEf_TeXt_
-
-_EnD_oF_dEf_TeXt_;
-}; /* class */
-class = {
   cp-id     = 'classstd_1_1map_1_1iterator';
   cp-name   = 'std::map::iterator';
   cp-filename  = '[STL]';
@@ -5646,6 +5691,30 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
 }; /* class */
 class = {
+  cp-id     = 'classstd_1_1set_1_1iterator';
+  cp-name   = 'std::set::iterator';
+  cp-filename  = '[STL]';
+  cp-fileline  = '1';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+STL iterator class.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
+  cp-id     = 'classstd_1_1unordered__set_1_1iterator';
+  cp-name   = 'std::unordered_set::iterator';
+  cp-filename  = '[STL]';
+  cp-fileline  = '1';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+STL iterator class.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
   cp-id     = 'classstd_1_1wstring_1_1iterator';
   cp-name   = 'std::wstring::iterator';
   cp-filename  = '[STL]';
@@ -5696,18 +5765,6 @@ _EnD_oF_dEf_TeXt_;
 class = {
   cp-id     = 'classstd_1_1deque_1_1iterator';
   cp-name   = 'std::deque::iterator';
-  cp-filename  = '[STL]';
-  cp-fileline  = '1';
-  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
-STL iterator class.
-_EnD_oF_dEf_TeXt_;
-  cp-documentation = <<_EnD_oF_dEf_TeXt_
-
-_EnD_oF_dEf_TeXt_;
-}; /* class */
-class = {
-  cp-id     = 'classstd_1_1unordered__set_1_1iterator';
-  cp-name   = 'std::unordered_set::iterator';
   cp-filename  = '[STL]';
   cp-fileline  = '1';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
@@ -11403,7 +11460,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'op2';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPlus.java';
-      sec-mem-desc-line = '9';
+      sec-mem-desc-line = '10';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11412,22 +11469,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a50ce05345f452a29ede35667b7658356';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmPlus::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a23f1b6de41c2da2ba0b6c15a1692fc06';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmPlus::op1';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPlus_8java_1ad4d777133f5cb379263f7564dd2b42cc';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmPlus::op2';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a2b55eca324fa6236758de37122a96686';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmPlus::type';
     };
     }; /* sec-member */
@@ -11441,7 +11498,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'toString';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPlus.java';
-      sec-mem-desc-line = '17';
+      sec-mem-desc-line = '18';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11450,22 +11507,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a50ce05345f452a29ede35667b7658356';
-        sec-mem-ref-line = '4';
+        sec-mem-ref-line = '5';
         sec-mem-ref-name = 'llvmast.LlvmPlus::lhs';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a23f1b6de41c2da2ba0b6c15a1692fc06';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmPlus::op1';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPlus_8java_1ad4d777133f5cb379263f7564dd2b42cc';
-        sec-mem-ref-line = '6';
+        sec-mem-ref-line = '7';
         sec-mem-ref-name = 'llvmast.LlvmPlus::op2';
     };
       sec-mem-referenceto = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a2b55eca324fa6236758de37122a96686';
-        sec-mem-ref-line = '5';
+        sec-mem-ref-line = '6';
         sec-mem-ref-name = 'llvmast.LlvmPlus::type';
     };
     }; /* sec-member */
@@ -11482,7 +11539,7 @@ LlvmRegister
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'lhs';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPlus.java';
-      sec-mem-desc-line = '4';
+      sec-mem-desc-line = '5';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11491,12 +11548,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a90a075006cc491a1032bd4ffc9778907';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmPlus::LlvmPlus';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPlus_8java_1ae9993cce6fe682906f6226aa585a8287';
-        sec-mem-ref-line = '16';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmPlus::toString';
     };
     }; /* sec-member */
@@ -11510,7 +11567,7 @@ LlvmValue
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'op1';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPlus.java';
-      sec-mem-desc-line = '6';
+      sec-mem-desc-line = '7';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11519,12 +11576,12 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a90a075006cc491a1032bd4ffc9778907';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmPlus::LlvmPlus';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPlus_8java_1ae9993cce6fe682906f6226aa585a8287';
-        sec-mem-ref-line = '16';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmPlus::toString';
     };
     }; /* sec-member */
@@ -11538,7 +11595,7 @@ LlvmType
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'type';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPlus.java';
-      sec-mem-desc-line = '5';
+      sec-mem-desc-line = '6';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -11547,18 +11604,18 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPlus_8java_1a90a075006cc491a1032bd4ffc9778907';
-        sec-mem-ref-line = '8';
+        sec-mem-ref-line = '9';
         sec-mem-ref-name = 'llvmast.LlvmPlus::LlvmPlus';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'LlvmPlus_8java_1ae9993cce6fe682906f6226aa585a8287';
-        sec-mem-ref-line = '16';
+        sec-mem-ref-line = '17';
         sec-mem-ref-name = 'llvmast.LlvmPlus::toString';
     };
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvmast/LlvmPlus.java';
-  cp-fileline  = '3';
+  cp-fileline  = '4';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -13277,6 +13334,42 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
 }; /* class */
 class = {
+  cp-id     = 'classLlvmType';
+  cp-name   = 'LlvmType';
+  cp-ref     = {
+    ref-type = derived;
+    ref-id   = 'classllvm_1_1ClassNode';
+    ref-prot = public;
+    ref-virt = non-virtual;
+  };
+  cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
+  cp-fileline  = '497';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 670;
+        node-label = 'llvm.ClassNode';
+        node-link = {
+          node-link-id = 'classllvm_1_1ClassNode';
+        };
+        node-child = {
+          child-id = '669';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 669;
+        node-label = 'LlvmType';
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
   cp-id     = 'classllvmast_1_1LlvmType';
   cp-name   = 'llvmast::LlvmType';
   cp-ref     = {
@@ -13325,75 +13418,75 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 674;
+        node-id    = 677;
         node-label = 'llvmast.LlvmStructure';
         node-link = {
           node-link-id = 'classllvmast_1_1LlvmStructure';
         };
         node-child = {
-          child-id = '669';
+          child-id = '672';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 669;
+        node-id    = 672;
         node-label = 'llvmast.LlvmType';
         node-link = {
           node-link-id = 'classllvmast_1_1LlvmType';
         };
       }; /* node */
       node = {
-        node-id    = 672;
+        node-id    = 675;
         node-label = 'llvmast.LlvmPointer';
         node-link = {
           node-link-id = 'classllvmast_1_1LlvmPointer';
         };
         node-child = {
-          child-id = '669';
+          child-id = '672';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 673;
+        node-id    = 676;
         node-label = 'llvmast.LlvmPrimitiveType';
         node-link = {
           node-link-id = 'classllvmast_1_1LlvmPrimitiveType';
         };
         node-child = {
-          child-id = '669';
+          child-id = '672';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 670;
+        node-id    = 673;
         node-label = 'llvmast.LlvmArray';
         node-link = {
           node-link-id = 'classllvmast_1_1LlvmArray';
         };
         node-child = {
-          child-id = '669';
+          child-id = '672';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 671;
+        node-id    = 674;
         node-label = 'llvmast.LlvmFunctionType';
         node-link = {
           node-link-id = 'classllvmast_1_1LlvmFunctionType';
         };
         node-child = {
-          child-id = '669';
+          child-id = '672';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 675;
+        node-id    = 678;
         node-label = 'llvmast.LlvmVoid';
         node-link = {
           node-link-id = 'classllvmast_1_1LlvmVoid';
         };
         node-child = {
-          child-id = '669';
+          child-id = '672';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -13401,55 +13494,94 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
 }; /* class */
 class = {
-  cp-id     = 'classLlvmType';
-  cp-name   = 'LlvmType';
-  cp-ref     = {
-    ref-type = derived;
-    ref-id   = 'classllvm_1_1ClassNode';
-    ref-prot = public;
-    ref-virt = non-virtual;
-  };
-  cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-  cp-fileline  = '462';
-  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+  cp-id     = 'classllvm_1_1LlvmUtility_3_01T_01_4';
+  cp-name   = 'llvm::LlvmUtility< T >';
+  cp-section = {
+    sec-kind = 'public-func';
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classllvm_1_1LlvmUtility_3_01T_01_4_1afb33fd1dd88460685ed57749ea21144b';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+final java.util.List< T >
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getTList';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+util.List< T >
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'arg';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/LlvmUtility.java';
+      sec-mem-desc-line = '7';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
-  cp-documentation = <<_EnD_oF_dEf_TeXt_
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
-  cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
-      node = {
-        node-id    = 678;
-        node-label = 'llvm.ClassNode';
-        node-link = {
-          node-link-id = 'classllvm_1_1ClassNode';
-        };
-        node-child = {
-          child-id = '677';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 677;
-        node-label = 'LlvmType';
-      }; /* node */
-
-_EnD_oF_dEf_TeXt_;
-}; /* class */
-class = {
-  cp-id     = 'classllvm_1_1LlvmUtility';
-  cp-name   = 'llvm::LlvmUtility';
+    }; /* sec-member */
+  }; /* cp-section */
   cp-section = {
     sec-kind = 'public-static-func';
     sec-member = {
       sec-mem-kind = 'function';
-      sec-mem-id   = 'classllvm_1_1LlvmUtility_1a51a7e5b5d6afcf9b059f5062f024392c';
+      sec-mem-id   = 'classllvm_1_1LlvmUtility_3_01T_01_4_1a4206de70f470cfcea5903e12b1386f53';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+static final java.util.List< MethodDecl >
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getMethodList';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+util.List< MethodDecl >
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'arg';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/LlvmUtility.java';
+      sec-mem-desc-line = '31';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classllvm_1_1LlvmUtility_3_01T_01_4_1aa27000ea01f7ed8bce6c1c5a21ae70d7';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+static final java.util.List< Statement >
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'getStatementList';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+util.List< Statement >
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'arg';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/LlvmUtility.java';
+      sec-mem-desc-line = '43';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classllvm_1_1LlvmUtility_3_01T_01_4_1ad4dbdf8dbdda905d16b728519b4d713b';
       sec-mem-virt = normal;
       sec-mem-prot = public;
       sec-mem-type = <<_EnD_oF_dEf_TeXt_
 static final java.util.List< VarDecl >
 _EnD_oF_dEf_TeXt_;
-      sec-mem-name = 'getList';
+      sec-mem-name = 'getVarList';
       sec-mem-param = {
         sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
 util.List< VarDecl >
@@ -13457,7 +13589,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'arg';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/LlvmUtility.java';
-      sec-mem-desc-line = '7';
+      sec-mem-desc-line = '19';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -13911,10 +14043,55 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
 }; /* class */
 class = {
+  cp-id     = 'classMatematica';
+  cp-name   = 'Matematica';
+  cp-section = {
+    sec-kind = 'public-func';
+    sec-member = {
+      sec-mem-kind = 'function';
+      sec-mem-id   = 'classMatematica_1ab28d5bfefb62ee1b5842b661e89cb32c';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'Soma';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'a';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'b';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/test/teste.java';
+      sec-mem-desc-line = '11';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+    }; /* sec-member */
+  }; /* cp-section */
+  cp-filename  = '/home/brunogsa/MC911/Project2/pacote/test/teste.java';
+  cp-fileline  = '9';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
   cp-id     = 'classllvm_1_1MethodNode';
   cp-name   = 'llvm::MethodNode';
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-  cp-fileline  = '467';
+  cp-fileline  = '508';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -13974,25 +14151,25 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 710;
+        node-id    = 712;
         node-label = 'K';
       }; /* node */
       node = {
-        node-id    = 711;
+        node-id    = 713;
         node-label = 'T';
       }; /* node */
       node = {
-        node-id    = 709;
+        node-id    = 711;
         node-label = 'std::multimap< K, T >';
         node-child = {
-          child-id = '710';
+          child-id = '712';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 keys
 _EnD_oF_dEf_TeXt_;
         }; /* node-child */
         node-child = {
-          child-id = '711';
+          child-id = '713';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 elements
@@ -14036,14 +14213,14 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 714;
+        node-id    = 716;
         node-label = 'K';
       }; /* node */
       node = {
-        node-id    = 713;
+        node-id    = 715;
         node-label = 'std::multiset< K >';
         node-child = {
-          child-id = '714';
+          child-id = '716';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 keys
@@ -14072,78 +14249,78 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 716;
-        node-label = 'std::basic_ofstream< char >';
-        node-child = {
-          child-id = '717';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 715;
-        node-label = 'std::ofstream';
-        node-child = {
-          child-id = '716';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 717;
-        node-label = 'std::basic_ostream< Char >';
-        node-child = {
-          child-id = '718';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
         node-id    = 718;
-        node-label = 'std::basic_ios< Char >';
+        node-label = 'std::basic_ofstream< char >';
         node-child = {
           child-id = '719';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 719;
-        node-label = 'std::ios_base';
-      }; /* node */
-
-_EnD_oF_dEf_TeXt_;
-  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
-      node = {
-        node-id    = 721;
-        node-label = 'std::basic_ofstream< char >';
+        node-id    = 717;
+        node-label = 'std::ofstream';
         node-child = {
-          child-id = '722';
+          child-id = '718';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 719;
+        node-label = 'std::basic_ostream< Char >';
+        node-child = {
+          child-id = '720';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
         node-id    = 720;
-        node-label = 'std::ofstream';
+        node-label = 'std::basic_ios< Char >';
         node-child = {
           child-id = '721';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 722;
-        node-label = 'std::basic_ostream< Char >';
-        node-child = {
-          child-id = '723';
-          relation = public-inheritance;
-        }; /* node-child */
+        node-id    = 721;
+        node-label = 'std::ios_base';
       }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
         node-id    = 723;
-        node-label = 'std::basic_ios< Char >';
+        node-label = 'std::basic_ofstream< char >';
         node-child = {
           child-id = '724';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
+        node-id    = 722;
+        node-label = 'std::ofstream';
+        node-child = {
+          child-id = '723';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
         node-id    = 724;
+        node-label = 'std::basic_ostream< Char >';
+        node-child = {
+          child-id = '725';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 725;
+        node-label = 'std::basic_ios< Char >';
+        node-child = {
+          child-id = '726';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 726;
         node-label = 'std::ios_base';
       }; /* node */
 
@@ -14168,51 +14345,8 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 727;
-        node-label = 'std::basic_ios< Char >';
-        node-child = {
-          child-id = '728';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 728;
-        node-label = 'std::ios_base';
-      }; /* node */
-      node = {
-        node-id    = 725;
-        node-label = 'std::ostream';
-        node-child = {
-          child-id = '726';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 726;
-        node-label = 'std::basic_ostream< char >';
-        node-child = {
-          child-id = '727';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-
-_EnD_oF_dEf_TeXt_;
-  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
-      node = {
-        node-id    = 731;
-        node-label = 'std::basic_ios< Char >';
-        node-child = {
-          child-id = '732';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 732;
-        node-label = 'std::ios_base';
-      }; /* node */
-      node = {
         node-id    = 729;
-        node-label = 'std::ostream';
+        node-label = 'std::basic_ios< Char >';
         node-child = {
           child-id = '730';
           relation = public-inheritance;
@@ -14220,9 +14354,52 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 730;
+        node-label = 'std::ios_base';
+      }; /* node */
+      node = {
+        node-id    = 727;
+        node-label = 'std::ostream';
+        node-child = {
+          child-id = '728';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 728;
         node-label = 'std::basic_ostream< char >';
         node-child = {
-          child-id = '731';
+          child-id = '729';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 733;
+        node-label = 'std::basic_ios< Char >';
+        node-child = {
+          child-id = '734';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 734;
+        node-label = 'std::ios_base';
+      }; /* node */
+      node = {
+        node-id    = 731;
+        node-label = 'std::ostream';
+        node-child = {
+          child-id = '732';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 732;
+        node-label = 'std::basic_ostream< char >';
+        node-child = {
+          child-id = '733';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -14248,24 +14425,8 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 733;
-        node-label = 'std::ostringstream';
-        node-child = {
-          child-id = '734';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 734;
-        node-label = 'std::basic_ostringstream< char >';
-        node-child = {
-          child-id = '735';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
         node-id    = 735;
-        node-label = 'std::basic_ostream< Char >';
+        node-label = 'std::ostringstream';
         node-child = {
           child-id = '736';
           relation = public-inheritance;
@@ -14273,7 +14434,7 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 736;
-        node-label = 'std::basic_ios< Char >';
+        node-label = 'std::basic_ostringstream< char >';
         node-child = {
           child-id = '737';
           relation = public-inheritance;
@@ -14281,14 +14442,15 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 737;
-        node-label = 'std::ios_base';
+        node-label = 'std::basic_ostream< Char >';
+        node-child = {
+          child-id = '738';
+          relation = public-inheritance;
+        }; /* node-child */
       }; /* node */
-
-_EnD_oF_dEf_TeXt_;
-  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
         node-id    = 738;
-        node-label = 'std::ostringstream';
+        node-label = 'std::basic_ios< Char >';
         node-child = {
           child-id = '739';
           relation = public-inheritance;
@@ -14296,15 +14458,14 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 739;
-        node-label = 'std::basic_ostringstream< char >';
-        node-child = {
-          child-id = '740';
-          relation = public-inheritance;
-        }; /* node-child */
+        node-label = 'std::ios_base';
       }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
         node-id    = 740;
-        node-label = 'std::basic_ostream< Char >';
+        node-label = 'std::ostringstream';
         node-child = {
           child-id = '741';
           relation = public-inheritance;
@@ -14312,7 +14473,7 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 741;
-        node-label = 'std::basic_ios< Char >';
+        node-label = 'std::basic_ostringstream< char >';
         node-child = {
           child-id = '742';
           relation = public-inheritance;
@@ -14320,6 +14481,22 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 742;
+        node-label = 'std::basic_ostream< Char >';
+        node-child = {
+          child-id = '743';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 743;
+        node-label = 'std::basic_ios< Char >';
+        node-child = {
+          child-id = '744';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 744;
         node-label = 'std::ios_base';
       }; /* node */
 
@@ -14344,46 +14521,46 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 744;
-        node-label = 'std::logic_error';
-        node-child = {
-          child-id = '745';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 743;
-        node-label = 'std::out_of_range';
-        node-child = {
-          child-id = '744';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 745;
-        node-label = 'std::exception';
-      }; /* node */
-
-_EnD_oF_dEf_TeXt_;
-  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
-      node = {
-        node-id    = 747;
-        node-label = 'std::logic_error';
-        node-child = {
-          child-id = '748';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
         node-id    = 746;
-        node-label = 'std::out_of_range';
+        node-label = 'std::logic_error';
         node-child = {
           child-id = '747';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
+        node-id    = 745;
+        node-label = 'std::out_of_range';
+        node-child = {
+          child-id = '746';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 747;
+        node-label = 'std::exception';
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 749;
+        node-label = 'std::logic_error';
+        node-child = {
+          child-id = '750';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
         node-id    = 748;
+        node-label = 'std::out_of_range';
+        node-child = {
+          child-id = '749';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 750;
         node-label = 'std::exception';
       }; /* node */
 
@@ -14408,22 +14585,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 750;
+        node-id    = 752;
         node-label = 'std::runtime_error';
         node-child = {
-          child-id = '751';
+          child-id = '753';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 751;
+        node-id    = 753;
         node-label = 'std::exception';
       }; /* node */
       node = {
-        node-id    = 749;
+        node-id    = 751;
         node-label = 'std::overflow_error';
         node-child = {
-          child-id = '750';
+          child-id = '752';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -14431,22 +14608,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 753;
+        node-id    = 755;
         node-label = 'std::runtime_error';
         node-child = {
-          child-id = '754';
+          child-id = '756';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 754;
+        node-id    = 756;
         node-label = 'std::exception';
       }; /* node */
       node = {
-        node-id    = 752;
+        node-id    = 754;
         node-label = 'std::overflow_error';
         node-child = {
-          child-id = '753';
+          child-id = '755';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -14487,14 +14664,14 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 757;
+        node-id    = 759;
         node-label = 'T';
       }; /* node */
       node = {
-        node-id    = 756;
+        node-id    = 758;
         node-label = 'std::priority_queue< T >';
         node-child = {
-          child-id = '757';
+          child-id = '759';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 elements
@@ -14538,14 +14715,14 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 760;
+        node-id    = 762;
         node-label = 'T';
       }; /* node */
       node = {
-        node-id    = 759;
+        node-id    = 761;
         node-label = 'std::queue< T >';
         node-child = {
-          child-id = '760';
+          child-id = '762';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 elements
@@ -14574,22 +14751,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 762;
+        node-id    = 764;
         node-label = 'std::runtime_error';
         node-child = {
-          child-id = '763';
+          child-id = '765';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 763;
+        node-id    = 765;
         node-label = 'std::exception';
       }; /* node */
       node = {
-        node-id    = 761;
+        node-id    = 763;
         node-label = 'std::range_error';
         node-child = {
-          child-id = '762';
+          child-id = '764';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -14597,22 +14774,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 765;
+        node-id    = 767;
         node-label = 'std::runtime_error';
         node-child = {
-          child-id = '766';
+          child-id = '768';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 766;
+        node-id    = 768;
         node-label = 'std::exception';
       }; /* node */
       node = {
-        node-id    = 764;
+        node-id    = 766;
         node-label = 'std::range_error';
         node-child = {
-          child-id = '765';
+          child-id = '767';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -14620,8 +14797,20 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
 }; /* class */
 class = {
-  cp-id     = 'classstd_1_1wstring_1_1reverse__iterator';
-  cp-name   = 'std::wstring::reverse_iterator';
+  cp-id     = 'classstd_1_1unordered__multiset_1_1reverse__iterator';
+  cp-name   = 'std::unordered_multiset::reverse_iterator';
+  cp-filename  = '[STL]';
+  cp-fileline  = '1';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+STL iterator class.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
+  cp-id     = 'classstd_1_1unordered__multimap_1_1reverse__iterator';
+  cp-name   = 'std::unordered_multimap::reverse_iterator';
   cp-filename  = '[STL]';
   cp-fileline  = '1';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
@@ -14644,56 +14833,8 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
 }; /* class */
 class = {
-  cp-id     = 'classstd_1_1multiset_1_1reverse__iterator';
-  cp-name   = 'std::multiset::reverse_iterator';
-  cp-filename  = '[STL]';
-  cp-fileline  = '1';
-  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
-STL iterator class.
-_EnD_oF_dEf_TeXt_;
-  cp-documentation = <<_EnD_oF_dEf_TeXt_
-
-_EnD_oF_dEf_TeXt_;
-}; /* class */
-class = {
-  cp-id     = 'classstd_1_1unordered__multiset_1_1reverse__iterator';
-  cp-name   = 'std::unordered_multiset::reverse_iterator';
-  cp-filename  = '[STL]';
-  cp-fileline  = '1';
-  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
-STL iterator class.
-_EnD_oF_dEf_TeXt_;
-  cp-documentation = <<_EnD_oF_dEf_TeXt_
-
-_EnD_oF_dEf_TeXt_;
-}; /* class */
-class = {
-  cp-id     = 'classstd_1_1multimap_1_1reverse__iterator';
-  cp-name   = 'std::multimap::reverse_iterator';
-  cp-filename  = '[STL]';
-  cp-fileline  = '1';
-  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
-STL iterator class.
-_EnD_oF_dEf_TeXt_;
-  cp-documentation = <<_EnD_oF_dEf_TeXt_
-
-_EnD_oF_dEf_TeXt_;
-}; /* class */
-class = {
-  cp-id     = 'classstd_1_1vector_1_1reverse__iterator';
-  cp-name   = 'std::vector::reverse_iterator';
-  cp-filename  = '[STL]';
-  cp-fileline  = '1';
-  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
-STL iterator class.
-_EnD_oF_dEf_TeXt_;
-  cp-documentation = <<_EnD_oF_dEf_TeXt_
-
-_EnD_oF_dEf_TeXt_;
-}; /* class */
-class = {
-  cp-id     = 'classstd_1_1basic__string_1_1reverse__iterator';
-  cp-name   = 'std::basic_string::reverse_iterator';
+  cp-id     = 'classstd_1_1wstring_1_1reverse__iterator';
+  cp-name   = 'std::wstring::reverse_iterator';
   cp-filename  = '[STL]';
   cp-fileline  = '1';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
@@ -14716,18 +14857,6 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
 }; /* class */
 class = {
-  cp-id     = 'classstd_1_1unordered__set_1_1reverse__iterator';
-  cp-name   = 'std::unordered_set::reverse_iterator';
-  cp-filename  = '[STL]';
-  cp-fileline  = '1';
-  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
-STL iterator class.
-_EnD_oF_dEf_TeXt_;
-  cp-documentation = <<_EnD_oF_dEf_TeXt_
-
-_EnD_oF_dEf_TeXt_;
-}; /* class */
-class = {
   cp-id     = 'classstd_1_1unordered__map_1_1reverse__iterator';
   cp-name   = 'std::unordered_map::reverse_iterator';
   cp-filename  = '[STL]';
@@ -14740,8 +14869,20 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
 }; /* class */
 class = {
-  cp-id     = 'classstd_1_1string_1_1reverse__iterator';
-  cp-name   = 'std::string::reverse_iterator';
+  cp-id     = 'classstd_1_1multimap_1_1reverse__iterator';
+  cp-name   = 'std::multimap::reverse_iterator';
+  cp-filename  = '[STL]';
+  cp-fileline  = '1';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+STL iterator class.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
+  cp-id     = 'classstd_1_1multiset_1_1reverse__iterator';
+  cp-name   = 'std::multiset::reverse_iterator';
   cp-filename  = '[STL]';
   cp-fileline  = '1';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
@@ -14764,8 +14905,44 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
 }; /* class */
 class = {
-  cp-id     = 'classstd_1_1unordered__multimap_1_1reverse__iterator';
-  cp-name   = 'std::unordered_multimap::reverse_iterator';
+  cp-id     = 'classstd_1_1unordered__set_1_1reverse__iterator';
+  cp-name   = 'std::unordered_set::reverse_iterator';
+  cp-filename  = '[STL]';
+  cp-fileline  = '1';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+STL iterator class.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
+  cp-id     = 'classstd_1_1basic__string_1_1reverse__iterator';
+  cp-name   = 'std::basic_string::reverse_iterator';
+  cp-filename  = '[STL]';
+  cp-fileline  = '1';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+STL iterator class.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
+  cp-id     = 'classstd_1_1vector_1_1reverse__iterator';
+  cp-name   = 'std::vector::reverse_iterator';
+  cp-filename  = '[STL]';
+  cp-fileline  = '1';
+  cp-briefdesc = <<_EnD_oF_dEf_TeXt_
+STL iterator class.
+_EnD_oF_dEf_TeXt_;
+  cp-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+}; /* class */
+class = {
+  cp-id     = 'classstd_1_1string_1_1reverse__iterator';
+  cp-name   = 'std::string::reverse_iterator';
   cp-filename  = '[STL]';
   cp-fileline  = '1';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
@@ -14836,38 +15013,38 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 797;
+        node-id    = 799;
         node-label = 'std::runtime_error';
         node-child = {
-          child-id = '798';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 798;
-        node-label = 'std::exception';
-      }; /* node */
-      node = {
-        node-id    = 799;
-        node-label = 'std::overflow_error';
-        node-child = {
-          child-id = '797';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 801;
-        node-label = 'std::underflow_error';
-        node-child = {
-          child-id = '797';
+          child-id = '800';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
         node-id    = 800;
+        node-label = 'std::exception';
+      }; /* node */
+      node = {
+        node-id    = 801;
+        node-label = 'std::overflow_error';
+        node-child = {
+          child-id = '799';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 803;
+        node-label = 'std::underflow_error';
+        node-child = {
+          child-id = '799';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 802;
         node-label = 'std::range_error';
         node-child = {
-          child-id = '797';
+          child-id = '799';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -14875,15 +15052,15 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 802;
+        node-id    = 804;
         node-label = 'std::runtime_error';
         node-child = {
-          child-id = '803';
+          child-id = '805';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 803;
+        node-id    = 805;
         node-label = 'std::exception';
       }; /* node */
 
@@ -14923,14 +15100,14 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 806;
+        node-id    = 808;
         node-label = 'K';
       }; /* node */
       node = {
-        node-id    = 805;
+        node-id    = 807;
         node-label = 'std::set< K >';
         node-child = {
-          child-id = '806';
+          child-id = '808';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 keys
@@ -14995,14 +15172,14 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 809;
+        node-id    = 811;
         node-label = 'T';
       }; /* node */
       node = {
-        node-id    = 808;
+        node-id    = 810;
         node-label = 'std::smart_ptr< T >';
         node-child = {
-          child-id = '809';
+          child-id = '811';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 ptr
@@ -15046,14 +15223,14 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 812;
+        node-id    = 814;
         node-label = 'T';
       }; /* node */
       node = {
-        node-id    = 811;
+        node-id    = 813;
         node-label = 'std::stack< T >';
         node-child = {
-          child-id = '812';
+          child-id = '814';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 elements
@@ -15082,21 +15259,6 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 814;
-        node-label = 'std::basic_string< char >';
-      }; /* node */
-      node = {
-        node-id    = 813;
-        node-label = 'std::string';
-        node-child = {
-          child-id = '814';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-
-_EnD_oF_dEf_TeXt_;
-  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
-      node = {
         node-id    = 816;
         node-label = 'std::basic_string< char >';
       }; /* node */
@@ -15105,6 +15267,21 @@ _EnD_oF_dEf_TeXt_;
         node-label = 'std::string';
         node-child = {
           child-id = '816';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 818;
+        node-label = 'std::basic_string< char >';
+      }; /* node */
+      node = {
+        node-id    = 817;
+        node-label = 'std::string';
+        node-child = {
+          child-id = '818';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -15130,20 +15307,28 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 820;
+        node-id    = 822;
         node-label = 'std::basic_istream< Char >';
         node-child = {
-          child-id = '821';
+          child-id = '823';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 819;
+        node-id    = 821;
         node-label = 'std::basic_iostream< Char >';
         node-child = {
-          child-id = '820';
+          child-id = '822';
           relation = public-inheritance;
         }; /* node-child */
+        node-child = {
+          child-id = '825';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 825;
+        node-label = 'std::basic_ostream< Char >';
         node-child = {
           child-id = '823';
           relation = public-inheritance;
@@ -15151,37 +15336,29 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 823;
-        node-label = 'std::basic_ostream< Char >';
+        node-label = 'std::basic_ios< Char >';
+        node-child = {
+          child-id = '824';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 820;
+        node-label = 'std::basic_stringstream< char >';
         node-child = {
           child-id = '821';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 821;
-        node-label = 'std::basic_ios< Char >';
-        node-child = {
-          child-id = '822';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 818;
-        node-label = 'std::basic_stringstream< char >';
-        node-child = {
-          child-id = '819';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 822;
+        node-id    = 824;
         node-label = 'std::ios_base';
       }; /* node */
       node = {
-        node-id    = 817;
+        node-id    = 819;
         node-label = 'std::stringstream';
         node-child = {
-          child-id = '818';
+          child-id = '820';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -15189,20 +15366,28 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 827;
+        node-id    = 829;
         node-label = 'std::basic_istream< Char >';
         node-child = {
-          child-id = '828';
+          child-id = '830';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 826;
+        node-id    = 828;
         node-label = 'std::basic_iostream< Char >';
         node-child = {
-          child-id = '827';
+          child-id = '829';
           relation = public-inheritance;
         }; /* node-child */
+        node-child = {
+          child-id = '832';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 832;
+        node-label = 'std::basic_ostream< Char >';
         node-child = {
           child-id = '830';
           relation = public-inheritance;
@@ -15210,37 +15395,29 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 830;
-        node-label = 'std::basic_ostream< Char >';
+        node-label = 'std::basic_ios< Char >';
+        node-child = {
+          child-id = '831';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 827;
+        node-label = 'std::basic_stringstream< char >';
         node-child = {
           child-id = '828';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 828;
-        node-label = 'std::basic_ios< Char >';
-        node-child = {
-          child-id = '829';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 825;
-        node-label = 'std::basic_stringstream< char >';
-        node-child = {
-          child-id = '826';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 829;
+        node-id    = 831;
         node-label = 'std::ios_base';
       }; /* node */
       node = {
-        node-id    = 824;
+        node-id    = 826;
         node-label = 'std::stringstream';
         node-child = {
-          child-id = '825';
+          child-id = '827';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -15274,7 +15451,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '395';
+      sec-mem-desc-line = '424';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15298,7 +15475,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '399';
+      sec-mem-desc-line = '429';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15322,7 +15499,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '408';
+      sec-mem-desc-line = '438';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15331,7 +15508,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'Codegen_8java_1abff6b618038338001180dbf340f67f01';
-        sec-mem-ref-line = '392';
+        sec-mem-ref-line = '421';
         sec-mem-ref-name = 'llvm.SymTab::classes';
     };
     }; /* sec-member */
@@ -15351,7 +15528,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '413';
+      sec-mem-desc-line = '443';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15360,7 +15537,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceto = {
         sec-mem-ref-id = 'Codegen_8java_1abff6b618038338001180dbf340f67f01';
-        sec-mem-ref-line = '392';
+        sec-mem-ref-line = '421';
         sec-mem-ref-name = 'llvm.SymTab::classes';
     };
     }; /* sec-member */
@@ -15380,7 +15557,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '428';
+      sec-mem-desc-line = '462';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15404,7 +15581,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '432';
+      sec-mem-desc-line = '467';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15428,7 +15605,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '436';
+      sec-mem-desc-line = '471';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15452,7 +15629,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '440';
+      sec-mem-desc-line = '475';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15476,7 +15653,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '444';
+      sec-mem-desc-line = '479';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15500,7 +15677,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '448';
+      sec-mem-desc-line = '483';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15524,7 +15701,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '452';
+      sec-mem-desc-line = '487';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15548,7 +15725,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'n';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '456';
+      sec-mem-desc-line = '491';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15569,7 +15746,7 @@ Map< String, ClassNode >
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'classes';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '392';
+      sec-mem-desc-line = '421';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15578,7 +15755,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'Codegen_8java_1ac3d8690b58a590203619830ed20c5951';
-        sec-mem-ref-line = '408';
+        sec-mem-ref-line = '438';
         sec-mem-ref-name = 'llvm.SymTab::visit';
     };
     }; /* sec-member */
@@ -15595,7 +15772,7 @@ ClassNode
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'classEnv';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-      sec-mem-desc-line = '393';
+      sec-mem-desc-line = '422';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15605,7 +15782,7 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
   }; /* cp-section */
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-  cp-fileline  = '391';
+  cp-fileline  = '420';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -15613,39 +15790,6 @@ _EnD_oF_dEf_TeXt_;
 
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
-      node = {
-        node-id    = 832;
-        node-label = 'VisitorAdapter';
-      }; /* node */
-      node = {
-        node-id    = 831;
-        node-label = 'llvm.SymTab';
-        node-link = {
-          node-link-id = 'classllvm_1_1SymTab';
-        };
-        node-child = {
-          child-id = '832';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-
-_EnD_oF_dEf_TeXt_;
-  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
-      node = {
-        node-id    = 835;
-        node-label = 'llvm.ClassNode';
-        node-link = {
-          node-link-id = 'classllvm_1_1ClassNode';
-        };
-        node-child = {
-          child-id = '836';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 836;
-        node-label = 'LlvmType';
-      }; /* node */
       node = {
         node-id    = 834;
         node-label = 'VisitorAdapter';
@@ -15660,8 +15804,41 @@ _EnD_oF_dEf_TeXt_;
           child-id = '834';
           relation = public-inheritance;
         }; /* node-child */
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 837;
+        node-label = 'llvm.ClassNode';
+        node-link = {
+          node-link-id = 'classllvm_1_1ClassNode';
+        };
         node-child = {
-          child-id = '835';
+          child-id = '838';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 838;
+        node-label = 'LlvmType';
+      }; /* node */
+      node = {
+        node-id    = 836;
+        node-label = 'VisitorAdapter';
+      }; /* node */
+      node = {
+        node-id    = 835;
+        node-label = 'llvm.SymTab';
+        node-link = {
+          node-link-id = 'classllvm_1_1SymTab';
+        };
+        node-child = {
+          child-id = '836';
+          relation = public-inheritance;
+        }; /* node-child */
+        node-child = {
+          child-id = '837';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 classEnv
@@ -15714,22 +15891,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 842;
+        node-id    = 844;
         node-label = 'std::runtime_error';
         node-child = {
-          child-id = '843';
+          child-id = '845';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 843;
+        node-id    = 845;
         node-label = 'std::exception';
       }; /* node */
       node = {
-        node-id    = 841;
+        node-id    = 843;
         node-label = 'std::underflow_error';
         node-child = {
-          child-id = '842';
+          child-id = '844';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -15737,22 +15914,22 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 845;
+        node-id    = 847;
         node-label = 'std::runtime_error';
         node-child = {
-          child-id = '846';
+          child-id = '848';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 846;
+        node-id    = 848;
         node-label = 'std::exception';
       }; /* node */
       node = {
-        node-id    = 844;
+        node-id    = 846;
         node-label = 'std::underflow_error';
         node-child = {
-          child-id = '845';
+          child-id = '847';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -15814,14 +15991,14 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 849;
+        node-id    = 851;
         node-label = 'T';
       }; /* node */
       node = {
-        node-id    = 848;
+        node-id    = 850;
         node-label = 'std::unique_ptr< T >';
         node-child = {
-          child-id = '849';
+          child-id = '851';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 ptr
@@ -15883,25 +16060,25 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 852;
+        node-id    = 854;
         node-label = 'K';
       }; /* node */
       node = {
-        node-id    = 853;
+        node-id    = 855;
         node-label = 'T';
       }; /* node */
       node = {
-        node-id    = 851;
+        node-id    = 853;
         node-label = 'std::unordered_map< K, T >';
         node-child = {
-          child-id = '852';
+          child-id = '854';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 keys
 _EnD_oF_dEf_TeXt_;
         }; /* node-child */
         node-child = {
-          child-id = '853';
+          child-id = '855';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 elements
@@ -15963,25 +16140,25 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 856;
+        node-id    = 858;
         node-label = 'K';
       }; /* node */
       node = {
-        node-id    = 857;
+        node-id    = 859;
         node-label = 'T';
       }; /* node */
       node = {
-        node-id    = 855;
+        node-id    = 857;
         node-label = 'std::unordered_multimap< K, T >';
         node-child = {
-          child-id = '856';
+          child-id = '858';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 keys
 _EnD_oF_dEf_TeXt_;
         }; /* node-child */
         node-child = {
-          child-id = '857';
+          child-id = '859';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 elements
@@ -16025,14 +16202,14 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 860;
+        node-id    = 862;
         node-label = 'K';
       }; /* node */
       node = {
-        node-id    = 859;
+        node-id    = 861;
         node-label = 'std::unordered_multiset< K >';
         node-child = {
-          child-id = '860';
+          child-id = '862';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 keys
@@ -16076,14 +16253,14 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 863;
+        node-id    = 865;
         node-label = 'K';
       }; /* node */
       node = {
-        node-id    = 862;
+        node-id    = 864;
         node-label = 'std::unordered_set< K >';
         node-child = {
-          child-id = '863';
+          child-id = '865';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 keys
@@ -16127,14 +16304,14 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 866;
+        node-id    = 868;
         node-label = 'T';
       }; /* node */
       node = {
-        node-id    = 865;
+        node-id    = 867;
         node-label = 'std::valarray< T >';
         node-child = {
-          child-id = '866';
+          child-id = '868';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 elements
@@ -16178,14 +16355,14 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 869;
+        node-id    = 871;
         node-label = 'T';
       }; /* node */
       node = {
-        node-id    = 868;
+        node-id    = 870;
         node-label = 'std::vector< T >';
         node-child = {
-          child-id = '869';
+          child-id = '871';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 elements
@@ -16211,7 +16388,7 @@ class = {
     ref-virt = non-virtual;
   };
   cp-filename  = '/home/brunogsa/MC911/Project2/pacote/src/llvm/Codegen.java';
-  cp-fileline  = '391';
+  cp-fileline  = '420';
   cp-briefdesc = <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -16220,28 +16397,28 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 871;
+        node-id    = 873;
         node-label = 'llvm.Codegen';
         node-link = {
           node-link-id = 'classllvm_1_1Codegen';
         };
         node-child = {
-          child-id = '870';
+          child-id = '872';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 870;
+        node-id    = 872;
         node-label = 'VisitorAdapter';
       }; /* node */
       node = {
-        node-id    = 872;
+        node-id    = 874;
         node-label = 'llvm.SymTab';
         node-link = {
           node-link-id = 'classllvm_1_1SymTab';
         };
         node-child = {
-          child-id = '870';
+          child-id = '872';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -16303,14 +16480,14 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 876;
+        node-id    = 878;
         node-label = 'T';
       }; /* node */
       node = {
-        node-id    = 875;
+        node-id    = 877;
         node-label = 'std::weak_ptr< T >';
         node-child = {
-          child-id = '876';
+          child-id = '878';
           relation = usage;
           edgelabel = <<_EnD_oF_dEf_TeXt_
 ptr
@@ -16339,58 +16516,58 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 880;
+        node-id    = 882;
         node-label = 'std::basic_istream< Char >';
-        node-child = {
-          child-id = '881';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 879;
-        node-label = 'std::basic_iostream< Char >';
-        node-child = {
-          child-id = '880';
-          relation = public-inheritance;
-        }; /* node-child */
         node-child = {
           child-id = '883';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 877;
+        node-id    = 881;
+        node-label = 'std::basic_iostream< Char >';
+        node-child = {
+          child-id = '882';
+          relation = public-inheritance;
+        }; /* node-child */
+        node-child = {
+          child-id = '885';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 879;
         node-label = 'std::wfstream';
         node-child = {
-          child-id = '878';
+          child-id = '880';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 885;
+        node-label = 'std::basic_ostream< Char >';
+        node-child = {
+          child-id = '883';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
         node-id    = 883;
-        node-label = 'std::basic_ostream< Char >';
-        node-child = {
-          child-id = '881';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 881;
         node-label = 'std::basic_ios< Char >';
         node-child = {
-          child-id = '882';
+          child-id = '884';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 882;
+        node-id    = 884;
         node-label = 'std::ios_base';
       }; /* node */
       node = {
-        node-id    = 878;
+        node-id    = 880;
         node-label = 'std::basic_fstream< wchar_t >';
         node-child = {
-          child-id = '879';
+          child-id = '881';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -16398,58 +16575,58 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 887;
+        node-id    = 889;
         node-label = 'std::basic_istream< Char >';
-        node-child = {
-          child-id = '888';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 886;
-        node-label = 'std::basic_iostream< Char >';
-        node-child = {
-          child-id = '887';
-          relation = public-inheritance;
-        }; /* node-child */
         node-child = {
           child-id = '890';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 884;
+        node-id    = 888;
+        node-label = 'std::basic_iostream< Char >';
+        node-child = {
+          child-id = '889';
+          relation = public-inheritance;
+        }; /* node-child */
+        node-child = {
+          child-id = '892';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 886;
         node-label = 'std::wfstream';
         node-child = {
-          child-id = '885';
+          child-id = '887';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 892;
+        node-label = 'std::basic_ostream< Char >';
+        node-child = {
+          child-id = '890';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
         node-id    = 890;
-        node-label = 'std::basic_ostream< Char >';
-        node-child = {
-          child-id = '888';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 888;
         node-label = 'std::basic_ios< Char >';
         node-child = {
-          child-id = '889';
+          child-id = '891';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 889;
+        node-id    = 891;
         node-label = 'std::ios_base';
       }; /* node */
       node = {
-        node-id    = 885;
+        node-id    = 887;
         node-label = 'std::basic_fstream< wchar_t >';
         node-child = {
-          child-id = '886';
+          child-id = '888';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -16475,32 +16652,8 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 892;
-        node-label = 'std::basic_ifstream< wchar_t >';
-        node-child = {
-          child-id = '893';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 893;
-        node-label = 'std::basic_istream< Char >';
-        node-child = {
-          child-id = '894';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 891;
-        node-label = 'std::wifstream';
-        node-child = {
-          child-id = '892';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
         node-id    = 894;
-        node-label = 'std::basic_ios< Char >';
+        node-label = 'std::basic_ifstream< wchar_t >';
         node-child = {
           child-id = '895';
           relation = public-inheritance;
@@ -16508,38 +16661,38 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 895;
-        node-label = 'std::ios_base';
-      }; /* node */
-
-_EnD_oF_dEf_TeXt_;
-  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
-      node = {
-        node-id    = 897;
-        node-label = 'std::basic_ifstream< wchar_t >';
+        node-label = 'std::basic_istream< Char >';
         node-child = {
-          child-id = '898';
+          child-id = '896';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 898;
-        node-label = 'std::basic_istream< Char >';
+        node-id    = 893;
+        node-label = 'std::wifstream';
         node-child = {
-          child-id = '899';
+          child-id = '894';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
         node-id    = 896;
-        node-label = 'std::wifstream';
+        node-label = 'std::basic_ios< Char >';
         node-child = {
           child-id = '897';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
+        node-id    = 897;
+        node-label = 'std::ios_base';
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
         node-id    = 899;
-        node-label = 'std::basic_ios< Char >';
+        node-label = 'std::basic_ifstream< wchar_t >';
         node-child = {
           child-id = '900';
           relation = public-inheritance;
@@ -16547,6 +16700,30 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 900;
+        node-label = 'std::basic_istream< Char >';
+        node-child = {
+          child-id = '901';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 898;
+        node-label = 'std::wifstream';
+        node-child = {
+          child-id = '899';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 901;
+        node-label = 'std::basic_ios< Char >';
+        node-child = {
+          child-id = '902';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 902;
         node-label = 'std::ios_base';
       }; /* node */
 
@@ -16571,31 +16748,16 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 901;
+        node-id    = 903;
         node-label = 'std::wios';
         node-child = {
-          child-id = '902';
+          child-id = '904';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
-      node = {
-        node-id    = 902;
-        node-label = 'std::basic_ios< wchar_t >';
-        node-child = {
-          child-id = '903';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 903;
-        node-label = 'std::ios_base';
-      }; /* node */
-
-_EnD_oF_dEf_TeXt_;
-  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
         node-id    = 904;
-        node-label = 'std::wios';
+        node-label = 'std::basic_ios< wchar_t >';
         node-child = {
           child-id = '905';
           relation = public-inheritance;
@@ -16603,14 +16765,29 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 905;
-        node-label = 'std::basic_ios< wchar_t >';
+        node-label = 'std::ios_base';
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 906;
+        node-label = 'std::wios';
         node-child = {
-          child-id = '906';
+          child-id = '907';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 906;
+        node-id    = 907;
+        node-label = 'std::basic_ios< wchar_t >';
+        node-child = {
+          child-id = '908';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 908;
         node-label = 'std::ios_base';
       }; /* node */
 
@@ -16635,62 +16812,62 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 907;
-        node-label = 'std::wistream';
-        node-child = {
-          child-id = '908';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
         node-id    = 909;
-        node-label = 'std::basic_ios< Char >';
+        node-label = 'std::wistream';
         node-child = {
           child-id = '910';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 908;
-        node-label = 'std::basic_istream< wchar_t >';
-        node-child = {
-          child-id = '909';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 910;
-        node-label = 'std::ios_base';
-      }; /* node */
-
-_EnD_oF_dEf_TeXt_;
-  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
-      node = {
         node-id    = 911;
-        node-label = 'std::wistream';
+        node-label = 'std::basic_ios< Char >';
         node-child = {
           child-id = '912';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
+        node-id    = 910;
+        node-label = 'std::basic_istream< wchar_t >';
+        node-child = {
+          child-id = '911';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 912;
+        node-label = 'std::ios_base';
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
         node-id    = 913;
-        node-label = 'std::basic_ios< Char >';
+        node-label = 'std::wistream';
         node-child = {
           child-id = '914';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 912;
-        node-label = 'std::basic_istream< wchar_t >';
+        node-id    = 915;
+        node-label = 'std::basic_ios< Char >';
         node-child = {
-          child-id = '913';
+          child-id = '916';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
         node-id    = 914;
+        node-label = 'std::basic_istream< wchar_t >';
+        node-child = {
+          child-id = '915';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 916;
         node-label = 'std::ios_base';
       }; /* node */
 
@@ -16715,38 +16892,38 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 915;
-        node-label = 'std::wistringstream';
-        node-child = {
-          child-id = '916';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
         node-id    = 917;
-        node-label = 'std::basic_istream< Char >';
+        node-label = 'std::wistringstream';
         node-child = {
           child-id = '918';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 918;
-        node-label = 'std::basic_ios< Char >';
+        node-id    = 919;
+        node-label = 'std::basic_istream< Char >';
         node-child = {
-          child-id = '919';
+          child-id = '920';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 919;
+        node-id    = 920;
+        node-label = 'std::basic_ios< Char >';
+        node-child = {
+          child-id = '921';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 921;
         node-label = 'std::ios_base';
       }; /* node */
       node = {
-        node-id    = 916;
+        node-id    = 918;
         node-label = 'std::basic_istringstream< wchar_t >';
         node-child = {
-          child-id = '917';
+          child-id = '919';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -16754,38 +16931,38 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 920;
-        node-label = 'std::wistringstream';
-        node-child = {
-          child-id = '921';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
         node-id    = 922;
-        node-label = 'std::basic_istream< Char >';
+        node-label = 'std::wistringstream';
         node-child = {
           child-id = '923';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 923;
-        node-label = 'std::basic_ios< Char >';
+        node-id    = 924;
+        node-label = 'std::basic_istream< Char >';
         node-child = {
-          child-id = '924';
+          child-id = '925';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 924;
+        node-id    = 925;
+        node-label = 'std::basic_ios< Char >';
+        node-child = {
+          child-id = '926';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 926;
         node-label = 'std::ios_base';
       }; /* node */
       node = {
-        node-id    = 921;
+        node-id    = 923;
         node-label = 'std::basic_istringstream< wchar_t >';
         node-child = {
-          child-id = '922';
+          child-id = '924';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -16811,78 +16988,78 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 925;
-        node-label = 'std::wofstream';
-        node-child = {
-          child-id = '926';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
         node-id    = 927;
-        node-label = 'std::basic_ostream< Char >';
+        node-label = 'std::wofstream';
         node-child = {
           child-id = '928';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 928;
-        node-label = 'std::basic_ios< Char >';
-        node-child = {
-          child-id = '929';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 926;
-        node-label = 'std::basic_ofstream< wchar_t >';
-        node-child = {
-          child-id = '927';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
         node-id    = 929;
-        node-label = 'std::ios_base';
+        node-label = 'std::basic_ostream< Char >';
+        node-child = {
+          child-id = '930';
+          relation = public-inheritance;
+        }; /* node-child */
       }; /* node */
-
-_EnD_oF_dEf_TeXt_;
-  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
         node-id    = 930;
-        node-label = 'std::wofstream';
+        node-label = 'std::basic_ios< Char >';
         node-child = {
           child-id = '931';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
+        node-id    = 928;
+        node-label = 'std::basic_ofstream< wchar_t >';
+        node-child = {
+          child-id = '929';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 931;
+        node-label = 'std::ios_base';
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
         node-id    = 932;
-        node-label = 'std::basic_ostream< Char >';
+        node-label = 'std::wofstream';
         node-child = {
           child-id = '933';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 933;
+        node-id    = 934;
+        node-label = 'std::basic_ostream< Char >';
+        node-child = {
+          child-id = '935';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 935;
         node-label = 'std::basic_ios< Char >';
+        node-child = {
+          child-id = '936';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 933;
+        node-label = 'std::basic_ofstream< wchar_t >';
         node-child = {
           child-id = '934';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 931;
-        node-label = 'std::basic_ofstream< wchar_t >';
-        node-child = {
-          child-id = '932';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 934;
+        node-id    = 936;
         node-label = 'std::ios_base';
       }; /* node */
 
@@ -16907,24 +17084,8 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 935;
-        node-label = 'std::wostream';
-        node-child = {
-          child-id = '936';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 936;
-        node-label = 'std::basic_ostream< wchar_t >';
-        node-child = {
-          child-id = '937';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
         node-id    = 937;
-        node-label = 'std::basic_ios< Char >';
+        node-label = 'std::wostream';
         node-child = {
           child-id = '938';
           relation = public-inheritance;
@@ -16932,14 +17093,15 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 938;
-        node-label = 'std::ios_base';
+        node-label = 'std::basic_ostream< wchar_t >';
+        node-child = {
+          child-id = '939';
+          relation = public-inheritance;
+        }; /* node-child */
       }; /* node */
-
-_EnD_oF_dEf_TeXt_;
-  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
         node-id    = 939;
-        node-label = 'std::wostream';
+        node-label = 'std::basic_ios< Char >';
         node-child = {
           child-id = '940';
           relation = public-inheritance;
@@ -16947,15 +17109,14 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 940;
-        node-label = 'std::basic_ostream< wchar_t >';
-        node-child = {
-          child-id = '941';
-          relation = public-inheritance;
-        }; /* node-child */
+        node-label = 'std::ios_base';
       }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
         node-id    = 941;
-        node-label = 'std::basic_ios< Char >';
+        node-label = 'std::wostream';
         node-child = {
           child-id = '942';
           relation = public-inheritance;
@@ -16963,6 +17124,22 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 942;
+        node-label = 'std::basic_ostream< wchar_t >';
+        node-child = {
+          child-id = '943';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 943;
+        node-label = 'std::basic_ios< Char >';
+        node-child = {
+          child-id = '944';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 944;
         node-label = 'std::ios_base';
       }; /* node */
 
@@ -16987,24 +17164,8 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 943;
-        node-label = 'std::wostringstream';
-        node-child = {
-          child-id = '944';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 944;
-        node-label = 'std::basic_ostringstream< wchar_t >';
-        node-child = {
-          child-id = '945';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
         node-id    = 945;
-        node-label = 'std::basic_ostream< Char >';
+        node-label = 'std::wostringstream';
         node-child = {
           child-id = '946';
           relation = public-inheritance;
@@ -17012,7 +17173,7 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 946;
-        node-label = 'std::basic_ios< Char >';
+        node-label = 'std::basic_ostringstream< wchar_t >';
         node-child = {
           child-id = '947';
           relation = public-inheritance;
@@ -17020,14 +17181,15 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 947;
-        node-label = 'std::ios_base';
+        node-label = 'std::basic_ostream< Char >';
+        node-child = {
+          child-id = '948';
+          relation = public-inheritance;
+        }; /* node-child */
       }; /* node */
-
-_EnD_oF_dEf_TeXt_;
-  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
         node-id    = 948;
-        node-label = 'std::wostringstream';
+        node-label = 'std::basic_ios< Char >';
         node-child = {
           child-id = '949';
           relation = public-inheritance;
@@ -17035,15 +17197,14 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 949;
-        node-label = 'std::basic_ostringstream< wchar_t >';
-        node-child = {
-          child-id = '950';
-          relation = public-inheritance;
-        }; /* node-child */
+        node-label = 'std::ios_base';
       }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
       node = {
         node-id    = 950;
-        node-label = 'std::basic_ostream< Char >';
+        node-label = 'std::wostringstream';
         node-child = {
           child-id = '951';
           relation = public-inheritance;
@@ -17051,7 +17212,7 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 951;
-        node-label = 'std::basic_ios< Char >';
+        node-label = 'std::basic_ostringstream< wchar_t >';
         node-child = {
           child-id = '952';
           relation = public-inheritance;
@@ -17059,6 +17220,22 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 952;
+        node-label = 'std::basic_ostream< Char >';
+        node-child = {
+          child-id = '953';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 953;
+        node-label = 'std::basic_ios< Char >';
+        node-child = {
+          child-id = '954';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 954;
         node-label = 'std::ios_base';
       }; /* node */
 
@@ -17083,21 +17260,6 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 954;
-        node-label = 'std::basic_string< wchar_t >';
-      }; /* node */
-      node = {
-        node-id    = 953;
-        node-label = 'std::wstring';
-        node-child = {
-          child-id = '954';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-
-_EnD_oF_dEf_TeXt_;
-  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
-      node = {
         node-id    = 956;
         node-label = 'std::basic_string< wchar_t >';
       }; /* node */
@@ -17106,6 +17268,21 @@ _EnD_oF_dEf_TeXt_;
         node-label = 'std::wstring';
         node-child = {
           child-id = '956';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 958;
+        node-label = 'std::basic_string< wchar_t >';
+      }; /* node */
+      node = {
+        node-id    = 957;
+        node-label = 'std::wstring';
+        node-child = {
+          child-id = '958';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
@@ -17131,44 +17308,16 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
   cp-inheritancegraph = <<_EnD_oF_dEf_TeXt_
       node = {
-        node-id    = 960;
+        node-id    = 962;
         node-label = 'std::basic_istream< Char >';
-        node-child = {
-          child-id = '961';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 958;
-        node-label = 'std::basic_stringstream< wchar_t >';
-        node-child = {
-          child-id = '959';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 959;
-        node-label = 'std::basic_iostream< Char >';
-        node-child = {
-          child-id = '960';
-          relation = public-inheritance;
-        }; /* node-child */
         node-child = {
           child-id = '963';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 957;
-        node-label = 'std::wstringstream';
-        node-child = {
-          child-id = '958';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 963;
-        node-label = 'std::basic_ostream< Char >';
+        node-id    = 960;
+        node-label = 'std::basic_stringstream< wchar_t >';
         node-child = {
           child-id = '961';
           relation = public-inheritance;
@@ -17176,58 +17325,58 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 961;
-        node-label = 'std::basic_ios< Char >';
+        node-label = 'std::basic_iostream< Char >';
         node-child = {
           child-id = '962';
           relation = public-inheritance;
         }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 962;
-        node-label = 'std::ios_base';
-      }; /* node */
-
-_EnD_oF_dEf_TeXt_;
-  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
-      node = {
-        node-id    = 967;
-        node-label = 'std::basic_istream< Char >';
-        node-child = {
-          child-id = '968';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 965;
-        node-label = 'std::basic_stringstream< wchar_t >';
-        node-child = {
-          child-id = '966';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 966;
-        node-label = 'std::basic_iostream< Char >';
-        node-child = {
-          child-id = '967';
-          relation = public-inheritance;
-        }; /* node-child */
-        node-child = {
-          child-id = '970';
-          relation = public-inheritance;
-        }; /* node-child */
-      }; /* node */
-      node = {
-        node-id    = 964;
-        node-label = 'std::wstringstream';
         node-child = {
           child-id = '965';
           relation = public-inheritance;
         }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 970;
+        node-id    = 959;
+        node-label = 'std::wstringstream';
+        node-child = {
+          child-id = '960';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 965;
         node-label = 'std::basic_ostream< Char >';
+        node-child = {
+          child-id = '963';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 963;
+        node-label = 'std::basic_ios< Char >';
+        node-child = {
+          child-id = '964';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 964;
+        node-label = 'std::ios_base';
+      }; /* node */
+
+_EnD_oF_dEf_TeXt_;
+  cp-collaborationgraph = <<_EnD_oF_dEf_TeXt_
+      node = {
+        node-id    = 969;
+        node-label = 'std::basic_istream< Char >';
+        node-child = {
+          child-id = '970';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 967;
+        node-label = 'std::basic_stringstream< wchar_t >';
         node-child = {
           child-id = '968';
           relation = public-inheritance;
@@ -17235,14 +17384,42 @@ _EnD_oF_dEf_TeXt_;
       }; /* node */
       node = {
         node-id    = 968;
-        node-label = 'std::basic_ios< Char >';
+        node-label = 'std::basic_iostream< Char >';
         node-child = {
           child-id = '969';
           relation = public-inheritance;
         }; /* node-child */
+        node-child = {
+          child-id = '972';
+          relation = public-inheritance;
+        }; /* node-child */
       }; /* node */
       node = {
-        node-id    = 969;
+        node-id    = 966;
+        node-label = 'std::wstringstream';
+        node-child = {
+          child-id = '967';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 972;
+        node-label = 'std::basic_ostream< Char >';
+        node-child = {
+          child-id = '970';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 970;
+        node-label = 'std::basic_ios< Char >';
+        node-child = {
+          child-id = '971';
+          relation = public-inheritance;
+        }; /* node-child */
+      }; /* node */
+      node = {
+        node-id    = 971;
         node-label = 'std::ios_base';
       }; /* node */
 

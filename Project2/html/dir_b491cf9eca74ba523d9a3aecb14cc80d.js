@@ -7,6 +7,6 @@ var dir_b491cf9eca74ba523d9a3aecb14cc80d =
       [ "SymTab", "classllvm_1_1SymTab.html", "classllvm_1_1SymTab" ]
     ] ],
     [ "LlvmUtility.java", "LlvmUtility_8java.html", [
-      [ "LlvmUtility", "classllvm_1_1LlvmUtility.html", "classllvm_1_1LlvmUtility" ]
+      [ "LlvmUtility< T >", "classllvm_1_1LlvmUtility_3_01T_01_4.html", "classllvm_1_1LlvmUtility_3_01T_01_4" ]
     ] ]
 ];

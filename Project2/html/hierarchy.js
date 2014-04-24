@@ -22,6 +22,9 @@ var hierarchy =
       [ "llvmast.LlvmStore", "classllvmast_1_1LlvmStore.html", null ],
       [ "llvmast.LlvmTimes", "classllvmast_1_1LlvmTimes.html", null ]
     ] ],
+    [ "LlvmType", null, [
+      [ "llvm.ClassNode", "classllvm_1_1ClassNode.html", null ]
+    ] ],
     [ "llvmast.LlvmType", "classllvmast_1_1LlvmType.html", [
       [ "llvmast.LlvmArray", "classllvmast_1_1LlvmArray.html", null ],
       [ "llvmast.LlvmFunctionType", "classllvmast_1_1LlvmFunctionType.html", null ],
@@ -30,10 +33,7 @@ var hierarchy =
       [ "llvmast.LlvmStructure", "classllvmast_1_1LlvmStructure.html", null ],
       [ "llvmast.LlvmVoid", "classllvmast_1_1LlvmVoid.html", null ]
     ] ],
-    [ "LlvmType", null, [
-      [ "llvm.ClassNode", "classllvm_1_1ClassNode.html", null ]
-    ] ],
-    [ "llvm.LlvmUtility", "classllvm_1_1LlvmUtility.html", null ],
+    [ "llvm.LlvmUtility< T >", "classllvm_1_1LlvmUtility_3_01T_01_4.html", null ],
     [ "llvmast.LlvmValue", "classllvmast_1_1LlvmValue.html", [
       [ "llvmast.LlvmBool", "classllvmast_1_1LlvmBool.html", null ],
       [ "llvmast.LlvmIntegerLiteral", "classllvmast_1_1LlvmIntegerLiteral.html", null ],
@@ -42,6 +42,7 @@ var hierarchy =
         [ "llvmast.LlvmNamedValue", "classllvmast_1_1LlvmNamedValue.html", null ]
       ] ]
     ] ],
+    [ "Matematica", "classMatematica.html", null ],
     [ "llvm.MethodNode", "classllvm_1_1MethodNode.html", null ],
     [ "VisitorAdapter", null, [
       [ "llvm.Codegen", "classllvm_1_1Codegen.html", null ],

@@ -106,6 +106,7 @@ $(document).ready(function(){initNavTree('classllvm_1_1ClassNode.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pac-methods">Package Functions</a> &#124;
+<a href="#pac-attribs">Package Attributes</a> &#124;
 <a href="classllvm_1_1ClassNode-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">llvm.ClassNode Class Reference</div>  </div>
@@ -122,8 +123,17 @@ Inheritance diagram for llvm.ClassNode:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pac-methods"></a>
 Package Functions</h2></td></tr>
-<tr class="memitem:a18761d085281d5a21552440df8a9986f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvm_1_1ClassNode.html#a18761d085281d5a21552440df8a9986f">ClassNode</a> (String nameClass, LlvmStructure classType, List&lt; LlvmValue &gt; varList)</td></tr>
+<tr class="memitem:a18761d085281d5a21552440df8a9986f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvm_1_1ClassNode.html#a18761d085281d5a21552440df8a9986f">ClassNode</a> (String nameClass, LlvmStructure classType, List&lt; LlvmValue &gt; <a class="el" href="classllvm_1_1ClassNode.html#a3b38c641b2bde2be4e0c0c4a012edf4d">varList</a>)</td></tr>
 <tr class="separator:a18761d085281d5a21552440df8a9986f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pac-attribs"></a>
+Package Attributes</h2></td></tr>
+<tr class="memitem:ac7922abd07577318a8b34bcecb76afbe"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvm_1_1ClassNode.html#ac7922abd07577318a8b34bcecb76afbe">name</a></td></tr>
+<tr class="separator:ac7922abd07577318a8b34bcecb76afbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab277f14a02d23e02c071b97df3007dac"><td class="memItemLeft" align="right" valign="top">LlvmStructure&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvm_1_1ClassNode.html#ab277f14a02d23e02c071b97df3007dac">type</a></td></tr>
+<tr class="separator:ab277f14a02d23e02c071b97df3007dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b38c641b2bde2be4e0c0c4a012edf4d"><td class="memItemLeft" align="right" valign="top">List&lt; LlvmValue &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvm_1_1ClassNode.html#a3b38c641b2bde2be4e0c0c4a012edf4d">varList</a></td></tr>
+<tr class="separator:a3b38c641b2bde2be4e0c0c4a012edf4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a18761d085281d5a21552440df8a9986f"></a>
@@ -163,9 +173,81 @@ Package Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;                                                                                  {</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    }</div>
+
+<p>References <a class="el" href="classllvm_1_1ClassNode.html#ac7922abd07577318a8b34bcecb76afbe">llvm.ClassNode.name</a>, <a class="el" href="classllvm_1_1ClassNode.html#ab277f14a02d23e02c071b97df3007dac">llvm.ClassNode.type</a>, and <a class="el" href="classllvm_1_1ClassNode.html#a3b38c641b2bde2be4e0c0c4a012edf4d">llvm.ClassNode.varList</a>.</p>
+<div class="fragment"><div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;                                                                                  {</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;        this.<a class="code" href="classllvm_1_1ClassNode.html#ac7922abd07577318a8b34bcecb76afbe">name</a> = nameClass;</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;        this.<a class="code" href="classllvm_1_1ClassNode.html#ab277f14a02d23e02c071b97df3007dac">type</a> = classType;</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;        this.<a class="code" href="classllvm_1_1ClassNode.html#a3b38c641b2bde2be4e0c0c4a012edf4d">varList</a> = <a class="code" href="classllvm_1_1ClassNode.html#a3b38c641b2bde2be4e0c0c4a012edf4d">varList</a>;</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    }</div>
 </div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ac7922abd07577318a8b34bcecb76afbe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String llvm.ClassNode.name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">package</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Referenced by <a class="el" href="classllvm_1_1ClassNode.html#a18761d085281d5a21552440df8a9986f">llvm.ClassNode.ClassNode()</a>, and <a class="el" href="classllvm_1_1Codegen.html#a0b0e743c7709167e508a1691a3895630">llvm.Codegen.visit()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab277f14a02d23e02c071b97df3007dac"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LlvmStructure llvm.ClassNode.type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">package</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Referenced by <a class="el" href="classllvm_1_1ClassNode.html#a18761d085281d5a21552440df8a9986f">llvm.ClassNode.ClassNode()</a>, and <a class="el" href="classllvm_1_1Codegen.html#a0b0e743c7709167e508a1691a3895630">llvm.Codegen.visit()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3b38c641b2bde2be4e0c0c4a012edf4d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt; LlvmValue &gt; llvm.ClassNode.varList</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">package</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Referenced by <a class="el" href="classllvm_1_1ClassNode.html#a18761d085281d5a21552440df8a9986f">llvm.ClassNode.ClassNode()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
