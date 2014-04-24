@@ -173,8 +173,10 @@ public class Codegen extends VisitorAdapter {
 	public LlvmValue visit(ClassDeclSimple n) {
 		System.out.println("++++++++++AST: ClassDeclSimple: " + n.name.toString() );
 
+		LlvmUtility<VarDecl> util = new LlvmUtility<VarDecl>();
+        List<VarDecl> varList = util.getTList( n.varList );
+
         List<LlvmType> attr_aux = new LinkedList<LlvmType>();
-        List<VarDecl> varList = LlvmUtility.getVarList( n.varList );
         for ( VarDecl var : varList )
         {
             System.out.println ( var.name );
@@ -185,39 +187,6 @@ public class Codegen extends VisitorAdapter {
         LlvmConstantDeclaration const_attr = new LlvmConstantDeclaration( "\n%class." + n.name.toString(), "type " + struct_attr.toString() + "\n" );
         assembler.add( const_attr );
 
-        List<LlvmType> meth_aux = new LinkedList<LlvmType>();
-        List<MethodDecl> methodList = LlvmUtility.getMethodList( n.methodList );
-        for ( MethodDecl method : methodList )
-        {
-            System.out.println ( method.name );
-            //attr_aux.add( method.accept(this).type );
-            method.accept(this);
-        }
-
-        LlvmStructure struct_meth = new LlvmStructure( meth_aux );
-        LlvmConstantDeclaration const_meth = new LlvmConstantDeclaration( "\n%class." + n.name.toString(), "type " + struct_meth.toString() + "\n" );
-        assembler.add( const_meth );
-
-
-        // Constroi TypeList com os tipos das variáveis da Classe (vai formar a Struct da classe)
-
-        // Constroi VarList com as Variáveis da Classe
-
-    	// Percorre n.methodList visitando cada método
-        
-        //LinkedList<LlvmValue> lv = n.accept(this);
-
-		// definicao dos metodos ocorrera aqui
-        /*
-         *assembler.add(new LlvmDefine("@"+n.name, LlvmPrimitiveType.I32, new LinkedList<LlvmValue>()));
-         *assembler.add(new LlvmLabel(new LlvmLabelValue("entry")));
-         *LlvmRegister R1 = new LlvmRegister(new LlvmPointer(LlvmPrimitiveType.I32));
-         *assembler.add(new LlvmAlloca(R1, LlvmPrimitiveType.I32, new LinkedList<LlvmValue>()));
-         *assembler.add(new LlvmStore(new LlvmIntegerLiteral(0), R1));
-         *System.out.println ( "printing args " + n.toString() + " detected..." );
-         *assembler.add(new LlvmCloseDefinition());
-         */
-		
 		return null;
 	}
 
