@@ -39,6 +39,7 @@ import semant.Env;
 import syntaxtree.*;
 import visitor.Visitor;
 import llvmast.*;
+import llvmutility.*;
 
 import java.util.*;
 //import util.*;
@@ -48,8 +49,7 @@ public class Codegen extends VisitorAdapter {
 	private Codegen codeGenerator;
 
 	private SymTab symTab;
-	private ClassNode classEnv; 	// Aponta para a classe atualmente em uso em symTab
-	private MethodNode methodEnv; 	// Aponta para a metodo atualmente em uso em symTab
+	private LlvmClass classEnv; 	// Aponta para a classe atualmente em uso em symTab
 	
 	public Codegen() {
 		assembler = new LinkedList<LlvmInstruction>();
@@ -172,8 +172,9 @@ public class Codegen extends VisitorAdapter {
 	// Todos os visit's que devem ser implementados
 	public LlvmValue visit(ClassDeclSimple n) {
 		System.out.println("++++++++++AST: ClassDeclSimple: " + n.name.toString() );
+        classEnv = new LlvmClass ( n.name.toString() );
 
-		LlvmUtility<VarDecl> util = new LlvmUtility<VarDecl>();
+		LlvmListConverter<VarDecl> util = new LlvmListConverter<VarDecl>();
         List<VarDecl> varList = util.getTList( n.varList );
 
         List<LlvmType> attr_aux = new LinkedList<LlvmType>();
@@ -186,9 +187,10 @@ public class Codegen extends VisitorAdapter {
             var_aux.add( var.accept(this) );
         }
         LlvmStructure struct_attr = new LlvmStructure( attr_aux );
-        classEnv = new ClassNode ( n.name.toString(), struct_attr, var_aux );
 
-        List<MethodDecl> methodList = LlvmUtility.getMethodList( n.methodList );
+        LlvmListConverter<MethodDecl> converter0 = new LlvmListConverter<MethodDecl>();
+        List<MethodDecl> methodList = converter0.getTList( n.methodList );
+
         for ( MethodDecl method : methodList )
         {
             System.out.println ( method.name );
@@ -196,7 +198,7 @@ public class Codegen extends VisitorAdapter {
             method.accept(this);
         }
 
-        LlvmConstantDeclaration const_attr = new LlvmConstantDeclaration( "\n%class." + n.name.toString(), "type " + struct_attr.toString() + "\n" );
+        LlvmConstantDeclaration const_attr = new LlvmConstantDeclaration( classEnv.toString(), "type " + struct_attr.toString() + "\n" );
         assembler.add( const_attr );
 
 		return null;
@@ -204,6 +206,37 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(ClassDeclExtends n) {
 		System.out.println("++++++++++AST: ClassDeclExtends");
+
+		LlvmListConverter<VarDecl> util = new LlvmListConverter<VarDecl>();
+        List<VarDecl> varList = util.getTList( n.varList );
+
+        List<LlvmType> attr_aux = new LinkedList<LlvmType>();
+        List<LlvmValue> var_aux = new LinkedList<LlvmValue>();
+
+        classEnv = new LlvmClass ( n.superClass.toString() );
+        attr_aux.add( classEnv );
+        for ( VarDecl var : varList )
+        {
+            System.out.println ( var.name );
+            attr_aux.add( var.accept(this).type );
+            var_aux.add( var.accept(this) );
+        }
+        LlvmStructure struct_attr = new LlvmStructure( attr_aux );
+
+        LlvmListConverter<MethodDecl> converter0 = new LlvmListConverter<MethodDecl>();
+        List<MethodDecl> methodList = converter0.getTList( n.methodList );
+
+        for ( MethodDecl method : methodList )
+        {
+            System.out.println ( method.name );
+            //attr_aux.add( method.accept(this).type );
+            method.accept(this);
+        }
+
+        classEnv = new LlvmClass ( n.name.toString() );
+        LlvmConstantDeclaration const_attr = new LlvmConstantDeclaration( classEnv.toString(), "type " + struct_attr.toString() + "\n" );
+        assembler.add( const_attr );
+
 		return null;
 	}
 
@@ -216,7 +249,7 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(MethodDecl n) {
 		System.out.println("++++++++++AST: MethodDecl");
-        LlvmUtility < Formal > luFormal = new LlvmUtility < Formal > ();
+        LlvmListConverter < Formal > luFormal = new LlvmListConverter < Formal > ();
 
         LlvmValue retType = n.returnType.accept ( this );
 
@@ -238,7 +271,8 @@ public class Codegen extends VisitorAdapter {
 			argsList	));
 		assembler.add(new LlvmLabel(new LlvmLabelValue("entry")));
 
-        List<Statement> bodyList = LlvmUtility.getStatementList( n.body );
+        LlvmListConverter<Statement> converter0 = new LlvmListConverter<Statement>();
+        List<Statement> bodyList = converter0.getTList( n.body );
         
         for ( Statement var : bodyList )
         {
@@ -419,8 +453,8 @@ public class Codegen extends VisitorAdapter {
 /**********************************************************************************/
 
 class SymTab extends VisitorAdapter{
-    public Map<String, ClassNode> classes;     
-    private ClassNode classEnv;    //aponta para a classe em uso
+    public Map<String, LlvmClass> classes;     
+    private LlvmClass classEnv;    //aponta para a classe em uso
 
     public LlvmValue FillTabSymbol(Program n){
         n.accept(this);
@@ -437,7 +471,7 @@ class SymTab extends VisitorAdapter{
     }
 
     public LlvmValue visit(MainClass n){
-        classes.put(n.className.s, new ClassNode(n.className.s, null, null));
+        classes.put( n.className.s, new LlvmClass( n.className.s ) );
         return null;
     }
 
@@ -446,7 +480,9 @@ class SymTab extends VisitorAdapter{
 
         List<LlvmType> attr_type = new LinkedList<LlvmType>();
         List<LlvmValue> attr_value = new LinkedList<LlvmValue>();
-        List < VarDecl > varList = LlvmUtility.getVarList( n.varList );
+
+        LlvmListConverter<VarDecl> converter0 = new LlvmListConverter<VarDecl>();
+        List<VarDecl> varList = converter0.getTList( n.varList );
         
         for ( VarDecl var : varList )
         {
@@ -455,7 +491,7 @@ class SymTab extends VisitorAdapter{
             attr_value.add( var.accept(this) );
         }
 
-        classes.put( n.name.s, new ClassNode( n.name.s, new LlvmStructure( attr_type ), attr_value ) );
+        classes.put( n.name.s, new LlvmClass( n.name.s ) );
 
         return null;
     }
@@ -493,24 +529,4 @@ class SymTab extends VisitorAdapter{
         System.out.println("++++++++++AST: IntegerType ");
         return null;
     }
-}
-
-class ClassNode extends LlvmType {
-    String name;
-    LlvmStructure type;
-    List < LlvmValue > varList;
-	ClassNode (String nameClass, LlvmStructure classType, List<LlvmValue> varList){
-        this.name = nameClass;
-        this.type = classType;
-        this.varList = varList;
-	}
-
-    public String toString ()
-    {
-        return "\n%class." + this.name;
-    }
-    
-}
-
-class MethodNode {
 }

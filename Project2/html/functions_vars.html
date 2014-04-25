@@ -90,7 +90,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_f"><span>f</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
-      <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_n"><span>n</span></a></li>
       <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
@@ -98,8 +97,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_s"><span>s</span></a></li>
       <li><a href="#index_t"><span>t</span></a></li>
       <li><a href="#index_v"><span>v</span></a></li>
-      <li><a href="#index_x"><span>x</span></a></li>
-      <li><a href="#index_y"><span>y</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -150,6 +147,9 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 
 
 <h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
+<li>b_int
+: <a class="el" href="classb.html#a293d052c1c4d9385ddd624b32102e04d">b</a>
+</li>
 <li>bitcast
 : <a class="el" href="classllvmast_1_1LlvmMalloc.html#adf9dab7a66378a3e8fa7b1c06a43ee34">llvmast.LlvmMalloc</a>
 </li>
@@ -157,15 +157,18 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>c_int
+: <a class="el" href="classc.html#a4d77666d6f21f88ba13ba1b564ee8b48">c</a>
+</li>
 <li>call
 : <a class="el" href="classllvmast_1_1LlvmMalloc.html#a6ec7f72634b6e87febce33e33226c7e0">llvmast.LlvmMalloc</a>
 </li>
 <li>classEnv
-: <a class="el" href="classllvm_1_1Codegen.html#aab69839e12726f5adfde15786ddc4ee2">llvm.Codegen</a>
-, <a class="el" href="classllvm_1_1SymTab.html#a5087228f74d0997a3766ff36d86185fe">llvm.SymTab</a>
+: <a class="el" href="classllvm_1_1SymTab.html#a8177a715221d874b5e28a8a0ec03889c">llvm.SymTab</a>
+, <a class="el" href="classllvm_1_1Codegen.html#a065c03cf6769449957e99c2b53b0adbd">llvm.Codegen</a>
 </li>
 <li>classes
-: <a class="el" href="classllvm_1_1SymTab.html#abff6b618038338001180dbf340f67f01">llvm.SymTab</a>
+: <a class="el" href="classllvm_1_1SymTab.html#a28adf277b6abc60aa5b3dd679874caca">llvm.SymTab</a>
 </li>
 <li>codeGenerator
 : <a class="el" href="classllvm_1_1Codegen.html#a2d4cb3785cf414cecf336ce593cde894">llvm.Codegen</a>
@@ -178,8 +181,8 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 </li>
 <li>content
 : <a class="el" href="classllvmast_1_1LlvmStore.html#a10f2d446f89fed4e10e4371e945d06d5">llvmast.LlvmStore</a>
-, <a class="el" href="classllvmast_1_1LlvmPointer.html#aa2d870836363eaac6612dccc3ca726ec">llvmast.LlvmPointer</a>
 , <a class="el" href="classllvmast_1_1LlvmArray.html#a4433364c2715820ad1b3d8ea2c1ae1ce">llvmast.LlvmArray</a>
+, <a class="el" href="classllvmast_1_1LlvmPointer.html#aa2d870836363eaac6612dccc3ca726ec">llvmast.LlvmPointer</a>
 </li>
 </ul>
 
@@ -261,20 +264,13 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 </ul>
 
 
-<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
-<li>methodEnv
-: <a class="el" href="classllvm_1_1Codegen.html#ab34e1a84269c8dd8f6cd6a9036b2aeef">llvm.Codegen</a>
-</li>
-</ul>
-
-
 <h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
 <li>name
-: <a class="el" href="classllvm_1_1ClassNode.html#ac7922abd07577318a8b34bcecb76afbe">llvm.ClassNode</a>
-, <a class="el" href="classllvmast_1_1LlvmConstantDeclaration.html#a7b1ca85382ab3af24b60a74d57fff48c">llvmast.LlvmConstantDeclaration</a>
-, <a class="el" href="classllvmast_1_1LlvmExternalDeclaration.html#ad86d40fe92103db15f7d0a6275cc96d2">llvmast.LlvmExternalDeclaration</a>
-, <a class="el" href="classllvmast_1_1LlvmRegister.html#a32716ef6360cbc43f7dc1c34223d5d91">llvmast.LlvmRegister</a>
+: <a class="el" href="classllvmast_1_1LlvmConstantDeclaration.html#a7b1ca85382ab3af24b60a74d57fff48c">llvmast.LlvmConstantDeclaration</a>
 , <a class="el" href="classllvmast_1_1LlvmDefine.html#a6c5c8a8ea0abf586da85d39e822d22fc">llvmast.LlvmDefine</a>
+, <a class="el" href="classllvmast_1_1LlvmRegister.html#a32716ef6360cbc43f7dc1c34223d5d91">llvmast.LlvmRegister</a>
+, <a class="el" href="classllvmutility_1_1LlvmClass.html#a0361431b202725cefa6d69f4163ad22e">llvmutility.LlvmClass</a>
+, <a class="el" href="classllvmast_1_1LlvmExternalDeclaration.html#ad86d40fe92103db15f7d0a6275cc96d2">llvmast.LlvmExternalDeclaration</a>
 </li>
 <li>nElements
 : <a class="el" href="classllvmast_1_1LlvmMalloc.html#a361a03574c9e1df59b8c894fed665a2f">llvmast.LlvmMalloc</a>
@@ -359,12 +355,11 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>type
 : <a class="el" href="classllvmast_1_1LlvmTimes.html#aced4a387bc86cae7c41464432a89c47a">llvmast.LlvmTimes</a>
 , <a class="el" href="classllvmast_1_1LlvmPlus.html#a2b55eca324fa6236758de37122a96686">llvmast.LlvmPlus</a>
-, <a class="el" href="classllvmast_1_1LlvmMinus.html#a13694b6275055dd79f825ebe4ba4b9fc">llvmast.LlvmMinus</a>
-, <a class="el" href="classllvm_1_1ClassNode.html#ab277f14a02d23e02c071b97df3007dac">llvm.ClassNode</a>
-, <a class="el" href="classllvmast_1_1LlvmIcmp.html#ab20e417c4c2e0878607bba8a2390bfe3">llvmast.LlvmIcmp</a>
-, <a class="el" href="classllvmast_1_1LlvmCall.html#a30e992c8b9fa943fef55faacbf741ee6">llvmast.LlvmCall</a>
 , <a class="el" href="classllvmast_1_1LlvmAlloca.html#acb3abed53f945c0bb946ed1dbda693c0">llvmast.LlvmAlloca</a>
 , <a class="el" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">llvmast.LlvmMalloc</a>
+, <a class="el" href="classllvmast_1_1LlvmIcmp.html#ab20e417c4c2e0878607bba8a2390bfe3">llvmast.LlvmIcmp</a>
+, <a class="el" href="classllvmast_1_1LlvmCall.html#a30e992c8b9fa943fef55faacbf741ee6">llvmast.LlvmCall</a>
+, <a class="el" href="classllvmast_1_1LlvmMinus.html#a13694b6275055dd79f825ebe4ba4b9fc">llvmast.LlvmMinus</a>
 , <a class="el" href="classllvmast_1_1LlvmValue.html#a6edb4a2900c71b0a4fb6ba7a531847b2">llvmast.LlvmValue</a>
 </li>
 <li>typeList
@@ -384,26 +379,8 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 : <a class="el" href="classllvmast_1_1LlvmLabelValue.html#aa4e9424aea266166a985ab1340f0814a">llvmast.LlvmLabelValue</a>
 , <a class="el" href="classllvmast_1_1LlvmIntegerLiteral.html#a20b07a81f86f1a00705a0bf4764bc68e">llvmast.LlvmIntegerLiteral</a>
 </li>
-<li>varList
-: <a class="el" href="classllvm_1_1ClassNode.html#a3b38c641b2bde2be4e0c0c4a012edf4d">llvm.ClassNode</a>
-</li>
 <li>VOID
 : <a class="el" href="classllvmast_1_1LlvmPrimitiveType.html#aa9023c082e3f4aa92083e915acccb0ea">llvmast.LlvmPrimitiveType</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_x"></a>- x -</h3><ul>
-<li>x
-: <a class="el" href="classMatematica.html#a352404db6063110f7fd46faa45e72706">Matematica</a>
-, <a class="el" href="classb.html#aa7de47f3dccfa7e3a3246c4aa0d36334">b</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_y"></a>- y -</h3><ul>
-<li>y
-: <a class="el" href="classb.html#a479d80b58b68ef8a61f949e91d94d9a2">b</a>
 </li>
 </ul>
 </div><!-- contents -->
