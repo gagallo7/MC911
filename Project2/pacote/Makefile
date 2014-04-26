@@ -17,6 +17,12 @@ INPUT_run = test/teste.java
 OUTPUT_run = teste.s
 OUTPUT_bytecode = teste.bc
 
+%.java: test/%.java.txt
+	javac -classpath lib/projeto2.jar src/llvm/*.java src/llvmast/*.java src/llvmutility/*.java
+	java -classpath src:lib/projeto2.jar main/Main $^ $@.s && \
+		llvm-as $@.s -o $@.bc && \
+		lli $@.bc
+
 all: clean compile run bytecode exec
 	@echo ""
 

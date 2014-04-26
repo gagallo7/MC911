@@ -415,7 +415,8 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(IdentifierExp n) {
 		System.out.println("++++++++++AST: IdentifierExp");
-		return null;
+        // Criando um LlvmNamedValue para criar um identificador
+        return new LlvmNamedValue ( n.name.accept(this).toString(),n.type.accept(this).type );
 	}
 
 	public LlvmValue visit(This n) {
@@ -454,6 +455,7 @@ public class Codegen extends VisitorAdapter {
 
 class SymTab extends VisitorAdapter{
     public Map<String, LlvmClass> classes;     
+    public Map<String, Data> tab;     
     private LlvmClass classEnv;    //aponta para a classe em uso
 
     public LlvmValue FillTabSymbol(Program n){

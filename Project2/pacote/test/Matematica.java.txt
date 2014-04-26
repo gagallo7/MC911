@@ -1,0 +1,28 @@
+class a
+{
+public static void main ( String[] args )
+{
+System.out.println ( new Matematica ().Soma (25,5) );
+}
+}
+
+class Matematica extends Base
+{
+    public int Soma ( int a, int b )
+    {
+        int y;
+        x = a + b;
+        return x;
+    }
+}
+
+class Base 
+{
+    int x;
+    public int Init ( int a, int b )
+    {
+        int y;
+        x = 10;
+        return 1;
+    }
+}
