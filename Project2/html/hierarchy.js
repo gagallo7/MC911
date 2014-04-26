@@ -4,6 +4,8 @@ var hierarchy =
     [ "b", "classb.html", [
       [ "c", "classc.html", null ]
     ] ],
+    [ "d", "classd.html", null ],
+    [ "llvmutility.ListConverter< T >", "classllvmutility_1_1ListConverter_3_01T_01_4.html", null ],
     [ "llvmast.LlvmInstruction", "classllvmast_1_1LlvmInstruction.html", [
       [ "llvmast.LlvmAlloca", "classllvmast_1_1LlvmAlloca.html", null ],
       [ "llvmast.LlvmBitcast", "classllvmast_1_1LlvmBitcast.html", null ],
@@ -24,10 +26,6 @@ var hierarchy =
       [ "llvmast.LlvmStore", "classllvmast_1_1LlvmStore.html", null ],
       [ "llvmast.LlvmTimes", "classllvmast_1_1LlvmTimes.html", null ]
     ] ],
-    [ "llvmutility.LlvmListConverter< T >", "classllvmutility_1_1LlvmListConverter_3_01T_01_4.html", null ],
-    [ "LlvmType", null, [
-      [ "llvmutility.LlvmClass", "classllvmutility_1_1LlvmClass.html", null ]
-    ] ],
     [ "llvmast.LlvmType", "classllvmast_1_1LlvmType.html", [
       [ "llvmast.LlvmArray", "classllvmast_1_1LlvmArray.html", null ],
       [ "llvmast.LlvmFunctionType", "classllvmast_1_1LlvmFunctionType.html", null ],
@@ -35,6 +33,9 @@ var hierarchy =
       [ "llvmast.LlvmPrimitiveType", "classllvmast_1_1LlvmPrimitiveType.html", null ],
       [ "llvmast.LlvmStructure", "classllvmast_1_1LlvmStructure.html", null ],
       [ "llvmast.LlvmVoid", "classllvmast_1_1LlvmVoid.html", null ]
+    ] ],
+    [ "LlvmType", null, [
+      [ "llvmutility.ClassType", "classllvmutility_1_1ClassType.html", null ]
     ] ],
     [ "llvmast.LlvmValue", "classllvmast_1_1LlvmValue.html", [
       [ "llvmast.LlvmBool", "classllvmast_1_1LlvmBool.html", null ],
