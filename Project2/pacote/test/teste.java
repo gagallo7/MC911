@@ -15,3 +15,10 @@ class c extends b
 {
     int c_int;
 }
+
+class d 
+{
+    int d_int;
+    b d_b;
+    c d_c;
+}

@@ -1,8 +1,8 @@
 package llvmutility;
 
-public class LlvmListConverter < T >
+public class ListConverter < T >
 {
-    public LlvmListConverter() {}
+    public ListConverter() {}
 
     public final java.util.List < T > getTList ( util.List < T > arg )
     {
