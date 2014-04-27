@@ -317,7 +317,10 @@ public class Codegen extends VisitorAdapter {
 
 	public LlvmValue visit(IdentifierType n) {
 		System.out.println("++++++++++AST: IdentifierType");
-		return null;
+
+        System.out.println ( "n.name = " + n.name );
+		
+        return new LlvmRegister ( n.name, new ClassType (n.name) );
 	}
 
 	public LlvmValue visit(Block n) {
@@ -478,7 +481,7 @@ class SymTab extends VisitorAdapter{
     }
 
     public LlvmValue visit(ClassDeclSimple n){
-        System.out.println("++++++++++AST: ClassDeclSimple ");
+        System.out.println("++++++++++Filling Tab - AST: ClassDeclSimple ");
 
         List<LlvmType> attr_type = new LinkedList<LlvmType>();
         List<LlvmValue> attr_value = new LinkedList<LlvmValue>();
@@ -499,36 +502,36 @@ class SymTab extends VisitorAdapter{
     }
 
     public LlvmValue visit(ClassDeclExtends n){
-        System.out.println("++++++++++AST: ClassDeclExtends ");
+        System.out.println("++++++++++Filling Tab - AST: ClassDeclExtends ");
 
         return null;
     }
     public LlvmValue visit(VarDecl n){
-        System.out.println("++++++++++AST: VarDecl ");
+        System.out.println("++++++++++Filling Tab - AST: VarDecl ");
         return n.type.accept(this);
     }
     public LlvmValue visit(Formal n){
-        System.out.println("++++++++++AST: Formal ");
+        System.out.println("++++++++++Filling Tab - AST: Formal ");
         return null;
     }
     public LlvmValue visit(MethodDecl n){
-        System.out.println("++++++++++AST: MethodDecl ");
+        System.out.println("++++++++++Filling Tab - AST: MethodDecl ");
         return null;
     }
     public LlvmValue visit(IdentifierType n){
-        System.out.println("++++++++++AST: IdentifierType ");
+        System.out.println("++++++++++Filling Tab - AST: IdentifierType ");
         return null;
     }
     public LlvmValue visit(IntArrayType n){
-        System.out.println("++++++++++AST: IntArrayType ");
+        System.out.println("++++++++++Filling Tab - AST: IntArrayType ");
         return null;
     }
     public LlvmValue visit(BooleanType n){
-        System.out.println("++++++++++AST: BooleanType ");
+        System.out.println("++++++++++Filling Tab - AST: BooleanType ");
         return null;
     }
     public LlvmValue visit(IntegerType n){
-        System.out.println("++++++++++AST: IntegerType ");
+        System.out.println("++++++++++Filling Tab - AST: IntegerType ");
         return null;
     }
 }
