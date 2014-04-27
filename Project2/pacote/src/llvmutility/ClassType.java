@@ -1,11 +1,11 @@
 package llvmutility;
 import llvmast.*;
 
-public class LlvmClass extends LlvmType
+public class ClassType extends LlvmType
 {
     public String name;
 
-    public LlvmClass( String name )
+    public ClassType( String name )
     {
 	    this.name = name;
     }

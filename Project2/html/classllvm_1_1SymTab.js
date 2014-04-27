@@ -12,6 +12,6 @@ var classllvm_1_1SymTab =
     [ "visit", "classllvm_1_1SymTab.html#a9be8fe02f6d5c9dd65837b1dc561b684", null ],
     [ "visit", "classllvm_1_1SymTab.html#a92752a4f9a98c1c181905268b2b879e0", null ],
     [ "visit", "classllvm_1_1SymTab.html#a969ee0e04f2bc08178127d9540372e7b", null ],
-    [ "classEnv", "classllvm_1_1SymTab.html#a8177a715221d874b5e28a8a0ec03889c", null ],
-    [ "classes", "classllvm_1_1SymTab.html#a28adf277b6abc60aa5b3dd679874caca", null ]
+    [ "classEnv", "classllvm_1_1SymTab.html#a2b230ad8bbc0449b55ab39846b452173", null ],
+    [ "classes", "classllvm_1_1SymTab.html#a9a5a6adf8000aa0dca040865cde277e6", null ]
 ];
