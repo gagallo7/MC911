@@ -53,6 +53,16 @@ public class Codegen extends VisitorAdapter {
 		for (LlvmInstruction instr : codeGenerator.assembler)
 			r += instr + "\n";
 
+        // =====================================
+        // Gerando RI
+        // =====================================
+        codeGenerator.symTab.print();
+
+        // TODO
+
+        // =====================================
+
+        // Exit
 		return r;
 	}
 
@@ -176,7 +186,6 @@ public class Codegen extends VisitorAdapter {
 
         // Store this class
         symTab.add( n.name.toString(), class_aux );
-        symTab.print();
 
 		return null;
 	}
@@ -490,6 +499,17 @@ class SymTab extends VisitorAdapter{
         }
 
         System.out.println( "\n====================================\n" );
+    }
+
+    public String getOffset( String whichClass, String whichData ) 
+    {
+        ClassData aux = getClassData( whichClass );
+        String offset = aux.getOffset( whichData );
+        
+        if ( offset.isEmpty() )
+            return "0, " + getOffset( aux.getParent(), whichData );
+
+        return offset;
     }
 
     // =============================================================================================
