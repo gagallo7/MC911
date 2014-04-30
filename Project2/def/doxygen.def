@@ -164,6 +164,51 @@ class = {
     sec-kind = 'public-func';
     sec-member = {
       sec-mem-kind = 'function';
+      sec-mem-id   = 'classllvmutility_1_1AttributeData_1a3b0d24ab4bf54e9df745d54ead050ca4';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'AttributeData';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+LlvmType
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'type';
+      }; /*        sec-mem-param--param */
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+LlvmValue
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'value';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmutility/AttributeData.java';
+      sec-mem-desc-line = '11';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = 'Data_8java_1ab5e9c809d3efd794e1967e4fc3828725';
+        sec-mem-ref-line = '5';
+        sec-mem-ref-name = 'llvmutility.Data::offset';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = 'AttributeData_8java_1a40c37601224246ba59ddf899dacdbdce';
+        sec-mem-ref-line = '6';
+        sec-mem-ref-name = 'llvmutility.AttributeData::type';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = 'AttributeData_8java_1af078c99a3466318ae8461a737317a228';
+        sec-mem-ref-line = '7';
+        sec-mem-ref-name = 'llvmutility.AttributeData::value';
+    };
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
       sec-mem-id   = 'classllvmutility_1_1AttributeData_1a45cb5f4e35c06d185eb7de3d084fbfc4';
       sec-mem-virt = normal;
       sec-mem-prot = public;
@@ -190,7 +235,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'offset';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmutility/AttributeData.java';
-      sec-mem-desc-line = '10';
+      sec-mem-desc-line = '19';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -2959,6 +3004,45 @@ _EnD_oF_dEf_TeXt_;
     }; /* sec-member */
     sec-member = {
       sec-mem-kind = 'function';
+      sec-mem-id   = 'classllvmutility_1_1ClassData_1a957f7d4cb977cb138c33d6b89d9ddff6';
+      sec-mem-virt = normal;
+      sec-mem-prot = public;
+      sec-mem-type = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-name = 'ClassData';
+      sec-mem-param = {
+        sec-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+        sec-mem-param-declname = 'offset';
+      }; /*        sec-mem-param--param */
+      sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmutility/ClassData.java';
+      sec-mem-desc-line = '34';
+      sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      sec-mem-referenceto = {
+        sec-mem-ref-id = 'ClassData_8java_1aef3c60f33dade458210f476c3b93c502';
+        sec-mem-ref-line = '7';
+        sec-mem-ref-name = 'llvmutility.ClassData::info';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = 'Data_8java_1ab5e9c809d3efd794e1967e4fc3828725';
+        sec-mem-ref-line = '5';
+        sec-mem-ref-name = 'llvmutility.Data::offset';
+    };
+      sec-mem-referenceto = {
+        sec-mem-ref-id = 'ClassData_8java_1ad57031c4ee80ce5abf94b58e0d3f7f8e';
+        sec-mem-ref-line = '6';
+        sec-mem-ref-name = 'llvmutility.ClassData::parent';
+    };
+    }; /* sec-member */
+    sec-member = {
+      sec-mem-kind = 'function';
       sec-mem-id   = 'classllvmutility_1_1ClassData_1a6d0bd85a8d4fab1ec390a86a47646722';
       sec-mem-virt = normal;
       sec-mem-prot = public;
@@ -2979,7 +3063,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'whichData';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmutility/ClassData.java';
-      sec-mem-desc-line = '39';
+      sec-mem-desc-line = '46';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3008,7 +3092,7 @@ _EnD_oF_dEf_TeXt_;
         sec-mem-param-declname = 'whichClassInfo';
       }; /*        sec-mem-param--param */
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmutility/ClassData.java';
-      sec-mem-desc-line = '45';
+      sec-mem-desc-line = '52';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3036,7 +3120,7 @@ String
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'getParent';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmutility/ClassData.java';
-      sec-mem-desc-line = '34';
+      sec-mem-desc-line = '41';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3059,7 +3143,7 @@ void
 _EnD_oF_dEf_TeXt_;
       sec-mem-name = 'print';
       sec-mem-desc-file = '/home/brunogsa/MC911/Project2/pacote/src/llvmutility/ClassData.java';
-      sec-mem-desc-line = '55';
+      sec-mem-desc-line = '62';
       sec-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
 
 _EnD_oF_dEf_TeXt_;
@@ -3094,7 +3178,7 @@ _EnD_oF_dEf_TeXt_;
 _EnD_oF_dEf_TeXt_;
       sec-mem-referenceby = {
         sec-mem-ref-id = 'ClassData_8java_1a6d0bd85a8d4fab1ec390a86a47646722';
-        sec-mem-ref-line = '38';
+        sec-mem-ref-line = '45';
         sec-mem-ref-name = 'llvmutility.ClassData::add';
     };
       sec-mem-referenceby = {
@@ -3104,12 +3188,12 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'ClassData_8java_1a7e4b6536a079c6389ecce0873204de0d';
-        sec-mem-ref-line = '44';
+        sec-mem-ref-line = '51';
         sec-mem-ref-name = 'llvmutility.ClassData::getOffset';
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'ClassData_8java_1ab611d17f1cac3529475ee1454c72a8e1';
-        sec-mem-ref-line = '54';
+        sec-mem-ref-line = '61';
         sec-mem-ref-name = 'llvmutility.ClassData::print';
     };
     }; /* sec-member */
@@ -3137,7 +3221,7 @@ _EnD_oF_dEf_TeXt_;
     };
       sec-mem-referenceby = {
         sec-mem-ref-id = 'ClassData_8java_1aa502755fb4dafc0df7d93015d5f6f5a2';
-        sec-mem-ref-line = '33';
+        sec-mem-ref-line = '40';
         sec-mem-ref-name = 'llvmutility.ClassData::getParent';
     };
     }; /* sec-member */
