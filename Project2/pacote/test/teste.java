@@ -11,15 +11,29 @@ class a
     int a_member_1;
     int a_member_2;
     int a_member_3;
+
+    public int inutil ( int gg )
+    {
+        int robert;
+        robert = gg + 5;
+        return robert;
+    }
+
+    public int anarquia ( int a, int b )
+    {
+        int gogo;
+        return 0;
+    }
 }
 
-class b 
+class b  extends a
 {
     int b_member_1;
 }
 
-class c 
+class c extends a
 {
+    b bezao;
     int c_member_1;
     int c_member_2;
 }

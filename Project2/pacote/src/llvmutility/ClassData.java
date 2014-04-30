@@ -65,10 +65,12 @@ public class ClassData extends Data
 
     public void print() 
     {
+        System.out.println ( "Pai: " + this.parent ) ;
         for ( String key : this.info.keySet() ) 
         {
             if ( key.isEmpty() ) break;
-            System.out.println( "- " + key + " -" );
+            System.out.println( "\n- " + key + " -" );
+            this.info.get (key).print();
         }
     }
 

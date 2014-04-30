@@ -21,4 +21,9 @@ public class AttributeData extends Data
         this.value = value;
         this.offset = offset;
     }
+
+    public void print ()
+    {
+        System.out.println ( "tipo: " + type.toString() );
+    }
 }
