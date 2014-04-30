@@ -1,4 +1,4 @@
-package llvmutility;
+packge llvmutility;
 import java.util.*;
 
 public class ClassData extends Data
@@ -44,18 +44,19 @@ public class ClassData extends Data
 
     public void add( String dataName, Data whichData ) 
     {
-        info.put( dataName, whichData );
+        this.info.put( dataName, whichData );
+    }
+
+    public Data get( String dataName ) 
+    {
+        return this.info.get( dataName );
     }
 
     // Returns -1 if key was not founded
     public int getOffset( String whichClassInfo ) 
     {
-        Data aux = info.get( whichClassInfo );
-
-        if ( aux == null )
-            return -1;
-
-        return aux.offset;
+        // TODO
+        return -1;
     }
 
     public void print() 
