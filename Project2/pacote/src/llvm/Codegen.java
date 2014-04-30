@@ -20,16 +20,11 @@ public class Codegen extends VisitorAdapter {
 	private Codegen codeGenerator;
 
 	private SymTab symTab;
-	private ClassData classEnv; 	// Aponta para a classe atualmente em uso em symTab
-    private String className, methodName;
-    private MethodData methodEnv;
-    private Map < String, MethodData > methods;
 
     // Constutor
 	public Codegen() {
 		assembler = new LinkedList<LlvmInstruction>();
 		symTab = new SymTab();
-        methods = new HashMap < String, MethodData > ();
 	}
 
     // =============================================================================================
@@ -38,6 +33,7 @@ public class Codegen extends VisitorAdapter {
 	public String translate(Program p, Env env) {
 		System.out.println("[ AST ] : translate");
 		codeGenerator = new Codegen();
+        codeGenerator.symTab.FillTabSymbol( p );
 
 		// Formato da String para o System.out.printlnijava "%d\n"
 		codeGenerator.assembler.add( new LlvmConstantDeclaration( "@.formatting.string", "private constant [4 x i8] c\"%d\\0A\\00\"" ) );
@@ -55,7 +51,10 @@ public class Codegen extends VisitorAdapter {
 
 		String r = new String();
 		for (LlvmInstruction instr : codeGenerator.assembler)
+        {
+            System.out.println ( instr );
 			r += instr + "\n";
+        }
 
         // =====================================
         // Gerando RI
@@ -63,14 +62,14 @@ public class Codegen extends VisitorAdapter {
         codeGenerator.symTab.print();
 
         System.out.println ( "|||||||||||||||||||||||||" );
-        for ( String key : codeGenerator.methods.keySet() )
+        for ( String key : codeGenerator.symTab.methods.keySet() )
         {
             String[] parts = key.split("_");
-            className = parts[1];
+            symTab.className = parts[1];
 
-            MethodData aux = codeGenerator.methods.get ( key );
+            MethodData aux = codeGenerator.symTab.methods.get ( key );
             String s = "";
-            s += "define " + aux.returnType.toString() + " @" + key + " ( %class." + className + " * %this";
+            s += "define " + aux.returnType.toString() + " @" + key + " ( %class." + symTab.className + " * %this";
             
             // Gerando argumentos do método
             for ( String arg : aux.args.keySet() )
@@ -187,10 +186,7 @@ public class Codegen extends VisitorAdapter {
 	public LlvmValue visit(ClassDeclSimple n) {
 		System.out.println("[ AST ] : ClassDeclSimple: " + n.name.toString() );
 
-        // Starting a new class info. Here, we have no parent and offset is unnecessary
-        classEnv = new ClassData();
-        className = n.name.toString();
-        int offset_aux = 0;
+        symTab.className = n.name.toString();
 
 		ListConverter<VarDecl> converter0 = new ListConverter<VarDecl>();
         List<VarDecl> varList = converter0.getTList( n.varList );
@@ -200,11 +196,6 @@ public class Codegen extends VisitorAdapter {
         {
             LlvmValue tmp = var.accept (this);
             attr_aux.add( tmp.type );
-
-            // Adding a new attribute data
-            AttributeData att_aux = new AttributeData( tmp.type, tmp, offset_aux );
-            offset_aux++;
-            classEnv.add( var.name.s, att_aux );
         }
         LlvmStructure struct_attr = new LlvmStructure( attr_aux );
 
@@ -213,18 +204,12 @@ public class Codegen extends VisitorAdapter {
 
         for ( MethodDecl method : methodList )
         {
-            methodEnv = new MethodData ();
             method.accept(this);
-            classEnv.add( methodName, methodEnv );
-            methods.put ( methodName, methodEnv );
         }
 
-        ClassType name_aux = new ClassType( className );
+        ClassType name_aux = new ClassType( symTab.className );
         LlvmConstantDeclaration const_attr = new LlvmConstantDeclaration( name_aux.toString(), "type " + struct_attr.toString() + "\n" );
         assembler.add( const_attr );
-
-        // Store this class
-        symTab.add( className, classEnv );
 
 		return null;
 	}
@@ -237,25 +222,16 @@ public class Codegen extends VisitorAdapter {
         List<VarDecl> varList = util.getTList( n.varList );
 
         List<LlvmType> attr_aux = new LinkedList<LlvmType>();
-        List<LlvmValue> var_aux = new LinkedList<LlvmValue>();
 
         // Starting a new class info. Here, we have no parent and offset is unnecessary
         String parent = n.superClass.toString();
-        classEnv = new ClassData ( parent );
-        className = n.name.toString();
-        // != 0 -- Tem pai
-        int offset_aux = 1;
+        symTab.className = n.name.toString();
 
         attr_aux.add( new ClassType ( parent ) );
         for ( VarDecl var : varList )
         {
             LlvmValue tmp = var.accept (this);
             attr_aux.add( tmp.type );
-
-            // Adding a new attribute data
-            AttributeData att_aux = new AttributeData( tmp.type, tmp, offset_aux );
-            offset_aux++;
-            classEnv.add( var.name.s, att_aux );
         }
         LlvmStructure struct_attr = new LlvmStructure( attr_aux );
 
@@ -264,18 +240,12 @@ public class Codegen extends VisitorAdapter {
 
         for ( MethodDecl method : methodList )
         {
-            methodEnv = new MethodData ();
             method.accept(this);
-            classEnv.add( methodName, methodEnv );
-            methods.put ( methodName, methodEnv );
         }
 
-        ClassType name_aux = new ClassType( className );
+        ClassType name_aux = new ClassType( symTab.className );
         LlvmConstantDeclaration const_attr = new LlvmConstantDeclaration( name_aux.toString(), "type " + struct_attr.toString() + "\n" );
         assembler.add( const_attr );
-
-        // Store this class
-        symTab.add( className, classEnv );
 
 		return null;
 	}
@@ -294,13 +264,10 @@ public class Codegen extends VisitorAdapter {
 
 		ListConverter<Formal> converter0 = new ListConverter<Formal>();
         List < Formal > FormalList = converter0.getTList ( n.formals );
-        methodName = n.name.accept(this).toString() + "_" + className;
-        methodEnv.returnType = n.returnType.accept ( this ).type;
 
         for ( Formal formal : FormalList )
         {
-            LlvmValue formalAux = formal.accept(this);
-            methodEnv.addArg ( formalAux.toString(), formalAux.type );
+            formal.accept(this);
         }
 
         ListConverter<Statement> converter1 = new ListConverter<Statement>();
@@ -308,8 +275,7 @@ public class Codegen extends VisitorAdapter {
 
         for ( Statement stmt : bodyList )
         {
-   //         stmt.accept(this);
-            methodEnv.addStmt ( stmt );
+            stmt.accept(this);
         }
 
 		return null;
@@ -442,6 +408,7 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(Call n) {
 		System.out.println("[ AST ] : Call");
+        //assembler.add ( new LlvmCall ( new LlvmRegister ( n.method.accept(this).type ), new LlvmMalloc (  
 		return null;
 	}
 
@@ -491,7 +458,6 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(Identifier n) {
 		System.out.println("[ AST ] : Identifier");
-        System.out.println ( "n.s -> " +n.s );
 		return new LlvmLabelValue ( n.s );
 	}
 }
@@ -502,10 +468,15 @@ public class Codegen extends VisitorAdapter {
 // =============================================================================================
 class SymTab extends VisitorAdapter{
     private Map<String, ClassData> classes;     
+	public ClassData classEnv;
+    public String className, methodName;
+    public MethodData methodEnv;
+    public Map < String, MethodData > methods;
 
     public SymTab() 
     {
         this.classes = new HashMap<String, ClassData>();
+        this.methods = new HashMap < String, MethodData > ();
     }
     
     public void add( String className, ClassData whichData ) 
@@ -573,18 +544,37 @@ class SymTab extends VisitorAdapter{
     public LlvmValue visit(ClassDeclSimple n){
         System.out.println("[ SymTab ] : ClassDeclSimple");
 
-        List<LlvmType> attr_type = new LinkedList<LlvmType>();
-        List<LlvmValue> attr_value = new LinkedList<LlvmValue>();
+        // Starting a new class info. Here, we have no parent and offset is unnecessary
+        classEnv = new ClassData();
+        className = n.name.toString();
+        int offset_aux = 0;
 
-        ListConverter<VarDecl> converter0 = new ListConverter<VarDecl>();
+		ListConverter<VarDecl> converter0 = new ListConverter<VarDecl>();
         List<VarDecl> varList = converter0.getTList( n.varList );
 
         for ( VarDecl var : varList )
         {
-            System.out.println ( var.name.s );
-            attr_type.add( var.accept(this).type );
-            attr_value.add( var.accept(this) );
+            LlvmValue tmp = var.accept (this);
+
+            // Adding a new attribute data
+            AttributeData att_aux = new AttributeData( tmp.type, tmp, offset_aux );
+            offset_aux++;
+            classEnv.add( var.name.s, att_aux );
         }
+
+        ListConverter<MethodDecl> converter1 = new ListConverter<MethodDecl>();
+        List<MethodDecl> methodList = converter1.getTList( n.methodList );
+
+        for ( MethodDecl method : methodList )
+        {
+            methodEnv = new MethodData ();
+            method.accept(this);
+            classEnv.add( methodName, methodEnv );
+            methods.put ( methodName, methodEnv );
+        }
+
+        // Store this class
+        this.add( className, classEnv );
 
         return null;
     }
@@ -592,6 +582,40 @@ class SymTab extends VisitorAdapter{
     // =============================================================================================
     public LlvmValue visit(ClassDeclExtends n){
         System.out.println("[ SymTab ] : ClassDeclExtends");
+
+		ListConverter<VarDecl> util = new ListConverter<VarDecl>();
+        List<VarDecl> varList = util.getTList( n.varList );
+
+        // Starting a new class info. Here, we have no parent and offset is unnecessary
+        String parent = n.superClass.toString();
+        classEnv = new ClassData ( parent );
+        className = n.name.toString();
+        // != 0 -- Tem pai
+        int offset_aux = 1;
+
+        for ( VarDecl var : varList )
+        {
+            LlvmValue tmp = var.accept (this);
+
+            // Adding a new attribute data
+            AttributeData att_aux = new AttributeData( tmp.type, tmp, offset_aux );
+            offset_aux++;
+            classEnv.add( var.name.s, att_aux );
+        }
+
+        ListConverter<MethodDecl> converter0 = new ListConverter<MethodDecl>();
+        List<MethodDecl> methodList = converter0.getTList( n.methodList );
+
+        for ( MethodDecl method : methodList )
+        {
+            methodEnv = new MethodData ();
+            method.accept(this);
+            classEnv.add( methodName, methodEnv );
+            methods.put ( methodName, methodEnv );
+        }
+
+        // Store this class
+        this.add( className, classEnv );
 
         return null;
     }
@@ -605,19 +629,41 @@ class SymTab extends VisitorAdapter{
     // =============================================================================================
     public LlvmValue visit(Formal n){
         System.out.println("[ SymTab ] : Formal ");
-        return null;
+        LlvmRegister R1 = new LlvmRegister("%"+n.name.toString(), LlvmPrimitiveType.I32);
+
+		return R1;
     }
 
     // =============================================================================================
     public LlvmValue visit(MethodDecl n){
         System.out.println("[ SymTab ] : MethodDecl ");
+
+		ListConverter<Formal> converter0 = new ListConverter<Formal>();
+        List < Formal > FormalList = converter0.getTList ( n.formals );
+        methodName = n.name.toString() + "_" + this.className;
+        methodEnv.returnType = n.returnType.accept ( this ).type;
+
+        for ( Formal formal : FormalList )
+        {
+            LlvmValue formalAux = formal.accept(this);
+            methodEnv.addArg ( formalAux.toString(), formalAux.type );
+        }
+
+        ListConverter<Statement> converter1 = new ListConverter<Statement>();
+        List<Statement> bodyList = converter1.getTList( n.body );
+
+        for ( Statement stmt : bodyList )
+        {
+            methodEnv.addStmt ( stmt );
+        }
+
         return null;
     }
 
     // =============================================================================================
     public LlvmValue visit(IdentifierType n){
         System.out.println("[ SymTab ] : IdentifierType ");
-        return null;
+        return new LlvmRegister ( n.name, new LlvmPointer ( new ClassType ( n.name ) ) );
     }
 
     // =============================================================================================
@@ -635,7 +681,7 @@ class SymTab extends VisitorAdapter{
     // =============================================================================================
     public LlvmValue visit(IntegerType n){
         System.out.println("[ SymTab ] : IntegerType ");
-        return null;
+		return new LlvmIntegerLiteral (0);
     }
 
     // =============================================================================================

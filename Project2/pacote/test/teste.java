@@ -29,6 +29,12 @@ class a
 class b  extends a
 {
     int b_member_1;
+    public int zoo ( int a, int b )
+    {
+        a_member_1 = 23;
+        b_member_1 = 12;
+        return 0;
+    }
 }
 
 class c extends a

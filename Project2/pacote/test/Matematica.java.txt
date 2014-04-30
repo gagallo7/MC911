@@ -1,9 +1,9 @@
 class a
 {
-public static void main ( String[] args )
-{
-System.out.println ( new Matematica ().Soma (25,5) );
-}
+    public static void main ( String[] args )
+    {
+        System.out.println ( new Matematica ().Soma (25,5) );
+    }
 }
 
 class Matematica extends Base
