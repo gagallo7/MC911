@@ -6,5 +6,5 @@ var annotated =
     [ "a", "classa.html", "classa" ],
     [ "b", "classb.html", "classb" ],
     [ "c", "classc.html", "classc" ],
-    [ "d", "classd.html", "classd" ]
+    [ "teste", "classteste.html", "classteste" ]
 ];

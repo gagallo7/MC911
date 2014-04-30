@@ -1,10 +1,15 @@
 var hierarchy =
 [
-    [ "a", "classa.html", null ],
-    [ "b", "classb.html", [
-      [ "c", "classc.html", null ]
+    [ "a", "classa.html", [
+      [ "b", "classb.html", [
+        [ "c", "classc.html", null ]
+      ] ]
     ] ],
-    [ "d", "classd.html", null ],
+    [ "llvmutility.Data", "classllvmutility_1_1Data.html", [
+      [ "llvmutility.AttributeData", "classllvmutility_1_1AttributeData.html", null ],
+      [ "llvmutility.ClassData", "classllvmutility_1_1ClassData.html", null ],
+      [ "llvmutility.MethodData", "classllvmutility_1_1MethodData.html", null ]
+    ] ],
     [ "llvmutility.ListConverter< T >", "classllvmutility_1_1ListConverter_3_01T_01_4.html", null ],
     [ "llvmast.LlvmInstruction", "classllvmast_1_1LlvmInstruction.html", [
       [ "llvmast.LlvmAlloca", "classllvmast_1_1LlvmAlloca.html", null ],
@@ -45,6 +50,7 @@ var hierarchy =
         [ "llvmast.LlvmNamedValue", "classllvmast_1_1LlvmNamedValue.html", null ]
       ] ]
     ] ],
+    [ "teste", "classteste.html", null ],
     [ "VisitorAdapter", null, [
       [ "llvm.Codegen", "classllvm_1_1Codegen.html", null ],
       [ "llvm.SymTab", "classllvm_1_1SymTab.html", null ]

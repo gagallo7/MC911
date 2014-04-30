@@ -1,24 +1,26 @@
-class a
+class teste
 {
-    public static void main(String[] args)
+    public static void main( String[] a )
     {
-    	System.out.println( 1-3 + 3 * 2 );
+	    System.out.println( 1+1 );
     }
 }
 
-class b 
+class a 
 {
-    int b_int;
+    int a_member_1;
+    int a_member_2;
+    int a_member_3;
 }
 
-class c extends b
+class b extends a 
 {
-    int c_int;
+    int b_member_1;
 }
 
-class d 
+class c extends b 
 {
-    int d_int;
-    b d_b;
-    c d_c;
+    int c_member_1;
+    int c_member_2;
 }
+

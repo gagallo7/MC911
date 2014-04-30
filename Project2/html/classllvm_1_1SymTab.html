@@ -106,7 +106,6 @@ $(document).ready(function(){initNavTree('classllvm_1_1SymTab.html','');});
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classllvm_1_1SymTab-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -124,8 +123,16 @@ Inheritance diagram for llvm.SymTab:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a789adfd0b1a3f2a18b5d9ef6d975bee4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvm_1_1SymTab.html#a789adfd0b1a3f2a18b5d9ef6d975bee4">SymTab</a> ()</td></tr>
+<tr class="separator:a789adfd0b1a3f2a18b5d9ef6d975bee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c9b7324a75dc9884770522b695fa1bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvm_1_1SymTab.html#a8c9b7324a75dc9884770522b695fa1bb">add</a> (String className, ClassData whichData)</td></tr>
+<tr class="separator:a8c9b7324a75dc9884770522b695fa1bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22c17e4d599a9e8864f580104b2f5459"><td class="memItemLeft" align="right" valign="top">LlvmValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvm_1_1SymTab.html#a22c17e4d599a9e8864f580104b2f5459">FillTabSymbol</a> (Program n)</td></tr>
 <tr class="separator:a22c17e4d599a9e8864f580104b2f5459"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a723f7850c902baa2bfc54baf379bd4df"><td class="memItemLeft" align="right" valign="top">ClassData&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvm_1_1SymTab.html#a723f7850c902baa2bfc54baf379bd4df">getClassData</a> (String whichClass)</td></tr>
+<tr class="separator:a723f7850c902baa2bfc54baf379bd4df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a211813c57b036b6ecbb204d5739c409b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvm_1_1SymTab.html#a211813c57b036b6ecbb204d5739c409b">print</a> ()</td></tr>
+<tr class="separator:a211813c57b036b6ecbb204d5739c409b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43d5f15caf44ee32ade2147d8bfaea12"><td class="memItemLeft" align="right" valign="top">LlvmValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvm_1_1SymTab.html#a43d5f15caf44ee32ade2147d8bfaea12">visit</a> (Program n)</td></tr>
 <tr class="separator:a43d5f15caf44ee32ade2147d8bfaea12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3d8690b58a590203619830ed20c5951"><td class="memItemLeft" align="right" valign="top">LlvmValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvm_1_1SymTab.html#ac3d8690b58a590203619830ed20c5951">visit</a> (MainClass n)</td></tr>
@@ -149,17 +156,66 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a969ee0e04f2bc08178127d9540372e7b"><td class="memItemLeft" align="right" valign="top">LlvmValue&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvm_1_1SymTab.html#a969ee0e04f2bc08178127d9540372e7b">visit</a> (IntegerType n)</td></tr>
 <tr class="separator:a969ee0e04f2bc08178127d9540372e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a9a5a6adf8000aa0dca040865cde277e6"><td class="memItemLeft" align="right" valign="top">Map&lt; String, ClassType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvm_1_1SymTab.html#a9a5a6adf8000aa0dca040865cde277e6">classes</a></td></tr>
-<tr class="separator:a9a5a6adf8000aa0dca040865cde277e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a2b230ad8bbc0449b55ab39846b452173"><td class="memItemLeft" align="right" valign="top">ClassType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvm_1_1SymTab.html#a2b230ad8bbc0449b55ab39846b452173">classEnv</a></td></tr>
-<tr class="separator:a2b230ad8bbc0449b55ab39846b452173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56f495f57458250a3fa95ddcdb205434"><td class="memItemLeft" align="right" valign="top">Map&lt; String, ClassData &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvm_1_1SymTab.html#a56f495f57458250a3fa95ddcdb205434">classes</a></td></tr>
+<tr class="separator:a56f495f57458250a3fa95ddcdb205434"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a789adfd0b1a3f2a18b5d9ef6d975bee4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">llvm.SymTab.SymTab </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>References <a class="el" href="classllvm_1_1SymTab.html#a56f495f57458250a3fa95ddcdb205434">llvm.SymTab.classes</a>.</p>
+<div class="fragment"><div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;    {</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;        this.<a class="code" href="classllvm_1_1SymTab.html#a56f495f57458250a3fa95ddcdb205434">classes</a> = <span class="keyword">new</span> HashMap&lt;String, ClassData&gt;();</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a8c9b7324a75dc9884770522b695fa1bb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void llvm.SymTab.add </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>className</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ClassData&#160;</td>
+          <td class="paramname"><em>whichData</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>References <a class="el" href="classllvm_1_1SymTab.html#a56f495f57458250a3fa95ddcdb205434">llvm.SymTab.classes</a>.</p>
+
+<p>Referenced by <a class="el" href="classllvm_1_1Codegen.html#a6f340551aaac8cb0fb8740be1c1f3761">llvm.Codegen.visit()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    {</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;        this.<a class="code" href="classllvm_1_1SymTab.html#a56f495f57458250a3fa95ddcdb205434">classes</a>.put( className, whichData );</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a22c17e4d599a9e8864f580104b2f5459"></a>
 <div class="memitem">
 <div class="memproto">
@@ -173,10 +229,64 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;                                             {</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        n.accept(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        <span class="keywordflow">return</span> null;</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;                                             {</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;        n.accept(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;        <span class="keywordflow">return</span> null;</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a723f7850c902baa2bfc54baf379bd4df"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ClassData llvm.SymTab.getClassData </td>
+          <td>(</td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>whichClass</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>References <a class="el" href="classllvm_1_1SymTab.html#a56f495f57458250a3fa95ddcdb205434">llvm.SymTab.classes</a>.</p>
+<div class="fragment"><div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    {</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;        <span class="keywordflow">return</span> this.<a class="code" href="classllvm_1_1SymTab.html#a56f495f57458250a3fa95ddcdb205434">classes</a>.get( whichClass );</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a211813c57b036b6ecbb204d5739c409b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void llvm.SymTab.print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>References <a class="el" href="classllvm_1_1SymTab.html#a56f495f57458250a3fa95ddcdb205434">llvm.SymTab.classes</a>.</p>
+
+<p>Referenced by <a class="el" href="classllvm_1_1Codegen.html#a6f340551aaac8cb0fb8740be1c1f3761">llvm.Codegen.visit()</a>.</p>
+<div class="fragment"><div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;    {</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        System.out.println( <span class="stringliteral">&quot;====================================&quot;</span> );</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;        System.out.println( <span class="stringliteral">&quot;Printing SymTab...&quot;</span> );</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;        System.out.println( <span class="stringliteral">&quot;====================================&quot;</span> );</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        <span class="keywordflow">for</span> ( String key : this.<a class="code" href="classllvm_1_1SymTab.html#a56f495f57458250a3fa95ddcdb205434">classes</a>.keySet() ) </div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;        {</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;            <span class="keywordflow">if</span> ( key.isEmpty() ) <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;            System.out.println( <span class="stringliteral">&quot;--- &quot;</span> + key + <span class="stringliteral">&quot; ---&quot;</span> );</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;            this.<a class="code" href="classllvm_1_1SymTab.html#a56f495f57458250a3fa95ddcdb205434">classes</a>.get( key ).print();</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;        }</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;        System.out.println( <span class="stringliteral">&quot;\n====================================\n&quot;</span> );</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -193,14 +303,15 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;                                     {</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;        n.mainClass.accept(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;        <span class="keywordflow">for</span> (util.List&lt;ClassDecl&gt; <a class="code" href="classc.html">c</a> = n.classList; <a class="code" href="classc.html">c</a> != null; <a class="code" href="classc.html">c</a> = <a class="code" href="classc.html">c</a>.tail)</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;            <a class="code" href="classc.html">c</a>.head.accept(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;        <span class="keywordflow">return</span> null;</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;                                     {</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;        System.out.println(<span class="stringliteral">&quot;[ SymTab ] : Program&quot;</span>);</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;        n.mainClass.accept(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;        <span class="keywordflow">for</span> (util.List&lt;ClassDecl&gt; <a class="code" href="classc.html">c</a> = n.classList; <a class="code" href="classc.html">c</a> != null; <a class="code" href="classc.html">c</a> = <a class="code" href="classc.html">c</a>.tail)</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;            <a class="code" href="classc.html">c</a>.head.accept(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;        <span class="keywordflow">return</span> null;</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -217,12 +328,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>References <a class="el" href="classllvm_1_1SymTab.html#a9a5a6adf8000aa0dca040865cde277e6">llvm.SymTab.classes</a>.</p>
-<div class="fragment"><div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;                                       {</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;        <a class="code" href="classllvm_1_1SymTab.html#a9a5a6adf8000aa0dca040865cde277e6">classes</a>.put( n.className.s, <span class="keyword">new</span> ClassType( n.className.s ) );</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;        <span class="keywordflow">return</span> null;</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;                                       {</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;        System.out.println(<span class="stringliteral">&quot;[ SymTab ] : MainClass&quot;</span>);</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;        <span class="keywordflow">return</span> null;</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -239,28 +348,24 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>References <a class="el" href="classllvm_1_1SymTab.html#a9a5a6adf8000aa0dca040865cde277e6">llvm.SymTab.classes</a>.</p>
-<div class="fragment"><div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;                                             {</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        System.out.println(<span class="stringliteral">&quot;++++++++++AST: ClassDeclSimple &quot;</span>);</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        List&lt;LlvmType&gt; attr_type = <span class="keyword">new</span> LinkedList&lt;LlvmType&gt;();</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;        List&lt;LlvmValue&gt; attr_value = <span class="keyword">new</span> LinkedList&lt;LlvmValue&gt;();</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;        ListConverter&lt;VarDecl&gt; converter0 = <span class="keyword">new</span> ListConverter&lt;VarDecl&gt;();</div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        List&lt;VarDecl&gt; varList = converter0.getTList( n.varList );</div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;        </div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;        <span class="keywordflow">for</span> ( VarDecl var : varList )</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;        {</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;            System.out.println ( var.name );</div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;            attr_type.add( var.accept(<span class="keyword">this</span>).type );</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;            attr_value.add( var.accept(<span class="keyword">this</span>) );</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;        }</div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;        <a class="code" href="classllvm_1_1SymTab.html#a9a5a6adf8000aa0dca040865cde277e6">classes</a>.put( n.name.s, <span class="keyword">new</span> ClassType( n.name.s ) );</div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;        <span class="keywordflow">return</span> null;</div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;                                             {</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;        System.out.println(<span class="stringliteral">&quot;[ SymTab ] : ClassDeclSimple&quot;</span>);</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        List&lt;LlvmType&gt; attr_type = <span class="keyword">new</span> LinkedList&lt;LlvmType&gt;();</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;        List&lt;LlvmValue&gt; attr_value = <span class="keyword">new</span> LinkedList&lt;LlvmValue&gt;();</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        ListConverter&lt;VarDecl&gt; converter0 = <span class="keyword">new</span> ListConverter&lt;VarDecl&gt;();</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;        List&lt;VarDecl&gt; varList = converter0.getTList( n.varList );</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;        <span class="keywordflow">for</span> ( VarDecl var : varList )</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;        {</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;            System.out.println ( var.name.s );</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;            attr_type.add( var.accept(<span class="keyword">this</span>).type );</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;            attr_value.add( var.accept(<span class="keyword">this</span>) );</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;        }</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;        <span class="keywordflow">return</span> null;</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -277,11 +382,11 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;                                              {</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;        System.out.println(<span class="stringliteral">&quot;++++++++++AST: ClassDeclExtends &quot;</span>);</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;        <span class="keywordflow">return</span> null;</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;                                              {</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;        System.out.println(<span class="stringliteral">&quot;[ SymTab ] : ClassDeclExtends&quot;</span>);</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;        <span class="keywordflow">return</span> null;</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -298,10 +403,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;                                     {</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;        System.out.println(<span class="stringliteral">&quot;++++++++++AST: VarDecl &quot;</span>);</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;        <span class="keywordflow">return</span> n.type.accept(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;                                     {</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;        System.out.println(<span class="stringliteral">&quot;[ SymTab ] : VarDecl &quot;</span>);</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;        <span class="keywordflow">return</span> n.type.accept(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -318,10 +423,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;                                    {</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;        System.out.println(<span class="stringliteral">&quot;++++++++++AST: Formal &quot;</span>);</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;        <span class="keywordflow">return</span> null;</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;                                    {</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;        System.out.println(<span class="stringliteral">&quot;[ SymTab ] : Formal &quot;</span>);</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;        <span class="keywordflow">return</span> null;</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -338,10 +443,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;                                        {</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;        System.out.println(<span class="stringliteral">&quot;++++++++++AST: MethodDecl &quot;</span>);</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;        <span class="keywordflow">return</span> null;</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;                                        {</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;        System.out.println(<span class="stringliteral">&quot;[ SymTab ] : MethodDecl &quot;</span>);</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;        <span class="keywordflow">return</span> null;</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -358,10 +463,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                                            {</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;        System.out.println(<span class="stringliteral">&quot;++++++++++AST: IdentifierType &quot;</span>);</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;        <span class="keywordflow">return</span> null;</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;                                            {</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;        System.out.println(<span class="stringliteral">&quot;[ SymTab ] : IdentifierType &quot;</span>);</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;        <span class="keywordflow">return</span> null;</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -378,10 +483,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;                                          {</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;        System.out.println(<span class="stringliteral">&quot;++++++++++AST: IntArrayType &quot;</span>);</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        <span class="keywordflow">return</span> null;</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;                                          {</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;        System.out.println(<span class="stringliteral">&quot;[ SymTab ] : IntArrayType &quot;</span>);</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;        <span class="keywordflow">return</span> null;</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -398,10 +503,10 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;                                         {</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;        System.out.println(<span class="stringliteral">&quot;++++++++++AST: BooleanType &quot;</span>);</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        <span class="keywordflow">return</span> null;</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;                                         {</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;        System.out.println(<span class="stringliteral">&quot;[ SymTab ] : BooleanType &quot;</span>);</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;        <span class="keywordflow">return</span> null;</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -418,15 +523,15 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;                                         {</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;        System.out.println(<span class="stringliteral">&quot;++++++++++AST: IntegerType &quot;</span>);</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;        <span class="keywordflow">return</span> null;</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;                                         {</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;        System.out.println(<span class="stringliteral">&quot;[ SymTab ] : IntegerType &quot;</span>);</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;        <span class="keywordflow">return</span> null;</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a2b230ad8bbc0449b55ab39846b452173"></a>
+<a class="anchor" id="a56f495f57458250a3fa95ddcdb205434"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -434,7 +539,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ClassType llvm.SymTab.classEnv</td>
+          <td class="memname">Map&lt;String, ClassData&gt; llvm.SymTab.classes</td>
         </tr>
       </table>
   </td>
@@ -444,19 +549,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a9a5a6adf8000aa0dca040865cde277e6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Map&lt;String, ClassType&gt; llvm.SymTab.classes</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Referenced by <a class="el" href="classllvm_1_1SymTab.html#ac3d8690b58a590203619830ed20c5951">llvm.SymTab.visit()</a>.</p>
+<p>Referenced by <a class="el" href="classllvm_1_1SymTab.html#a8c9b7324a75dc9884770522b695fa1bb">llvm.SymTab.add()</a>, <a class="el" href="classllvm_1_1SymTab.html#a723f7850c902baa2bfc54baf379bd4df">llvm.SymTab.getClassData()</a>, <a class="el" href="classllvm_1_1SymTab.html#a211813c57b036b6ecbb204d5739c409b">llvm.SymTab.print()</a>, and <a class="el" href="classllvm_1_1SymTab.html#a789adfd0b1a3f2a18b5d9ef6d975bee4">llvm.SymTab.SymTab()</a>.</p>
 
 </div>
 </div>
