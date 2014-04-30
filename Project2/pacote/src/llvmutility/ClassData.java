@@ -11,7 +11,7 @@ public class ClassData extends Data
     {
         this.parent = "";
         this.info = new HashMap<String, Data>();
-        this.offset = 0;
+        this.offset = -1;
     }
 
     // Use this constructor for classes declaration with parent
@@ -19,13 +19,20 @@ public class ClassData extends Data
     {
         this.parent = parent;
         this.info = new HashMap<String, Data>();
-        this.offset = 0;
+        this.offset = -1;
     }
 
-    // Use this constructor for classes inside classes (attribute classes)
+    // Use these constructors for classes inside classes (attribute classes)
     public ClassData ( String parent, int offset ) 
     {
         this.parent = parent;
+        this.info = new HashMap<String, Data>();
+        this.offset = offset;
+    }
+
+    public ClassData ( int offset ) 
+    {
+        this.parent = "";
         this.info = new HashMap<String, Data>();
         this.offset = offset;
     }
