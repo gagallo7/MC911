@@ -363,10 +363,13 @@ public class Codegen extends VisitorAdapter {
 
     // =============================================================================================
 	public LlvmValue visit(If n) {
+		System.out.println("[ AST ]" + tab + " : If"); 
+        tab += "\t";
+        //
+        // Criando labels para cada rumo da condição
         LlvmLabelValue eElse;
         LlvmLabelValue endIf = new LlvmLabelValue( "entryEndIf" );
-		System.out.println("[ AST ]" + tab + " : If"); 
- 	tab += "\t";
+
         LlvmValue cond = n.condition.accept(this);
         System.out.println ( "condition no If: " + cond );
 
