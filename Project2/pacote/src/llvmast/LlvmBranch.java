@@ -16,15 +16,17 @@ public  class LlvmBranch extends LlvmInstruction
     {
         this.l1 = brTrue;
         this.l2 = brFalse;
+        this.cond = cond;
+        System.out.println ( "Cond = " + cond );
     }
 
     public String toString()
     {
         if ( this.l2 == null )
         {
-            return "br label " + this.l1;
+            return "      br label %" + this.l1;
         }
 
-        return "br i1 " + cond + ", label " + l1 + ", label " + l2;
+        return "        br i1 " + cond + ", label %" + l1 + ", label %" + l2;
     }
 }
