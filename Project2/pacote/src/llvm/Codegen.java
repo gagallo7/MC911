@@ -121,10 +121,8 @@ public class Codegen extends VisitorAdapter {
 	public LlvmValue visit(Program n) {
 		n.mainClass.accept(this);
 
-        /*
-		 *for (util.List<ClassDecl> c = n.classList; c != null; c = c.tail)
-         *    c.head.accept(this);
-         */
+        for (util.List<ClassDecl> c = n.classList; c != null; c = c.tail)
+            c.head.accept(this);
 
 		return null;
 	}
@@ -237,7 +235,7 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(ClassDeclExtends n) {
 		System.out.println("[ AST ]" + tab + " : ClassDeclExtends"); 
- 	tab += "\t";
+ 	    tab += "\t";
 
 		ListConverter<VarDecl> util = new ListConverter<VarDecl>();
         List<VarDecl> varList = util.getTList( n.varList );
