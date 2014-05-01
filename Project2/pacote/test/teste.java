@@ -2,45 +2,25 @@ class teste
 {
     public static void main( String[] a )
     {
-	    System.out.println( 1+1 );
+	    System.out.println( new b().get( 9 ) + 5 * 2 );
     }
 }
 
 class a 
 {
-    int a_member_1;
-    int a_member_2;
-    int a_member_3;
-
-    public int inutil ( int gg )
-    {
-        int robert;
-        robert = gg + 5;
-        return robert;
-    }
-
-    public int anarquia ( int a, int b )
-    {
-        int gogo;
-        return 0;
-    }
+    int a_int;
 }
 
-class b  extends a
+class b extends a
 {
-    int b_member_1;
-    public int zoo ( int a, int b )
+    public int get( int value ) 
     {
-        a_member_1 = 23;
-        b_member_1 = 12;
-        return 0;
-    }
-}
+        int aux;
+        aux = value;
+        
+        a_int = 7;
 
-class c extends a
-{
-    b bezao;
-    int c_member_1;
-    int c_member_2;
+        return aux + a_int;
+    }
 }
 

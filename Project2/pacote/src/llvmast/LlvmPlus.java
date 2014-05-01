@@ -16,6 +16,6 @@ public  class LlvmPlus extends LlvmInstruction
 
     public String toString()
     {
-	    return "  " +lhs + " = add " + type + " " + op1 + ", " + op2;
+	    return "\t" +lhs + " = add " + type + " " + op1 + ", " + op2;
     }
 }

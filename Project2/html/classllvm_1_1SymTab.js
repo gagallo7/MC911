@@ -4,6 +4,8 @@ var classllvm_1_1SymTab =
     [ "add", "classllvm_1_1SymTab.html#a8c9b7324a75dc9884770522b695fa1bb", null ],
     [ "FillTabSymbol", "classllvm_1_1SymTab.html#a22c17e4d599a9e8864f580104b2f5459", null ],
     [ "getClassData", "classllvm_1_1SymTab.html#a723f7850c902baa2bfc54baf379bd4df", null ],
+    [ "getClassSize", "classllvm_1_1SymTab.html#a2394b8534cbad112bb3e3da221a74a77", null ],
+    [ "getOffset", "classllvm_1_1SymTab.html#ae5a2dc014258a41103d2cfccf4529957", null ],
     [ "print", "classllvm_1_1SymTab.html#a211813c57b036b6ecbb204d5739c409b", null ],
     [ "visit", "classllvm_1_1SymTab.html#a43d5f15caf44ee32ade2147d8bfaea12", null ],
     [ "visit", "classllvm_1_1SymTab.html#ac3d8690b58a590203619830ed20c5951", null ],
@@ -16,5 +18,10 @@ var classllvm_1_1SymTab =
     [ "visit", "classllvm_1_1SymTab.html#a9be8fe02f6d5c9dd65837b1dc561b684", null ],
     [ "visit", "classllvm_1_1SymTab.html#a92752a4f9a98c1c181905268b2b879e0", null ],
     [ "visit", "classllvm_1_1SymTab.html#a969ee0e04f2bc08178127d9540372e7b", null ],
-    [ "classes", "classllvm_1_1SymTab.html#a56f495f57458250a3fa95ddcdb205434", null ]
+    [ "classEnv", "classllvm_1_1SymTab.html#a83041529d402b740affdbfa90642c587", null ],
+    [ "classes", "classllvm_1_1SymTab.html#a56f495f57458250a3fa95ddcdb205434", null ],
+    [ "className", "classllvm_1_1SymTab.html#afcb449fc79c3b0fd0f8dfa2da5d82919", null ],
+    [ "methodEnv", "classllvm_1_1SymTab.html#aac78af76e5c250e7ca64922f147e313d", null ],
+    [ "methodName", "classllvm_1_1SymTab.html#a15cdc64f14ddcb0d7fcb3b3227ad93ae", null ],
+    [ "methods", "classllvm_1_1SymTab.html#af5bbe22a19bd5d2dc661de7e893a62e8", null ]
 ];

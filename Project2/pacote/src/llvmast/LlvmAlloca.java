@@ -20,6 +20,6 @@ public  class LlvmAlloca extends LlvmInstruction
 	    for(LlvmValue v : numbers)
 	        nrs = nrs + ", " + v.type + " " + v;
 
-	    return "  " + lhs + " = alloca " + type + nrs;
+	    return "\t" + lhs + " = alloca " + type + nrs;
     }
 }

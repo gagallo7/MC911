@@ -32,10 +32,20 @@ public  class LlvmMalloc extends LlvmInstruction
 		LlvmValue lhsCall = new  LlvmRegister(LlvmPrimitiveType.I8);
 
 		// Malloc de <size> bytes
-		call = "  " + lhsCall + " = call i8* @malloc ( i32 "+ size + ")\n";  
-		bitcast = "  " + lhs + " = bitcast i8* " + lhsCall + " to i32*\n";
+		call = "\t" + lhsCall + " = call i8* @malloc ( i32 "+ size + " )\n";  
+		bitcast = "\t" + lhs + " = bitcast i8* " + lhsCall + " to i32*";
 	}
 
+	public LlvmMalloc(LlvmValue lhs, LlvmValue size, LlvmType type){
+		call = new String();
+		bitcast = new String();
+
+		LlvmValue lhsCall = new  LlvmRegister(LlvmPrimitiveType.I8);
+
+		// Malloc de <size> bytes
+		call = "\t" + lhsCall + " = call i8* @malloc ( i32 "+ size + " )\n";  
+		bitcast = "\t" + lhs + " = bitcast i8* " + lhsCall + " to " + type + " *";
+	}
 
 	/**
 	 * Construtor para Alocar objetos de Classe: recebe o tipo (que deve ser LlvmStructure)
@@ -102,18 +112,19 @@ public  class LlvmMalloc extends LlvmInstruction
 		lhsTimes = new LlvmRegister(LlvmPrimitiveType.I32);
 		lhsCall = new  LlvmRegister(LlvmPrimitiveType.I8);
 
-		times = new String("  " + lhsTimes + " = mul i32 " + size + ", " + nElements + "\n");
-		call = new String("  " + lhsCall + " = call i8* @malloc ( i32 "+ lhsTimes + ")\n");
+		times = new String("\t" + lhsTimes + " = mul i32 " + size + ", " + nElements + "\n");
+		call = new String("\t" + lhsCall + " = call i8* @malloc ( i32 "+ lhsTimes + " )");
 
 		if (className == null)
-			bitcast = new String("  " + lhs + " = bitcast i8* " + lhsCall + " to " + type + "*");
+			bitcast = new String("\t" + lhs + " = bitcast i8* " + lhsCall + " to " + type + "*");
 		else
-			bitcast = new String("  " + lhs + " = bitcast i8* " + lhsCall + " to " + className + "*");
+			bitcast = new String("\t" + lhs + " = bitcast i8* " + lhsCall + " to " + className + "*");
 	}    
 
     public String toString()
     {
-	    return times + call  + bitcast;
+		//return times + call  + bitcast;   // TODO: Check this, why times?
+		return call + bitcast;
     }
 }
 

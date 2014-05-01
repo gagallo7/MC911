@@ -1,6 +1,7 @@
 var classllvmast_1_1LlvmMalloc =
 [
     [ "LlvmMalloc", "classllvmast_1_1LlvmMalloc.html#aa272b8b5e5f7b84004112cd408449eea", null ],
+    [ "LlvmMalloc", "classllvmast_1_1LlvmMalloc.html#adc97e543f24ed70c9ac70cc9210ad30e", null ],
     [ "LlvmMalloc", "classllvmast_1_1LlvmMalloc.html#aee2402701319a7192682575f38ec4c6d", null ],
     [ "LlvmMalloc", "classllvmast_1_1LlvmMalloc.html#ac72592efcefbee1c3ef4158a7b36c855", null ],
     [ "MallocImpl", "classllvmast_1_1LlvmMalloc.html#a4c576eb393d6dfc644ceae13ff90f85a", null ],

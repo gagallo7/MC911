@@ -37,7 +37,7 @@ var classllvm_1_1Codegen =
     [ "visit", "classllvm_1_1Codegen.html#a74c00ce9512cd65f8b7f8b3dfb0ca6c8", null ],
     [ "visit", "classllvm_1_1Codegen.html#ac1d1fa5defc455e628dc316a80390809", null ],
     [ "assembler", "classllvm_1_1Codegen.html#a22446843d555a3f30d668e663b857d41", null ],
-    [ "classEnv", "classllvm_1_1Codegen.html#a8c9a4a6e8688301e950b430547804ae8", null ],
     [ "codeGenerator", "classllvm_1_1Codegen.html#a2d4cb3785cf414cecf336ce593cde894", null ],
+    [ "objectRegName", "classllvm_1_1Codegen.html#a4421fd7277e9ca18697681aef6795e1d", null ],
     [ "symTab", "classllvm_1_1Codegen.html#a11e61d4cc0012c1159d88dcc634f6c2d", null ]
 ];
