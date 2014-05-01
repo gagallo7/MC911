@@ -121,8 +121,10 @@ public class Codegen extends VisitorAdapter {
 	public LlvmValue visit(Program n) {
 		n.mainClass.accept(this);
 
-		for (util.List<ClassDecl> c = n.classList; c != null; c = c.tail)
-			c.head.accept(this);
+        /*
+		 *for (util.List<ClassDecl> c = n.classList; c != null; c = c.tail)
+         *    c.head.accept(this);
+         */
 
 		return null;
 	}
@@ -139,9 +141,7 @@ public class Codegen extends VisitorAdapter {
 		assembler.add( new LlvmAlloca( R1, LlvmPrimitiveType.I32, new LinkedList<LlvmValue>() ) );
 		assembler.add( new LlvmStore( new LlvmIntegerLiteral( 0 ), R1 ) );
 
-		// Statement é uma classe abstrata
-		// Portanto, o accept chamado é da classe que implementa Statement, por
-		// exemplo, a classe "Print".
+        // Chamando o Statement da Main
 		n.stm.accept(this);
 
 		// Final do Main
@@ -285,21 +285,23 @@ public class Codegen extends VisitorAdapter {
 		System.out.println("[ AST ]" + tab + " : MethodDecl"); 
  	tab += "\t";
 
-		ListConverter<Formal> converter0 = new ListConverter<Formal>();
-        List < Formal > FormalList = converter0.getTList ( n.formals );
-
-        for ( Formal formal : FormalList )
-        {
-            formal.accept(this);
-        }
-
-        ListConverter<Statement> converter1 = new ListConverter<Statement>();
-        List<Statement> bodyList = converter1.getTList( n.body );
-
-        for ( Statement stmt : bodyList )
-        {
-            stmt.accept(this);
-        }
+/*
+ *        ListConverter<Formal> converter0 = new ListConverter<Formal>();
+ *        List < Formal > FormalList = converter0.getTList ( n.formals );
+ *
+ *        for ( Formal formal : FormalList )
+ *        {
+ *            formal.accept(this);
+ *        }
+ *
+ *        ListConverter<Statement> converter1 = new ListConverter<Statement>();
+ *        List<Statement> bodyList = converter1.getTList( n.body );
+ *
+ *        for ( Statement stmt : bodyList )
+ *        {
+ *            stmt.accept(this);
+ *        }
+ */
 
         tab = tab.substring(0, tab.length() - 1);
 		return null;
