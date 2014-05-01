@@ -12,7 +12,7 @@ public class MethodData extends Data
     // Mapeamento de argumentos do método
     public Map < String, LlvmType > args;
 
-    private List < Statement > statements;
+    public List < Statement > statements;
 
     public MethodData ( )
     {
@@ -20,13 +20,6 @@ public class MethodData extends Data
         this.args = new HashMap < String, LlvmType > ();
         this.statements = new LinkedList < Statement > ();
     }
-
-    /*
-    public void addAttr ( String name, Data whichData )
-    {
-        this.attr.put ( name, whichData );
-    }
-    */
 
     public void addArg ( String name, LlvmType whichData )
     {
@@ -37,18 +30,6 @@ public class MethodData extends Data
     {
         this.statements.add ( s );
     }
-    
-    public Statement getStmt ( int index )
-    {
-        return this.statements.get ( index );
-    }
-
-    /*
-    public Data getAttr ( String whichName )
-    {
-        return this.attr.get ( whichName );
-    }
-    */
 
     public LlvmType getArg ( String whichName )
     {

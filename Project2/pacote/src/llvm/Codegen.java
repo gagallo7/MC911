@@ -60,12 +60,11 @@ public class Codegen extends VisitorAdapter {
         // =====================================
         // Gerando RI
         // =====================================
-        System.out.println ( "\n===========================================================" );
-        System.out.println ( "Metodos em RI..." );
-        System.out.println ( "===========================================================" );
+        System.out.println( "\nGerando métodos em RI...\n" );
 
         for ( String key : codeGenerator.symTab.methods.keySet() )
         {
+            // Assinatura em RI do método
             String[] parts = key.split("_");
             symTab.className = parts[1];
 
@@ -90,16 +89,18 @@ public class Codegen extends VisitorAdapter {
                 s += "\tstore " + aux.args.get ( arg ).toString() + " " + arg + ", " + aux.args.get ( arg ).toString() + " * " + arg + "_tmp\n";
             }
 
-            //s += "ret " + aux.returnType.toString() + " " 
-            s += "}\n";
-
-            System.out.println ( s );
+            // Escreve código RI no .s
             codeGenerator.assembler.add( new Compile( s ) );
-        }
 
-        System.out.println ( "===========================================================" );
-        
-        // TODO
+            // Corpo do método. Os visits do AST escrevem o corpo do método
+            for ( Statement meth_stmt : aux.statements ) 
+            {
+                meth_stmt.accept( this );
+            } 
+
+            // Fecha bloco do método
+            codeGenerator.assembler.add( new Compile ( "}\n" ) );
+        }
 
         // =====================================
 
@@ -107,7 +108,6 @@ public class Codegen extends VisitorAdapter {
 		String r = new String();
 		for (LlvmInstruction instr : codeGenerator.assembler)
         {
-            //System.out.println ( instr );
 			r += instr + "\n";
         }
 
