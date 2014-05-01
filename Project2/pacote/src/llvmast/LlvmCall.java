@@ -72,6 +72,6 @@ public  class LlvmCall extends LlvmInstruction
 			    fnTypeResult = fnType.toString();
 	    }
 
-	    return "  " + lhs + " = " + "call " + type + " " + fnTypeResult + " " + fnName +  "(" + arguments + ")"; 
+	    return "\t" + lhs + " = " + "call " + type + " " + fnTypeResult + " " + fnName +  "(" + arguments + ")"; 
     }
 }

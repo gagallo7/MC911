@@ -5,7 +5,5 @@ var annotated =
     [ "llvmutility", "namespacellvmutility.html", "namespacellvmutility" ],
     [ "a", "classa.html", "classa" ],
     [ "b", "classb.html", "classb" ],
-    [ "c", "classc.html", "classc" ],
-    [ "ClassData", "classClassData.html", "classClassData" ],
     [ "teste", "classteste.html", "classteste" ]
 ];

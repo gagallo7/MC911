@@ -57,12 +57,15 @@ public class MethodData extends Data
 
     public void print ( )
     {
-        System.out.println ( "========= Printing arguments..." );
+        System.out.println ( "=========" );
+        System.out.println ( "Args:\n" );
+
         for ( String key : this.args.keySet() )
         {
             if ( key.isEmpty() ) break;
-            System.out.println ( "+ " + key + " " + this.args.get (key).toString() + " +" );
+            System.out.println ( "\t" + key + " " + this.args.get (key).toString() );
         }
+
         System.out.println ( "=========\n" );
     }
 

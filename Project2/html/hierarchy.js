@@ -1,16 +1,11 @@
 var hierarchy =
 [
-    [ "a", "classa.html", [
-      [ "b", "classb.html", [
-        [ "c", "classc.html", null ]
-      ] ]
-    ] ],
+    [ "a", "classa.html", null ],
+    [ "b", "classb.html", null ],
     [ "llvmutility.Data", "classllvmutility_1_1Data.html", [
       [ "llvmutility.AttributeData", "classllvmutility_1_1AttributeData.html", null ],
+      [ "llvmutility.ClassData", "classllvmutility_1_1ClassData.html", null ],
       [ "llvmutility.MethodData", "classllvmutility_1_1MethodData.html", null ]
-    ] ],
-    [ "Data", null, [
-      [ "ClassData", "classClassData.html", null ]
     ] ],
     [ "llvmutility.ListConverter< T >", "classllvmutility_1_1ListConverter_3_01T_01_4.html", null ],
     [ "llvmast.LlvmInstruction", "classllvmast_1_1LlvmInstruction.html", [

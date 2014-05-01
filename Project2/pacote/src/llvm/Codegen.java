@@ -33,7 +33,10 @@ public class Codegen extends VisitorAdapter {
 	public String translate(Program p, Env env) {
 		System.out.println("[ AST ] : translate");
 		codeGenerator = new Codegen();
+
+		// Preenche e imprime a tabela de simbolos
         codeGenerator.symTab.FillTabSymbol( p );
+        codeGenerator.symTab.print();
 
 		// Formato da String para o System.out.printlnijava "%d\n"
 		codeGenerator.assembler.add( new LlvmConstantDeclaration( "@.formatting.string", "private constant [4 x i8] c\"%d\\0A\\00\"" ) );
@@ -52,16 +55,17 @@ public class Codegen extends VisitorAdapter {
 		String r = new String();
 		for (LlvmInstruction instr : codeGenerator.assembler)
         {
-            System.out.println ( instr );
+            //System.out.println ( instr );
 			r += instr + "\n";
         }
 
         // =====================================
         // Gerando RI
         // =====================================
-        codeGenerator.symTab.print();
+        System.out.println ( "\n===========================================================" );
+        System.out.println ( "Metodos em RI..." );
+        System.out.println ( "===========================================================" );
 
-        System.out.println ( "|||||||||||||||||||||||||" );
         for ( String key : codeGenerator.symTab.methods.keySet() )
         {
             String[] parts = key.split("_");
@@ -93,12 +97,15 @@ public class Codegen extends VisitorAdapter {
 
             System.out.println ( s );
         }
-        System.out.println ( "|||||||||||||||||||||||||\n" );
+
+        System.out.println ( "===========================================================" );
+        
         // TODO
 
         // =====================================
 
         // Exit
+        System.out.println( "\n\n" );
 		return r;
 	}
 
@@ -408,7 +415,25 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(Call n) {
 		System.out.println("[ AST ] : Call");
-        //assembler.add ( new LlvmCall ( new LlvmRegister ( n.method.accept(this).type ), new LlvmMalloc (  
+		
+        // TODO: Preciso adicionar o ponteiro do pai dentro do call. Para tal, um objeto deve ser allocado
+
+		n.object.accept( this );
+		symTab.methodName = n.method.toString() + "_" + symTab.className;
+
+		ListConverter<Exp> converter0 = new ListConverter<Exp>();
+        List<Exp> argList = converter0.getTList( n.actuals );
+        List<LlvmValue> args = new LinkedList<LlvmValue>();
+
+        for ( Exp exp : argList ) 
+        {
+            args.add( exp.accept(this) );
+        }
+
+        MethodData meth_aux  = (MethodData) symTab.getClassData( symTab.className ).get( symTab.methodName );
+
+        LlvmType type_aux = n.method.accept(this).type;
+        assembler.add ( new LlvmCall ( new LlvmRegister ( type_aux ), meth_aux.returnType, "@" + symTab.methodName, args ) );
 		return null;
 	}
 
@@ -446,6 +471,10 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(NewObject n) {
 		System.out.println("[ AST ] : NewObject");
+        symTab.className = n.className.toString();
+
+        // TODO: Devo instanciar um objeto aqui e armazenar o nome do registrador que o contém
+
 		return null;
 	}
 
@@ -491,14 +520,19 @@ class SymTab extends VisitorAdapter{
 
     public void print() 
     {
-        System.out.println( "====================================" );
+        System.out.println( "\n====================================" );
         System.out.println( "Printing SymTab..." );
         System.out.println( "====================================" );
 
         for ( String key : this.classes.keySet() ) 
         {
             if ( key.isEmpty() ) break;
-            System.out.println( "\n------ " + key + " ------" );
+
+            System.out.println( "\n*************************" );
+            System.out.println( "CLASS: " + key );
+            System.out.println( "*************************" );
+
+            System.out.println( "Size: " + Integer.toString( this.getClassSize( key ) ) );
             this.classes.get( key ).print();
         }
 
@@ -514,6 +548,17 @@ class SymTab extends VisitorAdapter{
             return "0, " + getOffset( aux.getParent(), whichData );
 
         return offset;
+    }
+
+    public int getClassSize( String whichClass ) 
+    {
+        ClassData aux = this.classes.get( whichClass );
+        String parent = aux.getParent();
+
+        if ( parent.isEmpty() )
+            return aux.getSize();
+
+        return aux.getSize() + getClassSize( parent );
     }
 
     // =============================================================================================
@@ -542,7 +587,7 @@ class SymTab extends VisitorAdapter{
 
     // =============================================================================================
     public LlvmValue visit(ClassDeclSimple n){
-        System.out.println("[ SymTab ] : ClassDeclSimple");
+        System.out.println("[ SymTab ] : ClassDeclSimple: " + n.name.toString() );
 
         // Starting a new class info. Here, we have no parent and offset is unnecessary
         classEnv = new ClassData();
@@ -581,7 +626,7 @@ class SymTab extends VisitorAdapter{
 
     // =============================================================================================
     public LlvmValue visit(ClassDeclExtends n){
-        System.out.println("[ SymTab ] : ClassDeclExtends");
+        System.out.println("[ SymTab ] : ClassDeclExtends : " + n.name.toString() );
 
 		ListConverter<VarDecl> util = new ListConverter<VarDecl>();
         List<VarDecl> varList = util.getTList( n.varList );
@@ -641,7 +686,7 @@ class SymTab extends VisitorAdapter{
 		ListConverter<Formal> converter0 = new ListConverter<Formal>();
         List < Formal > FormalList = converter0.getTList ( n.formals );
         methodName = n.name.toString() + "_" + this.className;
-        methodEnv.returnType = n.returnType.accept ( this ).type;
+        methodEnv.returnType = n.returnType.accept( this ).type;
 
         for ( Formal formal : FormalList )
         {
