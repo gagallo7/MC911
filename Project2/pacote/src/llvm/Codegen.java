@@ -299,7 +299,9 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(BooleanType n) {
 		System.out.println("[ AST ] : BooleanType");
-		return null;
+        System.out.println ( "BoolType: " + n.toString() );
+        return new LlvmBool ( 0 );
+		//return new LlvmBool ();
 	}
 
     // =============================================================================================
@@ -319,16 +321,54 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(Block n) {
 		System.out.println("[ AST ] : Block");
+        
+		ListConverter<Statement> converter0 = new ListConverter<Statement>();
+        List<Statement> blockList = converter0.getTList( n.body );
+
+        for ( Statement stmt : blockList )
+        {
+            stmt.accept(this);
+        }
 		return null;
 	}
 
     // =============================================================================================
 	public LlvmValue visit(If n) {
+        LlvmLabelValue eElse;
+        LlvmLabelValue endIf = new LlvmLabelValue( "entryEndIf" );
 		System.out.println("[ AST ] : If");
-		LlvmValue cond = n.condition.accept(this);
-		LlvmType type = cond.type;
-		LlvmValue Then = n.thenClause.accept(this);
-		LlvmValue Else = n.elseClause.accept(this);
+        LlvmValue cond = n.condition.accept(this);
+        System.out.println ( "condition no If: " + cond );
+
+        /*
+		LlvmType type = n.condition.type.accept(this).type;
+        System.out.println ( "Tipo no If: " + type );
+        */
+
+        LlvmLabelValue eThen = new LlvmLabelValue ( "entryThen" );
+        if ( n.elseClause != null )
+        {
+            eElse = new LlvmLabelValue ( "entryElse");
+        }
+        else
+        {
+            eElse = null;
+        }
+
+       // assembler.add ( new LlvmBranch ( new LlvmRegister ( LlvmPrimitiveType.I32 ), eThen, eElse ) );
+        assembler.add ( new LlvmBranch ( cond, eThen, eElse ) );
+
+		assembler.add( new LlvmLabel( new LlvmLabelValue( "entryThen" ) ) );
+        n.thenClause.accept(this);
+        assembler.add ( new LlvmBranch ( endIf ) );
+
+        if ( n.elseClause != null )
+        {
+            assembler.add( new LlvmLabel( new LlvmLabelValue( "entryElse" ) ) );
+            n.elseClause.accept(this);
+        }
+
+		assembler.add( new LlvmLabel( endIf ) );
 		LlvmRegister lhs = new LlvmRegister(LlvmPrimitiveType.I32);
 		//assembler.add(new LlvmIcmp(lhs, LlvmPrimitiveType.I32, type, v1, v2));
 		return null;
@@ -367,9 +407,9 @@ public class Codegen extends VisitorAdapter {
 		System.out.println("[ AST ] : LessThan");
 		LlvmValue l1 = n.lhs.accept(this);
 		LlvmValue l2 = n.rhs.accept(this);
-		LlvmValue type = n.type.accept(this);
+		LlvmType type = n.type.accept(this).type;
 		LlvmRegister lhs = new LlvmRegister(LlvmPrimitiveType.I32);
-		//assembler.add(new LlvmIcmp(lhs, LlvmPrimitiveType.I32, type, l1, l2));
+		assembler.add(new LlvmIcmp( new LlvmRegister ( LlvmPrimitiveType.I32 ), 0, type, l1, l2));
 		return lhs;
 	}
 
