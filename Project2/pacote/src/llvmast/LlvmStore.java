@@ -13,6 +13,6 @@ public class LlvmStore extends LlvmInstruction
 
     public String toString()
     {
-	    return "  store " + content.type + " " + content + ", " + address.type + " " + address;
+	    return "\t" + "store " + content.type + " " + content + ", " + address.type + " " + address;
     }
 }

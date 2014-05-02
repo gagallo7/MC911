@@ -333,7 +333,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;       </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classllvmast_1_1LlvmCall.html#a763acc38ab1265a8070c6c3887e391a8">fnTypeList</a> != null)</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            fnTypeResult += <span class="stringliteral">&quot;(&quot;</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            fnTypeResult += <span class="stringliteral">&quot;( &quot;</span>;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i&lt;<a class="code" href="classllvmast_1_1LlvmCall.html#a763acc38ab1265a8070c6c3887e391a8">fnTypeList</a>.size(); i++)</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            {</div>
@@ -343,7 +343,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    fnTypeResult = fnTypeResult + <span class="stringliteral">&quot;, &quot;</span>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            fnTypeResult += <span class="stringliteral">&quot;)*&quot;</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            fnTypeResult += <span class="stringliteral">&quot; )*&quot;</span>;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        } <span class="keywordflow">else</span> </div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        {</div>
@@ -351,7 +351,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                fnTypeResult = <a class="code" href="classllvmast_1_1LlvmCall.html#a4cf151c582ca2ca760855df808b54fa1">fnType</a>.<a class="code" href="classllvmast_1_1LlvmPointer.html#aa2ee6a582c0c4250cc05300906943dac">toString</a>();</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="classllvmast_1_1LlvmCall.html#aefc49cde1d17ad8ca4f6908c4edee00c">lhs</a> + <span class="stringliteral">&quot; = &quot;</span> + <span class="stringliteral">&quot;call &quot;</span> + <a class="code" href="classllvmast_1_1LlvmCall.html#a30e992c8b9fa943fef55faacbf741ee6">type</a> + <span class="stringliteral">&quot; &quot;</span> + fnTypeResult + <span class="stringliteral">&quot; &quot;</span> + <a class="code" href="classllvmast_1_1LlvmCall.html#a6df193cabea3519a981abbd720d99ed0">fnName</a> +  <span class="stringliteral">&quot;(&quot;</span> + arguments + <span class="stringliteral">&quot;)&quot;</span>; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="classllvmast_1_1LlvmCall.html#aefc49cde1d17ad8ca4f6908c4edee00c">lhs</a> + <span class="stringliteral">&quot; = &quot;</span> + <span class="stringliteral">&quot;call &quot;</span> + <a class="code" href="classllvmast_1_1LlvmCall.html#a30e992c8b9fa943fef55faacbf741ee6">type</a> + <span class="stringliteral">&quot; &quot;</span> + fnTypeResult + <span class="stringliteral">&quot; &quot;</span> + <a class="code" href="classllvmast_1_1LlvmCall.html#a6df193cabea3519a981abbd720d99ed0">fnName</a> +  <span class="stringliteral">&quot;( &quot;</span> + arguments + <span class="stringliteral">&quot; )&quot;</span>; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>

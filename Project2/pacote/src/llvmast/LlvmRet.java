@@ -11,6 +11,6 @@ public class LlvmRet extends LlvmInstruction
 
     public String toString()
     {
-	    return "  ret " + v.type + " " + v;
+	    return "\t" + "ret " + v.type + " " + v;
     }
 }

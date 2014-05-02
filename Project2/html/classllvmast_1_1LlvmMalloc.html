@@ -131,6 +131,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa272b8b5e5f7b84004112cd408449eea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvmast_1_1LlvmMalloc.html#aa272b8b5e5f7b84004112cd408449eea">LlvmMalloc</a> (<a class="el" href="classllvmast_1_1LlvmValue.html">LlvmValue</a> <a class="el" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a>, <a class="el" href="classllvmast_1_1LlvmValue.html">LlvmValue</a> <a class="el" href="classllvmast_1_1LlvmMalloc.html#a6fc0198e8ddb57b9c64756d7a50e6878">size</a>)</td></tr>
 <tr class="memdesc:aa272b8b5e5f7b84004112cd408449eea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor Malloc: recebe apenas o tamanho em bytes que se deseja alocar Cabe a você calcular qual será esse tamanho.  <a href="#aa272b8b5e5f7b84004112cd408449eea">More...</a><br/></td></tr>
 <tr class="separator:aa272b8b5e5f7b84004112cd408449eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc97e543f24ed70c9ac70cc9210ad30e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvmast_1_1LlvmMalloc.html#adc97e543f24ed70c9ac70cc9210ad30e">LlvmMalloc</a> (<a class="el" href="classllvmast_1_1LlvmValue.html">LlvmValue</a> <a class="el" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a>, <a class="el" href="classllvmast_1_1LlvmValue.html">LlvmValue</a> <a class="el" href="classllvmast_1_1LlvmMalloc.html#a6fc0198e8ddb57b9c64756d7a50e6878">size</a>, <a class="el" href="classllvmast_1_1LlvmType.html">LlvmType</a> <a class="el" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a>)</td></tr>
+<tr class="separator:adc97e543f24ed70c9ac70cc9210ad30e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee2402701319a7192682575f38ec4c6d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classllvmast_1_1LlvmMalloc.html#aee2402701319a7192682575f38ec4c6d">LlvmMalloc</a> (<a class="el" href="classllvmast_1_1LlvmValue.html">LlvmValue</a> <a class="el" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a>, <a class="el" href="classllvmast_1_1LlvmType.html">LlvmType</a> <a class="el" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a>, String className)</td></tr>
 <tr class="memdesc:aee2402701319a7192682575f38ec4c6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor para Alocar objetos de Classe: recebe o tipo (que deve ser <a class="el" href="classllvmast_1_1LlvmStructure.html">LlvmStructure</a>) e o nome da Classe (objName)  <a href="#aee2402701319a7192682575f38ec4c6d">More...</a><br/></td></tr>
 <tr class="separator:aee2402701319a7192682575f38ec4c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -220,9 +222,53 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        LlvmValue <a class="code" href="classllvmast_1_1LlvmMalloc.html#a8798b33ee5f0d95e0f16c34a91ed3499">lhsCall</a> = <span class="keyword">new</span>  LlvmRegister(LlvmPrimitiveType.I8);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="comment">// Malloc de &lt;size&gt; bytes</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6ec7f72634b6e87febce33e33226c7e0">call</a> = <span class="stringliteral">&quot;  &quot;</span> + lhsCall + <span class="stringliteral">&quot; = call i8* @malloc ( i32 &quot;</span>+ <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6fc0198e8ddb57b9c64756d7a50e6878">size</a> + <span class="stringliteral">&quot;)\n&quot;</span>;  </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf9dab7a66378a3e8fa7b1c06a43ee34">bitcast</a> = <span class="stringliteral">&quot;  &quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a> + <span class="stringliteral">&quot; = bitcast i8* &quot;</span> + lhsCall + <span class="stringliteral">&quot; to i32*\n&quot;</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6ec7f72634b6e87febce33e33226c7e0">call</a> = <span class="stringliteral">&quot;\t&quot;</span> + lhsCall + <span class="stringliteral">&quot; = call i8* @malloc ( i32 &quot;</span>+ <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6fc0198e8ddb57b9c64756d7a50e6878">size</a> + <span class="stringliteral">&quot; )\n&quot;</span>;  </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf9dab7a66378a3e8fa7b1c06a43ee34">bitcast</a> = <span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a> + <span class="stringliteral">&quot; = bitcast i8* &quot;</span> + lhsCall + <span class="stringliteral">&quot; to i32*&quot;</span>;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="adc97e543f24ed70c9ac70cc9210ad30e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">llvmast.LlvmMalloc.LlvmMalloc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classllvmast_1_1LlvmValue.html">LlvmValue</a>&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classllvmast_1_1LlvmValue.html">LlvmValue</a>&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classllvmast_1_1LlvmType.html">LlvmType</a>&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>References <a class="el" href="classllvmast_1_1LlvmMalloc.html#adf9dab7a66378a3e8fa7b1c06a43ee34">llvmast.LlvmMalloc.bitcast</a>, <a class="el" href="classllvmast_1_1LlvmMalloc.html#a6ec7f72634b6e87febce33e33226c7e0">llvmast.LlvmMalloc.call</a>, <a class="el" href="classllvmast_1_1LlvmPrimitiveType.html#a65fc5ac3e92115b5c31e00c2fb0f1f33">llvmast.LlvmPrimitiveType.I8</a>, and <a class="el" href="classllvmast_1_1LlvmMalloc.html#a8798b33ee5f0d95e0f16c34a91ed3499">llvmast.LlvmMalloc.lhsCall</a>.</p>
+<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                                                                   {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6ec7f72634b6e87febce33e33226c7e0">call</a> = <span class="keyword">new</span> String();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf9dab7a66378a3e8fa7b1c06a43ee34">bitcast</a> = <span class="keyword">new</span> String();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        LlvmValue <a class="code" href="classllvmast_1_1LlvmMalloc.html#a8798b33ee5f0d95e0f16c34a91ed3499">lhsCall</a> = <span class="keyword">new</span>  LlvmRegister(LlvmPrimitiveType.I8);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">// Malloc de &lt;size&gt; bytes</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6ec7f72634b6e87febce33e33226c7e0">call</a> = <span class="stringliteral">&quot;\t&quot;</span> + lhsCall + <span class="stringliteral">&quot; = call i8* @malloc ( i32 &quot;</span>+ <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6fc0198e8ddb57b9c64756d7a50e6878">size</a> + <span class="stringliteral">&quot; )\n&quot;</span>;  </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf9dab7a66378a3e8fa7b1c06a43ee34">bitcast</a> = <span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a> + <span class="stringliteral">&quot; = bitcast i8* &quot;</span> + lhsCall + <span class="stringliteral">&quot; to &quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a> + <span class="stringliteral">&quot; *&quot;</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -267,9 +313,9 @@ Private Attributes</h2></td></tr>
 </dl>
 
 <p>References <a class="el" href="classllvmast_1_1LlvmMalloc.html#a4c576eb393d6dfc644ceae13ff90f85a">llvmast.LlvmMalloc.MallocImpl()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a4c576eb393d6dfc644ceae13ff90f85a" title="Implementação.">MallocImpl</a>(<a class="code" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a>, <a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a>, <span class="keyword">new</span> LlvmIntegerLiteral(1), className);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a4c576eb393d6dfc644ceae13ff90f85a" title="Implementação.">MallocImpl</a>(<a class="code" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a>, <a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a>, <span class="keyword">new</span> LlvmIntegerLiteral(1), className);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -314,9 +360,9 @@ Private Attributes</h2></td></tr>
 </dl>
 
 <p>References <a class="el" href="classllvmast_1_1LlvmMalloc.html#a4c576eb393d6dfc644ceae13ff90f85a">llvmast.LlvmMalloc.MallocImpl()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a4c576eb393d6dfc644ceae13ff90f85a" title="Implementação.">MallocImpl</a>(<a class="code" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a>, <a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a>, <a class="code" href="classllvmast_1_1LlvmMalloc.html#a361a03574c9e1df59b8c894fed665a2f">nElements</a>, null);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
+<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a4c576eb393d6dfc644ceae13ff90f85a" title="Implementação.">MallocImpl</a>(<a class="code" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a>, <a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a>, <a class="code" href="classllvmast_1_1LlvmMalloc.html#a361a03574c9e1df59b8c894fed665a2f">nElements</a>, null);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -370,45 +416,45 @@ Private Attributes</h2></td></tr>
 <p>References <a class="el" href="classllvmast_1_1LlvmMalloc.html#adf9dab7a66378a3e8fa7b1c06a43ee34">llvmast.LlvmMalloc.bitcast</a>, <a class="el" href="classllvmast_1_1LlvmMalloc.html#a6ec7f72634b6e87febce33e33226c7e0">llvmast.LlvmMalloc.call</a>, <a class="el" href="classllvmast_1_1LlvmPrimitiveType.html#a7537618f20a3611e8c1f318435c7c7da">llvmast.LlvmPrimitiveType.I32</a>, <a class="el" href="classllvmast_1_1LlvmPrimitiveType.html#a65fc5ac3e92115b5c31e00c2fb0f1f33">llvmast.LlvmPrimitiveType.I8</a>, <a class="el" href="classllvmast_1_1LlvmMalloc.html#a640e67fcad1197f931d9819c1cc2fb3e">llvmast.LlvmMalloc.lastArraySize</a>, <a class="el" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">llvmast.LlvmMalloc.lhs</a>, <a class="el" href="classllvmast_1_1LlvmMalloc.html#a8798b33ee5f0d95e0f16c34a91ed3499">llvmast.LlvmMalloc.lhsCall</a>, <a class="el" href="classllvmast_1_1LlvmMalloc.html#a9756a8f255360d8b8352316566652589">llvmast.LlvmMalloc.lhsTimes</a>, <a class="el" href="classllvmast_1_1LlvmMalloc.html#a361a03574c9e1df59b8c894fed665a2f">llvmast.LlvmMalloc.nElements</a>, <a class="el" href="classllvmast_1_1LlvmMalloc.html#a6fc0198e8ddb57b9c64756d7a50e6878">llvmast.LlvmMalloc.size</a>, <a class="el" href="classllvmast_1_1LlvmMalloc.html#a43998a3df109e399392c80369f9d4f02">llvmast.LlvmMalloc.times</a>, and <a class="el" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">llvmast.LlvmMalloc.type</a>.</p>
 
 <p>Referenced by <a class="el" href="classllvmast_1_1LlvmMalloc.html#aee2402701319a7192682575f38ec4c6d">llvmast.LlvmMalloc.LlvmMalloc()</a>.</p>
-<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        this.<a class="code" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a> = <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        this.<a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a> = <a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        this.<a class="code" href="classllvmast_1_1LlvmMalloc.html#a361a03574c9e1df59b8c894fed665a2f">nElements</a> = <a class="code" href="classllvmast_1_1LlvmMalloc.html#a361a03574c9e1df59b8c894fed665a2f">nElements</a>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        this.<a class="code" href="classllvmast_1_1LlvmMalloc.html#a6fc0198e8ddb57b9c64756d7a50e6878">size</a> = 0;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a640e67fcad1197f931d9819c1cc2fb3e">lastArraySize</a> = null;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="comment">// calculando o tamanho do malloc (em Bytes)</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">if</span> ( <a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a> instanceof LlvmStructure )</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6fc0198e8ddb57b9c64756d7a50e6878">size</a> = ((LlvmStructure) <a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a>).sizeByte;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        } <span class="keywordflow">else</span> </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            this.<a class="code" href="classllvmast_1_1LlvmMalloc.html#a361a03574c9e1df59b8c894fed665a2f">nElements</a> = null;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">if</span> ( <a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a> == LlvmPrimitiveType.I32 )</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6fc0198e8ddb57b9c64756d7a50e6878">size</a> = 4;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <a class="code" href="classllvmast_1_1LlvmMalloc.html#a640e67fcad1197f931d9819c1cc2fb3e">lastArraySize</a> = <a class="code" href="classllvmast_1_1LlvmMalloc.html#a361a03574c9e1df59b8c894fed665a2f">nElements</a>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            } <span class="keywordflow">else</span> </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            { </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="comment">// Se é um bool</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6fc0198e8ddb57b9c64756d7a50e6878">size</a> = 1;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }       </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a9756a8f255360d8b8352316566652589">lhsTimes</a> = <span class="keyword">new</span> LlvmRegister(LlvmPrimitiveType.I32);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a8798b33ee5f0d95e0f16c34a91ed3499">lhsCall</a> = <span class="keyword">new</span>  LlvmRegister(LlvmPrimitiveType.I8);</div>
+<div class="fragment"><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        this.<a class="code" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a> = <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        this.<a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a> = <a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        this.<a class="code" href="classllvmast_1_1LlvmMalloc.html#a361a03574c9e1df59b8c894fed665a2f">nElements</a> = <a class="code" href="classllvmast_1_1LlvmMalloc.html#a361a03574c9e1df59b8c894fed665a2f">nElements</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        this.<a class="code" href="classllvmast_1_1LlvmMalloc.html#a6fc0198e8ddb57b9c64756d7a50e6878">size</a> = 0;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a640e67fcad1197f931d9819c1cc2fb3e">lastArraySize</a> = null;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">// calculando o tamanho do malloc (em Bytes)</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">if</span> ( <a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a> instanceof LlvmStructure )</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6fc0198e8ddb57b9c64756d7a50e6878">size</a> = ((LlvmStructure) <a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a>).sizeByte;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        } <span class="keywordflow">else</span> </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            this.<a class="code" href="classllvmast_1_1LlvmMalloc.html#a361a03574c9e1df59b8c894fed665a2f">nElements</a> = null;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">if</span> ( <a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a> == LlvmPrimitiveType.I32 )</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6fc0198e8ddb57b9c64756d7a50e6878">size</a> = 4;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <a class="code" href="classllvmast_1_1LlvmMalloc.html#a640e67fcad1197f931d9819c1cc2fb3e">lastArraySize</a> = <a class="code" href="classllvmast_1_1LlvmMalloc.html#a361a03574c9e1df59b8c894fed665a2f">nElements</a>;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a43998a3df109e399392c80369f9d4f02">times</a> = <span class="keyword">new</span> String(<span class="stringliteral">&quot;  &quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#a9756a8f255360d8b8352316566652589">lhsTimes</a> + <span class="stringliteral">&quot; = mul i32 &quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6fc0198e8ddb57b9c64756d7a50e6878">size</a> + <span class="stringliteral">&quot;, &quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#a361a03574c9e1df59b8c894fed665a2f">nElements</a> + <span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6ec7f72634b6e87febce33e33226c7e0">call</a> = <span class="keyword">new</span> String(<span class="stringliteral">&quot;  &quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#a8798b33ee5f0d95e0f16c34a91ed3499">lhsCall</a> + <span class="stringliteral">&quot; = call i8* @malloc ( i32 &quot;</span>+ <a class="code" href="classllvmast_1_1LlvmMalloc.html#a9756a8f255360d8b8352316566652589">lhsTimes</a> + <span class="stringliteral">&quot;)\n&quot;</span>);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">if</span> (className == null)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf9dab7a66378a3e8fa7b1c06a43ee34">bitcast</a> = <span class="keyword">new</span> String(<span class="stringliteral">&quot;  &quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a> + <span class="stringliteral">&quot; = bitcast i8* &quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#a8798b33ee5f0d95e0f16c34a91ed3499">lhsCall</a> + <span class="stringliteral">&quot; to &quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a> + <span class="stringliteral">&quot;*&quot;</span>);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf9dab7a66378a3e8fa7b1c06a43ee34">bitcast</a> = <span class="keyword">new</span> String(<span class="stringliteral">&quot;  &quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a> + <span class="stringliteral">&quot; = bitcast i8* &quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#a8798b33ee5f0d95e0f16c34a91ed3499">lhsCall</a> + <span class="stringliteral">&quot; to &quot;</span> + className + <span class="stringliteral">&quot;*&quot;</span>);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }    </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            } <span class="keywordflow">else</span> </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            { </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="comment">// Se é um bool</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6fc0198e8ddb57b9c64756d7a50e6878">size</a> = 1;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }       </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a9756a8f255360d8b8352316566652589">lhsTimes</a> = <span class="keyword">new</span> LlvmRegister(LlvmPrimitiveType.I32);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a8798b33ee5f0d95e0f16c34a91ed3499">lhsCall</a> = <span class="keyword">new</span>  LlvmRegister(LlvmPrimitiveType.I8);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a43998a3df109e399392c80369f9d4f02">times</a> = <span class="keyword">new</span> String(<span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#a9756a8f255360d8b8352316566652589">lhsTimes</a> + <span class="stringliteral">&quot; = mul i32 &quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6fc0198e8ddb57b9c64756d7a50e6878">size</a> + <span class="stringliteral">&quot;, &quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#a361a03574c9e1df59b8c894fed665a2f">nElements</a> + <span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6ec7f72634b6e87febce33e33226c7e0">call</a> = <span class="keyword">new</span> String(<span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#a8798b33ee5f0d95e0f16c34a91ed3499">lhsCall</a> + <span class="stringliteral">&quot; = call i8* @malloc ( i32 &quot;</span>+ <a class="code" href="classllvmast_1_1LlvmMalloc.html#a9756a8f255360d8b8352316566652589">lhsTimes</a> + <span class="stringliteral">&quot; )&quot;</span>);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">if</span> (className == null)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf9dab7a66378a3e8fa7b1c06a43ee34">bitcast</a> = <span class="keyword">new</span> String(<span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a> + <span class="stringliteral">&quot; = bitcast i8* &quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#a8798b33ee5f0d95e0f16c34a91ed3499">lhsCall</a> + <span class="stringliteral">&quot; to &quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#ad0055b41dd3cc6f23f9d5e922dd40229">type</a> + <span class="stringliteral">&quot;*&quot;</span>);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf9dab7a66378a3e8fa7b1c06a43ee34">bitcast</a> = <span class="keyword">new</span> String(<span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf3538eff6c9512613b23f049a45b12b">lhs</a> + <span class="stringliteral">&quot; = bitcast i8* &quot;</span> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#a8798b33ee5f0d95e0f16c34a91ed3499">lhsCall</a> + <span class="stringliteral">&quot; to &quot;</span> + className + <span class="stringliteral">&quot;*&quot;</span>);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }    </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -425,10 +471,11 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>References <a class="el" href="classllvmast_1_1LlvmMalloc.html#adf9dab7a66378a3e8fa7b1c06a43ee34">llvmast.LlvmMalloc.bitcast</a>, <a class="el" href="classllvmast_1_1LlvmMalloc.html#a6ec7f72634b6e87febce33e33226c7e0">llvmast.LlvmMalloc.call</a>, and <a class="el" href="classllvmast_1_1LlvmMalloc.html#a43998a3df109e399392c80369f9d4f02">llvmast.LlvmMalloc.times</a>.</p>
-<div class="fragment"><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    {</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classllvmast_1_1LlvmMalloc.html#a43998a3df109e399392c80369f9d4f02">times</a> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6ec7f72634b6e87febce33e33226c7e0">call</a>  + <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf9dab7a66378a3e8fa7b1c06a43ee34">bitcast</a>;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
+<p>References <a class="el" href="classllvmast_1_1LlvmMalloc.html#adf9dab7a66378a3e8fa7b1c06a43ee34">llvmast.LlvmMalloc.bitcast</a>, and <a class="el" href="classllvmast_1_1LlvmMalloc.html#a6ec7f72634b6e87febce33e33226c7e0">llvmast.LlvmMalloc.call</a>.</p>
+<div class="fragment"><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="comment">//return times + call  + bitcast;   // TODO: Check this, why times?</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classllvmast_1_1LlvmMalloc.html#a6ec7f72634b6e87febce33e33226c7e0">call</a> + <a class="code" href="classllvmast_1_1LlvmMalloc.html#adf9dab7a66378a3e8fa7b1c06a43ee34">bitcast</a>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -611,7 +658,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="classllvmast_1_1LlvmMalloc.html#a4c576eb393d6dfc644ceae13ff90f85a">llvmast.LlvmMalloc.MallocImpl()</a>, and <a class="el" href="classllvmast_1_1LlvmMalloc.html#a6737b85d09b2b1784b3dcf6dc613ef32">llvmast.LlvmMalloc.toString()</a>.</p>
+<p>Referenced by <a class="el" href="classllvmast_1_1LlvmMalloc.html#a4c576eb393d6dfc644ceae13ff90f85a">llvmast.LlvmMalloc.MallocImpl()</a>.</p>
 
 </div>
 </div>

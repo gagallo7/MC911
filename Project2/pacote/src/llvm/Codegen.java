@@ -21,6 +21,9 @@ public class Codegen extends VisitorAdapter {
 
 	private SymTab symTab;
 
+	// Globais auxiliares
+    String objectRegName;	
+
     // Constutor
 	public Codegen() {
 		assembler = new LinkedList<LlvmInstruction>();
@@ -425,16 +428,22 @@ public class Codegen extends VisitorAdapter {
         List<Exp> argList = converter0.getTList( n.actuals );
         List<LlvmValue> args = new LinkedList<LlvmValue>();
 
+        ClassType class_aux = new ClassType( symTab.className );
+        LlvmNamedValue named_aux = new LlvmNamedValue( objectRegName, new LlvmPointer( class_aux ) );
+
+        args.add( named_aux );
         for ( Exp exp : argList ) 
         {
             args.add( exp.accept(this) );
         }
 
         MethodData meth_aux  = (MethodData) symTab.getClassData( symTab.className ).get( symTab.methodName );
-
         LlvmType type_aux = n.method.accept(this).type;
-        assembler.add ( new LlvmCall ( new LlvmRegister ( type_aux ), meth_aux.returnType, "@" + symTab.methodName, args ) );
-		return null;
+
+        LlvmRegister retReg = new LlvmRegister ( type_aux );
+        assembler.add ( new LlvmCall ( retReg, meth_aux.returnType, "@" + symTab.methodName, args ) );
+
+		return retReg;
 	}
 
     // =============================================================================================
@@ -473,7 +482,20 @@ public class Codegen extends VisitorAdapter {
 		System.out.println("[ AST ] : NewObject");
         symTab.className = n.className.toString();
 
-        // TODO: Devo instanciar um objeto aqui e armazenar o nome do registrador que o contém
+        // Instanciando o objeto
+        LlvmType type = new LlvmPointer( LlvmPrimitiveType.I8 );
+        LlvmRegister reg = new LlvmRegister( type );
+        LlvmRegister regSizePointer = new LlvmRegister( new LlvmPointer( LlvmPrimitiveType.I32 ) );
+        LlvmRegister regSizeContent = new LlvmRegister( LlvmPrimitiveType.I32 );
+        LlvmIntegerLiteral objectSize = new LlvmIntegerLiteral( symTab.getClassSize( symTab.className ) );
+
+        assembler.add( new LlvmAlloca( regSizePointer, LlvmPrimitiveType.I32, new LinkedList<LlvmValue>() ) );
+        assembler.add( new LlvmStore( objectSize, regSizePointer ) );
+        assembler.add( new LlvmLoad( regSizeContent, regSizePointer ) );
+        assembler.add( new LlvmMalloc( reg, regSizeContent, new ClassType( symTab.className ) ) );
+
+        // Utilizado pelo visit do Call
+        objectRegName = reg.toString();
 
 		return null;
 	}

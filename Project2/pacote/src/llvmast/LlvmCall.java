@@ -54,7 +54,7 @@ public  class LlvmCall extends LlvmInstruction
 	   
 	    if (fnTypeList != null)
 	    {
-		    fnTypeResult += "(";
+		    fnTypeResult += "( ";
 		    
 		    for(int i = 0; i<fnTypeList.size(); i++)
 		    {
@@ -64,7 +64,7 @@ public  class LlvmCall extends LlvmInstruction
 			        fnTypeResult = fnTypeResult + ", ";
 		    }
 		    
-		    fnTypeResult += ")*";
+		    fnTypeResult += " )*";
 	    
 	    } else 
 	    {
@@ -72,6 +72,6 @@ public  class LlvmCall extends LlvmInstruction
 			    fnTypeResult = fnType.toString();
 	    }
 
-	    return "\t" + lhs + " = " + "call " + type + " " + fnTypeResult + " " + fnName +  "(" + arguments + ")"; 
+	    return "\t" + lhs + " = " + "call " + type + " " + fnTypeResult + " " + fnName +  "( " + arguments + " )"; 
     }
 }

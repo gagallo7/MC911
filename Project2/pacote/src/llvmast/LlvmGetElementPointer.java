@@ -27,6 +27,6 @@ public class LlvmGetElementPointer extends LlvmInstruction
 
 	    }
 
-	    return "  " + lhs + " = getelementptr " + source.type + " " + source +", " + ps;
+	    return "\t" + lhs + " = getelementptr " + source.type + " " + source +", " + ps;
     }
 }
