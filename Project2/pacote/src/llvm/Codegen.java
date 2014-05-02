@@ -329,7 +329,8 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(IntArrayType n) {
 		System.out.println("[ AST ]" + tab + " : IntArrayType"); 
-		return null;
+        LlvmRegister tmp = new LlvmRegister ( LlvmPrimitiveType.I8 );
+		return tmp;
 	}
 
     // =============================================================================================
@@ -468,6 +469,7 @@ public class Codegen extends VisitorAdapter {
 	public LlvmValue visit(And n) {
 		System.out.println("[ AST ]" + tab + " : And"); 
  	    tab += "\t";
+        System.out.println ( n.lhs + " = and " + n.rhs );
 		return null;
 	}
 
@@ -558,7 +560,7 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(False n) {
 		System.out.println("[ AST ]" + tab + " : False"); 
-		return new LlvmBool ( 1 );
+		return new LlvmBool ( 0 );
 	}
 
     // =============================================================================================
@@ -578,6 +580,12 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(NewArray n) {
 		System.out.println("[ AST ]" + tab + " : NewArray"); 
+        LlvmType type = n.type.accept(this).type;
+        LlvmValue size = n.size.accept(this);
+        LlvmRegister reg = new LlvmRegister ( LlvmPrimitiveType.I8 );
+
+        assembler.add ( new LlvmMalloc ( reg, type, size ) );
+        tab = tab.substring(0, tab.length() - 1);
 		return null;
 	}
 
@@ -851,13 +859,14 @@ class SymTab extends VisitorAdapter{
     // =============================================================================================
     public LlvmValue visit(IntArrayType n){
         System.out.println("[ SymTab ] : IntArrayType ");
-        return null;
+        LlvmRegister tmp = new LlvmRegister ( LlvmPrimitiveType.I8 );
+		return tmp;
     }
 
     // =============================================================================================
     public LlvmValue visit(BooleanType n){
         System.out.println("[ SymTab ] : BooleanType ");
-        return null;
+        return new LlvmBool ( 0 );
     }
 
     // =============================================================================================
