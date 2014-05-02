@@ -8,7 +8,8 @@ public class MethodData extends Data
     public LlvmType returnType;
 
     // Mapeamento de variáveis locais do método
-    //private Map < String, Data > attr;
+    public Map < String, AttributeData  > locals;
+
     // Mapeamento de argumentos do método
     public Map < String, LlvmType > args;
 
@@ -16,9 +17,14 @@ public class MethodData extends Data
 
     public MethodData ( )
     {
-    //    this.attr = new HashMap < String, Data > ();
         this.args = new HashMap < String, LlvmType > ();
+        this.locals = new HashMap < String, AttributeData > ();
         this.statements = new LinkedList < Statement > ();
+    }
+
+    public void addLocal ( String localName, AttributeData whichLocal ) 
+    {
+        this.locals.put( localName, whichLocal );
     }
 
     public void addArg ( String name, LlvmType whichData )

@@ -3,8 +3,8 @@ import llvmast.*;
 
 public class AttributeData extends Data
 {
-    LlvmType type;
-    LlvmValue value;
+    public LlvmType type;
+    public LlvmValue value;
     private int size;
 
     // Use this constructor to local attributes
