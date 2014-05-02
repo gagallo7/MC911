@@ -20,6 +20,6 @@ public  class LlvmIcmp extends LlvmInstruction
     public String toString()
     {
         //return " " + lhs + " = icmp " + conditionCode + " " + type + " " + op1 + ", " + op2;
-        return "        " + lhs + " = icmp slt i32 " + op1 + ", " + op2;
+        return "\t" + lhs + " = icmp slt i32 " + op1 + ", " + op2;
     }
 }
