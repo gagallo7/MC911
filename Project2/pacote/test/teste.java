@@ -11,18 +11,16 @@ class a
     int a_int;
 }
 
-class b 
+class b extends a
 {
-    int b_int;
-
     public int get( int value ) 
     {
         int aux;
         aux = value;
         
-        b_int = 7;
+        a_int = 7;
 
-        return aux + b_int;
+        return aux + a_int;
     }
 }
 

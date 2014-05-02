@@ -55,13 +55,6 @@ public class Codegen extends VisitorAdapter {
 		mallocpts.add(LlvmPrimitiveType.I32);
 		codeGenerator.assembler.add( new LlvmExternalDeclaration( "@malloc", new LlvmPointer( LlvmPrimitiveType.I8 ), mallocpts ) );
 
-		String r = new String();
-		for (LlvmInstruction instr : codeGenerator.assembler)
-        {
-            //System.out.println ( instr );
-			r += instr + "\n";
-        }
-
         // =====================================
         // Gerando RI
         // =====================================
@@ -75,7 +68,7 @@ public class Codegen extends VisitorAdapter {
             symTab.className = parts[1];
 
             MethodData aux = codeGenerator.symTab.methods.get ( key );
-            String s = "";
+            String s = "\n";
             s += "define " + aux.returnType.toString() + " @" + key + " ( %class." + symTab.className + " * %this";
             
             // Gerando argumentos do método
@@ -99,6 +92,7 @@ public class Codegen extends VisitorAdapter {
             s += "}\n";
 
             System.out.println ( s );
+            codeGenerator.assembler.add( new Compile( s ) );
         }
 
         System.out.println ( "===========================================================" );
@@ -106,6 +100,14 @@ public class Codegen extends VisitorAdapter {
         // TODO
 
         // =====================================
+
+		// Aqui o codigo eh gerado de fato, a partir do assembler
+		String r = new String();
+		for (LlvmInstruction instr : codeGenerator.assembler)
+        {
+            //System.out.println ( instr );
+			r += instr + "\n";
+        }
 
         // Exit
         System.out.println( "\n\n" );
@@ -418,8 +420,6 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(Call n) {
 		System.out.println("[ AST ] : Call");
-		
-        // TODO: Preciso adicionar o ponteiro do pai dentro do call. Para tal, um objeto deve ser allocado
 
 		n.object.accept( this );
 		symTab.methodName = n.method.toString() + "_" + symTab.className;
@@ -489,6 +489,7 @@ public class Codegen extends VisitorAdapter {
         LlvmRegister regSizeContent = new LlvmRegister( LlvmPrimitiveType.I32 );
         LlvmIntegerLiteral objectSize = new LlvmIntegerLiteral( symTab.getClassSize( symTab.className ) );
 
+        // Gerando RI
         assembler.add( new LlvmAlloca( regSizePointer, LlvmPrimitiveType.I32, new LinkedList<LlvmValue>() ) );
         assembler.add( new LlvmStore( objectSize, regSizePointer ) );
         assembler.add( new LlvmLoad( regSizeContent, regSizePointer ) );
