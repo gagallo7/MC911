@@ -68,7 +68,9 @@ public class Codegen extends VisitorAdapter {
             String[] parts = key.split("_");
             symTab.className = parts[1];
 
-            MethodData aux = codeGenerator.symTab.methods.get ( key );
+            codeGenerator.symTab.methodEnv = codeGenerator.symTab.methods.get ( key );
+            MethodData aux = codeGenerator.symTab.methodEnv;
+
             String s = "\n";
             s += "define " + aux.returnType.toString() + " @" + key + " ( %class." + symTab.className + " * %this";
 
@@ -85,15 +87,23 @@ public class Codegen extends VisitorAdapter {
             // Alocando argumentos
             for ( String arg : aux.args.keySet() )
             {
-                s += "\t" + arg + "_tmp = alloca " + aux.args.get ( arg ).toString() + "\n";
-                s += "\tstore " + aux.args.get ( arg ).toString() + " " + arg + ", " + aux.args.get ( arg ).toString() + " * " + arg + "_tmp\n";
+                LlvmType argType = aux.args.get( arg );
+                LlvmRegister regArg = new LlvmRegister( arg, argType );
+                LlvmRegister regArgTmp = new LlvmRegister( arg + "_tmp", new LlvmPointer( argType ) );
+
+                s += new LlvmAlloca( regArgTmp, regArg.type, new LinkedList<LlvmValue>() ).toString();
+                s += "\n";
+                s += new LlvmStore( regArg, regArgTmp ).toString();
+                s += "\n";
             }
 
             // Alocando variaveis locais
             for ( String localName : aux.locals.keySet() ) 
             {
-                AttributeData attr = aux.locals.get( localName );
-                s += new LlvmAlloca( new LlvmRegister( "%" + localName, attr.type ), attr.type, new LinkedList<LlvmValue>() ).toString();
+                LlvmType localType = aux.locals.get( localName );
+                LlvmRegister regLocal = new LlvmRegister( "%" + localName, localType );
+
+                s += new LlvmAlloca( regLocal, localType, new LinkedList<LlvmValue>() ).toString();
                 s += "\n";
             }
 
@@ -105,6 +115,9 @@ public class Codegen extends VisitorAdapter {
             {
                 meth_stmt.accept( this );
             } 
+
+            // Return expression
+            codeGenerator.assembler.add( new LlvmRet( aux.returnExp.accept( this ) ) ); 
 
             // Fecha bloco do método
             codeGenerator.assembler.add( new Compile ( "}\n" ) );
@@ -120,7 +133,7 @@ public class Codegen extends VisitorAdapter {
         }
 
         // Exit
-        System.out.println( "\n\n" );
+        System.out.println( "\n\nFIM DA TRADUCAO\n" );
         tab = tab.substring(0, tab.length() - 1);
 		return r;
 	}
@@ -452,8 +465,31 @@ public class Codegen extends VisitorAdapter {
 		System.out.println( "[ AST ]" + tab + " : Assign -> " + n.toString() ); 
  	    tab += "\t";
         
-        System.out.println( new LlvmStore( n.exp.accept( this ), n.var.accept( this ) ).toString() );
+        String varName = n.var.accept( this ).toString();
+        String varCase = codeGenerator.symTab.methodEnv.getVarCase( varName );
 
+        LlvmRegister lhs;
+        LlvmValue rhs = n.exp.accept( this);
+
+        if ( varCase == "local" ) 
+        {
+            String regName = "%" + varName;
+            lhs = new LlvmRegister( regName, new LlvmPointer( codeGenerator.symTab.methodEnv.getLocal( varName ) ) );
+            codeGenerator.assembler.add( new LlvmStore( rhs, lhs ) );
+
+        } else if ( varCase == "arg" ) 
+        {
+            String regName = "%" + varName + "_tmp";
+            lhs = new LlvmRegister( regName, new LlvmPointer( codeGenerator.symTab.methodEnv.getArg( "%" + varName ) ) );
+            codeGenerator.assembler.add( new LlvmStore( rhs, lhs ) );
+
+        } else 
+        {
+            // Se nao, é um atributo da classe, ou do pai, ou do avo...
+
+        }
+
+        // Exit
         tab = tab.substring(0, tab.length() - 1);
 		return null;
 	}
@@ -502,7 +538,10 @@ public class Codegen extends VisitorAdapter {
 		LlvmValue v1 = n.lhs.accept(this);
 		LlvmValue v2 = n.rhs.accept(this);
 		LlvmRegister lhs = new LlvmRegister(LlvmPrimitiveType.I32);
-		assembler.add(new LlvmTimes(lhs, LlvmPrimitiveType.I32, v1, v2));
+
+        assembler.add( new LlvmTimes( lhs, LlvmPrimitiveType.I32, v1, v2 ) );
+        System.out.println( new LlvmTimes( lhs, LlvmPrimitiveType.I32, v1, v2 ).toString() );
+
 		return lhs;
 	}
 
@@ -567,8 +606,30 @@ public class Codegen extends VisitorAdapter {
 	public LlvmValue visit(IdentifierExp n) {
 		System.out.println( "[ AST ]" + tab + " : IdentifierExp -> " + n.toString() ); 
 
-        // Criando um LlvmNamedValue para criar um identificador
-        return new LlvmNamedValue ( n.name.accept(this).toString(),n.type.accept(this).type );
+		LlvmType type = n.type.accept( this ).type;
+		LlvmRegister reg = new LlvmRegister( type );
+
+        String regName;
+        String varCase = codeGenerator.symTab.methodEnv.getVarCase( n.toString() );
+
+        if ( varCase == "local" ) 
+        {
+            regName = "%" + n.toString();
+
+        } else if ( varCase == "arg" ) 
+        {
+            regName = "%" + n.toString() + "_tmp";
+
+        } else 
+        {
+            // Se nao, é um atributo da classe, ou do pai, ou do avo...
+            regName = "%" + n.toString();
+
+        }
+
+		codeGenerator.assembler.add( new LlvmLoad( reg, new LlvmRegister( regName, new LlvmPointer( type ) ) ) );
+
+        return reg;
 	}
 
     // =============================================================================================
@@ -622,6 +683,7 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(Identifier n) {
 		System.out.println( "[ AST ]" + tab + " : Identifier -> " + n.toString() ); 
+
 		return new LlvmLabelValue ( n.s );
 	}
 }
@@ -837,6 +899,7 @@ class SymTab extends VisitorAdapter{
         {
             methodEnv.addStmt ( stmt );
         }
+        methodEnv.returnExp = n.returnExp;
 
         ListConverter<VarDecl> converter2 = new ListConverter<VarDecl>();
         List<VarDecl> localList = converter2.getTList( n.locals );
@@ -844,7 +907,7 @@ class SymTab extends VisitorAdapter{
         for ( VarDecl loc : localList ) 
         {
             LlvmValue aux = loc.accept( this );
-            methodEnv.addLocal( loc.name.toString(), new AttributeData( aux.type, aux ) );
+            methodEnv.addLocal( loc.name.toString(), aux.type );
         }
 
         return null;
