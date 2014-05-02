@@ -323,9 +323,8 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(BooleanType n) {
 		System.out.println("[ AST ]" + tab + " : BooleanType"); 
-        System.out.println ( "BoolType: " + n.toString() );
+   //     System.out.println ( "BoolType: " + n.toString() );
         return new LlvmBool ( 0 );
-		//return new LlvmBool ();
 	}
 
     // =============================================================================================
@@ -368,15 +367,12 @@ public class Codegen extends VisitorAdapter {
         LlvmLabelValue eElse;
         LlvmLabelValue endIf = new LlvmLabelValue( "entryEndIf" );
 
+        // Aceitando condição
         LlvmValue cond = n.condition.accept(this);
-        System.out.println ( "condition no If: " + cond );
-
-        /*
-		LlvmType type = n.condition.type.accept(this).type;
-        System.out.println ( "Tipo no If: " + type );
-        */
 
         LlvmLabelValue eThen = new LlvmLabelValue ( "entryThen" );
+
+        // Verificando se há cláusula else
         if ( n.elseClause != null )
         {
             eElse = new LlvmLabelValue ( "entryElse");
@@ -386,7 +382,6 @@ public class Codegen extends VisitorAdapter {
             eElse = null;
         }
 
-       // assembler.add ( new LlvmBranch ( new LlvmRegister ( LlvmPrimitiveType.I32 ), eThen, eElse ) );
         assembler.add ( new LlvmBranch ( cond, eThen, eElse ) );
 
 		assembler.add( new LlvmLabel( new LlvmLabelValue( "entryThen" ) ) );
@@ -410,7 +405,34 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(While n) {
 		System.out.println("[ AST ]" + tab + " : While"); 
- 	tab += "\t";
+        tab += "\t";
+
+        // Criando labels para cada rumo da condição
+        LlvmLabelValue whileLoop = new LlvmLabelValue( "entryWhile" );
+        LlvmLabelValue endWhile = new LlvmLabelValue( "entryEndWhile" );
+
+        // Aceitando condição
+        LlvmValue cond = n.condition.accept(this);
+        assembler.add ( new LlvmBranch ( cond, whileLoop, endWhile ) );
+
+        // ---------loop
+
+        // Marcando começo do bloco
+        assembler.add ( new LlvmLabel ( whileLoop ) );
+        
+        // Aceitando bloco
+        n.body.accept(this);
+
+        // Aceitando condição para nova iteração
+        cond = n.condition.accept(this);
+        assembler.add ( new LlvmBranch ( cond, whileLoop, endWhile ) );
+
+        // ---------loop
+        
+        // Marcando fim do bloco
+        assembler.add ( new LlvmLabel ( endWhile ) );
+
+        tab = tab.substring(0, tab.length() - 1);
 		return null;
 	}
 
