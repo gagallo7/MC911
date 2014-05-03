@@ -485,7 +485,17 @@ public class Codegen extends VisitorAdapter {
         } else 
         {
             // Se nao, é um atributo da classe, ou do pai, ou do avo...
+            String regName = "%" + varName;
+            LlvmType attrType = n.exp.type.accept( this ).type;
 
+            lhs = new LlvmRegister( regName, new LlvmPointer( attrType ) );
+            ClassType classType = new ClassType( codeGenerator.symTab.className );
+
+            String s = "\t" + lhs.toString() + " = getelementptr " + classType.toString() + " * %this, i32 0, ";
+            String offset = codeGenerator.symTab.getOffset( codeGenerator.symTab.className, varName );
+            
+            codeGenerator.assembler.add( new Compile( s + offset ) );
+            codeGenerator.assembler.add( new LlvmStore( rhs, lhs ) );
         }
 
         // Exit
@@ -734,9 +744,9 @@ class SymTab extends VisitorAdapter{
         String offset = aux.getOffset( whichData );
 
         if ( offset.isEmpty() )
-            return "0, " + getOffset( aux.getParent(), whichData );
+            return "i32 0, " + getOffset( aux.getParent(), whichData );
 
-        return offset;
+        return "i32 " + offset;
     }
 
     public int getClassSize( String whichClass ) 
