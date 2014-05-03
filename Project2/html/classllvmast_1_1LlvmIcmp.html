@@ -214,10 +214,11 @@ Package Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>References <a class="el" href="classllvmast_1_1LlvmIcmp.html#a099fcb8921968aa36458354b8617dac0">llvmast.LlvmIcmp.conditionCode</a>, <a class="el" href="classllvmast_1_1LlvmIcmp.html#a0322d1ca1d4c9dac3143e8a3b3aff150">llvmast.LlvmIcmp.lhs</a>, <a class="el" href="classllvmast_1_1LlvmIcmp.html#ace0aadfab1fcb2ed2e0f2f27de1abf65">llvmast.LlvmIcmp.op1</a>, <a class="el" href="classllvmast_1_1LlvmIcmp.html#af0b5c6bca8957dfcf30a1000149541b1">llvmast.LlvmIcmp.op2</a>, and <a class="el" href="classllvmast_1_1LlvmIcmp.html#ab20e417c4c2e0878607bba8a2390bfe3">llvmast.LlvmIcmp.type</a>.</p>
+<p>References <a class="el" href="classllvmast_1_1LlvmIcmp.html#a0322d1ca1d4c9dac3143e8a3b3aff150">llvmast.LlvmIcmp.lhs</a>, <a class="el" href="classllvmast_1_1LlvmIcmp.html#ace0aadfab1fcb2ed2e0f2f27de1abf65">llvmast.LlvmIcmp.op1</a>, and <a class="el" href="classllvmast_1_1LlvmIcmp.html#af0b5c6bca8957dfcf30a1000149541b1">llvmast.LlvmIcmp.op2</a>.</p>
 <div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot; &quot;</span> + <a class="code" href="classllvmast_1_1LlvmIcmp.html#a0322d1ca1d4c9dac3143e8a3b3aff150">lhs</a> + <span class="stringliteral">&quot; = icmp &quot;</span> + <a class="code" href="classllvmast_1_1LlvmIcmp.html#a099fcb8921968aa36458354b8617dac0">conditionCode</a> + <span class="stringliteral">&quot; &quot;</span> + <a class="code" href="classllvmast_1_1LlvmIcmp.html#ab20e417c4c2e0878607bba8a2390bfe3">type</a> + <span class="stringliteral">&quot; &quot;</span> + <a class="code" href="classllvmast_1_1LlvmIcmp.html#ace0aadfab1fcb2ed2e0f2f27de1abf65">op1</a> + <span class="stringliteral">&quot;, &quot;</span> + <a class="code" href="classllvmast_1_1LlvmIcmp.html#af0b5c6bca8957dfcf30a1000149541b1">op2</a>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="comment">//return &quot; &quot; + lhs + &quot; = icmp &quot; + conditionCode + &quot; &quot; + type + &quot; &quot; + op1 + &quot;, &quot; + op2;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;\t&quot;</span> + <a class="code" href="classllvmast_1_1LlvmIcmp.html#a0322d1ca1d4c9dac3143e8a3b3aff150">lhs</a> + <span class="stringliteral">&quot; = icmp slt i32 &quot;</span> + <a class="code" href="classllvmast_1_1LlvmIcmp.html#ace0aadfab1fcb2ed2e0f2f27de1abf65">op1</a> + <span class="stringliteral">&quot;, &quot;</span> + <a class="code" href="classllvmast_1_1LlvmIcmp.html#af0b5c6bca8957dfcf30a1000149541b1">op2</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -232,7 +233,7 @@ Package Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="classllvmast_1_1LlvmIcmp.html#a8b57ce4030fee38f9be2cc80fbe5fbe4">llvmast.LlvmIcmp.LlvmIcmp()</a>, and <a class="el" href="classllvmast_1_1LlvmIcmp.html#af68f035632b3d6cd6324fe7e38a0020b">llvmast.LlvmIcmp.toString()</a>.</p>
+<p>Referenced by <a class="el" href="classllvmast_1_1LlvmIcmp.html#a8b57ce4030fee38f9be2cc80fbe5fbe4">llvmast.LlvmIcmp.LlvmIcmp()</a>.</p>
 
 </div>
 </div>
@@ -296,7 +297,7 @@ Package Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Referenced by <a class="el" href="classllvmast_1_1LlvmIcmp.html#a8b57ce4030fee38f9be2cc80fbe5fbe4">llvmast.LlvmIcmp.LlvmIcmp()</a>, and <a class="el" href="classllvmast_1_1LlvmIcmp.html#af68f035632b3d6cd6324fe7e38a0020b">llvmast.LlvmIcmp.toString()</a>.</p>
+<p>Referenced by <a class="el" href="classllvmast_1_1LlvmIcmp.html#a8b57ce4030fee38f9be2cc80fbe5fbe4">llvmast.LlvmIcmp.LlvmIcmp()</a>.</p>
 
 </div>
 </div>
