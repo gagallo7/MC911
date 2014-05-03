@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="pacote/src"/>
 	<classpathentry kind="src" path="pacote/test"/>
-	<classpathentry kind="lib" path="pacote/lib/projeto2.jar"/>
+	<classpathentry exported="true" kind="lib" path="pacote/lib/projeto2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

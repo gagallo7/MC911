@@ -42,9 +42,11 @@ public  class LlvmMalloc extends LlvmInstruction
 
 		LlvmValue lhsCall = new  LlvmRegister(LlvmPrimitiveType.I8);
 
+        lastArraySize = size;
+
 		// Malloc de <size> bytes
-		call = "\t" + lhsCall + " = call i8* @malloc ( i32 "+ size + " )\n";  
-		bitcast = "\t" + lhs + " = bitcast i8* " + lhsCall + " to " + type + " *";
+		call = "\t" + lhsCall + " = call i8* @malloc ( i32 "+ size + " )" ;  
+		bitcast = "\t" + lhs + " = bitcast i8* " + lhsCall + " to " + type + " *\n";
 	}
 
 	/**
@@ -60,20 +62,6 @@ public  class LlvmMalloc extends LlvmInstruction
 		MallocImpl(lhs, type, new LlvmIntegerLiteral(1), className);
 	}
 
-
-	/**
-	 * Construtor para Alocar Vetor de Inteiros: recebe o tipo (que deve ser I32)
-	 * e o numero de elementos
-	 * 
-	 * @param lhs
-	 * @param type
-	 * @param nElements
-	 */
-
-	public LlvmMalloc(LlvmValue lhs, LlvmType type, LlvmValue nElements)
-	{
-		MallocImpl(lhs, type, nElements, null);
-	}
 
 
 	/**
@@ -116,15 +104,15 @@ public  class LlvmMalloc extends LlvmInstruction
 		call = new String("\t" + lhsCall + " = call i8* @malloc ( i32 "+ lhsTimes + " )");
 
 		if (className == null)
-			bitcast = new String("\t" + lhs + " = bitcast i8* " + lhsCall + " to " + type + "*");
+			bitcast = new String("\t" + lhs + " = bitcast i8* " + lhsCall + " to " + type + "iiiiiiiii*");
 		else
-			bitcast = new String("\t" + lhs + " = bitcast i8* " + lhsCall + " to " + className + "*");
+			bitcast = new String("\t" + lhs + " = bitcast i8* " + lhsCall + " to " + className + "iiiiiiii*");
 	}    
 
     public String toString()
     {
 		//return times + call  + bitcast;   // TODO: Check this, why times?
-		return call + bitcast;
+		return call + System.getProperty("line.separator") + bitcast;
     }
 }
 
