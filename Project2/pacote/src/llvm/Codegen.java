@@ -27,8 +27,8 @@ public class Codegen extends VisitorAdapter {
 
     // Constutor
 	public Codegen() {
-		assembler = new LinkedList<LlvmInstruction>();
-		symTab = new SymTab();
+		this.assembler = new LinkedList<LlvmInstruction>();
+		this.symTab = new SymTab();
 	}
 
     // =============================================================================================
@@ -44,7 +44,7 @@ public class Codegen extends VisitorAdapter {
         codeGenerator.symTab.print();
 
 		// Formato da String para o System.out.printlnijava "%d\n"
-		codeGenerator.assembler.add( new LlvmConstantDeclaration( "@.formatting.string", "private constant [4 x i8] c\"%d\\0A\\00\"" ) );
+		assembler.add( new LlvmConstantDeclaration( "@.formatting.string", "private constant [4 x i8] c\"%d\\0A\\00\"" ) );
 
 		p.accept(codeGenerator);
 
@@ -52,10 +52,10 @@ public class Codegen extends VisitorAdapter {
 		List<LlvmType> pts = new LinkedList<LlvmType>();
 		pts.add(new LlvmPointer(LlvmPrimitiveType.I8));
 		pts.add(LlvmPrimitiveType.DOTDOTDOT);
-		codeGenerator.assembler.add( new LlvmExternalDeclaration( "@printf", LlvmPrimitiveType.I32, pts ) );
+		assembler.add( new LlvmExternalDeclaration( "@printf", LlvmPrimitiveType.I32, pts ) );
 		List<LlvmType> mallocpts = new LinkedList<LlvmType>();
 		mallocpts.add(LlvmPrimitiveType.I32);
-		codeGenerator.assembler.add( new LlvmExternalDeclaration( "@malloc", new LlvmPointer( LlvmPrimitiveType.I8 ), mallocpts ) );
+		assembler.add( new LlvmExternalDeclaration( "@malloc", new LlvmPointer( LlvmPrimitiveType.I8 ), mallocpts ) );
 
         // =====================================
         // Gerando RI
@@ -108,7 +108,7 @@ public class Codegen extends VisitorAdapter {
             }
 
             // Escreve código RI no .s
-            codeGenerator.assembler.add( new Compile( s ) );
+            assembler.add( new Compile( s ) );
 
             // Corpo do método. Os visits do AST escrevem o corpo do método
             for ( Statement meth_stmt : aux.statements ) 
@@ -117,10 +117,10 @@ public class Codegen extends VisitorAdapter {
             } 
 
             // Return expression
-            codeGenerator.assembler.add( new LlvmRet( aux.returnExp.accept( this ) ) ); 
+            assembler.add( new LlvmRet( aux.returnExp.accept( this ) ) ); 
 
             // Fecha bloco do método
-            codeGenerator.assembler.add( new Compile ( "}\n" ) );
+            assembler.add( new Compile ( "}\n" ) );
         }
 
         // =====================================
@@ -128,6 +128,11 @@ public class Codegen extends VisitorAdapter {
 		// Aqui o codigo eh gerado de fato, a partir do assembler
 		String r = new String();
 		for (LlvmInstruction instr : codeGenerator.assembler)
+        {
+			r += instr + "\n";
+        }
+
+		for (LlvmInstruction instr : assembler)
         {
             System.out.println ( instr );
 			r += instr + "\n";
@@ -483,13 +488,13 @@ public class Codegen extends VisitorAdapter {
         {
             String regName = "%" + varName;
             lhs = new LlvmRegister( regName, new LlvmPointer( codeGenerator.symTab.methodEnv.getLocal( varName ) ) );
-            codeGenerator.assembler.add( new LlvmStore( rhs, lhs ) );
+            assembler.add( new LlvmStore( rhs, lhs ) );
 
         } else if ( varCase == "arg" ) 
         {
             String regName = "%" + varName + "_tmp";
             lhs = new LlvmRegister( regName, new LlvmPointer( codeGenerator.symTab.methodEnv.getArg( "%" + varName ) ) );
-            codeGenerator.assembler.add( new LlvmStore( rhs, lhs ) );
+            assembler.add( new LlvmStore( rhs, lhs ) );
 
         } else 
         {
@@ -503,9 +508,9 @@ public class Codegen extends VisitorAdapter {
             String s = "\t" + lhs.toString() + " = getelementptr " + classType.toString() + " * %this, i32 0, ";
             String offset = codeGenerator.symTab.getOffset( codeGenerator.symTab.className, varName );
             
-            codeGenerator.assembler.add( new Compile( s + offset ) );
+            assembler.add( new Compile( s + offset ) );
             System.out.println ( "ERRO...." );
-            codeGenerator.assembler.add( new LlvmStore( rhs, lhs ) );
+            assembler.add( new LlvmStore( rhs, lhs ) );
             System.out.println ( "ERRO...." + lhs + "(" + lhs.type + ")" + " -- " + rhs + " ( " + n.exp + " ) " );
         }
 
@@ -529,31 +534,33 @@ public class Codegen extends VisitorAdapter {
             String regName = "%" + varName;
             lhs = new LlvmRegister( regName, new LlvmPointer( codeGenerator.symTab.methodEnv.getLocal( varName ) ) );
             lhs2 = new LlvmRegister ( LlvmPrimitiveType.I32 );
-            codeGenerator.assembler.add ( new LlvmGetElementPointer ( lhs2, lhs, indices ) );
-            codeGenerator.assembler.add( new LlvmStore( rhs, lhs ) );
+            assembler.add ( new LlvmGetElementPointer ( lhs2, lhs, indices ) );
+            assembler.add( new LlvmStore( rhs, lhs ) );
 
         } else if ( varCase == "arg" ) 
         {
             String regName = "%" + varName + "_tmp";
             lhs = new LlvmRegister( regName, new LlvmPointer( codeGenerator.symTab.methodEnv.getArg( "%" + varName ) ) );
-            codeGenerator.assembler.add( new LlvmStore( rhs, lhs ) );
+            assembler.add( new LlvmStore( rhs, lhs ) );
 
         } else 
         {
             // Se nao, é um atributo da classe, ou do pai, ou do avo...
             String regName = "%" + varName;
-            LlvmType attrType = n.exp.type.accept( this ).type;
+            //LlvmType attrType = n.exp.type.accept( this ).type;
 
+            /*
             lhs = new LlvmRegister( regName, new LlvmPointer( attrType ) );
             ClassType classType = new ClassType( codeGenerator.symTab.className );
 
             String s = "\t" + lhs.toString() + " = getelementptr " + classType.toString() + " * %this, i32 0, ";
             String offset = codeGenerator.symTab.getOffset( codeGenerator.symTab.className, varName );
             
-            codeGenerator.assembler.add( new Compile( s + offset ) );
+            assembler.add( new Compile( s + offset ) );
             System.out.println ( "ERRO...." );
-            codeGenerator.assembler.add( new LlvmStore( rhs, lhs ) );
-            System.out.println ( "ERRO...." + lhs + "(" + lhs.type + ")" + " -- " + rhs + " ( " + n.exp + " ) " );
+            assembler.add( new LlvmStore( rhs, lhs ) );
+            */
+            //System.out.println ( "ERRO...." + lhs + "(" + lhs.type + ")" + " -- " + rhs + " ( " + n.exp + " ) " );
         }
 		return null;
 	}
@@ -599,7 +606,6 @@ public class Codegen extends VisitorAdapter {
 		LlvmRegister lhs = new LlvmRegister(LlvmPrimitiveType.I32);
 
         assembler.add( new LlvmTimes( lhs, LlvmPrimitiveType.I32, v1, v2 ) );
-        System.out.println( new LlvmTimes( lhs, LlvmPrimitiveType.I32, v1, v2 ).toString() );
 
         tab = tab.substring(0, tab.length() - 1);
 		return lhs;
@@ -612,7 +618,7 @@ public class Codegen extends VisitorAdapter {
         List < LlvmValue> tmp = new LinkedList < LlvmValue > ( );
         tmp.add ( n.index.accept(this) );
         LlvmValue reg = new LlvmRegister ( LlvmPrimitiveType.I32 );
-        codeGenerator.assembler.add ( new LlvmGetElementPointer ( reg, n.array.accept(this), tmp ) );
+        assembler.add ( new LlvmGetElementPointer ( reg, n.array.accept(this), tmp ) );
         tab = tab.substring(0, tab.length() - 1);
         return reg;
 	}
@@ -700,7 +706,7 @@ public class Codegen extends VisitorAdapter {
 
         }
 
-		codeGenerator.assembler.add( new LlvmLoad( reg, new LlvmRegister( regName, new LlvmPointer( type ) ) ) );
+		assembler.add( new LlvmLoad( reg, new LlvmRegister( regName, new LlvmPointer( type ) ) ) );
 
         tab = tab.substring(0, tab.length() - 1);
         return reg;
@@ -716,15 +722,17 @@ public class Codegen extends VisitorAdapter {
 	public LlvmValue visit(NewArray n) {
 		System.out.println("[ AST ]" + tab + " : NewArray"); 
  	    tab += "\t";
+
         //LlvmType type = new LlvmPointer ( LlvmPrimitiveType.I32 );
         LlvmType type = LlvmPrimitiveType.I32;
         LlvmValue size = n.size.accept(this);
         symTab.currentArraySize = size.toString(); //TODO
         LlvmRegister reg = new LlvmRegister ( new LlvmPointer ( LlvmPrimitiveType.I32 ) );
+        LlvmRegister tmp = new LlvmRegister ( new LlvmPointer ( LlvmPrimitiveType.I32 ) );
 
-
-        //codeGenerator.assembler.add( new LlvmAlloca( reg, LlvmPrimitiveType.I32, new LinkedList<LlvmValue>() ) );
-        codeGenerator.assembler.add ( new LlvmMalloc ( reg, size, type ) );
+        // Calculando os bytes necessários para alocar o vetor de inteiros
+        assembler.add ( new Compile ( "\t" + tmp + " = mul i32 4, " + size ) );
+        assembler.add ( new LlvmMalloc ( reg, tmp, type ) );
         tab = tab.substring(0, tab.length() - 1);
 		return reg;
 	}
