@@ -17,8 +17,14 @@ class b extends a
     {
         int aux;
         aux = value;
+        a_int = 10;
 
-        return aux;
+        return a_int;
+        // return aux;          // funciona!
+        // return value;        // funciona!
+        // return a_int + 10;   // BUG q eu disse
+        // return a_int * 2;    // Outro exemplo do BUG
+
     }
 }
 
