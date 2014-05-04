@@ -134,7 +134,6 @@ public class Codegen extends VisitorAdapter {
 
 		for (LlvmInstruction instr : assembler)
         {
-            System.out.println ( instr );
 			r += instr + "\n";
         }
 
@@ -478,31 +477,23 @@ public class Codegen extends VisitorAdapter {
 		System.out.println( "[ AST ]" + tab + " : Assign -> " + n.toString() ); 
  	    tab += "\t";
         
-        String varName = n.var.accept( this ).toString();
+        String varName = n.var.toString();
         String varCase = codeGenerator.symTab.methodEnv.getVarCase( varName );
 
-        LlvmRegister lhs;
-        LlvmValue rhs = n.exp.accept( this);
+        LlvmValue rhs = n.exp.accept( this );
+        LlvmValue lhs = n.var.accept( this );
 
         if ( varCase == "local" ) 
         {
-            String regName = "%" + varName;
-            lhs = new LlvmRegister( regName, new LlvmPointer( codeGenerator.symTab.methodEnv.getLocal( varName ) ) );
             assembler.add( new LlvmStore( rhs, lhs ) );
 
         } else if ( varCase == "arg" ) 
         {
-            String regName = "%" + varName + "_tmp";
-            lhs = new LlvmRegister( regName, new LlvmPointer( codeGenerator.symTab.methodEnv.getArg( "%" + varName ) ) );
             assembler.add( new LlvmStore( rhs, lhs ) );
 
         } else 
         {
             // Se nao, é um atributo da classe, ou do pai, ou do avo...
-            String regName = "%" + varName;
-            LlvmType attrType = n.exp.type.accept( this ).type;
-
-            lhs = new LlvmRegister( regName, new LlvmPointer( attrType ) );
             ClassType classType = new ClassType( codeGenerator.symTab.className );
 
             String s = "\t" + lhs.toString() + " = getelementptr " + classType.toString() + " * %this, i32 0, ";
@@ -648,7 +639,7 @@ public class Codegen extends VisitorAdapter {
         System.out.println ( "Trying to reach " + symTab.className + " " + symTab.methodName );
         MethodData meth_aux  = (MethodData) symTab.getClassData( symTab.className ).get( symTab.methodName );
 
-        LlvmType type_aux = n.method.accept(this).type;
+        LlvmType type_aux = symTab.methodEnv.returnType;
 
         LlvmRegister retReg = new LlvmRegister ( type_aux );
         assembler.add ( new LlvmCall ( retReg, meth_aux.returnType, "@" + symTab.methodName, args ) );
@@ -759,6 +750,47 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(Identifier n) {
 		System.out.println( "[ AST ]" + tab + " : Identifier -> " + n.toString() ); 
+        tab += "\t";
+
+		LlvmType type;
+        String regName;
+        String varCase = codeGenerator.symTab.methodEnv.getVarCase( n.toString() );
+
+        if ( varCase == "local" ) 
+        {
+            regName = "%" + n.toString();
+            type = codeGenerator.symTab.methodEnv.getLocal( n.toString() );
+
+        } else if ( varCase == "arg" ) 
+        {
+            regName = "%" + n.toString() + "_tmp";
+            type = codeGenerator.symTab.methodEnv.getArg( "%" + n.toString() );
+
+        } else 
+        {
+            // Se nao, é um atributo da classe, ou do pai, ou do avo...
+            regName = "%" + n.toString();
+            ClassData class_aux = codeGenerator.symTab.getClassData( codeGenerator.symTab.className );
+            Data aux;
+
+            while( true ) 
+            {
+                aux = class_aux.get( n.toString() );
+
+                if ( aux == null ) 
+                {
+                    String parent = codeGenerator.symTab.getClassData( codeGenerator.symTab.className ).getParent();
+                    class_aux = codeGenerator.symTab.getClassData( parent );
+
+                } else 
+                {
+                    break;
+                }
+            }
+
+            AttributeData attr_aux = (AttributeData) aux;
+            type = attr_aux.type;
+        }
 
         return new LlvmNamedValue ( "%" + n.s, LlvmPrimitiveType.I32 );
 	}
@@ -815,10 +847,21 @@ class SymTab extends VisitorAdapter{
     public String getOffset( String whichClass, String whichData ) 
     {
         ClassData aux = getClassData( whichClass );
+
+        if ( aux == null )
+            return "";
+
         String offset = aux.getOffset( whichData );
 
-        if ( offset.isEmpty() )
-            return "i32 0, " + getOffset( aux.getParent(), whichData );
+        if ( offset.isEmpty() ) 
+        {
+            String offsetParent = getOffset( aux.getParent(), whichData );
+
+            if ( offsetParent.isEmpty() )
+                return "i32 0";
+
+            return "i32 0, " + offsetParent;
+        }
 
         return "i32 " + offset;
     }
