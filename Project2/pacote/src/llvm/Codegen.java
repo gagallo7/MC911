@@ -24,6 +24,8 @@ public class Codegen extends VisitorAdapter {
 
 	// Globais auxiliares
     String objectRegName;	
+    static int numberIf = 0;
+    static int numberWhile = 0;
 
     // Constutor
 	public Codegen() {
@@ -399,18 +401,22 @@ public class Codegen extends VisitorAdapter {
 		System.out.println("[ AST ]" + tab + " : If"); 
         tab += "\t";
 
+        // Identificação única
+        numberWhile++;
+        numberIf++;
+
         // Criando labels para cada rumo da condição
         LlvmLabelValue eElse;
-        LlvmLabelValue endIf = new LlvmLabelValue( "entryEndIf" );
+        LlvmLabelValue endIf = new LlvmLabelValue( "entryEndIf" + numberIf );
 
         // Aceitando condição
         LlvmValue cond = n.condition.accept(this);
-        LlvmLabelValue eThen = new LlvmLabelValue ( "entryThen" );
+        LlvmLabelValue eThen = new LlvmLabelValue ( "entryThen" + numberIf );
 
         // Verificando se há cláusula else
         if ( n.elseClause != null )
         {
-            eElse = new LlvmLabelValue ( "entryElse");
+            eElse = new LlvmLabelValue ( "entryElse" + numberIf );
         }
         else
         {
@@ -419,14 +425,14 @@ public class Codegen extends VisitorAdapter {
 
         assembler.add ( new LlvmBranch ( cond, eThen, eElse ) );
 
-		assembler.add( new LlvmLabel( new LlvmLabelValue( "entryThen" ) ) );
+		assembler.add( new LlvmLabel( eThen ) );
         n.thenClause.accept(this);
         System.out.println ( "Accepting: " + n.thenClause );
         assembler.add ( new LlvmBranch ( endIf ) );
 
         if ( n.elseClause != null )
         {
-            assembler.add( new LlvmLabel( new LlvmLabelValue( "entryElse" ) ) );
+            assembler.add( new LlvmLabel( eElse ) );
             n.elseClause.accept(this);
             System.out.println ( "Accepting: " + n.elseClause );
             assembler.add ( new LlvmBranch ( endIf ) );
@@ -443,9 +449,12 @@ public class Codegen extends VisitorAdapter {
 		System.out.println("[ AST ]" + tab + " : While"); 
         tab += "\t";
 
+        // Identificação única
+        numberWhile++;
+
         // Criando labels para cada rumo da condição
-        LlvmLabelValue whileLoop = new LlvmLabelValue( "entryWhile" );
-        LlvmLabelValue endWhile = new LlvmLabelValue( "entryEndWhile" );
+        LlvmLabelValue whileLoop = new LlvmLabelValue( "entryWhile" + numberWhile );
+        LlvmLabelValue endWhile = new LlvmLabelValue( "entryEndWhile" + numberWhile );
 
         // Aceitando condição
         LlvmValue cond = n.condition.accept(this);
@@ -534,7 +543,7 @@ public class Codegen extends VisitorAdapter {
 		LlvmValue l1 = n.lhs.accept(this);
 		LlvmValue l2 = n.rhs.accept(this);
 		LlvmType type = n.type.accept(this).type;
-		LlvmRegister lhs = new LlvmRegister(LlvmPrimitiveType.I32);
+		LlvmRegister lhs = new LlvmRegister(LlvmPrimitiveType.I1);
 		assembler.add(new LlvmIcmp( lhs, 0, type, l1, l2));
         tab = tab.substring(0, tab.length() - 1);
 		return lhs;
@@ -736,6 +745,7 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(NewObject n) {
 		System.out.println("[ AST ]" + tab + " : NewObject"); 
+        tab += "\t";
         symTab.className = n.className.toString();
 
         // Instanciando o objeto
@@ -754,13 +764,26 @@ public class Codegen extends VisitorAdapter {
         // Utilizado pelo visit do Call
         objectRegName = reg.toString();
 
+        tab = tab.substring(0, tab.length() - 1);
 		return null;
 	}
 
     // =============================================================================================
+    // Faz a negação da condição
 	public LlvmValue visit(Not n) {
-		System.out.println("[ AST ]" + tab + " : Not"); 
-		return null;
+		System.out.println("[ AST ]" + tab + " : Not -> " + n);
+        tab += "\t";
+
+        // Obtendo valor da condição dual
+        LlvmValue cond = n.exp.accept (this);
+        LlvmValue reg = new LlvmRegister ( LlvmPrimitiveType.I1 );
+
+        // Fazendo um xor com 1 para negar o valor binário
+        assembler.add ( new Compile ( reg + " = xor i1 1, " + cond ) );
+
+        tab = tab.substring(0, tab.length() - 1);
+
+        return reg;
 	}
 
     // =============================================================================================
