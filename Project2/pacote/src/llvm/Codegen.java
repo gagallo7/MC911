@@ -525,13 +525,13 @@ public class Codegen extends VisitorAdapter {
 
         // source recebe a variável no escopo correto
         LlvmValue source = n.var.accept (this);
-        LlvmRegister dest = new LlvmRegister ( LlvmPrimitiveType.I32 );
+        LlvmRegister destPtr = new LlvmRegister ( new LlvmPointer ( LlvmPrimitiveType.I32 ) );
 
         // dest recebe apontador para 'source [ index ]'
-        assembler.add ( new LlvmGetElementPointer ( dest, source, indices ) );
+        assembler.add ( new LlvmGetElementPointer ( destPtr, source, indices ) );
 
         // Atribuindo valor ao destino
-        assembler.add( new LlvmStore( value, dest ) );
+        assembler.add( new LlvmStore( value, destPtr ) );
 
         tab = tab.substring(0, tab.length() - 1);
 		return null;
