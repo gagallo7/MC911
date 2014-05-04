@@ -491,6 +491,8 @@ public class Codegen extends VisitorAdapter {
 
         LlvmValue rhs = n.exp.accept( this );
         LlvmValue lhs = n.var.accept( this );
+        
+        assembler.add ( new Compile ( "\n ;this Point? " + n.exp + " " + n.exp.accept(this) + "\n" ) );
         assembler.add( new LlvmStore( rhs, lhs ) );
 
         // Exit
@@ -715,7 +717,7 @@ public class Codegen extends VisitorAdapter {
 
     // =============================================================================================
 	public LlvmValue visit(This n) {
-		System.out.println("[ AST ]" + tab + " : This"); 
+		System.out.println("[ AST ]" + tab + " : This -> " + n); 
 		return null;
 	}
 
