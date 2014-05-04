@@ -482,28 +482,7 @@ public class Codegen extends VisitorAdapter {
 
         LlvmValue rhs = n.exp.accept( this );
         LlvmValue lhs = n.var.accept( this );
-
-        if ( varCase == "local" ) 
-        {
-            assembler.add( new LlvmStore( rhs, lhs ) );
-
-        } else if ( varCase == "arg" ) 
-        {
-            assembler.add( new LlvmStore( rhs, lhs ) );
-
-        } else 
-        {
-            // Se nao, é um atributo da classe, ou do pai, ou do avo...
-            ClassType classType = new ClassType( codeGenerator.symTab.className );
-
-            String s = "\t" + lhs.toString() + " = getelementptr " + classType.toString() + " * %this, i32 0, ";
-            String offset = codeGenerator.symTab.getOffset( codeGenerator.symTab.className, varName );
-            
-            assembler.add( new Compile( s + offset ) );
-            System.out.println ( "ERRO...." );
-            assembler.add( new LlvmStore( rhs, lhs ) );
-            System.out.println ( "ERRO...." + lhs + "(" + lhs.type + ")" + " -- " + rhs + " ( " + n.exp + " ) " );
-        }
+        assembler.add( new LlvmStore( rhs, lhs ) );
 
         // Exit
         tab = tab.substring(0, tab.length() - 1);
@@ -678,6 +657,7 @@ public class Codegen extends VisitorAdapter {
 
 		LlvmType type = n.type.accept( this ).type;
 		LlvmRegister reg = new LlvmRegister( type );
+		LlvmRegister rhs;
 
         String regName;
         String varCase = codeGenerator.symTab.methodEnv.getVarCase( n.toString() );
@@ -685,19 +665,47 @@ public class Codegen extends VisitorAdapter {
         if ( varCase == "local" ) 
         {
             regName = "%" + n.toString();
+            rhs = new LlvmRegister( regName, new LlvmPointer( type ) );
 
         } else if ( varCase == "arg" ) 
         {
             regName = "%" + n.toString() + "_tmp";
+            rhs = new LlvmRegister( regName, new LlvmPointer( type ) );
 
         } else 
         {
             // Se nao, é um atributo da classe, ou do pai, ou do avo...
-            regName = "%" + n.toString();
+            ClassData class_aux = codeGenerator.symTab.getClassData( codeGenerator.symTab.className );
+            Data aux;
 
+            while( true ) 
+            {
+                aux = class_aux.get( n.toString() );
+
+                if ( aux == null ) 
+                {
+                    String parent = codeGenerator.symTab.getClassData( codeGenerator.symTab.className ).getParent();
+                    class_aux = codeGenerator.symTab.getClassData( parent );
+
+                } else 
+                {
+                    break;
+                }
+            }
+
+            AttributeData attr_aux = (AttributeData) aux;
+            type = attr_aux.type;
+
+            rhs = new LlvmRegister( new LlvmPointer( type ) );
+            ClassType classType = new ClassType( codeGenerator.symTab.className );
+
+            String s = "\t" + rhs.toString() + " = getelementptr " + classType.toString() + " * %this, i32 0, ";
+            String offset = codeGenerator.symTab.getOffset( codeGenerator.symTab.className, n.toString() );
+            
+            assembler.add( new Compile( s + offset ) );
         }
 
-		assembler.add( new LlvmLoad( reg, new LlvmRegister( regName, new LlvmPointer( type ) ) ) );
+		assembler.add( new LlvmLoad( reg, rhs ) );
 
         tab = tab.substring(0, tab.length() - 1);
         return reg;
@@ -766,21 +774,23 @@ public class Codegen extends VisitorAdapter {
 		LlvmType type;
         String regName;
         String varCase = codeGenerator.symTab.methodEnv.getVarCase( n.toString() );
+        LlvmRegister reg;
 
         if ( varCase == "local" ) 
         {
             regName = "%" + n.toString();
             type = codeGenerator.symTab.methodEnv.getLocal( n.toString() );
+            reg = new LlvmRegister( regName, new LlvmPointer( type ) );
 
         } else if ( varCase == "arg" ) 
         {
             regName = "%" + n.toString() + "_tmp";
             type = codeGenerator.symTab.methodEnv.getArg( "%" + n.toString() );
+            reg = new LlvmRegister( regName, new LlvmPointer( type ) );
 
         } else 
         {
             // Se nao, é um atributo da classe, ou do pai, ou do avo...
-            regName = "%" + n.toString();
             ClassData class_aux = codeGenerator.symTab.getClassData( codeGenerator.symTab.className );
             Data aux;
 
@@ -801,10 +811,15 @@ public class Codegen extends VisitorAdapter {
 
             AttributeData attr_aux = (AttributeData) aux;
             type = attr_aux.type;
-        }
 
-		LlvmRegister reg = new LlvmRegister( type );
-        reg = new LlvmRegister( regName, new LlvmPointer( type ) );
+            reg = new LlvmRegister( new LlvmPointer( type ) );
+            ClassType classType = new ClassType( codeGenerator.symTab.className );
+
+            String s = "\t" + reg.toString() + " = getelementptr " + classType.toString() + " * %this, i32 0, ";
+            String offset = codeGenerator.symTab.getOffset( codeGenerator.symTab.className, n.toString() );
+            
+            assembler.add( new Compile( s + offset ) );
+        }
 
         tab = tab.substring(0, tab.length() - 1);
 		return reg;
