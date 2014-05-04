@@ -18,6 +18,6 @@ public  class LlvmMinus extends LlvmInstruction
 
     public String toString()
     {
-        return "  " +lhs + " = sub " + type + " " + op1 + ", " + op2;
+        return "\t" +lhs + " = sub " + type + " " + op1 + ", " + op2;
     }
 }
