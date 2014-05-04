@@ -27,8 +27,8 @@ public class Codegen extends VisitorAdapter {
 
     // Constutor
 	public Codegen() {
-		assembler = new LinkedList<LlvmInstruction>();
-		symTab = new SymTab();
+		this.assembler = new LinkedList<LlvmInstruction>();
+		this.symTab = new SymTab();
 	}
 
     // =============================================================================================
@@ -178,7 +178,8 @@ public class Codegen extends VisitorAdapter {
 		LlvmValue v1 = n.lhs.accept(this);
 		LlvmValue v2 = n.rhs.accept(this);
 		LlvmRegister lhs = new LlvmRegister(LlvmPrimitiveType.I32);
-		assembler.add(new LlvmPlus(lhs, LlvmPrimitiveType.I32, v1, v2));
+		codeGenerator.assembler.add(new LlvmPlus(lhs, LlvmPrimitiveType.I32, v1, v2));
+
 		return lhs;
 	}
 
@@ -535,7 +536,7 @@ public class Codegen extends VisitorAdapter {
 		LlvmValue v1 = n.lhs.accept(this);
 		LlvmValue v2 = n.rhs.accept(this);
 		LlvmRegister lhs = new LlvmRegister(LlvmPrimitiveType.I32);
-		assembler.add(new LlvmMinus(lhs, LlvmPrimitiveType.I32, v1, v2));
+		codeGenerator.assembler.add(new LlvmMinus(lhs, LlvmPrimitiveType.I32, v1, v2));
 		return lhs;
 	}
 
@@ -547,8 +548,7 @@ public class Codegen extends VisitorAdapter {
 		LlvmValue v2 = n.rhs.accept(this);
 		LlvmRegister lhs = new LlvmRegister(LlvmPrimitiveType.I32);
 
-        assembler.add( new LlvmTimes( lhs, LlvmPrimitiveType.I32, v1, v2 ) );
-        System.out.println( new LlvmTimes( lhs, LlvmPrimitiveType.I32, v1, v2 ).toString() );
+        codeGenerator.assembler.add( new LlvmTimes( lhs, LlvmPrimitiveType.I32, v1, v2 ) );
 
 		return lhs;
 	}
