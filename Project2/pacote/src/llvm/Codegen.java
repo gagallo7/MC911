@@ -521,47 +521,28 @@ public class Codegen extends VisitorAdapter {
 
     // =============================================================================================
 	public LlvmValue visit(ArrayAssign n) {
-		System.out.println("[ AST ]" + tab + " : ArrayAssign"); 
+		System.out.println("[ AST ]" + tab + " : ArrayAssign of var -> " + n.var.accept(this).type ) ; 
+ 	    tab += "\t";
+
+        // Value é o valor a ser atribuído
+        LlvmValue value = n.value.accept(this);
+
+        // Adicionando índice à lista de índices
         LlvmValue index = n.index.accept (this);
-        List < LlvmValue > indices = new LinkedList < LlvmValue> ();
-        LlvmValue rhs = n.value.accept (this);
-        LlvmRegister lhs, lhs2;
-        String varName = n.var.accept( this ).toString();
-        String varCase = codeGenerator.symTab.methodEnv.getVarCase( varName );
+        List < LlvmValue > indices = new LinkedList < LlvmValue > ();
+        indices.add ( index );
 
-        if ( varCase == "local" ) 
-        {
-            String regName = "%" + varName;
-            lhs = new LlvmRegister( regName, new LlvmPointer( codeGenerator.symTab.methodEnv.getLocal( varName ) ) );
-            lhs2 = new LlvmRegister ( LlvmPrimitiveType.I32 );
-            assembler.add ( new LlvmGetElementPointer ( lhs2, lhs, indices ) );
-            assembler.add( new LlvmStore( rhs, lhs ) );
+        // source recebe a variável no escopo correto
+        LlvmValue source = n.var.accept (this);
+        LlvmRegister dest = new LlvmRegister ( LlvmPrimitiveType.I32 );
 
-        } else if ( varCase == "arg" ) 
-        {
-            String regName = "%" + varName + "_tmp";
-            lhs = new LlvmRegister( regName, new LlvmPointer( codeGenerator.symTab.methodEnv.getArg( "%" + varName ) ) );
-            assembler.add( new LlvmStore( rhs, lhs ) );
+        // dest recebe apontador para 'source [ index ]'
+        assembler.add ( new LlvmGetElementPointer ( dest, source, indices ) );
 
-        } else 
-        {
-            // Se nao, é um atributo da classe, ou do pai, ou do avo...
-            String regName = "%" + varName;
-            //LlvmType attrType = n.exp.type.accept( this ).type;
+        // Atribuindo valor ao destino
+        assembler.add( new LlvmStore( value, dest ) );
 
-            /*
-            lhs = new LlvmRegister( regName, new LlvmPointer( attrType ) );
-            ClassType classType = new ClassType( codeGenerator.symTab.className );
-
-            String s = "\t" + lhs.toString() + " = getelementptr " + classType.toString() + " * %this, i32 0, ";
-            String offset = codeGenerator.symTab.getOffset( codeGenerator.symTab.className, varName );
-            
-            assembler.add( new Compile( s + offset ) );
-            System.out.println ( "ERRO...." );
-            assembler.add( new LlvmStore( rhs, lhs ) );
-            */
-            //System.out.println ( "ERRO...." + lhs + "(" + lhs.type + ")" + " -- " + rhs + " ( " + n.exp + " ) " );
-        }
+        tab = tab.substring(0, tab.length() - 1);
 		return null;
 	}
 
@@ -615,10 +596,18 @@ public class Codegen extends VisitorAdapter {
 	public LlvmValue visit(ArrayLookup n) {
 		System.out.println("[ AST ]" + tab + " : ArrayLookup"); 
  	    tab += "\t";
+
+        // Adicionando índice à lista de índices
         List < LlvmValue> tmp = new LinkedList < LlvmValue > ( );
         tmp.add ( n.index.accept(this) );
-        LlvmValue reg = new LlvmRegister ( LlvmPrimitiveType.I32 );
-        assembler.add ( new LlvmGetElementPointer ( reg, n.array.accept(this), tmp ) );
+
+        // Criando ponteiro do lookup e o registrador para referenciá-lo
+        LlvmValue regPtr = new LlvmRegister ( new LlvmPointer ( LlvmPrimitiveType.I32 ) );
+        LlvmValue reg= new LlvmRegister ( LlvmPrimitiveType.I32 );
+
+        assembler.add ( new LlvmGetElementPointer ( regPtr, n.array.accept(this), tmp ) );
+        assembler.add ( new LlvmLoad ( reg, regPtr ) );
+
         tab = tab.substring(0, tab.length() - 1);
         return reg;
 	}
@@ -771,7 +760,7 @@ public class Codegen extends VisitorAdapter {
 	public LlvmValue visit(Identifier n) {
 		System.out.println( "[ AST ]" + tab + " : Identifier -> " + n.toString() ); 
 
-		return new LlvmNamedValue ( n.s, LlvmPrimitiveType.I32 );
+        return new LlvmNamedValue ( "%" + n.s, LlvmPrimitiveType.I32 );
 	}
 }
 
