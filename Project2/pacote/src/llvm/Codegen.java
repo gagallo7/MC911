@@ -20,7 +20,7 @@ public class Codegen extends VisitorAdapter {
 	private Codegen codeGenerator;
     private String tab = "";
 
-	private SymTab symTab;
+	private static SymTab symTab;
 
 	// Globais auxiliares
     String objectRegName;	
@@ -482,28 +482,7 @@ public class Codegen extends VisitorAdapter {
 
         LlvmValue rhs = n.exp.accept( this );
         LlvmValue lhs = n.var.accept( this );
-
-        if ( varCase == "local" ) 
-        {
-            assembler.add( new LlvmStore( rhs, lhs ) );
-
-        } else if ( varCase == "arg" ) 
-        {
-            assembler.add( new LlvmStore( rhs, lhs ) );
-
-        } else 
-        {
-            // Se nao, é um atributo da classe, ou do pai, ou do avo...
-            ClassType classType = new ClassType( codeGenerator.symTab.className );
-
-            String s = "\t" + lhs.toString() + " = getelementptr " + classType.toString() + " * %this, i32 0, ";
-            String offset = codeGenerator.symTab.getOffset( codeGenerator.symTab.className, varName );
-            
-            assembler.add( new Compile( s + offset ) );
-            System.out.println ( "ERRO...." );
-            assembler.add( new LlvmStore( rhs, lhs ) );
-            System.out.println ( "ERRO...." + lhs + "(" + lhs.type + ")" + " -- " + rhs + " ( " + n.exp + " ) " );
-        }
+        assembler.add( new LlvmStore( rhs, lhs ) );
 
         // Exit
         tab = tab.substring(0, tab.length() - 1);
@@ -515,6 +494,7 @@ public class Codegen extends VisitorAdapter {
 		System.out.println("[ AST ]" + tab + " : ArrayAssign of var -> " + n.var.accept(this).type ) ; 
  	    tab += "\t";
 
+        assembler.add ( new Compile ( "\n;assigning array" ) );
         // Value é o valor a ser atribuído
         LlvmValue value = n.value.accept(this);
 
@@ -524,14 +504,17 @@ public class Codegen extends VisitorAdapter {
         indices.add ( index );
 
         // source recebe a variável no escopo correto
-        LlvmValue source = n.var.accept (this);
-        LlvmRegister destPtr = new LlvmRegister ( new LlvmPointer ( LlvmPrimitiveType.I32 ) );
+        LlvmValue sourcePtr = n.var.accept (this);
+        LlvmRegister source = new LlvmRegister ( new LlvmPointer ( LlvmPrimitiveType.I32 ) );
+        assembler.add ( new LlvmLoad ( source, sourcePtr ) );
 
         // dest recebe apontador para 'source [ index ]'
+        LlvmRegister destPtr = new LlvmRegister ( new LlvmPointer ( LlvmPrimitiveType.I32 ) );
         assembler.add ( new LlvmGetElementPointer ( destPtr, source, indices ) );
 
         // Atribuindo valor ao destino
         assembler.add( new LlvmStore( value, destPtr ) );
+        assembler.add ( new Compile ( "" ) );
 
         tab = tab.substring(0, tab.length() - 1);
 		return null;
@@ -667,6 +650,7 @@ public class Codegen extends VisitorAdapter {
 
 		LlvmType type = n.type.accept( this ).type;
 		LlvmRegister reg = new LlvmRegister( type );
+		LlvmRegister rhs;
 
         String regName;
         String varCase = codeGenerator.symTab.methodEnv.getVarCase( n.toString() );
@@ -674,19 +658,47 @@ public class Codegen extends VisitorAdapter {
         if ( varCase == "local" ) 
         {
             regName = "%" + n.toString();
+            rhs = new LlvmRegister( regName, new LlvmPointer( type ) );
 
         } else if ( varCase == "arg" ) 
         {
             regName = "%" + n.toString() + "_tmp";
+            rhs = new LlvmRegister( regName, new LlvmPointer( type ) );
 
         } else 
         {
             // Se nao, é um atributo da classe, ou do pai, ou do avo...
-            regName = "%" + n.toString();
+            ClassData class_aux = codeGenerator.symTab.getClassData( codeGenerator.symTab.className );
+            Data aux;
 
+            while( true ) 
+            {
+                aux = class_aux.get( n.toString() );
+
+                if ( aux == null ) 
+                {
+                    String parent = codeGenerator.symTab.getClassData( codeGenerator.symTab.className ).getParent();
+                    class_aux = codeGenerator.symTab.getClassData( parent );
+
+                } else 
+                {
+                    break;
+                }
+            }
+
+            AttributeData attr_aux = (AttributeData) aux;
+            type = attr_aux.type;
+
+            rhs = new LlvmRegister( new LlvmPointer( type ) );
+            ClassType classType = new ClassType( codeGenerator.symTab.className );
+
+            String s = "\t" + rhs.toString() + " = getelementptr " + classType.toString() + " * %this, i32 0, ";
+            String offset = codeGenerator.symTab.getOffset( codeGenerator.symTab.className, n.toString() );
+            
+            assembler.add( new Compile( s + offset ) );
         }
 
-		assembler.add( new LlvmLoad( reg, new LlvmRegister( regName, new LlvmPointer( type ) ) ) );
+		assembler.add( new LlvmLoad( reg, rhs ) );
 
         tab = tab.substring(0, tab.length() - 1);
         return reg;
@@ -710,9 +722,13 @@ public class Codegen extends VisitorAdapter {
         LlvmRegister reg = new LlvmRegister ( new LlvmPointer ( LlvmPrimitiveType.I32 ) );
         LlvmRegister tmp = new LlvmRegister ( new LlvmPointer ( LlvmPrimitiveType.I32 ) );
 
+        // Guardando valor do último array mallocado
+        LlvmMalloc.lastArraySize = size;
+
         // Calculando os bytes necessários para alocar o vetor de inteiros
         assembler.add ( new Compile ( "\t" + tmp + " = mul i32 4, " + size ) );
         assembler.add ( new LlvmMalloc ( reg, tmp, type ) );
+        assembler.add ( new Compile ( "" ) );
         tab = tab.substring(0, tab.length() - 1);
 		return reg;
 	}
@@ -755,21 +771,23 @@ public class Codegen extends VisitorAdapter {
 		LlvmType type;
         String regName;
         String varCase = codeGenerator.symTab.methodEnv.getVarCase( n.toString() );
+        LlvmRegister reg;
 
         if ( varCase == "local" ) 
         {
             regName = "%" + n.toString();
             type = codeGenerator.symTab.methodEnv.getLocal( n.toString() );
+            reg = new LlvmRegister( regName, new LlvmPointer( type ) );
 
         } else if ( varCase == "arg" ) 
         {
             regName = "%" + n.toString() + "_tmp";
             type = codeGenerator.symTab.methodEnv.getArg( "%" + n.toString() );
+            reg = new LlvmRegister( regName, new LlvmPointer( type ) );
 
         } else 
         {
             // Se nao, é um atributo da classe, ou do pai, ou do avo...
-            regName = "%" + n.toString();
             ClassData class_aux = codeGenerator.symTab.getClassData( codeGenerator.symTab.className );
             Data aux;
 
@@ -790,9 +808,18 @@ public class Codegen extends VisitorAdapter {
 
             AttributeData attr_aux = (AttributeData) aux;
             type = attr_aux.type;
+
+            reg = new LlvmRegister( new LlvmPointer( type ) );
+            ClassType classType = new ClassType( codeGenerator.symTab.className );
+
+            String s = "\t" + reg.toString() + " = getelementptr " + classType.toString() + " * %this, i32 0, ";
+            String offset = codeGenerator.symTab.getOffset( codeGenerator.symTab.className, n.toString() );
+            
+            assembler.add( new Compile( s + offset ) );
         }
 
-        return new LlvmNamedValue ( "%" + n.s, LlvmPrimitiveType.I32 );
+        tab = tab.substring(0, tab.length() - 1);
+		return reg;
 	}
 }
 

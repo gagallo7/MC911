@@ -17,8 +17,9 @@ class b extends a
     {
         int aux;
         aux = value;
+        a_int = aux * 2;
 
-        return aux * 2 + 1 - 1;
+        return a_int + 1 - 1;
     }
 }
 

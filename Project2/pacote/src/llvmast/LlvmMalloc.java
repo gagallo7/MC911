@@ -42,8 +42,6 @@ public  class LlvmMalloc extends LlvmInstruction
 
 		LlvmValue lhsCall = new  LlvmRegister(LlvmPrimitiveType.I8);
 
-        lastArraySize = size;
-
 		// Malloc de <size> bytes
 		call = "\t" + lhsCall + " = call i8* @malloc ( i32 "+ size + " )" ;  
 		bitcast = "\t" + lhs + " = bitcast i8* " + lhsCall + " to " + type + " *\n";
