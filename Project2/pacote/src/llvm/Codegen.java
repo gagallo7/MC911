@@ -82,7 +82,7 @@ public class Codegen extends VisitorAdapter {
             s += "define " + aux.returnType.toString() + " @" + key + " ( %class." + symTab.className + " * %this";
 
             // Gerando argumentos do método
-            for ( String arg : aux.args.keySet() )
+            for ( String arg : aux.argsInOrder )
             {
                 s += ", " + aux.args.get ( arg ).toString() + " " + arg;
             }
