@@ -14,4 +14,9 @@ public class ClassType extends LlvmType
     {
 	    return "%class." + name;
     }
+
+    public String getName() 
+    {
+        return name;
+    }
 }

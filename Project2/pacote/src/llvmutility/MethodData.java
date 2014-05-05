@@ -7,6 +7,7 @@ public class MethodData extends Data
 {
     public LlvmType returnType;
     public Exp returnExp;
+    public String myClass;
 
     // Mapeamento de variáveis locais do método
     public Map < String, LlvmType > locals;
@@ -66,6 +67,8 @@ public class MethodData extends Data
     public void print ( )
     {
         System.out.println ( "=========" );
+        System.out.println( "myClass: " + this.myClass );
+        System.out.println( "returnType: " + this.returnType + "\n" );
 
         System.out.println ( "Args:\n" );
         for ( String key : this.args.keySet() )
