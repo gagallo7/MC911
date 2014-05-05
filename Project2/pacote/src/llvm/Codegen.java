@@ -621,9 +621,17 @@ public class Codegen extends VisitorAdapter {
         String objectName = classObject[ 0 ];
         String[] obj_aux = objectName.split( " " );
 
+        System.out.println( "objectName = [" + objectName +"]" );
+
         if ( obj_aux[ 0 ].equals( "new" ) ) 
         {
+            System.out.println( "new?" );
             className = objectClassName;
+
+        } else if ( objectName.equals( "this " ) ) 
+        {
+            System.out.println( "this?" );
+            className = symTab.methodEnv.myClass;
 
         } else 
         {
@@ -633,16 +641,19 @@ public class Codegen extends VisitorAdapter {
             
             if ( varCase == "local" ) 
             {
+                System.out.println( "LocalCase" );
                 ptr = (LlvmPointer) symTab.methodEnv.getLocal( obj_aux[ 0 ] );
                 objectType = (ClassType) ptr.content;
 
             } else if ( varCase == "arg" ) 
             {
+                System.out.println( "ArgCase" );
                 ptr = (LlvmPointer) symTab.methodEnv.getArg( "%" + obj_aux[ 0 ] );
                 objectType = (ClassType) ptr.content;
 
             } else 
             {
+                System.out.println( "AttrCase" );
                 // Se nao, é um atributo da classe, ou do pai, ou do avo...
                 ptr = (LlvmPointer) symTab.getAttributeType( symTab.methodEnv.myClass, obj_aux[ 0 ] );
                 objectType = (ClassType) ptr.content;
@@ -655,6 +666,7 @@ public class Codegen extends VisitorAdapter {
         }
 
 		symTab.methodName = n.method.toString() + "_" + className;
+		System.out.println( "methodName = " + symTab.methodName );
 
 		ListConverter<Exp> converter0 = new ListConverter<Exp>();
         List<Exp> argList = converter0.getTList( n.actuals );
@@ -672,9 +684,7 @@ public class Codegen extends VisitorAdapter {
         System.out.println ( "Trying to reach " + className + " " + symTab.methodName );
         MethodData meth_aux  = (MethodData) symTab.getClassData( className ).get( symTab.methodName );
 
-        LlvmType type_aux = symTab.methodEnv.returnType;
-
-        LlvmRegister retReg = new LlvmRegister ( type_aux );
+        LlvmRegister retReg = new LlvmRegister ( symTab.methodEnv.returnType );
         assembler.add ( new LlvmCall ( retReg, meth_aux.returnType, "@" + symTab.methodName, args ) );
 
         tab = tab.substring(0, tab.length() - 1);
@@ -757,7 +767,7 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(This n) {
 		System.out.println("[ AST ]" + tab + " : This"); 
-		return null;
+		return new LlvmRegister( "%this", new LlvmPointer( new ClassType( symTab.methodEnv.myClass ) ) );
 	}
 
     // =============================================================================================
