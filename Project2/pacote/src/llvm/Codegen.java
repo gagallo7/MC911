@@ -683,7 +683,19 @@ public class Codegen extends VisitorAdapter {
         System.out.println ( "Trying to reach " + className + " " + symTab.methodName );
         MethodData meth_aux  = (MethodData) symTab.getClassData( className ).get( symTab.methodName );
 
-        MethodData data_aux = (MethodData) symTab.getClassData( symTab.methodEnv.myClass ).get( symTab.methodName );
+        MethodData data_aux = (MethodData) symTab.getClassData( className ).get( symTab.methodName );
+
+        while ( true ) 
+        {
+            if ( data_aux != null )
+                break;
+
+            System.out.println( "Class atual = " + className );
+            String parent = symTab.getClassData( className ).getParent();
+            System.out.println( "Parent = " + parent );
+            data_aux = (MethodData) symTab.getClassData( parent ).get( symTab.methodName );
+        }
+
         LlvmRegister retReg = new LlvmRegister ( data_aux.returnType );
         assembler.add ( new LlvmCall ( retReg, meth_aux.returnType, "@" + symTab.methodName, args ) );
 
@@ -731,7 +743,7 @@ public class Codegen extends VisitorAdapter {
         } else 
         {
             // Se nao, é um atributo da classe, ou do pai, ou do avo...
-            ClassData class_aux = symTab.getClassData( symTab.className );
+            ClassData class_aux = symTab.getClassData( symTab.methodEnv.myClass );
             Data aux;
 
             while( true ) 
@@ -740,7 +752,7 @@ public class Codegen extends VisitorAdapter {
 
                 if ( aux == null ) 
                 {
-                    String parent = symTab.getClassData( symTab.className ).getParent();
+                    String parent = symTab.getClassData( symTab.methodEnv.myClass ).getParent();
                     class_aux = symTab.getClassData( parent );
 
                 } else 
@@ -870,7 +882,7 @@ public class Codegen extends VisitorAdapter {
         } else 
         {
             // Se nao, é um atributo da classe, ou do pai, ou do avo...
-            ClassData class_aux = codeGenerator.symTab.getClassData( codeGenerator.symTab.className );
+            ClassData class_aux = codeGenerator.symTab.getClassData( codeGenerator.symTab.methodEnv.myClass );
             Data aux;
 
             while( true ) 
@@ -879,7 +891,7 @@ public class Codegen extends VisitorAdapter {
 
                 if ( aux == null ) 
                 {
-                    String parent = codeGenerator.symTab.getClassData( codeGenerator.symTab.className ).getParent();
+                    String parent = codeGenerator.symTab.getClassData( codeGenerator.symTab.methodEnv.myClass ).getParent();
                     class_aux = codeGenerator.symTab.getClassData( parent );
 
                 } else 
@@ -1129,6 +1141,8 @@ class SymTab extends VisitorAdapter{
 
         if ( formalType.equals( "int " ) )
             type = LlvmPrimitiveType.I32;
+        else if ( formalType.equals( "boolean " ) )
+            type = LlvmPrimitiveType.I1;
         else
             type = new LlvmPointer( new ClassType( formalType ) );
 
