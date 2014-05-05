@@ -1,5 +1,7 @@
 package llvmutility;
 import java.util.*;
+import llvmast.*;
+import llvmutility.*;
 
 public class ClassData extends Data
 {
@@ -61,6 +63,20 @@ public class ClassData extends Data
            return "";
 
        return Integer.toString( aux.offset );
+    }
+
+    public LlvmType getAttributeType( String whichAttr ) 
+    {
+        AttributeData attr = (AttributeData) get( whichAttr );
+
+        if ( attr != null ) 
+        {
+            System.out.println( "getAttributeType( " + whichAttr + " ) forneceu: " + attr.type.toString() );
+            return attr.type;
+        }
+
+        System.out.println( "getAttributeType( " + whichAttr + " ) forneceu: NULL" );
+        return null; 
     }
 
     public void print() 

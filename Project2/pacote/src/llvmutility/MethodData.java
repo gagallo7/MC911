@@ -7,6 +7,7 @@ public class MethodData extends Data
 {
     public LlvmType returnType;
     public Exp returnExp;
+    public String myClass;
 
     // Mapeamento de variáveis locais do método
     public Map < String, LlvmType > locals;
