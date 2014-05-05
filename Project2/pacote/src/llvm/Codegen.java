@@ -50,6 +50,9 @@ public class Codegen extends VisitorAdapter {
 		// Formato da String para o System.out.printlnijava "%d\n"
 		assembler.add( new LlvmConstantDeclaration( "@.formatting.string", "private constant [4 x i8] c\"%d\\0A\\00\"" ) );
 
+        // Adicionando variável global para encontrar tamanho de vetores
+        assembler.add ( new Compile ( "@lastArraySize = common global i32 0, align 4" ) );
+
 		p.accept(codeGenerator);
 
 		// Link do printf
@@ -583,6 +586,7 @@ public class Codegen extends VisitorAdapter {
 		System.out.println("[ AST ]" + tab + " : ArrayLookup"); 
  	    tab += "\t";
 
+        assembler.add ( new Compile ( "\n;looking element from array" ) );
         // Adicionando índice à lista de índices
         List < LlvmValue> tmp = new LinkedList < LlvmValue > ( );
         tmp.add ( n.index.accept(this) );
@@ -602,9 +606,13 @@ public class Codegen extends VisitorAdapter {
 	public LlvmValue visit(ArrayLength n) {
 		System.out.println("[ AST ]" + tab + " : ArrayLength"); 
  	    tab += "\t";
-        n.array.accept(this);
+
+        LlvmValue reg = new LlvmRegister ( LlvmPrimitiveType.I32 );
+        assembler.add ( new Compile ( "\n;get array size" ) );
+        assembler.add ( new Compile ( reg + " = load i32 * @lastArraySize" ) );
+        //n.array.accept(this);
         tab = tab.substring(0, tab.length() - 1);
-		return LlvmMalloc.lastArraySize;
+		return reg;
 	}
 
     // =============================================================================================
@@ -664,7 +672,7 @@ public class Codegen extends VisitorAdapter {
                 className = objectType.getName();
         }
 
-		symTab.methodName = n.method.toString() + "_" + className;
+		symTab.methodName = n.method.toString().replace("_","-") + "_" + className;
 		System.out.println( "methodName = " + symTab.methodName );
 
 		ListConverter<Exp> converter0 = new ListConverter<Exp>();
@@ -674,11 +682,13 @@ public class Codegen extends VisitorAdapter {
         ClassType class_aux = new ClassType( className );
         LlvmNamedValue named_aux = new LlvmNamedValue( objectReg.toString(), new LlvmPointer( class_aux ) );
 
+        System.out.println ( "ArgList : " + argList ) ;
         args.add( named_aux );
         for ( Exp exp : argList ) 
         {
             args.add( exp.accept(this) );
         }
+        System.out.println ( "args : " + args ) ;
 
         System.out.println ( "Trying to reach " + className + " " + symTab.methodName );
         MethodData meth_aux  = (MethodData) symTab.getClassData( className ).get( symTab.methodName );
@@ -793,15 +803,16 @@ public class Codegen extends VisitorAdapter {
 		System.out.println("[ AST ]" + tab + " : NewArray"); 
  	    tab += "\t";
 
+        assembler.add ( new Compile ( "\n;creating array" ) );
         //LlvmType type = new LlvmPointer ( LlvmPrimitiveType.I32 );
         LlvmType type = LlvmPrimitiveType.I32;
         LlvmValue size = n.size.accept(this);
-        symTab.currentArraySize = size.toString(); //TODO
         LlvmRegister reg = new LlvmRegister ( new LlvmPointer ( LlvmPrimitiveType.I32 ) );
         LlvmRegister tmp = new LlvmRegister ( new LlvmPointer ( LlvmPrimitiveType.I32 ) );
 
         // Guardando valor do último array mallocado
         LlvmMalloc.lastArraySize = size;
+        assembler.add ( new Compile ( "store i32 " + size + ", i32 * @lastArraySize" ) );
 
         // Calculando os bytes necessários para alocar o vetor de inteiros
         assembler.add ( new Compile ( "\t" + tmp + " = mul i32 4, " + size ) );
@@ -970,7 +981,10 @@ class SymTab extends VisitorAdapter{
         ClassData aux = getClassData( whichClass );
 
         if ( aux == null )
+        {
+            System.out.println ( "\n;Aviso retornando nulo para classe " + whichClass );
             return "";
+        }
 
         String offset = aux.getOffset( whichData );
 
@@ -1157,7 +1171,7 @@ class SymTab extends VisitorAdapter{
 
 		ListConverter<Formal> converter0 = new ListConverter<Formal>();
         List < Formal > FormalList = converter0.getTList ( n.formals );
-        methodName = n.name.toString() + "_" + this.className;
+        methodName = n.name.toString().replace("_","-") + "_" + this.className;
         methodEnv.returnType = n.returnType.accept( this ).type;
 
         for ( Formal formal : FormalList )

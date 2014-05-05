@@ -9,6 +9,7 @@ public  class LlvmMalloc extends LlvmInstruction
     // Armazena o tamanho do último objeto. 
     // Útil para pegar o Lenght do vetor 
     public static LlvmValue lastArraySize = null;
+    public static int lastSizeofArray = 0;
 
 
     private int size; 
