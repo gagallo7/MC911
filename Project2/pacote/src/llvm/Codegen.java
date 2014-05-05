@@ -494,7 +494,6 @@ public class Codegen extends VisitorAdapter {
 
         LlvmValue rhs = n.exp.accept( this );
         LlvmValue lhs = n.var.accept( this );
-
         assembler.add( new LlvmStore( rhs, lhs ) );
 
         // Exit
@@ -685,8 +684,6 @@ public class Codegen extends VisitorAdapter {
         MethodData meth_aux  = (MethodData) symTab.getClassData( className ).get( symTab.methodName );
 
         MethodData data_aux = (MethodData) symTab.getClassData( symTab.methodEnv.myClass ).get( symTab.methodName );
-        System.out.println( "Return type = " + data_aux.returnType );
-
         LlvmRegister retReg = new LlvmRegister ( data_aux.returnType );
         assembler.add ( new LlvmCall ( retReg, meth_aux.returnType, "@" + symTab.methodName, args ) );
 
