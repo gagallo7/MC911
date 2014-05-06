@@ -28,6 +28,7 @@ public class Codegen extends VisitorAdapter {
 
     // Variável global usada em validaçoes semanticas
     public boolean hasError;
+    public String msgError;
 
     // Auxiliares do Call
     String objectClassName;
@@ -82,6 +83,18 @@ public class Codegen extends VisitorAdapter {
             codeGenerator.symTab.methodEnv = codeGenerator.symTab.methods.get ( key );
             MethodData aux = codeGenerator.symTab.methodEnv;
 
+            // VALIDACAO: Nao pode existir um metodo com o mesmo nome que sua classe
+            String[] sameName_aux = key.split( "_" );
+            String methodMiniName = sameName_aux[ 0 ];
+
+            if ( methodMiniName.equals( aux.myClass ) ) 
+            {
+                codeGenerator.hasError = true;
+                codeGenerator.msgError = "Um método não pode ter o mesmo nome que sua classe!";
+                break;
+            }
+            // Fim da validacao
+
             String s = "\n";
             s += "define " + aux.returnType.toString() + " @" + key + " ( %class." + symTab.className + " * %this";
 
@@ -128,7 +141,18 @@ public class Codegen extends VisitorAdapter {
             } 
 
             // Return expression
-            assembler.add( new LlvmRet( aux.returnExp.accept( this ) ) ); 
+            LlvmValue ret = aux.returnExp.accept( this );
+
+            // VALIDACAO: Verifica se o tipo de retorna bate com o tipo de retorna da assinatura do metodo
+            if ( !ret.type.toString().equals( aux.returnType.toString() ) ) 
+            {
+                codeGenerator.hasError = true;
+                codeGenerator.msgError = "Tipo retornado diferente do tipo informado na assinatura do método!";
+                break;
+            }
+            // Fim da validacao
+
+            assembler.add( new LlvmRet( ret ) ); 
 
             // Fecha bloco do método
             assembler.add( new Compile ( "}\n" ) );
@@ -140,7 +164,7 @@ public class Codegen extends VisitorAdapter {
 		String r = new String();
 
 		// Se tem algum erro, nao escreve codigo!
-		if ( !hasError  ) 
+		if ( codeGenerator.hasError == false ) 
 		{
 		    for (LlvmInstruction instr : codeGenerator.assembler)
             {
@@ -154,7 +178,7 @@ public class Codegen extends VisitorAdapter {
 
             System.out.println( "Compilado com sucesso!" );
 		} else
-            System.out.println( "Erro na compilação." );
+            System.out.println( "Erro na compilação: " + codeGenerator.msgError );
 
         // Exit
         tab = tab.substring(0, tab.length() - 1);
@@ -173,11 +197,13 @@ public class Codegen extends VisitorAdapter {
 
     // =============================================================================================
 	public LlvmValue visit(MainClass n) {
-		System.out.println("[ AST ]" + tab + " : MainClass" ); 
+		System.out.println("[ AST ]" + tab + " : MainClass : " + n.className.toString() ); 
  	    tab += "\t";
 
- 	    // Definicao de simbolos
- 	    symTab.className = "main";
+ 	    ClassType classTypeMain = new ClassType( n.className.toString() );
+ 	    LlvmStructure structMain = new LlvmStructure( new LinkedList<LlvmType>() );
+        LlvmConstantDeclaration const_attr = new LlvmConstantDeclaration( classTypeMain.toString(), "type " + structMain.toString() + "\n" );
+        assembler.add( const_attr );
 
 		// Definicao da Main
 		assembler.add(new LlvmDefine( "@main", LlvmPrimitiveType.I32, new LinkedList<LlvmValue>() ) );
@@ -266,16 +292,6 @@ public class Codegen extends VisitorAdapter {
         }
         LlvmStructure struct_attr = new LlvmStructure( attr_aux );
 
-        /*
-         *        ListConverter<MethodDecl> converter1 = new ListConverter<MethodDecl>();
-         *        List<MethodDecl> methodList = converter1.getTList( n.methodList );
-         *
-         *        for ( MethodDecl method : methodList )
-         *        {
-         *            method.accept(this);
-         *        }
-         */
-
         ClassType name_aux = new ClassType( symTab.className );
         LlvmConstantDeclaration const_attr = new LlvmConstantDeclaration( name_aux.toString(), "type " + struct_attr.toString() + "\n" );
         assembler.add( const_attr );
@@ -306,16 +322,6 @@ public class Codegen extends VisitorAdapter {
         }
         LlvmStructure struct_attr = new LlvmStructure( attr_aux );
 
-        /*
-         *        ListConverter<MethodDecl> converter0 = new ListConverter<MethodDecl>();
-         *        List<MethodDecl> methodList = converter0.getTList( n.methodList );
-         *
-         *        for ( MethodDecl method : methodList )
-         *        {
-         *            method.accept(this);
-         *        }
-         */
-
         ClassType name_aux = new ClassType( symTab.className );
         LlvmConstantDeclaration const_attr = new LlvmConstantDeclaration( name_aux.toString(), "type " + struct_attr.toString() + "\n" );
         assembler.add( const_attr );
@@ -337,24 +343,6 @@ public class Codegen extends VisitorAdapter {
 		System.out.println("[ AST ]" + tab + " : MethodDecl"); 
  	    tab += "\t";
 
-        /*
-         *        ListConverter<Formal> converter0 = new ListConverter<Formal>();
-         *        List < Formal > FormalList = converter0.getTList ( n.formals );
-         *
-         *        for ( Formal formal : FormalList )
-         *        {
-         *            formal.accept(this);
-         *        }
-         *
-         *        ListConverter<Statement> converter1 = new ListConverter<Statement>();
-         *        List<Statement> bodyList = converter1.getTList( n.body );
-         *
-         *        for ( Statement stmt : bodyList )
-         *        {
-         *            stmt.accept(this);
-         *        }
-         */
-
         tab = tab.substring(0, tab.length() - 1);
 		return null;
 	}
@@ -374,28 +362,25 @@ public class Codegen extends VisitorAdapter {
 	public LlvmValue visit(IntArrayType n) {
 		System.out.println("[ AST ]" + tab + " : IntArrayType"); 
         LlvmRegister tmp = new LlvmRegister ( new LlvmPointer ( LlvmPrimitiveType.I32 ) );
-        //LlvmRegister tmp = new LlvmRegister ( LlvmPrimitiveType.I32 );
+        
 		return tmp;
 	}
 
     // =============================================================================================
 	public LlvmValue visit(BooleanType n) {
 		System.out.println("[ AST ]" + tab + " : BooleanType"); 
-   //     System.out.println ( "BoolType: " + n.toString() );
         return new LlvmBool ( 0 );
 	}
 
     // =============================================================================================
 	public LlvmValue visit(IntegerType n) {
 		System.out.println( "[ AST ]" + tab + " : IntegerType -> " + n.toString() ); 
-
 		return new LlvmIntegerLiteral (0);
 	}
 
     // =============================================================================================
 	public LlvmValue visit(IdentifierType n) {
 		System.out.println("[ AST ]" + tab + " : IdentifierType: " + n.toString() ); 
-
         return new LlvmRegister ( n.name, new LlvmPointer ( new ClassType ( n.name ) ) );
 	}
 
@@ -431,7 +416,6 @@ public class Codegen extends VisitorAdapter {
 
         // Aceitando condição
         LlvmValue cond = n.condition.accept(this);
-        System.out.println ( "If: " + n + " condition: " + cond );
         LlvmLabelValue eThen = new LlvmLabelValue ( "entryThen" + numberIf );
 
         // Verificando se há cláusula else
@@ -448,14 +432,12 @@ public class Codegen extends VisitorAdapter {
 
 		assembler.add( new LlvmLabel( eThen ) );
         n.thenClause.accept(this);
-        System.out.println ( "Accepting: " + n.thenClause );
         assembler.add ( new LlvmBranch ( endIf ) );
 
         if ( n.elseClause != null )
         {
             assembler.add( new LlvmLabel( eElse ) );
             n.elseClause.accept(this);
-            System.out.println ( "Accepting: " + n.elseClause );
             assembler.add ( new LlvmBranch ( endIf ) );
         }
 
@@ -551,21 +533,17 @@ public class Codegen extends VisitorAdapter {
 	public LlvmValue visit(And n) {
 		System.out.println("[ AST ]" + tab + " : And"); 
         tab += "\t";
+
         // Obtendo valor da condição dual
-        System.out.println ( "Condições: " +  n.lhs + " and " + n.rhs );
         LlvmValue cond1 = n.lhs.accept (this);
         LlvmValue cond2 = n.rhs.accept (this);
-        System.out.println ( "Condições aceitas: " +  cond1 + " and " + cond2 );
         LlvmValue reg = new LlvmRegister ( LlvmPrimitiveType.I1 );
 
         // Fazendo um xor com 1 para negar o valor binário
         assembler.add ( new Compile ( reg + " = and i1 " + cond1 + ", " + cond2 ) );
-        /*
-        */
 
         tab = tab.substring(0, tab.length() - 1);
         return reg;
-		//return reg;
 	}
 
     // =============================================================================================
@@ -613,6 +591,7 @@ public class Codegen extends VisitorAdapter {
  	    tab += "\t";
 
         assembler.add ( new Compile ( "\n;looking element from array" ) );
+
         // Adicionando índice à lista de índices
         List < LlvmValue> tmp = new LinkedList < LlvmValue > ( );
         tmp.add ( n.index.accept(this) );
@@ -636,7 +615,7 @@ public class Codegen extends VisitorAdapter {
         LlvmValue reg = new LlvmRegister ( LlvmPrimitiveType.I32 );
         assembler.add ( new Compile ( "\n;get array size" ) );
         assembler.add ( new Compile ( reg + " = load i32 * @lastArraySize" ) );
-        //n.array.accept(this);
+        
         tab = tab.substring(0, tab.length() - 1);
 		return reg;
 	}
@@ -655,68 +634,9 @@ public class Codegen extends VisitorAdapter {
         className = class_type.name;
 		methodName = n.method.toString().replace("_","-") + "_" + className;
 
-        System.out.println( "Classe que invocará o método: " + className );
-        System.out.println( "Nome do método: " + n.method );
-        System.out.println( "Nome real do método: " + methodName );
-
-/*
- *        String[] classObject = n.toString().split( "\\." );
- *        String objectName = classObject[ 0 ];
- *        String[] obj_aux = objectName.split( " " );
- *
- *        System.out.println( "objectName = [" + objectName +"]" );
- *
- *        if ( obj_aux[ 0 ].equals( "new" ) ) 
- *        {
- *            System.out.println( "new?" );
- *            className = objectClassName;
- *
- *        } else if ( objectName.equals( "this " ) ) 
- *        {
- *            System.out.println( "this?" );
- *            className = symTab.methodEnv.myClass;
- *
- *        } else 
- *        {
- *            String varCase = symTab.methodEnv.getVarCase( obj_aux[ 0 ] );
- *            ClassType objectType;
- *            LlvmPointer ptr;
- *            
- *            if ( varCase == "local" ) 
- *            {
- *                System.out.println( "LocalCase" );
- *                ptr = (LlvmPointer) symTab.methodEnv.getLocal( obj_aux[ 0 ] );
- *                objectType = (ClassType) ptr.content;
- *
- *            } else if ( varCase == "arg" ) 
- *            {
- *                System.out.println( "ArgCase" );
- *                ptr = (LlvmPointer) symTab.methodEnv.getArg( "%" + obj_aux[ 0 ] );
- *                objectType = (ClassType) ptr.content;
- *
- *            } else 
- *            {
- *                System.out.println( "AttrCase" );
- *                // Se nao, é um atributo da classe, ou do pai, ou do avo...
- *                ptr = (LlvmPointer) symTab.getAttributeType( symTab.methodEnv.myClass, obj_aux[ 0 ] );
- *                objectType = (ClassType) ptr.content;
- *            }
- *
- *            if ( objectType == null )
- *                className = "ERROR";
- *            else
- *                className = objectType.getName();
- *        }
- */
-
 		ListConverter<Exp> converter0 = new ListConverter<Exp>();
         List<Exp> argList = converter0.getTList( n.actuals );
         List<LlvmValue> args = new LinkedList<LlvmValue>();
-
-        //ClassType class_aux = new ClassType( className );
-        //LlvmNamedValue named_aux = new LlvmNamedValue( objectReg.toString(), new LlvmPointer( class_aux ) );
-
-        System.out.println ( "Argumentos que recebemos: " + argList ) ;
 
         args.add( objectReg );
         
@@ -724,7 +644,6 @@ public class Codegen extends VisitorAdapter {
         {
             args.add( exp.accept(this) );
         }
-        System.out.println ( "Argumentos reais que construimos: " + args ) ;
 
         MethodData meth_aux  = (MethodData) symTab.getClassData( className ).get( methodName );
         MethodData data_aux = (MethodData) symTab.getClassData( className ).get( methodName );
@@ -734,16 +653,13 @@ public class Codegen extends VisitorAdapter {
             if ( data_aux != null )
                 break;
 
-            System.out.println( "Classe atual = " + className );
             String parent = symTab.getClassData( className ).getParent();
-            System.out.println( "Pai = " + parent );
             data_aux = (MethodData) symTab.getClassData( parent ).get( methodName );
         }
 
         LlvmRegister retReg = new LlvmRegister ( data_aux.returnType );
         assembler.add ( new LlvmCall ( retReg, meth_aux.returnType, "@" + methodName, args ) );
 
-        System.out.println( "Retorno do Call: " + retReg.type.toString() + " " + retReg.toString() );
         tab = tab.substring(0, tab.length() - 1);
 		return retReg;
 	}
@@ -770,8 +686,6 @@ public class Codegen extends VisitorAdapter {
 
         String regName;
         String varCase = symTab.methodEnv.getVarCase( n.toString() );
-
-        System.out.println( "varCase do identifierExp = " + varCase );
 
         if ( varCase == "local" ) 
         {
@@ -818,9 +732,7 @@ public class Codegen extends VisitorAdapter {
             assembler.add( new Compile( s + offset ) );
         }
 
-        System.out.println( "Type do IdentifierExp = " + type.toString() );
 		LlvmRegister reg = new LlvmRegister( type );
-
 		assembler.add( new LlvmLoad( reg, rhs ) );
 
         tab = tab.substring(0, tab.length() - 1);
@@ -839,7 +751,6 @@ public class Codegen extends VisitorAdapter {
  	    tab += "\t";
 
         assembler.add ( new Compile ( "\n;creating array" ) );
-        //LlvmType type = new LlvmPointer ( LlvmPrimitiveType.I32 );
         LlvmType type = LlvmPrimitiveType.I32;
         LlvmValue size = n.size.accept(this);
         LlvmRegister reg = new LlvmRegister ( new LlvmPointer ( LlvmPrimitiveType.I32 ) );
@@ -1017,7 +928,6 @@ class SymTab extends VisitorAdapter{
 
         if ( aux == null )
         {
-            System.out.println ( "\n;Aviso retornando nulo para classe " + whichClass );
             return "";
         }
 
@@ -1053,7 +963,6 @@ class SymTab extends VisitorAdapter{
 
         if ( class_data == null ) 
         {
-            System.out.println( "SymTab getAttributeType( " + whichClass + " ) não encontrou a classe" );
             return null;
         }
 
@@ -1064,7 +973,6 @@ class SymTab extends VisitorAdapter{
             return type;
         }
 
-        System.out.println( "SymTab getAttributeType vai procurar na classe pai : " + this.getClassData( whichClass ).getParent() );
         return this.getAttributeType( this.getClassData( whichClass ).getParent(), whichAttr );
     }
 
@@ -1090,6 +998,14 @@ class SymTab extends VisitorAdapter{
 
     public LlvmValue visit(MainClass n){
         System.out.println("[ SymTab ] : MainClass");
+
+        // Starting a new class info. Here, we have no parent and offset is unnecessary
+        classEnv = new ClassData();
+        className = n.className.toString();
+
+        // Store this class
+        this.add( className, classEnv );
+
         return null;
     }
 
@@ -1186,8 +1102,6 @@ class SymTab extends VisitorAdapter{
         LlvmType type;
         String formalType = n.type.toString();
 
-        System.out.println( "formalType = [" + formalType + "]" );
-
         if ( formalType.equals( "int " ) )
             type = LlvmPrimitiveType.I32;
         else if ( formalType.equals( "boolean " ) )
@@ -1247,7 +1161,6 @@ class SymTab extends VisitorAdapter{
     public LlvmValue visit(IntArrayType n){
         System.out.println("[ SymTab ] : IntArrayType ");
         LlvmRegister tmp = new LlvmRegister ( new LlvmPointer ( LlvmPrimitiveType.I32 ) );
-        //LlvmRegister tmp = new LlvmRegister ( LlvmPrimitiveType.I8 );
 		return tmp;
     }
 

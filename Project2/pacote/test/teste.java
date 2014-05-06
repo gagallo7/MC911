@@ -2,27 +2,14 @@ class teste
 {
     public static void main( String[] a )
     {
-        System.out.println( new b().getA().getDoubleInt( new b().getA().getInt() ) );
+        System.out.println( new b().b() );
     }
 }
 
-class a 
+class b extends teste
 {
-    public int getInt() 
+    public int b() 
     {
         return 10;
-    }
-
-    public int getDoubleInt( int value ) 
-    {
-        return 2 * value;
-    }
-}
-
-class b 
-{
-    public a getA() 
-    {
-        return new a();
     }
 }
