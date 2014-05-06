@@ -2,32 +2,27 @@ class teste
 {
     public static void main( String[] a )
     {
-        System.out.println( new b().get( 10 ) + 5 * 2 );
+        System.out.println( new b().getA().getDoubleInt( new b().getA().getInt() ) );
     }
 }
 
 class a 
 {
-    int a_int;
-    boolean tst;
-
-    public int set( int value ) 
+    public int getInt() 
     {
-        return value;
+        return 10;
+    }
+
+    public int getDoubleInt( int value ) 
+    {
+        return 2 * value;
     }
 }
 
-class b extends a
+class b 
 {
-    public boolean troll ( int amun )
+    public a getA() 
     {
-        return false;
-    }
-
-    public int get( int value ) 
-    {
-        tst = this.troll ( 24 );
-
-        return 0;
+        return new a();
     }
 }

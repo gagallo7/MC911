@@ -621,94 +621,103 @@ public class Codegen extends VisitorAdapter {
  	    tab += "\t";
 		
 		String className;
+		String methodName;
 		LlvmValue objectReg = n.object.accept( this );
-        System.out.println ( "Calling " + n.method );
 
-        String[] classObject = n.toString().split( "\\." );
-        String objectName = classObject[ 0 ];
-        String[] obj_aux = objectName.split( " " );
+        LlvmPointer ptr_class = (LlvmPointer) objectReg.type;
+        ClassType class_type = (ClassType) ptr_class.content;
+        className = class_type.name;
+		methodName = n.method.toString().replace("_","-") + "_" + className;
 
-        System.out.println( "objectName = [" + objectName +"]" );
+        System.out.println( "Classe que invocará o método: " + className );
+        System.out.println( "Nome do método: " + n.method );
+        System.out.println( "Nome real do método: " + methodName );
 
-        if ( obj_aux[ 0 ].equals( "new" ) ) 
-        {
-            System.out.println( "new?" );
-            className = objectClassName;
-
-        } else if ( objectName.equals( "this " ) ) 
-        {
-            System.out.println( "this?" );
-            className = symTab.methodEnv.myClass;
-
-        } else 
-        {
-            String varCase = symTab.methodEnv.getVarCase( obj_aux[ 0 ] );
-            ClassType objectType;
-            LlvmPointer ptr;
-            
-            if ( varCase == "local" ) 
-            {
-                System.out.println( "LocalCase" );
-                ptr = (LlvmPointer) symTab.methodEnv.getLocal( obj_aux[ 0 ] );
-                objectType = (ClassType) ptr.content;
-
-            } else if ( varCase == "arg" ) 
-            {
-                System.out.println( "ArgCase" );
-                ptr = (LlvmPointer) symTab.methodEnv.getArg( "%" + obj_aux[ 0 ] );
-                objectType = (ClassType) ptr.content;
-
-            } else 
-            {
-                System.out.println( "AttrCase" );
-                // Se nao, é um atributo da classe, ou do pai, ou do avo...
-                ptr = (LlvmPointer) symTab.getAttributeType( symTab.methodEnv.myClass, obj_aux[ 0 ] );
-                objectType = (ClassType) ptr.content;
-            }
-
-            if ( objectType == null )
-                className = "ERROR";
-            else
-                className = objectType.getName();
-        }
-
-		symTab.methodName = n.method.toString().replace("_","-") + "_" + className;
-		System.out.println( "methodName = " + symTab.methodName );
+/*
+ *        String[] classObject = n.toString().split( "\\." );
+ *        String objectName = classObject[ 0 ];
+ *        String[] obj_aux = objectName.split( " " );
+ *
+ *        System.out.println( "objectName = [" + objectName +"]" );
+ *
+ *        if ( obj_aux[ 0 ].equals( "new" ) ) 
+ *        {
+ *            System.out.println( "new?" );
+ *            className = objectClassName;
+ *
+ *        } else if ( objectName.equals( "this " ) ) 
+ *        {
+ *            System.out.println( "this?" );
+ *            className = symTab.methodEnv.myClass;
+ *
+ *        } else 
+ *        {
+ *            String varCase = symTab.methodEnv.getVarCase( obj_aux[ 0 ] );
+ *            ClassType objectType;
+ *            LlvmPointer ptr;
+ *            
+ *            if ( varCase == "local" ) 
+ *            {
+ *                System.out.println( "LocalCase" );
+ *                ptr = (LlvmPointer) symTab.methodEnv.getLocal( obj_aux[ 0 ] );
+ *                objectType = (ClassType) ptr.content;
+ *
+ *            } else if ( varCase == "arg" ) 
+ *            {
+ *                System.out.println( "ArgCase" );
+ *                ptr = (LlvmPointer) symTab.methodEnv.getArg( "%" + obj_aux[ 0 ] );
+ *                objectType = (ClassType) ptr.content;
+ *
+ *            } else 
+ *            {
+ *                System.out.println( "AttrCase" );
+ *                // Se nao, é um atributo da classe, ou do pai, ou do avo...
+ *                ptr = (LlvmPointer) symTab.getAttributeType( symTab.methodEnv.myClass, obj_aux[ 0 ] );
+ *                objectType = (ClassType) ptr.content;
+ *            }
+ *
+ *            if ( objectType == null )
+ *                className = "ERROR";
+ *            else
+ *                className = objectType.getName();
+ *        }
+ */
 
 		ListConverter<Exp> converter0 = new ListConverter<Exp>();
         List<Exp> argList = converter0.getTList( n.actuals );
         List<LlvmValue> args = new LinkedList<LlvmValue>();
 
-        ClassType class_aux = new ClassType( className );
-        LlvmNamedValue named_aux = new LlvmNamedValue( objectReg.toString(), new LlvmPointer( class_aux ) );
+        //ClassType class_aux = new ClassType( className );
+        //LlvmNamedValue named_aux = new LlvmNamedValue( objectReg.toString(), new LlvmPointer( class_aux ) );
 
-        System.out.println ( "ArgList : " + argList ) ;
-        args.add( named_aux );
+        System.out.println ( "Argumentos que recebemos: " + argList ) ;
+
+        args.add( objectReg );
+        
         for ( Exp exp : argList ) 
         {
             args.add( exp.accept(this) );
         }
-        System.out.println ( "args : " + args ) ;
+        System.out.println ( "Argumentos reais que construimos: " + args ) ;
 
-        System.out.println ( "Trying to reach " + className + " " + symTab.methodName );
-        MethodData meth_aux  = (MethodData) symTab.getClassData( className ).get( symTab.methodName );
-
-        MethodData data_aux = (MethodData) symTab.getClassData( className ).get( symTab.methodName );
+        MethodData meth_aux  = (MethodData) symTab.getClassData( className ).get( methodName );
+        MethodData data_aux = (MethodData) symTab.getClassData( className ).get( methodName );
 
         while ( true ) 
         {
             if ( data_aux != null )
                 break;
 
-            System.out.println( "Class atual = " + className );
+            System.out.println( "Classe atual = " + className );
             String parent = symTab.getClassData( className ).getParent();
-            System.out.println( "Parent = " + parent );
-            data_aux = (MethodData) symTab.getClassData( parent ).get( symTab.methodName );
+            System.out.println( "Pai = " + parent );
+            data_aux = (MethodData) symTab.getClassData( parent ).get( methodName );
         }
 
         LlvmRegister retReg = new LlvmRegister ( data_aux.returnType );
-        assembler.add ( new LlvmCall ( retReg, meth_aux.returnType, "@" + symTab.methodName, args ) );
+        assembler.add ( new LlvmCall ( retReg, meth_aux.returnType, "@" + methodName, args ) );
 
+        System.out.println( "Retorno do Call: " + retReg.type.toString() + " " + retReg.toString() );
         tab = tab.substring(0, tab.length() - 1);
 		return retReg;
 	}

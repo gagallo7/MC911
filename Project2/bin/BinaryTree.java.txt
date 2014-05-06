@@ -260,14 +260,17 @@ class Tree{
     public boolean RemoveLeft(Tree p_node, Tree c_node){
         boolean ntb ;
 
-        while (c_node.GetHas_Left()){
-            //auxtree01 = c_node.GetLeft() ;
-            //auxint02 = auxtree01.GetKey();
-            //ntb = c_node.SetKey(auxint02);
+        /*
+         *while (c_node.GetHas_Left()){
+         *    //auxtree01 = c_node.GetLeft() ;
+         *    //auxint02 = auxtree01.GetKey();
+         *    //ntb = c_node.SetKey(auxint02);
+         *}
+         */
             ntb = c_node.SetKey((c_node.GetLeft()).GetKey());
             p_node = c_node ;
             c_node = c_node.GetLeft() ;
-        }
+
         ntb = p_node.SetLeft(my_null);
         ntb = p_node.SetHas_Left(false);
         return true ;
