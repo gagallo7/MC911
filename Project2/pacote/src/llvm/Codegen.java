@@ -420,6 +420,7 @@ public class Codegen extends VisitorAdapter {
 
         // Aceitando condição
         LlvmValue cond = n.condition.accept(this);
+        System.out.println ( "If: " + n + " condition: " + cond );
         LlvmLabelValue eThen = new LlvmLabelValue ( "entryThen" + numberIf );
 
         // Verificando se há cláusula else
@@ -538,8 +539,22 @@ public class Codegen extends VisitorAdapter {
     // =============================================================================================
 	public LlvmValue visit(And n) {
 		System.out.println("[ AST ]" + tab + " : And"); 
-        System.out.println ( n.lhs + " = and " + n.rhs );
-		return null;
+        tab += "\t";
+        // Obtendo valor da condição dual
+        System.out.println ( "Condições: " +  n.lhs + " and " + n.rhs );
+        LlvmValue cond1 = n.lhs.accept (this);
+        LlvmValue cond2 = n.rhs.accept (this);
+        System.out.println ( "Condições aceitas: " +  cond1 + " and " + cond2 );
+        LlvmValue reg = new LlvmRegister ( LlvmPrimitiveType.I1 );
+
+        // Fazendo um xor com 1 para negar o valor binário
+        assembler.add ( new Compile ( reg + " = and i1 " + cond1 + ", " + cond2 ) );
+        /*
+        */
+
+        tab = tab.substring(0, tab.length() - 1);
+        return reg;
+		//return reg;
 	}
 
     // =============================================================================================
