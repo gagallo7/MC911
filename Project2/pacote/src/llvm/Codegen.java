@@ -26,6 +26,9 @@ public class Codegen extends VisitorAdapter {
     static int numberIf = 0;
     static int numberWhile = 0;
 
+    // Variável global usada em validaçoes semanticas
+    public boolean hasError;
+
     // Auxiliares do Call
     String objectClassName;
 
@@ -33,6 +36,7 @@ public class Codegen extends VisitorAdapter {
 	public Codegen() {
 		this.assembler = new LinkedList<LlvmInstruction>();
 		this.symTab = new SymTab();
+		this.hasError = false;
 	}
 
     // =============================================================================================
@@ -134,15 +138,20 @@ public class Codegen extends VisitorAdapter {
 
 		// Aqui o codigo eh gerado de fato, a partir do assembler
 		String r = new String();
-		for (LlvmInstruction instr : codeGenerator.assembler)
-        {
-			r += instr + "\n";
-        }
 
-		for (LlvmInstruction instr : assembler)
-        {
-			r += instr + "\n";
-        }
+		// Se tem algum erro, nao escreve codigo!
+		if ( !hasError  ) 
+		{
+		    for (LlvmInstruction instr : codeGenerator.assembler)
+            {
+			    r += instr + "\n";
+            }
+
+		    for (LlvmInstruction instr : assembler)
+            {
+			    r += instr + "\n";
+            }
+		}
 
         // Exit
         System.out.println( "\n\nFIM DA TRADUCAO\n" );
