@@ -14,6 +14,7 @@ public class MethodData extends Data
 
     // Mapeamento de argumentos do método
     public Map < String, LlvmType > args;
+    public List < String > argsInOrder;
 
     public List < Statement > statements;
 
@@ -22,6 +23,7 @@ public class MethodData extends Data
         this.args = new HashMap < String, LlvmType > ();
         this.locals = new HashMap < String, LlvmType > ();
         this.statements = new LinkedList < Statement > ();
+        this.argsInOrder = new LinkedList< String > ();
     }
 
     public void addLocal( String localName, LlvmType whichLocal ) 
@@ -37,6 +39,7 @@ public class MethodData extends Data
     public void addArg ( String name, LlvmType whichData )
     {
         this.args.put ( name, whichData );
+        this.argsInOrder.add( name );
     }
 
     public LlvmType getArg( String whichArg ) 
