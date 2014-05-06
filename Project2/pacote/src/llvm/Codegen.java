@@ -27,8 +27,8 @@ public class Codegen extends VisitorAdapter {
     static int numberWhile = 0;
 
     // Variável global usada em validaçoes semanticas
-    public boolean hasError;
-    public String msgError;
+    public static boolean hasError;
+    public static String msgError;
 
     // Auxiliares do Call
     String objectClassName;
@@ -979,6 +979,63 @@ class SymTab extends VisitorAdapter{
     // =============================================================================================
     public LlvmValue FillTabSymbol(Program n){
         n.accept(this);
+
+        /*
+        // Checando ciclo na genealogia das classes
+        for ( String name : this.classes.keySet() )
+        {
+            Set < String > genealogy = new HashSet < String > ();
+            ClassData cd = this.getClassData( name );
+            while ( name != null )
+            {
+                if ( genealogy.contains( name ) )
+                {
+                    Codegen.hasError = true;
+                    return null;
+                }
+                genealogy.add( name );
+                name = cd.getParent();
+            }
+        }
+
+        */
+        for ( String name : this.methods.keySet() )
+        {
+            System.out.println ( "testando" );
+            Set < String > genealogy = new HashSet < String > ();
+            String[] tmp = name.split ("_");
+            String cName = tmp[1];
+            String mName = tmp[0];
+
+            LlvmType mRet = this.methods.get ( name ).returnType;
+
+            ClassData cd = this.getClassData( cName );
+            //System.out.println ( cd.getParent() );
+
+            while ( cd.getParent() != "" )
+            {
+                cName = cd.getParent ();
+                cd = this.getClassData ( cd.getParent() );
+                System.out.println ( cName );
+                genealogy.add( cName );
+            }
+
+            for ( String suffix : genealogy )
+            {
+                MethodData md = this.methods.get( mName + "_" + suffix );
+                System.out.println ( "procurando " +  mName + "_"  + suffix );
+                if ( md != null )
+                {
+                    System.out.println ( "retorno " +  md.returnType + " ? "  + mRet );
+                    if ( md.returnType != mRet )
+                    {
+                        Codegen.hasError = true;
+                        Codegen.msgError = "Tipo de retorno diferente no overload do método " + mName + "\nEsperando: " +  md.returnType + "; encontrado: "  + mRet ;
+                        return null;
+                    }
+                }
+            }
+        }
 
         return null;
     }
