@@ -151,10 +151,12 @@ public class Codegen extends VisitorAdapter {
             {
 			    r += instr + "\n";
             }
-		}
+
+            System.out.println( "Compilado com sucesso!" );
+		} else
+            System.out.println( "Erro na compilação." );
 
         // Exit
-        System.out.println( "\n\nFIM DA TRADUCAO\n" );
         tab = tab.substring(0, tab.length() - 1);
 		return r;
 	}
