@@ -1,0 +1,84 @@
+#!/bin/bash
+#
+# [build] é o diretório que fará todas as ligações com o fonte e objeto do LLVM. Não modifiquem. 
+#
+# [p3] é o diretório em que seus códigos de otimização devem ficar
+# Cada otimização deve ter um .cpp próprio 
+# 
+# [Release] é o diretório que ficará a biblioteca compilada (.so) da sua otimização
+#
+# [tests] é o diretório que contém arquivo em LLVM-IR para os testes
+#
+#==  Comandos ==
+#
+# Para Instalar seu projeto a variável PATH_PACKAGE_P3 deve estar corretamente setada
+# $ ./drive install
+#
+# Para compilar suas otimizações presentes em p3
+# $ ./drive compile
+#
+# Para limpar
+# $ ./drive clean
+#
+# Para utilizar a otimizacao que está em p3/Hello.cpp no arquivo LLVM-IR tests/QuickSort.ll
+# $ ./drive opt -hello tests/QuickSort.ll > tests/QuickSort.opt
+#
+# ou diretamente via "opt"
+# $ opt -load Release/P3.so -hello tests/QuickSort.ll > tests/QuickSort.opt
+#
+# O resultado QuickSort.opt está em LLVM bytecode, que é um LLVM-IR compilado. 
+# A entrada de 'opt' pode ser tanto LLVM-IR (.ll) quanto LLVM bytecode (.bc)
+#
+# Desmontando LLVM bytecode em LLVM-IR (ASCII)
+# $ llvm-dis QuickSort.opt
+#
+# Montando arquivos LLVM-IR (ASCII) em LLVM bytecode
+# $ llvm-as input.ll -o output.bc
+#
+# Compilando arquivos .c para LLVM-IR (ASCII)
+# $ clang -emit-llvm -S input.c -o output.ll
+#
+# Compilando arquivos .c para LLVM-IR bytecode
+# $ clang -emit-llvm -c input.c -o output.bc
+
+THIS_PATH=`echo $(pwd) | sed 's/\/llvm-pass//g'`
+echo $THIS_PATH
+
+PATH_PACKAGE_P3="${THIS_PATH}/llvm-p3"
+
+echo $PATH_PACKAGE_P3
+
+export LLVM_SRC="$PATH_PACKAGE_P3/llvm-3.3.src"
+export LLVM_OBJ="$PATH_PACKAGE_P3/llvm-3.3.obj/build"
+
+case $1 in
+
+compile)
+	cp p3/* build/lib/p3/
+	cd build
+	make CXX="g++" 
+	cp Release/lib/P3.so ../Release/ 
+;;
+
+opt)
+	opt -load Release/P3.so $2 $3
+;;
+
+install)
+	cd build
+	./configure 
+;;
+
+clean)
+	rm Release/*
+	cd build
+	make clean
+;;
+
+*)
+	echo "Erro: Comando não encontrado"
+;;
+esac
+
+
+
