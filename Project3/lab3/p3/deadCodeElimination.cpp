@@ -1,5 +1,3 @@
-#include <typeinfo>
-#include <queue>
 #include "llvm/Pass.h"
 #include "llvm/IR/Function.h"
 #include "llvm/IR/BasicBlock.h"
@@ -25,40 +23,40 @@ namespace
     {
         public:
             const int id;
-            BasicBlock block;
+            const BasicBlock* block;
 
             // Constructor
-            BasicBlockData( const int ID, const BasicBlock& basicBlock ) 
-                : id( ID ) 
-                , block ( basicBlock )
+            BasicBlockData( const int ID, const BasicBlock* basicBlock ) 
+                : id( ID )
+                , block( basicBlock )
             {}
 
             // Sets
-            set<Instruction> use; 
-            set<Instruction> def; 
+            set< Value* > use; 
+            set< Value* > def; 
 
-            set<Instruction> in; 
-            set<Instruction> out; 
+            set< Value* > in; 
+            set< Value* > out; 
     };
 
     class InstructionData 
     {
         public:
             const int id;
-            Value instruction;
+            const Value* instruction;
 
             // Constructor
-            InstructionData( const int ID, const Value& inst ) 
+            InstructionData( const int ID, const Value* inst ) 
                 : id( ID ) 
                 , instruction( inst )
             {}
 
             // Sets
-            set<Instruction> use; 
-            set<Instruction> def; 
+            set< Value* > use; 
+            set< Value* > def; 
 
-            set<Instruction> in; 
-            set<Instruction> out; 
+            set< Value* > in; 
+            set< Value* > out; 
     };
 
     // This class contains all data we'll need in liveness analysis 
@@ -71,23 +69,36 @@ namespace
 
         public:
             // These vectors contains all data we'll need
-            vector<BasicBlockData> blocks;
-            vector<InstructionData> instructions;
+            vector< BasicBlockData*  > blocks;
+            vector< InstructionData* > instructions;
 
             // Constructor
             LivenessData() : blck_id( 0 ) , inst_id( 0 ) {}
 
-            // This method stores a new BasicBlock
-            void addBasicBlock( const BasicBlock& block ) 
+            // Destructor
+            ~LivenessData() 
             {
-                blocks.push_back( BasicBlockData( blck_id, block ) );
+                for( unsigned int i = 0;  i < blocks.size(); i++ ) 
+                    delete blocks[i];
+
+                for( unsigned int i = 0;  i < instructions.size(); i++ ) 
+                    delete instructions[i];
+
+                blocks.clear();
+                instructions.clear();
+            }
+
+            // This method stores a new BasicBlock
+            void addBasicBlock( const BasicBlock* block ) 
+            {
+                blocks.push_back( new BasicBlockData( blck_id, block ) );
                 blck_id++;
             }
 
             // This method stores a new Instruction
-            void addInstruction( const Value& inst ) 
+            void addInstruction( const Value* inst ) 
             {
-                instructions.push_back( InstructionData( inst_id, inst ) );
+                instructions.push_back( new InstructionData( inst_id, inst ) );
                 inst_id++;
             }
     };
@@ -107,7 +118,7 @@ namespace
         // =============================
         // Liveness analysis
         // =============================
-        vector<InstructionData> computeLiveness( const Function& func ) 
+        vector< InstructionData* > computeLiveness( const Function& func ) 
         {
             LivenessData data;
 
@@ -160,7 +171,7 @@ namespace
         virtual bool runOnFunction( Function &F ) 
         {
             bool changed = false;
-            vector<InstructionData> liveness = computeLiveness( F );
+            vector< InstructionData* > liveness = computeLiveness( F );
             
             // This will be used to retrieve instruction information
             int id = 0;
@@ -176,7 +187,7 @@ namespace
                     {
 
                         // Make sure this is the correct instruction
-                        if ( liveness[id].id != id ) 
+                        if ( liveness[id]->id != id ) 
                         {
                             errs() << "We got some strange situation, check it! \n";
                             continue;
@@ -187,7 +198,7 @@ namespace
                             continue;
 
                         // If instruction are going to die, remove it
-                        if ( liveness[id].out.count( *j ) ) 
+                        if ( liveness[id]->out.count( j ) ) 
                         {
                             j->eraseFromParent();
                             changed = true;
