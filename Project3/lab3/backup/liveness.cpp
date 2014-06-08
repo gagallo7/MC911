@@ -68,6 +68,7 @@ namespace {
           // that are in the block (which safely includes all of the
           // pseudo-registers assigned to in the block).
           s.kill.insert(&*i);
+          i->
         }
         bbMap.insert(std::make_pair(&*b, s));
       }

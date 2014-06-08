@@ -15,8 +15,90 @@ using namespace llvm;
 
 using namespace std;
 
-namespace {
-    struct deadCodeElimination : public FunctionPass {
+// =============================
+// Liveness Data
+// =============================
+
+namespace 
+{
+    class BasicBlockData 
+    {
+        public:
+            const int id;
+            BasicBlock block;
+
+            // Constructor
+            BasicBlockData( const int ID, const BasicBlock& basicBlock ) 
+                : id( ID ) 
+                , block ( basicBlock )
+            {}
+
+            // Sets
+            set<Instruction> use; 
+            set<Instruction> def; 
+
+            set<Instruction> in; 
+            set<Instruction> out; 
+    };
+
+    class InstructionData 
+    {
+        public:
+            const int id;
+            Value instruction;
+
+            // Constructor
+            InstructionData( const int ID, const Value& inst ) 
+                : id( ID ) 
+                , instruction( inst )
+            {}
+
+            // Sets
+            set<Instruction> use; 
+            set<Instruction> def; 
+
+            set<Instruction> in; 
+            set<Instruction> out; 
+    };
+
+    // This class contains all data we'll need in liveness analysis 
+    class LivenessData 
+    {
+        private:
+            // IDs
+            int blck_id;
+            int inst_id;
+
+        public:
+            // These vectors contains all data we'll need
+            vector<BasicBlockData> blocks;
+            vector<InstructionData> instructions;
+
+            // Constructor
+            LivenessData() : blck_id( 0 ) , inst_id( 0 ) {}
+
+            // This method stores a new BasicBlock
+            void addBasicBlock( const BasicBlock& block ) 
+            {
+                blocks.push_back( BasicBlockData( blck_id, block ) );
+                blck_id++;
+            }
+
+            // This method stores a new Instruction
+            void addInstruction( const Value& inst ) 
+            {
+                instructions.push_back( InstructionData( inst_id, inst ) );
+                inst_id++;
+            }
+    };
+}
+
+// =============================
+
+namespace 
+{
+    struct deadCodeElimination : public FunctionPass 
+    {
         static char ID;
 
         // Constructor
@@ -25,79 +107,6 @@ namespace {
         // =============================
         // Liveness analysis
         // =============================
-        
-        class BasicBlockData 
-        {
-            public:
-                int id;
-                BasicBlock block;
-
-                // Constructor
-                BasicBlockData( const int ID, const BasicBlock& basicBlock ) 
-                    : id( ID ) 
-                    , block ( basicBlock )
-                {}
-
-                // Sets
-                set<Instruction> use; 
-                set<Instruction> def; 
-
-                set<Instruction> in; 
-                set<Instruction> out; 
-        };
-
-        class InstructionData 
-        {
-            public:
-                int id;
-                Instruction instruction;
-
-                // Constructor
-                InstructionData( const int ID, const Instruction& inst ) 
-                    : id( ID ) 
-                    , Instruction( inst )
-                {}
-
-                // Sets
-                set<Instruction> use; 
-                set<Instruction> def; 
-
-                set<Instruction> in; 
-                set<Instruction> out; 
-        };
-
-        // This class contains all data we'll need in liveness analysis 
-        class LivenessData 
-        {
-            private:
-                // IDs
-                static int blck_id;
-                static int inst_id;
-
-            public:
-                // These vectors contains all data we'll need
-                vector<BasicBlockData> blocks;
-                vector<InstructionData> instructions;
-
-                // Constructor
-                Data() : blck_id( 0 ) , inst_id( 0 ) {}
-
-                // This method stores a new BasicBlock
-                void addBasicBlock( const BasicBlock& block ) 
-                {
-                    blocks.push_back( new BasicBlockData( blck_id ) );
-                    blck_id++;
-                }
-
-                // This method stores a new Instruction
-                void addInstruction( const Instruction& inst ) 
-                {
-                    instructions.push_back( new InstructionData( inst_id ) );
-                    inst_id++;
-                }
-        }
-
-        // Liveness analysis
         vector<InstructionData> computeLiveness( const Function& func ) 
         {
             LivenessData data;
@@ -157,7 +166,7 @@ namespace {
             int id = 0;
             
             // For every BasicBlock...
-            for ( Function::iterator i = func->begin(); i != func->end(); i++, id++ ) 
+            for ( Function::iterator i = F.begin(); i != F.end(); i++ ) 
             {
                 // For every Instruction inside BasicBLock...
                 for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++, id++ ) 
@@ -173,10 +182,14 @@ namespace {
                             continue;
                         }
 
+                        // Trivial checks
+                        if ( isa<TerminatorInst>( *j ) || isa<LandingPadInst>( *j ) || j->mayHaveSideEffects() )     // TODO: DbgInfoIntrinsic case
+                            continue;
+
                         // If instruction are going to die, remove it
-                        if ( liveness.out.count( *j ) ) 
+                        if ( liveness[id].out.count( *j ) ) 
                         {
-                            ( *j )->eraseFromParent();
+                            j->eraseFromParent();
                             changed = true;
                         }
                     }
