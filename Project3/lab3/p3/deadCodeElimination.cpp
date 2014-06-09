@@ -118,16 +118,31 @@ namespace
         // =============================
         // Liveness analysis
         // =============================
-        vector< InstructionData* > computeLiveness( const Function& func ) 
+        vector< InstructionData* > computeLiveness( Function& F ) 
         {
             LivenessData data;
+            Function * func = &F;
 
             // ===========================================
             // Step 0: Store all BasicBlocks and
             //         Instructions in LivenessData
             // ===========================================
            
+            // ITERANDO SOBRE TODOS OS BLOCOS
+            for (Function::iterator i = func->begin(), e = func->end(); i != e; ++i)
+            {
+                data.addBasicBlock ( i );
 
+                // Iterating on all instructions of the block
+                for (BasicBlock::iterator j = i->begin(), e = i->end(); j != e; ++j)
+                {
+
+                    if ( isa < Instruction > ( *j ) )
+                    {
+                        data.addInstruction ( j );
+                    }
+                }
+            }  
 
             // ===========================================
             // Step 1: Compute use/def for all BasicBLocks
