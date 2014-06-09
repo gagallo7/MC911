@@ -11,6 +11,7 @@ using namespace llvm;
 
 #include <vector>
 #include <set>
+#include <map>
 
 using namespace std;
 
@@ -23,84 +24,66 @@ namespace
     class BasicBlockData 
     {
         public:
-            const int id;
-            const BasicBlock* block;
-
-            // Constructor
-            BasicBlockData( const int ID, const BasicBlock* basicBlock ) 
-                : id( ID )
-                , block( basicBlock )
-            {}
+            // Sucessors
+            vector< BasicBlock* > sucessors;
 
             // Sets
-            set< const Instruction* > use; 
-            set< const Instruction* > def; 
+            set< Instruction* > use; 
+            set< Instruction* > def; 
 
-            set< const Instruction* > in; 
-            set< const Instruction* > out; 
+            set< Instruction* > in; 
+            set< Instruction* > out; 
     };
 
     class InstructionData 
     {
         public:
-            const int id;
-            const Instruction* instruction;
-
-            // Constructor
-            InstructionData( const int ID, const Instruction* inst ) 
-                : id( ID ) 
-                , instruction( inst )
-            {}
-
             // Sets
-            set< const Instruction* > use; 
-            set< const Instruction* > def; 
+            set< Instruction* > use; 
+            set< Instruction* > def; 
 
-            set< const Instruction* > in; 
-            set< const Instruction* > out; 
+            set< Instruction* > in; 
+            set< Instruction* > out; 
     };
 
     // This class contains all data we'll need in liveness analysis 
     class LivenessData 
     {
-        private:
-            // IDs
-            int blck_id;
-            int inst_id;
-
         public:
             // These vectors contains all data we'll need
-            vector< BasicBlockData*  > blocks;
-            vector< InstructionData* > instructions;
-
-            // Constructor
-            LivenessData() : blck_id( 0 ) , inst_id( 0 ) {}
+            map< BasicBlock*, BasicBlockData* > blocks;
+            map< Instruction*, InstructionData* > instructions;
 
             // Destructor
             ~LivenessData() 
             {
-                for( unsigned int i = 0;  i < blocks.size(); i++ ) 
-                    delete blocks[i];
+                for( map< BasicBlock*, BasicBlockData* >::iterator i = blocks.begin();  i != blocks.end(); i++ ) 
+                    delete i->second;
 
-                for( unsigned int i = 0;  i < instructions.size(); i++ ) 
-                    delete instructions[i];
+                for( map< Instruction*, InstructionData* >::iterator i = instructions.begin();  i != instructions.end(); i++ ) 
+                    delete i->second;
 
                 blocks.clear();
                 instructions.clear();
             }
 
             // This method stores a new BasicBlock
-            void addBasicBlock( const BasicBlock* block ) 
+            void addBasicBlock( BasicBlock* block ) 
             {
-                blocks.push_back( new BasicBlockData( blck_id, block ) );
-                blck_id++;
+                blocks[block] = new BasicBlockData();
+
+                // Adding sucessors
+                for( succ_iterator succesor = succ_begin(block); succesor != succ_end(block); succesor++ ) 
+                {
+                    BasicBlock* Succ = *succesor;
+                    blocks[block]->sucessors.push_back( Succ );
+                }
             }
 
             // This method stores a new Instruction
-            void addInstruction( const Instruction* inst ) 
+            void addInstruction( Instruction* inst ) 
             {
-                instructions.push_back( new InstructionData( inst_id, inst ) );
-                inst_id++;
+                instructions[inst] = new InstructionData();
             }
     };
 }
@@ -119,18 +102,17 @@ namespace
         // =============================
         // Liveness analysis
         // =============================
-        vector< InstructionData* > computeLiveness( Function& F ) 
+        map< Instruction*, InstructionData* > computeLiveness( Function* func ) 
         {
             LivenessData data;
-            Function * func = &F;
 
             // ===========================================
             // Step 0: Store all BasicBlocks and
             //         Instructions in LivenessData
             // ===========================================
            
-            // ITERANDO SOBRE TODOS OS BLOCOS
-            for (Function::iterator i = func->begin(), e = func->end(); i != e; ++i)
+            // Iterating on all blocks of the function
+            for( Function::iterator i = func->begin(); i != func->end(); ++i )
             {
                 data.addBasicBlock ( i );
 
@@ -188,13 +170,11 @@ namespace
                 }
             }
 
-
             // ===========================================
             // Step 2: Compute in/out for all BasicBLocks
             // ===========================================
 
             // Reversely iterating on blocks
-
             bool inChanged = true;
 
             while ( inChanged == true )
@@ -224,31 +204,33 @@ namespace
                 }
             }
 
-
             // ===========================================
             // Step 3: Use data from BasicBlocks to
             //         compute all Instructions use/def
             // ===========================================
 
-            for( unsigned int i = 0 ; i < data.instructions.size(); i++ ) 
+            for ( Function::iterator i = func->begin(); i != func->end(); i++ ) 
             {
-                const Instruction* inst_aux = cast<Instruction>( data.instructions[i]->instruction );
-                unsigned int n = inst_aux->getNumOperands();
-
-                for( unsigned int j = 0; j < n; j++ ) 
+                // For every Instruction inside a BasicBlock...
+                for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
                 {
-                    Value* v = inst_aux->getOperand(j);
+                    unsigned int n = j->getNumOperands();
 
-                    if( isa<Instruction>(v) ) 
+                    for( unsigned int k = 0; k < n; k++ ) 
                     {
-                        Instruction *op = cast<Instruction>(v);
+                        Value* v = j->getOperand(k);
 
-                        if ( !data.instructions[i]->use.count(op) ) 
-                            data.instructions[i]->use.insert(op);
+                        if( isa<Instruction>(v) ) 
+                        {
+                            Instruction *op = cast<Instruction>(v);
+
+                            if ( !data.instructions[j]->use.count(op) ) 
+                                data.instructions[j]->use.insert(op);
+                        }
                     }
-                }
 
-                data.instructions[i]->def.insert( inst_aux );
+                    data.instructions[j]->def.insert( j );
+                }
             }
 
             // ===========================================
@@ -274,34 +256,23 @@ namespace
         virtual bool runOnFunction( Function &F ) 
         {
             bool changed = false;
-            vector< InstructionData* > liveness = computeLiveness( F );
-            
-            // This will be used to retrieve instruction information
-            int id = 0;
+            map< Instruction*, InstructionData* > liveness = computeLiveness( &F );
             
             // For every BasicBlock...
             for ( Function::iterator i = F.begin(); i != F.end(); i++ ) 
             {
                 // For every Instruction inside BasicBLock...
-                for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++, id++ ) 
+                for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
                 {
                     // Is this a instruction?
                     if ( isa<Instruction>( *j ) ) 
                     {
-
-                        // Make sure this is the correct instruction
-                        if ( liveness[id]->id != id ) 
-                        {
-                            errs() << "We got some strange situation, check it! \n";
-                            continue;
-                        }
-
                         // Trivial checks
                         if ( isa<TerminatorInst>( *j ) || isa<LandingPadInst>( *j ) || j->mayHaveSideEffects() )     // TODO: DbgInfoIntrinsic case
                             continue;
 
                         // If instruction are going to die, remove it
-                        if ( liveness[id]->out.count( j ) ) 
+                        if ( liveness[j]->out.count( j ) ) 
                         {
                             j->eraseFromParent();
                             changed = true;
