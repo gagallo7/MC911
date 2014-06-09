@@ -1,4 +1,5 @@
 #include "llvm/Pass.h"
+#include "llvm/Support/CFG.h"
 #include "llvm/IR/Function.h"
 #include "llvm/IR/BasicBlock.h"
 #include "llvm/IR/Instruction.h"
@@ -147,13 +148,81 @@ namespace
             // ===========================================
             // Step 1: Compute use/def for all BasicBLocks
             // ===========================================
+            int k = 0;
+            for (Function::iterator i = func->begin(), e = func->end(); i != e; k++, ++i)
+            {
+                BasicBlockData * b = data.blocks[k];
+                Value * vv;
+                //def &= data.blocks[k]->def;
+                //use &= data.blocks[k]->use;
+                for (BasicBlock::iterator j = i->begin(), e = i->end(); j != e; ++j)
+                {
+                    vv = j->getOperand ( 1 );
+                    if ( isa < Instruction > ( *vv ) )
+                    {
+                        if ( b->def.find ( j ) == b->def.end() )
+                        {
+                            b->use.insert ( j );
+                        }
+                    }
 
+                    vv = j->getOperand ( 2 );
+                    if ( isa < Instruction > ( *vv ) )
+                    {
+                        if ( b->def.find ( j ) == b->def.end() )
+                        {
+                            b->use.insert ( j );
+                        }
+                    }
+
+                    vv = j->getOperand ( 0 );
+                    if ( isa < Instruction > ( *vv ) )
+                    {
+                        if ( b->use.find ( j ) == b->use.end() )
+                        {
+                            b->def.insert ( j );
+                        }
+                    }
+
+
+                }
+            }
 
 
             // ===========================================
             // Step 2: Compute in/out for all BasicBLocks
             // ===========================================
 
+            // Reversely iterating on blocks
+
+            bool inChanged = true;
+
+            while ( inChanged == true )
+            {
+                k = data.blocks.size();
+                for (Function::iterator i = func->end(), e = func->begin(); i != e; --i, k--)
+                {
+                    --i; // DO NOT DELETE!
+                    BasicBlockData * b = data.blocks[k];
+                    Value * vv;
+                    //def &= data.blocks[k]->def;
+                    //use &= data.blocks[k]->use;
+
+                    // Iterating over successors
+                    for (succ_iterator SI = succ_begin(i), E = succ_end(i); SI != E; ++SI) {
+                        BasicBlock *Succ = *SI;
+
+                        
+                        // ...
+                    }
+
+                    for (BasicBlock::iterator j = i->begin(), e = i->end(); j != e; ++j)
+                    {
+
+
+                    }
+                }
+            }
 
 
             // ===========================================
