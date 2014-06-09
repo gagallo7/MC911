@@ -32,31 +32,31 @@ namespace
             {}
 
             // Sets
-            set< Value* > use; 
-            set< Value* > def; 
+            set< const Instruction* > use; 
+            set< const Instruction* > def; 
 
-            set< Value* > in; 
-            set< Value* > out; 
+            set< const Instruction* > in; 
+            set< const Instruction* > out; 
     };
 
     class InstructionData 
     {
         public:
             const int id;
-            const Value* instruction;
+            const Instruction* instruction;
 
             // Constructor
-            InstructionData( const int ID, const Value* inst ) 
+            InstructionData( const int ID, const Instruction* inst ) 
                 : id( ID ) 
                 , instruction( inst )
             {}
 
             // Sets
-            set< Value* > use; 
-            set< Value* > def; 
+            set< const Instruction* > use; 
+            set< const Instruction* > def; 
 
-            set< Value* > in; 
-            set< Value* > out; 
+            set< const Instruction* > in; 
+            set< const Instruction* > out; 
     };
 
     // This class contains all data we'll need in liveness analysis 
@@ -96,7 +96,7 @@ namespace
             }
 
             // This method stores a new Instruction
-            void addInstruction( const Value* inst ) 
+            void addInstruction( const Instruction* inst ) 
             {
                 instructions.push_back( new InstructionData( inst_id, inst ) );
                 inst_id++;
@@ -161,7 +161,26 @@ namespace
             //         compute all Instructions use/def
             // ===========================================
 
+            for( unsigned int i = 0 ; i < data.instructions.size(); i++ ) 
+            {
+                const Instruction* inst_aux = cast<Instruction>( data.instructions[i]->instruction );
+                unsigned int n = inst_aux->getNumOperands();
 
+                for( unsigned int j = 0; j < n; j++ ) 
+                {
+                    Value* v = inst_aux->getOperand(j);
+
+                    if( isa<Instruction>(v) ) 
+                    {
+                        Instruction *op = cast<Instruction>(v);
+
+                        if ( !data.instructions[i]->use.count(op) ) 
+                            data.instructions[i]->use.insert(op);
+                    }
+                }
+
+                data.instructions[i]->def.insert( inst_aux );
+            }
 
             // ===========================================
             // Step 4: Use data from BasicBLocks to
