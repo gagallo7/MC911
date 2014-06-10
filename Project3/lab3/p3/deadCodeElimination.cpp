@@ -133,7 +133,7 @@ namespace
             int k = 0;
             for (Function::iterator i = func->begin(), e = func->end(); i != e; k++, ++i)
             {
-                BasicBlockData * b = data.blocks[k];
+                BasicBlockData * b = data.blocks[i];
                 Value * vv;
                 //def &= data.blocks[k]->def;
                 //use &= data.blocks[k]->use;
@@ -179,15 +179,17 @@ namespace
 
             while ( inChanged == true )
             {
+                inChanged = false;
                 k = data.blocks.size();
                 for (Function::iterator i = func->end(), e = func->begin(); i != e; --i, k--)
                 {
                     --i; // DO NOT DELETE!
-                    BasicBlockData * b = data.blocks[k];
+                    BasicBlockData * b = data.blocks[i];
                     Value * vv;
                     //def &= data.blocks[k]->def;
                     //use &= data.blocks[k]->use;
 
+                    /*
                     // Iterating over successors
                     for (succ_iterator SI = succ_begin(i), E = succ_end(i); SI != E; ++SI) {
                         BasicBlock *Succ = *SI;
@@ -195,12 +197,46 @@ namespace
                         
                         // ...
                     }
+                    */
 
+                    // For each successor
+                    for ( int s = 0; s < b->sucessors.size(); s++ )
+                    {
+                        BasicBlockData * succ = data.blocks[ b->sucessors[s] ];
+
+                        // Union in[S]
+                        b->out.insert ( succ->in.begin(), succ->in.end() );
+                    }
+
+                    // Used to verify if IN will change
+                    set < Instruction * > old = b->in;
+
+                    b->in = b->use;
+
+                    set < Instruction * > tmp = b->out;
+                    // Out[B] - defB
+                    tmp.erase ( b->def.begin(), b->def.end() );
+
+                    // use[B] U ( out[B] - def[B] )
+                    b->in.insert ( tmp.begin(), tmp.end() );
+
+                    // If some IN changed
+                    for ( set<Instruction*>::iterator a = b->in.begin(),
+                            aa = old.begin(); a != b->in.end(), 
+                            aa != old.end(); a++, aa++ )
+                    {
+                        if ( *aa != *a )
+                        {
+                            inChanged = true;
+                            break;
+                        }
+                    }
+
+                    /*
                     for (BasicBlock::iterator j = i->begin(), e = i->end(); j != e; ++j)
                     {
-
-
                     }
+                    */
                 }
             }
 
