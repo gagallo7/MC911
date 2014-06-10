@@ -268,54 +268,58 @@ namespace
             //         compute all Instructions use/def
             // ===========================================
 
-            for( Function::iterator i = func->begin(); i != func->end(); i++ ) 
-            {
-                // For every Instruction inside a BasicBlock...
-                for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
-                {
-                    unsigned int n = j->getNumOperands();
-
-                    for( unsigned int k = 0; k < n; k++ ) 
-                    {
-                        Value* v = j->getOperand(k);
-
-                        if( isa<Instruction>(v) ) 
-                        {
-                            Instruction *op = cast<Instruction>(v);
-
-                            if ( !data.instructions[j]->use.count(op) ) 
-                                data.instructions[j]->use.insert(op);
-                        }
-                    }
-
-                    data.instructions[j]->def.insert( j );
-                }
-            }
+/*
+ *            for( Function::iterator i = func->begin(); i != func->end(); i++ ) 
+ *            {
+ *                // For every Instruction inside a BasicBlock...
+ *                for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
+ *                {
+ *                    unsigned int n = j->getNumOperands();
+ *
+ *                    for( unsigned int k = 0; k < n; k++ ) 
+ *                    {
+ *                        Value* v = j->getOperand(k);
+ *
+ *                        if( isa<Instruction>(v) ) 
+ *                        {
+ *                            Instruction *op = cast<Instruction>(v);
+ *
+ *                            if ( !data.instructions[j]->use.count(op) ) 
+ *                                data.instructions[j]->use.insert(op);
+ *                        }
+ *                    }
+ *
+ *                    data.instructions[j]->def.insert( j );
+ *                }
+ *            }
+ */
 
             // ===========================================
             // Step 4: Use data from BasicBLocks to
             //         compute all Instructions in/out
             // ===========================================
 
-            for( Function::iterator i = func->begin(); i != func->end(); i++ ) 
-            {
-                // Last instruction of the block
-                BasicBlock::iterator j = i->end();
-                j--;
-                data.instructions[j]->out = data.blocks[i]->out;
-                data.instructions[j]->in = getSetUnion( data.instructions[j]->use, getSetDifference( data.instructions[j]->out, data.instructions[j]->def ) );
-
-                // Other instructions
-                do 
-                {
-                    BasicBlock::iterator aux = j;
-                    j--;
-
-                    data.instructions[j]->out = data.instructions[aux]->in;
-                    data.instructions[j]->in = getSetUnion( data.instructions[j]->use, getSetDifference( data.instructions[j]->out, data.instructions[j]->def ) );
-
-                } while( j != i->begin() ); 
-            }
+/*
+ *            for( Function::iterator i = func->begin(); i != func->end(); i++ ) 
+ *            {
+ *                // Last instruction of the block
+ *                BasicBlock::iterator j = i->end();
+ *                j--;
+ *                data.instructions[j]->out = data.blocks[i]->out;
+ *                data.instructions[j]->in = getSetUnion( data.instructions[j]->use, getSetDifference( data.instructions[j]->out, data.instructions[j]->def ) );
+ *
+ *                // Other instructions
+ *                do 
+ *                {
+ *                    BasicBlock::iterator aux = j;
+ *                    j--;
+ *
+ *                    data.instructions[j]->out = data.instructions[aux]->in;
+ *                    data.instructions[j]->in = getSetUnion( data.instructions[j]->use, getSetDifference( data.instructions[j]->out, data.instructions[j]->def ) );
+ *
+ *                } while( j != i->begin() ); 
+ *            }
+ */
 
             // ===========================================
             // Returning
@@ -334,28 +338,30 @@ namespace
             bool changed = false;
             map< Instruction*, InstructionData* > liveness = computeLiveness( &F );
             
-            // For every BasicBlock...
-            for ( Function::iterator i = F.begin(); i != F.end(); i++ ) 
-            {
-                // For every Instruction inside BasicBLock...
-                for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
-                {
-                    // Is this a instruction?
-                    if ( isa<Instruction>( *j ) ) 
-                    {
-                        // Trivial checks
-                        if ( isa<TerminatorInst>( *j ) || isa<LandingPadInst>( *j ) || j->mayHaveSideEffects() )     // TODO: DbgInfoIntrinsic case
-                            continue;
-
-                        // If instruction are going to die, remove it
-                        if ( liveness[j]->out.count( j ) ) 
-                        {
-                            j->eraseFromParent();
-                            changed = true;
-                        }
-                    }
-                }
-            }
+/*
+ *            // For every BasicBlock...
+ *            for ( Function::iterator i = F.begin(); i != F.end(); i++ ) 
+ *            {
+ *                // For every Instruction inside BasicBLock...
+ *                for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
+ *                {
+ *                    // Is this a instruction?
+ *                    if ( isa<Instruction>( *j ) ) 
+ *                    {
+ *                        // Trivial checks
+ *                        if ( isa<TerminatorInst>( *j ) || isa<LandingPadInst>( *j ) || j->mayHaveSideEffects() )     // TODO: DbgInfoIntrinsic case
+ *                            continue;
+ *
+ *                        // If instruction are going to die, remove it
+ *                        if ( liveness[j]->out.count( j ) ) 
+ *                        {
+ *                            j->eraseFromParent();
+ *                            changed = true;
+ *                        }
+ *                    }
+ *                }
+ *            }
+ */
 
             // Return
             return changed;
@@ -366,5 +372,5 @@ namespace
 }
 
 char deadCodeElimination::ID = 0;
-static RegisterPass<deadCodeElimination> X( "deadCodeElimination", "Hello World Pass", false, false );
+static RegisterPass<deadCodeElimination> X( "deadCodeElimination", "Dead Code Elimination Pass", false, false );
 
