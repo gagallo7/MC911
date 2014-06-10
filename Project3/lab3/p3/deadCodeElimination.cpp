@@ -12,6 +12,7 @@ using namespace llvm;
 #include <vector>
 #include <set>
 #include <map>
+#include <algorithm>
 
 using namespace std;
 
@@ -100,6 +101,28 @@ namespace
         deadCodeElimination() : FunctionPass(ID) {}
 
         // =============================
+        // Set operations
+        // =============================
+
+        set< Instruction* > getSetUnion( const set< Instruction* >& s1, const set< Instruction* >& s2 ) 
+        {
+            set< Instruction* > ret;
+            set_union( s1.begin(), s1.end(), s2.begin(), s2.end(), inserter( ret, ret.begin() ) );
+
+            // Returning
+            return ret;
+        }
+
+        set< Instruction* > getSetDifference( const set< Instruction* >& s1, const set< Instruction* >& s2 ) 
+        {
+            set< Instruction* > ret;
+            set_difference( s1.begin(), s1.end(), s2.begin(), s2.end(), inserter( ret, ret.begin() ) );
+
+            // Returning
+            return ret;
+        }
+
+        // =============================
         // Liveness analysis
         // =============================
         map< Instruction*, InstructionData* > computeLiveness( Function* func ) 
@@ -114,15 +137,15 @@ namespace
             // Iterating on all blocks of the function
             for( Function::iterator i = func->begin(); i != func->end(); ++i )
             {
-                data.addBasicBlock ( i );
+                data.addBasicBlock( i );
 
                 // Iterating on all instructions of the block
                 for (BasicBlock::iterator j = i->begin(), e = i->end(); j != e; ++j)
                 {
 
-                    if ( isa < Instruction > ( *j ) )
+                    if ( isa < Instruction >( *j ) )
                     {
-                        data.addInstruction ( j );
+                        data.addInstruction( j );
                     }
                 }
             }  
@@ -245,7 +268,7 @@ namespace
             //         compute all Instructions use/def
             // ===========================================
 
-            for ( Function::iterator i = func->begin(); i != func->end(); i++ ) 
+            for( Function::iterator i = func->begin(); i != func->end(); i++ ) 
             {
                 // For every Instruction inside a BasicBlock...
                 for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
@@ -274,8 +297,25 @@ namespace
             //         compute all Instructions in/out
             // ===========================================
 
+            for( Function::iterator i = func->begin(); i != func->end(); i++ ) 
+            {
+                // Last instruction of the block
+                BasicBlock::iterator j = i->end();
+                j--;
+                data.instructions[j]->out = data.blocks[i]->out;
+                data.instructions[j]->in = getSetUnion( data.instructions[j]->use, getSetDifference( data.instructions[j]->out, data.instructions[j]->def ) );
 
+                // Other instructions
+                do 
+                {
+                    BasicBlock::iterator aux = j;
+                    j--;
 
+                    data.instructions[j]->out = data.instructions[aux]->in;
+                    data.instructions[j]->in = getSetUnion( data.instructions[j]->use, getSetDifference( data.instructions[j]->out, data.instructions[j]->def ) );
+
+                } while( j != i->begin() ); 
+            }
 
             // ===========================================
             // Returning
