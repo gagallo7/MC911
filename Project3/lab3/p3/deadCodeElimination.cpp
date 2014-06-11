@@ -6,12 +6,14 @@
 #include "llvm/IR/Instructions.h"
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/Support/InstIterator.h"
+#include "llvm/IR/IntrinsicInst.h"
 
 using namespace llvm;
 
 #include <vector>
 #include <set>
 #include <map>
+#include <queue>
 #include <algorithm>
 
 using namespace std;
@@ -138,7 +140,7 @@ namespace
             // Iterating on all blocks of the function
             for( Function::iterator i = func->begin(); i != func->end(); ++i )
             {
-                data.addBasicBlock( i );
+                data.addBasicBlock( &*i );
 
                 // Iterating on all instructions of the block
                 for (BasicBlock::iterator j = i->begin(), e = i->end(); j != e; ++j)
@@ -146,7 +148,7 @@ namespace
 
                     if ( isa < Instruction >( *j ) )
                     {
-                        data.addInstruction( j );
+                        data.addInstruction( &*j );
                     }
                 }
             }  
@@ -160,7 +162,7 @@ namespace
             unsigned numOp, opr;
             for (Function::iterator i = func->begin(), e = func->end(); i != e; k++, ++i)
             {
-                BasicBlockData * b = data.blocks[i];
+                BasicBlockData * b = data.blocks[ &*i ];
                 Value * vv;
                 for (BasicBlock::iterator j = i->begin(), e = i->end(); j != e; ++j)
                 {
@@ -171,18 +173,18 @@ namespace
                         vv = j->getOperand ( opr );
                         if ( isa < Instruction > ( *vv ) )
                         {
-                            if ( b->def.find ( j ) == b->def.end() )
+                            if ( b->def.find ( &*j ) == b->def.end() )
                             {
-                                b->use.insert ( j );
+                                b->use.insert ( &*j );
                             }
                         }
                     }
 
                     if ( isa < Instruction > ( j ) )
                     {
-                        if ( b->use.find ( j ) == b->use.end() )
+                        if ( b->use.find ( &*j ) == b->use.end() )
                         {
-                            b->def.insert ( j );
+                            b->def.insert ( &*j );
                         }
                     }
                 }
@@ -204,7 +206,7 @@ namespace
                 fe--;
                 for (Function::iterator i = fe, e = func->begin(); i != e; --i)
                 {
-                    BasicBlockData * b = data.blocks[i];
+                    BasicBlockData * b = data.blocks[ &*i ];
 
                     // For each successor
                     for ( unsigned int s = 0; s < b->sucessors.size(); s++ )
@@ -263,22 +265,25 @@ namespace
                 // For every Instruction inside a BasicBlock...
                 for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
                 {
-                    unsigned int n = j->getNumOperands();
-
-                    for( unsigned int k = 0; k < n; k++ ) 
+                    if( isa<Instruction>( j ) ) 
                     {
-                        Value* v = j->getOperand(k);
+                        unsigned int n = j->getNumOperands();
 
-                        if( isa<Instruction>(v) ) 
+                        for( unsigned int k = 0; k < n; k++ ) 
                         {
-                            Instruction *op = cast<Instruction>(v);
+                            Value* v = j->getOperand( k );
 
-                            if ( !data.instructions[j]->use.count(op) ) 
-                                data.instructions[j]->use.insert(op);
+                            if( isa<Instruction> ( v ) ) 
+                            {
+                                Instruction *op = cast<Instruction>( v );
+
+                                if ( !data.instructions[ &*j ]->use.count( op ) ) 
+                                    data.instructions[ &*j ]->use.insert( op );
+                            }
                         }
-                    }
 
-                    data.instructions[j]->def.insert( j );
+                        data.instructions[ &*j ]->def.insert( &*j );
+                    }
                 }
             }
 
@@ -294,8 +299,8 @@ namespace
                 // Last instruction of the block
                 BasicBlock::iterator j = i->end();
                 j--;
-                data.instructions[j]->out = data.blocks[i]->out;
-                data.instructions[j]->in = getSetUnion( data.instructions[j]->use, getSetDifference( data.instructions[j]->out, data.instructions[j]->def ) );
+                data.instructions[ &*j ]->out = data.blocks[ &*i ]->out;
+                data.instructions[ &*j ]->in = getSetUnion( data.instructions[ &*j ]->use, getSetDifference( data.instructions[ &*j ]->out, data.instructions[ &*j ]->def ) );
 
                 // Other instructions
                 BasicBlock::iterator aux = j;
@@ -305,13 +310,13 @@ namespace
                     aux = j;
                     j--;
 
-                    data.instructions[j]->out = data.instructions[aux]->in;
-                    data.instructions[j]->in = getSetUnion( data.instructions[j]->use, getSetDifference( data.instructions[j]->out, data.instructions[j]->def ) );
+                    data.instructions[ &*j ]->out = data.instructions[ &*aux ]->in;
+                    data.instructions[ &*j ]->in = getSetUnion( data.instructions[ &*j ]->use, getSetDifference( data.instructions[ &*j ]->out, data.instructions[ &*j ]->def ) );
 
                 } 
 
-                data.instructions[j]->out = data.instructions[aux]->in;
-                data.instructions[j]->in = getSetUnion( data.instructions[j]->use, getSetDifference( data.instructions[j]->out, data.instructions[j]->def ) );
+                data.instructions[ &*j ]->out = data.instructions[ &*aux ]->in;
+                data.instructions[ &*j ]->in = getSetUnion( data.instructions[ &*j ]->use, getSetDifference( data.instructions[ &*j ]->out, data.instructions[ &*j ]->def ) );
             }
 
             // ===========================================
@@ -330,31 +335,47 @@ namespace
         {
             bool changed = false;
             map< Instruction*, InstructionData* > liveness = computeLiveness( &F );
+            queue< Instruction* > toDelete;
+
+            errs() << "Tamanho do map: " << liveness.size() << "\n";
             
-/*
- *            // For every BasicBlock...
- *            for ( Function::iterator i = F.begin(); i != F.end(); i++ ) 
- *            {
- *                // For every Instruction inside BasicBLock...
- *                for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
- *                {
- *                    // Is this a instruction?
- *                    if ( isa<Instruction>( *j ) ) 
- *                    {
- *                        // Trivial checks
- *                        if ( isa<TerminatorInst>( *j ) || isa<LandingPadInst>( *j ) || j->mayHaveSideEffects() )     // TODO: DbgInfoIntrinsic case
- *                            continue;
- *
- *                        // If instruction are going to die, remove it
- *                        if ( liveness[j]->out.count( j ) ) 
- *                        {
- *                            j->eraseFromParent();
- *                            changed = true;
- *                        }
- *                    }
- *                }
- *            }
- */
+            // For every BasicBlock...
+            for ( Function::iterator i = F.begin(); i != F.end(); i++ ) 
+            {
+                // For every Instruction inside BasicBLock...
+                for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
+                {
+                    // Is this a instruction?
+                    if ( isa<Instruction>( *j ) ) 
+                    {
+                        // Trivial checks
+                        if ( isa<TerminatorInst>( *j ) || isa<LandingPadInst>( *j ) || j->mayHaveSideEffects() || isa<DbgInfoIntrinsic>( *j ) )
+                            continue;
+
+                        // If instruction are going to die, remove it
+                        if ( !liveness[ &*j ] ) 
+                        {
+                            errs() << "Acessando uma instrução do map \n";
+
+                            if ( liveness[ &*j ]->out.count( &*j ) ) 
+                            {
+                                toDelete.push( &*j );
+                                changed = true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            errs() << "Instruções deletadas:: " << toDelete.size() << "\n";
+
+            // Deleting
+            while( toDelete.size() > 0 ) 
+            {
+                Instruction* deadInst = toDelete.front();
+                toDelete.pop();
+                deadInst->eraseFromParent();
+            }
 
             // Return
             return changed;
