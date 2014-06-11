@@ -129,6 +129,7 @@ namespace
         {
             LivenessData data;
 
+            errs() << ":D:D:D:D Step 0\n\n";
             // ===========================================
             // Step 0: Store all BasicBlocks and
             //         Instructions in LivenessData
@@ -150,48 +151,44 @@ namespace
                 }
             }  
 
+            errs() << ":D:D:D:D Step 1\n\n";
+
             // ===========================================
             // Step 1: Compute use/def for all BasicBLocks
             // ===========================================
             int k = 0;
+            unsigned numOp, opr;
             for (Function::iterator i = func->begin(), e = func->end(); i != e; k++, ++i)
             {
                 BasicBlockData * b = data.blocks[i];
                 Value * vv;
-                //def &= data.blocks[k]->def;
-                //use &= data.blocks[k]->use;
                 for (BasicBlock::iterator j = i->begin(), e = i->end(); j != e; ++j)
                 {
-                    vv = j->getOperand ( 1 );
-                    if ( isa < Instruction > ( *vv ) )
+                    numOp = j->getNumOperands();
+
+                    for ( opr = 0; opr < numOp; opr++ )
                     {
-                        if ( b->def.find ( j ) == b->def.end() )
+                        vv = j->getOperand ( opr );
+                        if ( isa < Instruction > ( *vv ) )
                         {
-                            b->use.insert ( j );
+                            if ( b->def.find ( j ) == b->def.end() )
+                            {
+                                b->use.insert ( j );
+                            }
                         }
                     }
 
-                    vv = j->getOperand ( 2 );
-                    if ( isa < Instruction > ( *vv ) )
-                    {
-                        if ( b->def.find ( j ) == b->def.end() )
-                        {
-                            b->use.insert ( j );
-                        }
-                    }
-
-                    vv = j->getOperand ( 0 );
-                    if ( isa < Instruction > ( *vv ) )
+                    if ( isa < Instruction > ( j ) )
                     {
                         if ( b->use.find ( j ) == b->use.end() )
                         {
                             b->def.insert ( j );
                         }
                     }
-
-
                 }
             }
+
+            errs() << ":D:D:D:D Step 2\n\n";
 
             // ===========================================
             // Step 2: Compute in/out for all BasicBLocks
@@ -203,27 +200,14 @@ namespace
             while ( inChanged == true )
             {
                 inChanged = false;
-                k = data.blocks.size();
-                for (Function::iterator i = func->end(), e = func->begin(); i != e; --i, k--)
+                Function::iterator fe = func->end();
+                fe--;
+                for (Function::iterator i = fe, e = func->begin(); i != e; --i)
                 {
-                    --i; // DO NOT DELETE!
                     BasicBlockData * b = data.blocks[i];
-                    Value * vv;
-                    //def &= data.blocks[k]->def;
-                    //use &= data.blocks[k]->use;
-
-                    /*
-                    // Iterating over successors
-                    for (succ_iterator SI = succ_begin(i), E = succ_end(i); SI != E; ++SI) {
-                        BasicBlock *Succ = *SI;
-
-                        
-                        // ...
-                    }
-                    */
 
                     // For each successor
-                    for ( int s = 0; s < b->sucessors.size(); s++ )
+                    for ( unsigned int s = 0; s < b->sucessors.size(); s++ )
                     {
                         BasicBlockData * succ = data.blocks[ b->sucessors[s] ];
 
@@ -232,36 +216,42 @@ namespace
                     }
 
                     // Used to verify if IN will change
-                    set < Instruction * > old = b->in;
+                    set < Instruction * > old ( b->in );
 
                     b->in = b->use;
 
-                    set < Instruction * > tmp = b->out;
-                    // Out[B] - defB
-                    tmp.erase ( b->def.begin(), b->def.end() );
+                    set < Instruction * > tmp;
 
+                    errs() << "Before diff\n";
+                    // Out[B] - defB
+                    tmp = getSetDifference ( b->out, b->in );
+
+                    errs() << "After diff\n";
                     // use[B] U ( out[B] - def[B] )
                     b->in.insert ( tmp.begin(), tmp.end() );
 
                     // If some IN changed
-                    for ( set<Instruction*>::iterator a = b->in.begin(),
-                            aa = old.begin(); a != b->in.end(), 
-                            aa != old.end(); a++, aa++ )
+                    set<Instruction*>::iterator a, aa;
+                    a = b->in.begin();
+                    aa = old.begin();
+
+                    while ( a != b->in.end() || aa != old.end() )
                     {
+                        errs() << "aa == " << *aa << "\t";
+                        errs() << "a == " << *a << "\n";
                         if ( *aa != *a )
                         {
                             inChanged = true;
+                            errs() << "Breaking\n";
                             break;
                         }
+                        ++aa;
+                        ++a;
                     }
-
-                    /*
-                    for (BasicBlock::iterator j = i->begin(), e = i->end(); j != e; ++j)
-                    {
-                    }
-                    */
                 }
             }
+
+            errs() << ":D:D:D:D Step 3\n\n";
 
             // ===========================================
             // Step 3: Use data from BasicBlocks to
