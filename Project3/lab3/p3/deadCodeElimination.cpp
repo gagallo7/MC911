@@ -259,13 +259,14 @@ namespace
             // Step 3: Use data from BasicBlocks to
             //         compute all Instructions use/def
             // ===========================================
+            errs() << "Quantidade de instruções no map: " << data.instructions.size() << "\n";
 
             for( Function::iterator i = func->begin(); i != func->end(); i++ ) 
             {
                 // For every Instruction inside a BasicBlock...
                 for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
                 {
-                    if( isa<Instruction>( j ) ) 
+                    if( isa<Instruction>( *j ) ) 
                     {
                         unsigned int n = j->getNumOperands();
 
@@ -275,7 +276,7 @@ namespace
 
                             if( isa<Instruction> ( v ) ) 
                             {
-                                Instruction *op = cast<Instruction>( v );
+                                Instruction* op = cast<Instruction>( v );
 
                                 if ( !data.instructions[ &*j ]->use.count( op ) ) 
                                     data.instructions[ &*j ]->use.insert( op );
@@ -293,6 +294,7 @@ namespace
             // Step 4: Use data from BasicBLocks to
             //         compute all Instructions in/out
             // ===========================================
+            errs() << "Quantidade de instruções no map: " << data.instructions.size() << "\n";
 
             for( Function::iterator i = func->begin(); i != func->end(); i++ ) 
             {
@@ -318,6 +320,8 @@ namespace
                 data.instructions[ &*j ]->out = data.instructions[ &*aux ]->in;
                 data.instructions[ &*j ]->in = getSetUnion( data.instructions[ &*j ]->use, getSetDifference( data.instructions[ &*j ]->out, data.instructions[ &*j ]->def ) );
             }
+
+            errs() << "Quantidade de instruções no map: " << data.instructions.size() << "\n";
 
             // ===========================================
             // Returning
@@ -353,15 +357,12 @@ namespace
                             continue;
 
                         // If instruction are going to die, remove it
-                        if ( !liveness[ &*j ] ) 
-                        {
-                            errs() << "Acessando uma instrução do map \n";
+                        errs() << "Acessando a instrução " << liveness[ &*j ] << "\n";
 
-                            if ( liveness[ &*j ]->out.count( &*j ) ) 
-                            {
-                                toDelete.push( &*j );
-                                changed = true;
-                            }
+                        if ( liveness[ &*j ]->out.count( &*j ) ) 
+                        {
+                            toDelete.push( &*j );
+                            changed = true;
                         }
                     }
                 }
@@ -377,6 +378,8 @@ namespace
                 deadInst->eraseFromParent();
             }
 
+            errs() << "Tamanho do map: " << liveness.size() << "\n";
+
             // Return
             return changed;
         }
@@ -387,4 +390,3 @@ namespace
 
 char deadCodeElimination::ID = 0;
 static RegisterPass<deadCodeElimination> X( "deadCodeElimination", "Dead Code Elimination Pass", false, false );
-
