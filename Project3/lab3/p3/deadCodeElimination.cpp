@@ -173,15 +173,18 @@ namespace
                         vv = j->getOperand ( opr );
                         if ( isa < Instruction > ( *vv ) )
                         {
-                            if ( b->def.find ( &*j ) == b->def.end() )
+                            Instruction * vvv = dyn_cast < Instruction > (vv);
+                            
+                            if ( b->def.find ( &*vvv ) == b->def.end() )
                             {
-                                b->use.insert ( &*j );
+                                b->use.insert ( &*vvv );
                             }
                         }
                     }
 
-                    if ( isa < Instruction > ( j ) )
+                    if ( isa < Instruction > ( *j ) )
                     {
+                        cast <Instruction *> (vv);
                         if ( b->use.find ( &*j ) == b->use.end() )
                         {
                             b->def.insert ( &*j );

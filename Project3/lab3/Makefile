@@ -35,4 +35,4 @@ clean::
 #opt.%: $(SRC_DIR)/%.cpp
 opt.%: 
 	./drive compile
-	opt -load Release/P3.so -$* tests/BubbleSort.ll > BubbleSort.opt	
+	opt -load Release/P3.so -$* tests/Factorial.ll > Factorial.opt	
