@@ -184,7 +184,6 @@ namespace
 
                     if ( isa < Instruction > ( *j ) )
                     {
-                        cast <Instruction *> (vv);
                         if ( b->use.find ( &*j ) == b->use.end() )
                         {
                             b->def.insert ( &*j );
