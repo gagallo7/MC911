@@ -15,8 +15,21 @@ using namespace llvm;
 #include <map>
 #include <queue>
 #include <algorithm>
+#include <fstream>
 
 using namespace std;
+
+#define LOG(X) log.open("log", ios::app); \
+                log << X; \
+                log.close();
+
+#define LOGC(X) log.open("log", ios::app); \
+                log << "\033[1;21m" << X << "\033[0m"; \
+                log.close();
+
+#define LOGC2(X) log.open("log", ios::app); \
+                log << "\033[32m" << X << "\033[0m"; \
+                log.close();
 
 // =============================
 // Liveness Data
@@ -63,8 +76,10 @@ namespace
                 for( map< BasicBlock*, BasicBlockData* >::iterator i = blocks.begin();  i != blocks.end(); i++ ) 
                     delete i->second;
 
+                /*
                 for( map< Instruction*, InstructionData* >::iterator i = instructions.begin();  i != instructions.end(); i++ ) 
                     delete i->second;
+                    */
 
                 blocks.clear();
                 instructions.clear();
@@ -83,24 +98,30 @@ namespace
                 }
             }
 
+            void logLiveness ()
+            {
+            }
+
             // This method stores a new Instruction
             void addInstruction( Instruction* inst ) 
             {
                 instructions[inst] = new InstructionData();
             }
     };
-}
 
-// =============================
-
-namespace 
-{
     struct deadCodeElimination : public FunctionPass 
     {
         static char ID;
+        ofstream log;
 
         // Constructor
-        deadCodeElimination() : FunctionPass(ID) {}
+        deadCodeElimination() : FunctionPass(ID) {
+        }
+
+        // Destructor
+        ~deadCodeElimination()
+        {
+        }
 
         // =============================
         // Set operations
@@ -131,7 +152,10 @@ namespace
         {
             LivenessData data;
 
-            errs() << ":D:D:D:D Step 0\n\n";
+            LOGC ( "\n-------------------------NEW LIVENESS ANALYSIS-----------------------\n");
+
+            errs() << ":D:D:D:D Step 0\n";
+            LOGC2("\n++++++++Step 0\n");
             // ===========================================
             // Step 0: Store all BasicBlocks and
             //         Instructions in LivenessData
@@ -153,7 +177,31 @@ namespace
                 }
             }  
 
-            errs() << ":D:D:D:D Step 1\n\n";
+            for ( map < BasicBlock*, BasicBlockData* >::iterator bb = data.blocks.begin();
+                    bb != data.blocks.end();
+                    bb++
+                )
+            {
+                LOG( "Block " << (*bb).first << "\n\tSuccesors:\n" );
+
+                for ( unsigned int sc = 0; sc < (*bb).second->sucessors.size(); sc++ )
+                {
+                    LOG ( "\t--"<< (*bb).second->sucessors[sc] << "\n" );
+                }
+                
+            }
+
+            LOG("Instructions\n");
+            for ( map < Instruction*, InstructionData* >::iterator ib = data.instructions.begin();
+                    ib != data.instructions.end();
+                    ib++
+                )
+            {
+                LOG("\t~~" << (*ib).first << "\n");
+            }
+
+            errs() << ":D:D:D:D Step 1\n";
+            LOGC2("\n++++++++Step 1\n");
 
             // ===========================================
             // Step 1: Compute use/def for all BasicBLocks
@@ -190,9 +238,30 @@ namespace
                         }
                     }
                 }
+
+                LOG ( "Block " << &*i << "\n" );
+                LOG ( "\tDEF: { " );
+                for ( set < Instruction* >::iterator si = b->def.begin();
+                        si != b->def.end();
+                        si++
+                    )
+                {
+                    LOG ( *si << ", " );
+                }
+                LOG ( "}\n\tUSE: { " );
+                for ( set < Instruction* >::iterator si = b->use.begin();
+                        si != b->use.end();
+                        si++
+                    )
+                {
+                    LOG ( *si << ", " );
+                }
+                LOG ( "}\n" );
+
             }
 
-            errs() << ":D:D:D:D Step 2\n\n";
+            errs() << ":D:D:D:D Step 2\n";
+            LOGC2("\n++++++++Step 2\n");
 
             // ===========================================
             // Step 2: Compute in/out for all BasicBLocks
@@ -205,10 +274,12 @@ namespace
             {
                 inChanged = false;
                 Function::iterator fe = func->end();
-                fe--;
-                for (Function::iterator i = fe, e = func->begin(); i != e; --i)
+                //fe--;
+                //for (Function::iterator i = fe, e = func->begin(); i != e;)
+                while ( fe != func->begin() )
                 {
-                    BasicBlockData * b = data.blocks[ &*i ];
+                    fe--;
+                    BasicBlockData * b = data.blocks[ &*fe ];
 
                     // For each successor
                     for ( unsigned int s = 0; s < b->sucessors.size(); s++ )
@@ -226,42 +297,109 @@ namespace
 
                     set < Instruction * > tmp;
 
-                    errs() << "Before diff\n";
                     // Out[B] - defB
-                    tmp = getSetDifference ( b->out, b->in );
+                    tmp = getSetDifference ( b->out, b->def );
+                    LOGC ( "out: { " );
+                    for ( set < Instruction* >::iterator si = b->out.begin();
+                            si != b->out.end();
+                            si++
+                        )
+                    {
+                        LOG ( *si << ", " );
+                    }
+                    LOGC ( " }\n" ); 
 
-                    errs() << "After diff\n";
+                    LOGC ( "def: { " );
+                    for ( set < Instruction* >::iterator si = b->def.begin();
+                            si != b->def.end();
+                            si++
+                        )
+                    {
+                        LOG ( *si << ", " );
+                    }
+                    LOGC ( " }\n" ); 
+                    
+                    LOGC ( "TMP: { " );
+                    for ( set < Instruction* >::iterator si = tmp.begin();
+                            si != tmp.end();
+                            si++
+                        )
+                    {
+                        LOG ( *si << ", " );
+                    }
+                    LOGC ( " }\n" ); 
+
                     // use[B] U ( out[B] - def[B] )
                     b->in.insert ( tmp.begin(), tmp.end() );
 
-                    // If some IN changed
-                    set<Instruction*>::iterator a, aa;
-                    a = b->in.begin();
-                    aa = old.begin();
-
-                    while ( a != b->in.end() || aa != old.end() )
+                    LOGC ( " in: { " );
+                    for ( set < Instruction* >::iterator si = b->in.begin();
+                            si != b->in.end();
+                            si++
+                        )
                     {
-                        errs() << "aa == " << *aa << "\t";
-                        errs() << "a == " << *a << "\n";
-                        if ( *aa != *a )
+                        LOG ( *si << ", " );
+                    }
+                    LOGC ( " }\n\n" ); 
+
+                    // If some IN changed
+                    if ( inChanged == false )
+                    {
+                        set<Instruction*>::iterator a, aa;
+                        a = b->in.begin();
+                        aa = old.begin();
+
+                        while ( a != b->in.end() || aa != old.end() )
                         {
-                            inChanged = true;
-                            errs() << "Breaking\n";
-                            break;
+                            //errs() << "aa == " << *aa << "\t";
+                            //errs() << "a == " << *a << "\n";
+                            if ( *aa != *a )
+                            {
+                                inChanged = true;
+                                //errs() << "Breaking\n";
+                                break;
+                            }
+                            ++aa;
+                            ++a;
                         }
-                        ++aa;
-                        ++a;
                     }
                 }
             }
 
-            errs() << ":D:D:D:D Step 3\n\n";
+            for (Function::iterator i = func->begin(), e = func->end(); i != e; k++, ++i)
+            {
+                BasicBlockData * b = data.blocks[ &*i ];
+
+                LOG ( "Block " << &*i << "\n" );
+
+                LOG ( "\tIN: { " );
+                for ( set < Instruction* >::iterator si = b->in.begin();
+                        si != b->in.end();
+                        si++
+                    )
+                {
+                    LOG ( *si << ", " );
+                }
+
+                LOG ( " }\n\tOUT: { " );
+                for ( set < Instruction* >::iterator si = b->out.begin();
+                        si != b->out.end();
+                        si++
+                    )
+                {
+                    LOG ( *si << ", " );
+                }
+                LOG ( " }\n" );
+            }
+
+            errs() << ":D:D:D:D Step 3\n";
+            LOGC2("\n++++++++Step 3\n");
 
             // ===========================================
             // Step 3: Use data from BasicBlocks to
             //         compute all Instructions use/def
             // ===========================================
-            errs() << "Quantidade de instruções no map: " << data.instructions.size() << "\n";
+            //errs() << "Quantidade de instruções no map: " << data.instructions.size() << "\n";
 
             for( Function::iterator i = func->begin(); i != func->end(); i++ ) 
             {
@@ -280,17 +418,46 @@ namespace
                             {
                                 Instruction* op = cast<Instruction>( v );
 
-                                if ( !data.instructions[ &*j ]->use.count( op ) ) 
+                                if ( !data.instructions[ &*j ]->def.count( op ) ) 
                                     data.instructions[ &*j ]->use.insert( op );
                             }
                         }
 
-                        data.instructions[ &*j ]->def.insert( &*j );
+                        if ( !data.instructions[ &*j ]->use.count ( &*j ) )
+                        {
+                            data.instructions[ &*j ]->def.insert( &*j );
+                        }
                     }
                 }
+
+                for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
+                {
+                    LOG ( "Instruction " << &*j << "\n" );
+
+                    LOG ( "\tUSE: { " );
+                    for ( set < Instruction* >::iterator si = data.instructions[ &*j ]->use.begin();
+                            si != data.instructions[ &*j ]->use.end();
+                            si++
+                        )
+                    {
+                        LOG ( *si << ", " );
+                    }
+                    
+                    LOG ( " }\n\tDEF: { " );
+                    for ( set < Instruction* >::iterator si = data.instructions[ &*j ]->def.begin();
+                            si != data.instructions[ &*j ]->def.end();
+                            si++
+                        )
+                    {
+                        LOG ( *si << ", " );
+                    }
+                    LOG ( " }\n" );
+                }
+
             }
 
-            errs() << ":D:D:D:D Step 4\n\n";
+            errs() << ":D:D:D:D Step 4\n";
+            LOGC2("\n++++++++Step 4\n");
 
             // ===========================================
             // Step 4: Use data from BasicBLocks to
@@ -298,29 +465,143 @@ namespace
             // ===========================================
             errs() << "Quantidade de instruções no map: " << data.instructions.size() << "\n";
 
+            inChanged = true;
+            set < Instruction* > old;
+
             for( Function::iterator i = func->begin(); i != func->end(); i++ ) 
             {
                 // Last instruction of the block
                 BasicBlock::iterator j = i->end();
+                BasicBlock::iterator e;
                 j--;
+                e = j;
                 data.instructions[ &*j ]->out = data.blocks[ &*i ]->out;
+
                 data.instructions[ &*j ]->in = getSetUnion( data.instructions[ &*j ]->use, getSetDifference( data.instructions[ &*j ]->out, data.instructions[ &*j ]->def ) );
 
-                // Other instructions
-                BasicBlock::iterator aux = j;
-
-                while( j != i->begin() )
+                // while any IN changes
+                while ( inChanged )
                 {
-                    aux = j;
-                    j--;
+                    inChanged = false;
+                    j = e;
 
+                    // Other instructions
+                    BasicBlock::iterator aux;
+
+                    // for each instruction other than the last one
+                    while( j != i->begin() )
+                    {
+                        aux = j;
+                        j--;
+
+                        data.instructions[ &*j ]->out = data.instructions[ &*aux ]->in;
+
+                        old = data.instructions[ &*j ]->in;
+                        data.instructions[ &*j ]->in = 
+                            getSetUnion( 
+                                    data.instructions[ &*j ]->use, 
+                                    getSetDifference( 
+                                        data.instructions[ &*j ]->out, 
+                                        data.instructions[ &*j ]->def 
+                                        )
+                                    );
+
+                        // If some IN changed
+                        if ( inChanged == false )
+                        {
+                            set<Instruction*>::iterator a, aa;
+                            a = data.instructions[ &*j ]->in.begin();
+                            aa = old.begin();
+
+                            while ( a != data.instructions[ &*j ]->in.end() || aa != old.end() )
+                            {
+                                if ( *aa != *a )
+                                {
+                                    inChanged = true;
+                                    break;
+                                }
+                                ++aa;
+                                ++a;
+                            }
+                        }
+
+                    } 
+
+                    /*
+                    // j == i->begin()
                     data.instructions[ &*j ]->out = data.instructions[ &*aux ]->in;
+
+                    old = data.instructions[ &*j ]->in;
                     data.instructions[ &*j ]->in = getSetUnion( data.instructions[ &*j ]->use, getSetDifference( data.instructions[ &*j ]->out, data.instructions[ &*j ]->def ) );
 
-                } 
+                    // If some IN changed
+                    if ( inChanged == false )
+                    {
+                    set<Instruction*>::iterator a, aa;
+                    a = data.instructions[ &*j ]->in.begin();
+                    aa = old.begin();
 
-                data.instructions[ &*j ]->out = data.instructions[ &*aux ]->in;
-                data.instructions[ &*j ]->in = getSetUnion( data.instructions[ &*j ]->use, getSetDifference( data.instructions[ &*j ]->out, data.instructions[ &*j ]->def ) );
+                    while ( a != data.instructions[ &*j ]->in.end() || aa != old.end() )
+                    {
+                    if ( *aa != *a )
+                    {
+                    inChanged = true;
+                    break;
+                    }
+                    ++aa;
+                    ++a;
+                    }
+                    }
+                    */
+
+                }
+                j = i->end();
+                while ( j != i->begin() )
+                {
+                    j--;
+                    LOG ( "Instruction " << &*j << "\n" );
+                    LOGC ( "out: { " );
+                    for ( set < Instruction* >::iterator si = data.instructions[ &*j ]->out.begin();
+                            si != data.instructions[ &*j ]->out.end();
+                            si++
+                        )
+                    {
+                        LOG ( *si << ", " );
+                    }
+                    LOGC ( " }\n" ); 
+
+                    LOGC ( "def: { " );
+                    for ( set < Instruction* >::iterator si = data.instructions[ &*j ]->def.begin();
+                            si != data.instructions[ &*j ]->def.end();
+                            si++
+                        )
+                    {
+                        LOG ( *si << ", " );
+                    }
+                    LOGC ( " }\n" ); 
+
+                    LOGC ( "use: { " );
+                    for ( set < Instruction* >::iterator si = data.instructions[ &*j ]->use.begin();
+                            si != data.instructions[ &*j ]->use.end();
+                            si++
+                        )
+                    {
+                        LOG ( *si << ", " );
+                    }
+                    LOGC ( " }\n" ); 
+
+                    LOGC ( " in: { " );
+                    for ( set < Instruction* >::iterator si = data.instructions[ &*j ]->in.begin();
+                            si != data.instructions[ &*j ]->in.end();
+                            si++
+                        )
+                    {
+                        LOG ( *si << ", " );
+                    }
+                    LOGC ( " }\n" ); 
+                    /*
+                    */
+                }
             }
 
             errs() << "Quantidade de instruções no map: " << data.instructions.size() << "\n";
@@ -337,50 +618,89 @@ namespace
         // =============================
         // Optimization
         // =============================
+
         virtual bool runOnFunction( Function &F ) 
         {
             bool changed = false;
             map< Instruction*, InstructionData* > liveness = computeLiveness( &F );
             queue< Instruction* > toDelete;
 
-            errs() << "Tamanho do map: " << liveness.size() << "\n";
+            LOGC ( "\n!!!!!!!!!!!!!! OPTIMIZATION !!!!!!!!!!!!!!!\n" );
+
+            LOG("Instructions: ");
+            for ( map < Instruction*, InstructionData* >::iterator ib = liveness.begin();
+                    ib != liveness.end();
+                    ib++
+                )
+            {
+                LOG( (*ib).first << ", " );
+            }
+            LOG("\n");
+
+            //errs() << "Tamanho do map: " << liveness.size() << "\n";
             
             // For every BasicBlock...
             for ( Function::iterator i = F.begin(); i != F.end(); i++ ) 
             {
+                //errs() << "Loop 1\n";
                 // For every Instruction inside BasicBLock...
                 for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
                 {
-                    // Is this a instruction?
+                    //errs() << "Loop 2\n";
+                    if ( liveness [ &*j ]->out.size() == 0 )
+                        LOGC ("==>> ");
+                    LOGC ( "Instruction " << &*j << " out: { " );
+                    for ( set < Instruction* >::iterator si = liveness[ &*j ]->out.begin();
+                            si != liveness[ &*j ]->out.end();
+                            si++
+                        )
+                    {
+                        LOG ( *si << ", " );
+                    }
+                    LOGC ( " }\n" ); 
+
+                    // Is this an instruction?
                     if ( isa<Instruction>( *j ) ) 
                     {
                         // Trivial checks
-                        if ( isa<TerminatorInst>( *j ) || isa<LandingPadInst>( *j ) || j->mayHaveSideEffects() || isa<DbgInfoIntrinsic>( *j ) )
+                        if ( isa<TerminatorInst>( *j ) || isa<LandingPadInst>( *j ) || 
+                                j->mayHaveSideEffects() || isa<DbgInfoIntrinsic>( *j ) )
                             continue;
 
-                        // If instruction are going to die, remove it
-                        errs() << "Acessando a instrução " << liveness[ &*j ] << "\n";
+//                        errs() << &*j << *j << "\n";
 
-                        if ( liveness[ &*j ]->out.count( &*j ) ) 
+                        // If the instruction is going to die, remove it
+            //            errs() << "Acessando a instrução " << liveness[ &*j ] <<  "\n";
+
+                        //if ( liveness[ &*j ]->out.count( &*j ) == 0 ) 
+                        if ( liveness [ &*j ]->out.size() == 0 )
                         {
+                            //errs() << "Here?\n";
                             toDelete.push( &*j );
                             changed = true;
                         }
+                        //errs() << "Out of if?\n";
                     }
                 }
             }
 
-            errs() << "Instruções deletadas:: " << toDelete.size() << "\n";
-
             // Deleting
+            if ( toDelete.size() )
+            {
+                errs() << "Instruções deletadas:: " << toDelete.size() << "\n";
+            }
+
             while( toDelete.size() > 0 ) 
             {
                 Instruction* deadInst = toDelete.front();
                 toDelete.pop();
-                deadInst->eraseFromParent();
+                errs() << "- - - - - Deleting " << deadInst << *deadInst << "\n";
+                //deadInst->eraseFromParent();
             }
 
-            errs() << "Tamanho do map: " << liveness.size() << "\n";
+            //errs() << "Tamanho do map: " << liveness.size() << "\n";
+            /*
+            */
 
             // Return
             return changed;
