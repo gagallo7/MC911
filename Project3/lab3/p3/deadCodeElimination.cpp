@@ -16,6 +16,7 @@ using namespace llvm;
 #include <queue>
 #include <algorithm>
 #include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -71,19 +72,19 @@ namespace
             map< Instruction*, InstructionData* > instructions;
 
             // Destructor
+                /*
             ~LivenessData() 
             {
                 for( map< BasicBlock*, BasicBlockData* >::iterator i = blocks.begin();  i != blocks.end(); i++ ) 
                     delete i->second;
 
-                /*
                 for( map< Instruction*, InstructionData* >::iterator i = instructions.begin();  i != instructions.end(); i++ ) 
                     delete i->second;
-                    */
 
                 blocks.clear();
                 instructions.clear();
             }
+                    */
 
             // This method stores a new BasicBlock
             void addBasicBlock( BasicBlock* block ) 
@@ -145,6 +146,15 @@ namespace
             return ret;
         }
 
+        string newInst ( )
+        {
+            static int ni = 0;
+            std::stringstream ss;
+            ss << " tmp" << ni++;
+            //errs() << ss.str() << "\n";
+            return ss.str();
+        }
+
         // =============================
         // Liveness analysis
         // =============================
@@ -177,6 +187,7 @@ namespace
                 }
             }  
 
+            // Logging
             for ( map < BasicBlock*, BasicBlockData* >::iterator bb = data.blocks.begin();
                     bb != data.blocks.end();
                     bb++
@@ -191,13 +202,14 @@ namespace
                 
             }
 
+            // Logging
             LOG("Instructions\n");
             for ( map < Instruction*, InstructionData* >::iterator ib = data.instructions.begin();
                     ib != data.instructions.end();
                     ib++
                 )
             {
-                LOG("\t~~" << (*ib).first << "\n");
+                LOG("\t~~" << ib->first << " " << ((*ib).first)->getName().str() << "\n");
             }
 
             errs() << ":D:D:D:D Step 1\n";
@@ -206,9 +218,8 @@ namespace
             // ===========================================
             // Step 1: Compute use/def for all BasicBLocks
             // ===========================================
-            int k = 0;
             unsigned numOp, opr;
-            for (Function::iterator i = func->begin(), e = func->end(); i != e; k++, ++i)
+            for (Function::iterator i = func->begin(), e = func->end(); i != e; ++i)
             {
                 BasicBlockData * b = data.blocks[ &*i ];
                 Value * vv;
@@ -221,7 +232,7 @@ namespace
                         vv = j->getOperand ( opr );
                         if ( isa < Instruction > ( *vv ) )
                         {
-                            Instruction * vvv = dyn_cast < Instruction > (vv);
+                            Instruction * vvv = cast < Instruction > (&*vv);
                             
                             if ( b->def.find ( &*vvv ) == b->def.end() )
                             {
@@ -239,6 +250,7 @@ namespace
                     }
                 }
 
+                // Logging
                 LOG ( "Block " << &*i << "\n" );
                 LOG ( "\tDEF: { " );
                 for ( set < Instruction* >::iterator si = b->def.begin();
@@ -246,7 +258,8 @@ namespace
                         si++
                     )
                 {
-                    LOG ( *si << ", " );
+                    Instruction * I = *si;
+                    LOG ( (*si) <<  " " << I->getName().str() << ", " );
                 }
                 LOG ( "}\n\tUSE: { " );
                 for ( set < Instruction* >::iterator si = b->use.begin();
@@ -254,7 +267,7 @@ namespace
                         si++
                     )
                 {
-                    LOG ( *si << ", " );
+                    LOG ( *si << " " << (*si)->getName().str() << ", " );
                 }
                 LOG ( "}\n" );
 
@@ -295,17 +308,20 @@ namespace
 
                     b->in = b->use;
 
+                    // tmp = out - def
                     set < Instruction * > tmp;
 
                     // Out[B] - defB
                     tmp = getSetDifference ( b->out, b->def );
+                    
+                    // LOGGING results
                     LOGC ( "out: { " );
                     for ( set < Instruction* >::iterator si = b->out.begin();
                             si != b->out.end();
                             si++
                         )
                     {
-                        LOG ( *si << ", " );
+                        LOG ( *si << " " << (*si)->getName().str() << ", " );
                     }
                     LOGC ( " }\n" ); 
 
@@ -315,7 +331,7 @@ namespace
                             si++
                         )
                     {
-                        LOG ( *si << ", " );
+                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
                     LOGC ( " }\n" ); 
                     
@@ -325,20 +341,22 @@ namespace
                             si++
                         )
                     {
-                        LOG ( *si << ", " );
+                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
                     LOGC ( " }\n" ); 
 
                     // use[B] U ( out[B] - def[B] )
                     b->in.insert ( tmp.begin(), tmp.end() );
 
+                    // LOGGING results
+                    LOGC ( "out: { " );
                     LOGC ( " in: { " );
                     for ( set < Instruction* >::iterator si = b->in.begin();
                             si != b->in.end();
                             si++
                         )
                     {
-                        LOG ( *si << ", " );
+                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
                     LOGC ( " }\n\n" ); 
 
@@ -351,12 +369,9 @@ namespace
 
                         while ( a != b->in.end() || aa != old.end() )
                         {
-                            //errs() << "aa == " << *aa << "\t";
-                            //errs() << "a == " << *a << "\n";
                             if ( *aa != *a )
                             {
                                 inChanged = true;
-                                //errs() << "Breaking\n";
                                 break;
                             }
                             ++aa;
@@ -366,7 +381,8 @@ namespace
                 }
             }
 
-            for (Function::iterator i = func->begin(), e = func->end(); i != e; k++, ++i)
+            // LOGGING results
+            for (Function::iterator i = func->begin(), e = func->end(); i != e; ++i)
             {
                 BasicBlockData * b = data.blocks[ &*i ];
 
@@ -378,7 +394,7 @@ namespace
                         si++
                     )
                 {
-                    LOG ( *si << ", " );
+                    LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                 }
 
                 LOG ( " }\n\tOUT: { " );
@@ -387,7 +403,7 @@ namespace
                         si++
                     )
                 {
-                    LOG ( *si << ", " );
+                    LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                 }
                 LOG ( " }\n" );
             }
@@ -430,6 +446,7 @@ namespace
                     }
                 }
 
+                // LOGGING results
                 for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
                 {
                     LOG ( "Instruction " << &*j << "\n" );
@@ -440,7 +457,7 @@ namespace
                             si++
                         )
                     {
-                        LOG ( *si << ", " );
+                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
                     
                     LOG ( " }\n\tDEF: { " );
@@ -449,7 +466,7 @@ namespace
                             si++
                         )
                     {
-                        LOG ( *si << ", " );
+                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
                     LOG ( " }\n" );
                 }
@@ -465,9 +482,6 @@ namespace
             // ===========================================
             errs() << "Quantidade de instruções no map: " << data.instructions.size() << "\n";
 
-            inChanged = true;
-            set < Instruction* > old;
-
             for( Function::iterator i = func->begin(); i != func->end(); i++ ) 
             {
                 // Last instruction of the block
@@ -475,6 +489,7 @@ namespace
                 j--;
                 data.instructions[ &*j ]->out = data.blocks[ &*i ]->out;
 
+                // in = use U ( out - def )
                 data.instructions[ &*j ]->in = getSetUnion( data.instructions[ &*j ]->use, getSetDifference( data.instructions[ &*j ]->out, data.instructions[ &*j ]->def ) );
 
                 // Other instructions
@@ -488,46 +503,19 @@ namespace
 
                     data.instructions[ &*j ]->out = data.instructions[ &*aux ]->in;
 
-                    old = data.instructions[ &*j ]->in;
+                    // in = use U ( out - def )
                     data.instructions[ &*j ]->in = 
                         getSetUnion( 
                                 data.instructions[ &*j ]->use, 
+                                // out - def
                                 getSetDifference( 
                                     data.instructions[ &*j ]->out, 
                                     data.instructions[ &*j ]->def 
                                     )
                                 );
-
-
                 } 
 
-                /*
-                // j == i->begin()
-                data.instructions[ &*j ]->out = data.instructions[ &*aux ]->in;
-
-                old = data.instructions[ &*j ]->in;
-                data.instructions[ &*j ]->in = getSetUnion( data.instructions[ &*j ]->use, getSetDifference( data.instructions[ &*j ]->out, data.instructions[ &*j ]->def ) );
-
-                // If some IN changed
-                if ( inChanged == false )
-                {
-                set<Instruction*>::iterator a, aa;
-                a = data.instructions[ &*j ]->in.begin();
-                aa = old.begin();
-
-                while ( a != data.instructions[ &*j ]->in.end() || aa != old.end() )
-                {
-                if ( *aa != *a )
-                {
-                inChanged = true;
-                break;
-                }
-                ++aa;
-                ++a;
-                }
-                }
-                */
-
+                // Logging
                 j = i->end();
                 while ( j != i->begin() )
                 {
@@ -539,7 +527,7 @@ namespace
                             si++
                         )
                     {
-                        LOG ( *si << ", " );
+                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
                     LOGC ( " }\n" ); 
 
@@ -549,7 +537,7 @@ namespace
                             si++
                         )
                     {
-                        LOG ( *si << ", " );
+                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
                     LOGC ( " }\n" ); 
 
@@ -559,7 +547,7 @@ namespace
                             si++
                         )
                     {
-                        LOG ( *si << ", " );
+                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
                     LOGC ( " }\n" ); 
 
@@ -569,7 +557,7 @@ namespace
                             si++
                         )
                     {
-                        LOG ( *si << ", " );
+                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
                     LOGC ( " }\n" ); 
                     /*
@@ -606,7 +594,7 @@ namespace
                     ib++
                 )
             {
-                LOG( (*ib).first << ", " );
+                LOG( (*ib).first << " (" << ib->first->getName().str() << "), " );
             }
             LOG("\n");
 
@@ -615,7 +603,6 @@ namespace
             // For every BasicBlock...
             for ( Function::iterator i = F.begin(); i != F.end(); i++ ) 
             {
-                //errs() << "Loop 1\n";
                 // For every Instruction inside BasicBLock...
                 for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
                 {
@@ -627,32 +614,29 @@ namespace
                         if ( isa<TerminatorInst>( *j ) || isa<LandingPadInst>( *j ) || 
                                 j->mayHaveSideEffects() || isa<DbgInfoIntrinsic>( *j ) )
                             continue;
+                        /*
+                            */
 
-                        //errs() << "Loop 2\n";
                         if ( liveness [ &*j ]->out.size() == 0 )
                             LOGC ("==>> ");
-                        LOGC ( "Candidate Instruction " << &*j << " out: { " );
+                        LOGC ( "Candidate Instruction " << &*j << " (" << j->getName().str() << ") out: { " );
                         for ( set < Instruction* >::iterator si = liveness[ &*j ]->out.begin();
                                 si != liveness[ &*j ]->out.end();
                                 si++
                             )
                         {
-                            LOG ( *si << ", " );
+                            LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                         }
                         LOGC ( " } Set test: " << liveness[ &*j ]->out.count( &*j ) << "\n" ); 
                         //                        errs() << &*j << *j << "\n";
 
                         // If the instruction is going to die, remove it
-                        //            errs() << "Acessando a instrução " << liveness[ &*j ] <<  "\n";
 
                         if ( liveness[ &*j ]->out.count( &*j ) == 0 ) 
-                            //            if ( liveness [ &*j ]->out.size() == 0 )
                         {
-                            //errs() << "Here?\n";
                             toDelete.push( &*j );
                             changed = true;
                         }
-                        //errs() << "Out of if?\n";
                     }
                 }
             }
@@ -670,10 +654,6 @@ namespace
                 errs() << "- - - - - Deleting " << deadInst << *deadInst << "\n";
                 //deadInst->eraseFromParent();
             }
-
-            //errs() << "Tamanho do map: " << liveness.size() << "\n";
-            /*
-            */
 
             // Return
             return changed;
