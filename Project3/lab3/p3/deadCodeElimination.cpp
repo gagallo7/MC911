@@ -472,89 +472,62 @@ namespace
             {
                 // Last instruction of the block
                 BasicBlock::iterator j = i->end();
-                BasicBlock::iterator e;
                 j--;
-                e = j;
                 data.instructions[ &*j ]->out = data.blocks[ &*i ]->out;
 
                 data.instructions[ &*j ]->in = getSetUnion( data.instructions[ &*j ]->use, getSetDifference( data.instructions[ &*j ]->out, data.instructions[ &*j ]->def ) );
 
-                // while any IN changes
-                while ( inChanged )
+                // Other instructions
+                BasicBlock::iterator aux;
+
+                // for each instruction other than the last one
+                while( j != i->begin() )
                 {
-                    inChanged = false;
-                    j = e;
+                    aux = j;
+                    j--;
 
-                    // Other instructions
-                    BasicBlock::iterator aux;
-
-                    // for each instruction other than the last one
-                    while( j != i->begin() )
-                    {
-                        aux = j;
-                        j--;
-
-                        data.instructions[ &*j ]->out = data.instructions[ &*aux ]->in;
-
-                        old = data.instructions[ &*j ]->in;
-                        data.instructions[ &*j ]->in = 
-                            getSetUnion( 
-                                    data.instructions[ &*j ]->use, 
-                                    getSetDifference( 
-                                        data.instructions[ &*j ]->out, 
-                                        data.instructions[ &*j ]->def 
-                                        )
-                                    );
-
-                        // If some IN changed
-                        if ( inChanged == false )
-                        {
-                            set<Instruction*>::iterator a, aa;
-                            a = data.instructions[ &*j ]->in.begin();
-                            aa = old.begin();
-
-                            while ( a != data.instructions[ &*j ]->in.end() || aa != old.end() )
-                            {
-                                if ( *aa != *a )
-                                {
-                                    inChanged = true;
-                                    break;
-                                }
-                                ++aa;
-                                ++a;
-                            }
-                        }
-
-                    } 
-
-                    /*
-                    // j == i->begin()
                     data.instructions[ &*j ]->out = data.instructions[ &*aux ]->in;
 
                     old = data.instructions[ &*j ]->in;
-                    data.instructions[ &*j ]->in = getSetUnion( data.instructions[ &*j ]->use, getSetDifference( data.instructions[ &*j ]->out, data.instructions[ &*j ]->def ) );
+                    data.instructions[ &*j ]->in = 
+                        getSetUnion( 
+                                data.instructions[ &*j ]->use, 
+                                getSetDifference( 
+                                    data.instructions[ &*j ]->out, 
+                                    data.instructions[ &*j ]->def 
+                                    )
+                                );
 
-                    // If some IN changed
-                    if ( inChanged == false )
-                    {
-                    set<Instruction*>::iterator a, aa;
-                    a = data.instructions[ &*j ]->in.begin();
-                    aa = old.begin();
 
-                    while ( a != data.instructions[ &*j ]->in.end() || aa != old.end() )
-                    {
-                    if ( *aa != *a )
-                    {
-                    inChanged = true;
-                    break;
-                    }
-                    ++aa;
-                    ++a;
-                    }
-                    }
-                    */
+                } 
 
+                /*
+                // j == i->begin()
+                data.instructions[ &*j ]->out = data.instructions[ &*aux ]->in;
+
+                old = data.instructions[ &*j ]->in;
+                data.instructions[ &*j ]->in = getSetUnion( data.instructions[ &*j ]->use, getSetDifference( data.instructions[ &*j ]->out, data.instructions[ &*j ]->def ) );
+
+                // If some IN changed
+                if ( inChanged == false )
+                {
+                set<Instruction*>::iterator a, aa;
+                a = data.instructions[ &*j ]->in.begin();
+                aa = old.begin();
+
+                while ( a != data.instructions[ &*j ]->in.end() || aa != old.end() )
+                {
+                if ( *aa != *a )
+                {
+                inChanged = true;
+                break;
                 }
+                ++aa;
+                ++a;
+                }
+                }
+                */
+
                 j = i->end();
                 while ( j != i->begin() )
                 {
@@ -646,18 +619,6 @@ namespace
                 // For every Instruction inside BasicBLock...
                 for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
                 {
-                    //errs() << "Loop 2\n";
-                    if ( liveness [ &*j ]->out.size() == 0 )
-                        LOGC ("==>> ");
-                    LOGC ( "Instruction " << &*j << " out: { " );
-                    for ( set < Instruction* >::iterator si = liveness[ &*j ]->out.begin();
-                            si != liveness[ &*j ]->out.end();
-                            si++
-                        )
-                    {
-                        LOG ( *si << ", " );
-                    }
-                    LOGC ( " }\n" ); 
 
                     // Is this an instruction?
                     if ( isa<Instruction>( *j ) ) 
@@ -667,13 +628,25 @@ namespace
                                 j->mayHaveSideEffects() || isa<DbgInfoIntrinsic>( *j ) )
                             continue;
 
-//                        errs() << &*j << *j << "\n";
+                        //errs() << "Loop 2\n";
+                        if ( liveness [ &*j ]->out.size() == 0 )
+                            LOGC ("==>> ");
+                        LOGC ( "Candidate Instruction " << &*j << " out: { " );
+                        for ( set < Instruction* >::iterator si = liveness[ &*j ]->out.begin();
+                                si != liveness[ &*j ]->out.end();
+                                si++
+                            )
+                        {
+                            LOG ( *si << ", " );
+                        }
+                        LOGC ( " } Set test: " << liveness[ &*j ]->out.count( &*j ) << "\n" ); 
+                        //                        errs() << &*j << *j << "\n";
 
                         // If the instruction is going to die, remove it
-            //            errs() << "Acessando a instrução " << liveness[ &*j ] <<  "\n";
+                        //            errs() << "Acessando a instrução " << liveness[ &*j ] <<  "\n";
 
-                        //if ( liveness[ &*j ]->out.count( &*j ) == 0 ) 
-                        if ( liveness [ &*j ]->out.size() == 0 )
+                        if ( liveness[ &*j ]->out.count( &*j ) == 0 ) 
+                            //            if ( liveness [ &*j ]->out.size() == 0 )
                         {
                             //errs() << "Here?\n";
                             toDelete.push( &*j );
