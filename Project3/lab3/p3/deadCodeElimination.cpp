@@ -392,10 +392,9 @@ namespace
                     // If some IN changed
                         if ( old.size() != b->in.size() )
                         {
-                            b->canChange = false;
                             inChanged = true;
-                            break;
                         }
+                        b->canChange = false;
                         /*
                         set<Instruction*>::iterator a, aa;
                         a = b->in.begin();
