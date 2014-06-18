@@ -379,6 +379,12 @@ namespace
                     // If some IN changed
                     if ( inChanged == false )
                     {
+                        if ( old.size() != b->in.size() )
+                        {
+                            inChanged = true;
+                            break;
+                        }
+                        /*
                         set<Instruction*>::iterator a, aa;
                         a = b->in.begin();
                         aa = old.begin();
@@ -394,6 +400,7 @@ namespace
                             ++aa;
                             ++a;
                         }
+                        */
                     }
                     //LOG ("\n");
                 }
