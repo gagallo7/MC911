@@ -160,7 +160,7 @@ namespace
             static int ni = 0;
             std::stringstream ss;
             ss << " tmp" << ni++;
-            //errs() << ss.str() << "\n";
+            ////errs() << ss.str() << "\n";
             return ss.str();
         }
 
@@ -172,7 +172,7 @@ namespace
             //LOGC ( "\n-------------------------LIVENESS ANALYSIS on " << func->getName().str() 
 //                    << "-----------------------\n");
 
-            errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 0                   \r";
+            //errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 0                   \r";
             //LOGC2("\n++++++++Step 0\n");
             // ===========================================
             // Step 0: Store all BasicBlocks and
@@ -223,7 +223,7 @@ namespace
             }
             */
 
-            errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 1                   \t\t\t\r";
+            //errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 1                   \t\t\t\r";
             //LOGC2("\n++++++++Step 1\n");
 
             // ===========================================
@@ -287,7 +287,7 @@ namespace
                 */
             }
 
-            errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 2                   \t\t\t\r";
+            //errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 2                   \t\t\t\r";
             //LOGC2("\n++++++++Step 2\n");
 
             // ===========================================
@@ -447,7 +447,7 @@ namespace
             }
             */
 
-            errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 3                   \t\t\t\r";
+            //errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 3                   \t\t\t\r";
             //LOGC2("\n++++++++Step 3\n");
 
             // ===========================================
@@ -513,7 +513,7 @@ namespace
 */
             }
 
-            errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 4                   \t\t\t\r";
+            //errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 4                   \t\t\t\r";
             //LOGC2("\n++++++++Step 4\n");
 
             // ===========================================
@@ -631,7 +631,7 @@ namespace
             }
             //LOG("\n");
 
-            //errs() << "Tamanho do DenseMap: " << data.instructions.size() << "\n";
+            ////errs() << "Tamanho do DenseMap: " << data.instructions.size() << "\n";
             
             // For every BasicBlock...
             for ( Function::iterator i = F.begin(); i != F.end(); i++ ) 
@@ -660,7 +660,7 @@ namespace
                             //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                         }
                         //LOGC ( " } Set test: " << data.instructions[ &*j ]->out.count( &*j ) << "\n" ); 
-                        //                        errs() << &*j << *j << "\n";
+                        //                        //errs() << &*j << *j << "\n";
                             */
 
                         // If the instruction is going to die, remove it
@@ -677,18 +677,18 @@ namespace
             // Deleting
             if ( toDelete.size() )
             {
-                errs() << "Instruções deletadas: " << toDelete.size() << "\n";
+                //errs() << "Instruções deletadas: " << toDelete.size() << "\n";
             }
 
             while( toDelete.size() > 0 ) 
             {
                 Instruction* deadInst = toDelete.front();
                 toDelete.pop();
-                errs() << "- - - - - Deleting " << deadInst << *deadInst << "\n";
+                //errs() << "- - - - - Deleting " << deadInst << *deadInst << "\n";
                 deadInst->eraseFromParent();
             }
 
-            errs() << "Optimization done at " << F.getName().str() << "                                       \n";
+            //errs() << "Optimization done at " << F.getName().str() << "                                       \n";
             // Return
             return changed;
         }
