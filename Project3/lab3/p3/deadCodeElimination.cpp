@@ -394,7 +394,7 @@ namespace
                         {
                             inChanged = true;
                         }
-                        b->canChange = false;
+                        //b->canChange = false;
                         /*
                         set<Instruction*>::iterator a, aa;
                         a = b->in.begin();
