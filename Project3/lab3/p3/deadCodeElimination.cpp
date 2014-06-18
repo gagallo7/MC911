@@ -75,7 +75,6 @@ namespace
             DenseMap< Instruction*, InstructionData* > instructions;
 
             // Destructor
-                /*
             ~LivenessData() 
             {
                 for( DenseMap< BasicBlock*, BasicBlockData* >::iterator i = blocks.begin();  i != blocks.end(); i++ ) 
@@ -87,7 +86,6 @@ namespace
                 blocks.clear();
                 instructions.clear();
             }
-                    */
 
             // This method stores a new BasicBlock
             void addBasicBlock( BasicBlock* block ) 
@@ -161,10 +159,8 @@ namespace
         // =============================
         // Liveness analysis
         // =============================
-        DenseMap< Instruction*, InstructionData* > computeLiveness( Function* func ) 
+        void computeLiveness( Function* func, LivenessData& data ) 
         {
-            LivenessData data;
-
             //LOGC ( "\n-------------------------LIVENESS ANALYSIS on " << func->getName().str() 
 //                    << "-----------------------\n");
 
@@ -284,7 +280,7 @@ namespace
             //LOGC2("\n++++++++Step 2\n");
 
             // ===========================================
-            // Step 2: Compute in/out for all BasicBLocks
+            // Step 2: Compute in/out for all BasicBlocks
             // ===========================================
 
             // Reversely iterating on blocks
@@ -591,12 +587,6 @@ namespace
             }
 
             // ===========================================
-            // Returning
-            // ===========================================
-
-            return data.instructions;
-
-            // ===========================================
         } 
 
         // =============================
@@ -606,14 +596,16 @@ namespace
         virtual bool runOnFunction( Function &F ) 
         {
             bool changed = false;
-            DenseMap< Instruction*, InstructionData* > liveness = computeLiveness( &F );
+            LivenessData data;
             queue< Instruction* > toDelete;
+
+            computeLiveness( &F, data );
 
             //LOGC ( "\n!!!!!!!!!!!!!! OPTIMIZATION !!!!!!!!!!!!!!!\n" );
 
             //LOG("Instructions: ");
-            for ( DenseMap < Instruction*, InstructionData* >::iterator ib = liveness.begin();
-                    ib != liveness.end();
+            for ( DenseMap < Instruction*, InstructionData* >::iterator ib = data.instructions.begin();
+                    ib != data.instructions.end();
                     ib++
                 )
             {
@@ -621,7 +613,7 @@ namespace
             }
             //LOG("\n");
 
-            //errs() << "Tamanho do DenseMap: " << liveness.size() << "\n";
+            //errs() << "Tamanho do DenseMap: " << data.instructions.size() << "\n";
             
             // For every BasicBlock...
             for ( Function::iterator i = F.begin(); i != F.end(); i++ ) 
@@ -640,22 +632,22 @@ namespace
                         /*
                             */
 
-                        if ( liveness [ &*j ]->out.size() == 0 )
+                        if ( data.instructions[ &*j ]->out.size() == 0 )
                             //LOGC ("==>> ");
                         //LOGC ( "Candidate Instruction " << &*j << " (" << j->getName().str() << ") out: { " );
-                        for ( set < Instruction* >::iterator si = liveness[ &*j ]->out.begin();
-                                si != liveness[ &*j ]->out.end();
+                        for ( set < Instruction* >::iterator si = data.instructions[ &*j ]->out.begin();
+                                si != data.instructions[ &*j ]->out.end();
                                 si++
                             )
                         {
                             //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                         }
-                        //LOGC ( " } Set test: " << liveness[ &*j ]->out.count( &*j ) << "\n" ); 
+                        //LOGC ( " } Set test: " << data.instructions[ &*j ]->out.count( &*j ) << "\n" ); 
                         //                        errs() << &*j << *j << "\n";
 
                         // If the instruction is going to die, remove it
 
-                        if ( liveness[ &*j ]->out.count( &*j ) == 0 ) 
+                        if ( data.instructions[ &*j ]->out.count( &*j ) == 0 ) 
                         {
                             toDelete.push( &*j );
                             changed = true;
