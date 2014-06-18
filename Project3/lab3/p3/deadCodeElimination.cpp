@@ -12,7 +12,7 @@ using namespace llvm;
 
 #include <vector>
 #include <set>
-#include <map>
+#include "llvm/ADT/DenseMap.h"
 #include <queue>
 #include <algorithm>
 #include <fstream>
@@ -71,17 +71,17 @@ namespace
     {
         public:
             // These vectors contains all data we'll need
-            map< BasicBlock*, BasicBlockData* > blocks;
-            map< Instruction*, InstructionData* > instructions;
+            DenseMap< BasicBlock*, BasicBlockData* > blocks;
+            DenseMap< Instruction*, InstructionData* > instructions;
 
             // Destructor
                 /*
             ~LivenessData() 
             {
-                for( map< BasicBlock*, BasicBlockData* >::iterator i = blocks.begin();  i != blocks.end(); i++ ) 
+                for( DenseMap< BasicBlock*, BasicBlockData* >::iterator i = blocks.begin();  i != blocks.end(); i++ ) 
                     delete i->second;
 
-                for( map< Instruction*, InstructionData* >::iterator i = instructions.begin();  i != instructions.end(); i++ ) 
+                for( DenseMap< Instruction*, InstructionData* >::iterator i = instructions.begin();  i != instructions.end(); i++ ) 
                     delete i->second;
 
                 blocks.clear();
@@ -113,17 +113,17 @@ namespace
             }
     };
 
-    struct deadCodeElimination : public FunctionPass 
+    struct dcep3 : public FunctionPass 
     {
         static char ID;
         ofstream log;
 
         // Constructor
-        deadCodeElimination() : FunctionPass(ID) {
+        dcep3() : FunctionPass(ID) {
         }
 
         // Destructor
-        ~deadCodeElimination()
+        ~dcep3()
         {
         }
 
@@ -161,15 +161,15 @@ namespace
         // =============================
         // Liveness analysis
         // =============================
-        map< Instruction*, InstructionData* > computeLiveness( Function* func ) 
+        DenseMap< Instruction*, InstructionData* > computeLiveness( Function* func ) 
         {
             LivenessData data;
 
-            LOGC ( "\n-------------------------LIVENESS ANALYSIS on " << func->getName().str() 
-                    << "-----------------------\n");
+            //LOGC ( "\n-------------------------LIVENESS ANALYSIS on " << func->getName().str() 
+//                    << "-----------------------\n");
 
-            errs() << ":D:D:D:D Step 0\n";
-            LOGC2("\n++++++++Step 0\n");
+            errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 0                   \r";
+            //LOGC2("\n++++++++Step 0\n");
             // ===========================================
             // Step 0: Store all BasicBlocks and
             //         Instructions in LivenessData
@@ -192,33 +192,33 @@ namespace
             }  
 
             // Logging
-            for ( map < BasicBlock*, BasicBlockData* >::iterator bb = data.blocks.begin();
+            for ( DenseMap < BasicBlock*, BasicBlockData* >::iterator bb = data.blocks.begin();
                     bb != data.blocks.end();
                     bb++
                 )
             {
-                LOG( "Block " << (*bb).first << " " << bb->first->getName().str() << "\n\tSuccesors:\n" );
+                //LOG( "Block " << (*bb).first << " " << bb->first->getName().str() << "\n\tSuccesors:\n" );
 
                 for ( unsigned int sc = 0; sc < (*bb).second->sucessors.size(); sc++ )
                 {
-                    LOG ( "\t--"<< (*bb).second->sucessors[sc] << " " <<
-                            bb->second->sucessors[sc]->getName().str() << "\n" );
+                    //LOG ( "\t--"<< (*bb).second->sucessors[sc] << " " <<
+ //                           bb->second->sucessors[sc]->getName().str() << "\n" );
                 }
                 
             }
 
             // Logging
-            LOG("Instructions\n");
-            for ( map < Instruction*, InstructionData* >::iterator ib = data.instructions.begin();
+            //LOG("Instructions\n");
+            for ( DenseMap < Instruction*, InstructionData* >::iterator ib = data.instructions.begin();
                     ib != data.instructions.end();
                     ib++
                 )
             {
-                LOG("\t~~" << ib->first << " " << ((*ib).first)->getName().str() << "\n");
+                //LOG("\t~~" << ib->first << " " << ((*ib).first)->getName().str() << "\n");
             }
 
-            errs() << ":D:D:D:D Step 1\n";
-            LOGC2("\n++++++++Step 1\n");
+            errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 1                   \t\t\t\r";
+            //LOGC2("\n++++++++Step 1\n");
 
             // ===========================================
             // Step 1: Compute use/def for all BasicBLocks
@@ -259,30 +259,29 @@ namespace
                 }
 
                 // Logging
-                LOG ( "Block " << &*i << " " << i->getName().str() << "\n" );
-                LOG ( "\tDEF: { " );
+                //LOG ( "Block " << &*i << " " << i->getName().str() << "\n" );
+                //LOG ( "\tDEF: { " );
                 for ( set < Instruction* >::iterator si = b->def.begin();
                         si != b->def.end();
                         si++
                     )
                 {
-                    Instruction * I = *si;
-                    LOG ( (*si) <<  " " << I->getName().str() << ", " );
+                    //LOG ( (*si) <<  " " << si->getName().str() << ", " );
                 }
-                LOG ( "}\n\tUSE: { " );
+                //LOG ( "}\n\tUSE: { " );
                 for ( set < Instruction* >::iterator si = b->use.begin();
                         si != b->use.end();
                         si++
                     )
                 {
-                    LOG ( *si << " " << (*si)->getName().str() << ", " );
+                    //LOG ( *si << " " << (*si)->getName().str() << ", " );
                 }
-                LOG ( "}\n" );
+                //LOG ( "}\n" );
 
             }
 
-            errs() << ":D:D:D:D Step 2\n";
-            LOGC2("\n++++++++Step 2\n");
+            errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 2                   \t\t\t\r";
+            //LOGC2("\n++++++++Step 2\n");
 
             // ===========================================
             // Step 2: Compute in/out for all BasicBLocks
@@ -293,7 +292,7 @@ namespace
 
             while ( inChanged == true )
             {
-                LOGC2 ( "Loop until every IN isn't changed...\n" );
+                //LOGC2 ( "Loop until every IN isn't changed...\n" );
                 inChanged = false;
                 Function::iterator fe = func->end();
                 //fe--;
@@ -323,59 +322,59 @@ namespace
                     // Out[B] - defB
                     tmp = getSetDifference ( b->out, b->def );
                     
-                    // LOGGING results
-                    LOGC ( "  Block " << &*fe << " " << fe->getName().str() << "\t\tout: { " );
+                    //// LOGGING results
+                    //LOGC ( "  Block " << &*fe << " " << fe->getName().str() << "\t\tout: { " );
                     for ( set < Instruction* >::iterator si = b->out.begin();
                             si != b->out.end();
                             si++
                         )
                     {
-                        LOG ( *si << " " << (*si)->getName().str() << ", " );
+                        //LOG ( *si << " " << (*si)->getName().str() << ", " );
                     }
-                    LOGC ( " }\n" ); 
+                    //LOGC ( " }\n" ); 
 
-                    LOGC ( "\t\t\t\tdef: { " );
+                    //LOGC ( "\t\t\t\tdef: { " );
                     for ( set < Instruction* >::iterator si = b->def.begin();
                             si != b->def.end();
                             si++
                         )
                     {
-                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                        //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
-                    LOGC ( " }\n" ); 
+                    //LOGC ( " }\n" ); 
                     
-                    LOGC ( "\t\t\t\tTMP: { " );
+                    //LOGC ( "\t\t\t\tTMP: { " );
                     for ( set < Instruction* >::iterator si = tmp.begin();
                             si != tmp.end();
                             si++
                         )
                     {
-                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                        //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
-                    LOGC ( " }\n" ); 
+                    //LOGC ( " }\n" ); 
 
                     // use[B] U ( out[B] - def[B] )
                     b->in.insert ( tmp.begin(), tmp.end() );
 
-                    LOGC ( "\t\t\t\t in: { " );
+                    //LOGC ( "\t\t\t\t in: { " );
                     for ( set < Instruction* >::iterator si = b->in.begin();
                             si != b->in.end();
                             si++
                         )
                     {
-                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                        //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
-                    LOGC ( " }\n" ); 
+                    //LOGC ( " }\n" ); 
 
-                    LOGC ( "\t\t\t\told: { " );
+                    //LOGC ( "\t\t\t\told: { " );
                     for ( set < Instruction* >::iterator si = old.begin();
                             si != old.end();
                             si++
                         )
                     {
-                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                        //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
-                    LOGC ( " }\n" ); 
+                    //LOGC ( " }\n" ); 
 
                     // If some IN changed
                     if ( inChanged == false )
@@ -389,52 +388,51 @@ namespace
                             if ( *aa != *a )
                             {
                                 inChanged = true;
-                                LOGC3 ("  Changed!\n");
+                                //LOGC3 ("  Changed!\n");
                                 break;
                             }
                             ++aa;
                             ++a;
                         }
                     }
-                    LOG ("\n");
+                    //LOG ("\n");
                 }
             }
 
-            // LOGGING results
+            //// LOGGING results
             for (Function::iterator i = func->begin(), e = func->end(); i != e; ++i)
             {
                 BasicBlockData * b = data.blocks[ &*i ];
 
-                LOG ( "Block " << &*i << " " << i->getName().str() << "\n" );
+                //LOG ( "Block " << &*i << " " << i->getName().str() << "\n" );
 
-                LOG ( "\tIN: { " );
+                //LOG ( "\tIN: { " );
                 for ( set < Instruction* >::iterator si = b->in.begin();
                         si != b->in.end();
                         si++
                     )
                 {
-                    LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                    //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                 }
 
-                LOG ( " }\n\tOUT: { " );
+                //LOG ( " }\n\tOUT: { " );
                 for ( set < Instruction* >::iterator si = b->out.begin();
                         si != b->out.end();
                         si++
                     )
                 {
-                    LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                    //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                 }
-                LOG ( " }\n" );
+                //LOG ( " }\n" );
             }
 
-            errs() << ":D:D:D:D Step 3\n";
-            LOGC2("\n++++++++Step 3\n");
+            errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 3                   \t\t\t\r";
+            //LOGC2("\n++++++++Step 3\n");
 
             // ===========================================
             // Step 3: Use data from BasicBlocks to
             //         compute all Instructions use/def
             // ===========================================
-            //errs() << "Quantidade de instruções no map: " << data.instructions.size() << "\n";
 
             for( Function::iterator i = func->begin(); i != func->end(); i++ ) 
             {
@@ -466,41 +464,40 @@ namespace
                     }
                 }
 
-                // LOGGING results
+                //// LOGGING results
                 for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
                 {
-                    LOG ( "Instruction " << &*j << " " << j->getName().str() << "\n" );
+                    //LOG ( "Instruction " << &*j << " " << j->getName().str() << "\n" );
 
-                    LOG ( "\tUSE: { " );
+                    //LOG ( "\tUSE: { " );
                     for ( set < Instruction* >::iterator si = data.instructions[ &*j ]->use.begin();
                             si != data.instructions[ &*j ]->use.end();
                             si++
                         )
                     {
-                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                        //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
                     
-                    LOG ( " }\n\tDEF: { " );
+                    //LOG ( " }\n\tDEF: { " );
                     for ( set < Instruction* >::iterator si = data.instructions[ &*j ]->def.begin();
                             si != data.instructions[ &*j ]->def.end();
                             si++
                         )
                     {
-                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                        //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
-                    LOG ( " }\n" );
+                    //LOG ( " }\n" );
                 }
 
             }
 
-            errs() << ":D:D:D:D Step 4\n";
-            LOGC2("\n++++++++Step 4\n");
+            errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 4                   \t\t\t\r";
+            //LOGC2("\n++++++++Step 4\n");
 
             // ===========================================
             // Step 4: Use data from BasicBLocks to
             //         compute all Instructions in/out
             // ===========================================
-            errs() << "Quantidade de instruções no map: " << data.instructions.size() << "\n";
 
             for( Function::iterator i = func->begin(); i != func->end(); i++ ) 
             {
@@ -508,6 +505,7 @@ namespace
                 BasicBlock::iterator j = i->end();
                 j--;
                 data.instructions[ &*j ]->out = data.blocks[ &*i ]->out;
+
 
                 // in = use U ( out - def )
                 data.instructions[ &*j ]->in = getSetUnion( data.instructions[ &*j ]->use, getSetDifference( data.instructions[ &*j ]->out, data.instructions[ &*j ]->def ) );
@@ -540,52 +538,50 @@ namespace
                 while ( j != i->begin() )
                 {
                     j--;
-                    LOG ( "Instruction " << &*j << "\n" );
-                    LOGC ( "out: { " );
+                    //LOG ( "Instruction " << &*j << "\n" );
+                    //LOGC ( "out: { " );
                     for ( set < Instruction* >::iterator si = data.instructions[ &*j ]->out.begin();
                             si != data.instructions[ &*j ]->out.end();
                             si++
                         )
                     {
-                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                        //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
-                    LOGC ( " }\n" ); 
+                    //LOGC ( " }\n" ); 
 
-                    LOGC ( "def: { " );
+                    //LOGC ( "def: { " );
                     for ( set < Instruction* >::iterator si = data.instructions[ &*j ]->def.begin();
                             si != data.instructions[ &*j ]->def.end();
                             si++
                         )
                     {
-                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                        //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
-                    LOGC ( " }\n" ); 
+                    //LOGC ( " }\n" ); 
 
-                    LOGC ( "use: { " );
+                    //LOGC ( "use: { " );
                     for ( set < Instruction* >::iterator si = data.instructions[ &*j ]->use.begin();
                             si != data.instructions[ &*j ]->use.end();
                             si++
                         )
                     {
-                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                        //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
-                    LOGC ( " }\n" ); 
+                    //LOGC ( " }\n" ); 
 
-                    LOGC ( " in: { " );
+                    //LOGC ( " in: { " );
                     for ( set < Instruction* >::iterator si = data.instructions[ &*j ]->in.begin();
                             si != data.instructions[ &*j ]->in.end();
                             si++
                         )
                     {
-                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                        //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
-                    LOGC ( " }\n" ); 
+                    //LOGC ( " }\n" ); 
                     /*
                     */
                 }
             }
-
-            errs() << "Quantidade de instruções no map: " << data.instructions.size() << "\n";
 
             // ===========================================
             // Returning
@@ -603,22 +599,22 @@ namespace
         virtual bool runOnFunction( Function &F ) 
         {
             bool changed = false;
-            map< Instruction*, InstructionData* > liveness = computeLiveness( &F );
+            DenseMap< Instruction*, InstructionData* > liveness = computeLiveness( &F );
             queue< Instruction* > toDelete;
 
-            LOGC ( "\n!!!!!!!!!!!!!! OPTIMIZATION !!!!!!!!!!!!!!!\n" );
+            //LOGC ( "\n!!!!!!!!!!!!!! OPTIMIZATION !!!!!!!!!!!!!!!\n" );
 
-            LOG("Instructions: ");
-            for ( map < Instruction*, InstructionData* >::iterator ib = liveness.begin();
+            //LOG("Instructions: ");
+            for ( DenseMap < Instruction*, InstructionData* >::iterator ib = liveness.begin();
                     ib != liveness.end();
                     ib++
                 )
             {
-                LOG( (*ib).first << " (" << ib->first->getName().str() << "), " );
+                //LOG( (*ib).first << " (" << ib->first->getName().str() << "), " );
             }
-            LOG("\n");
+            //LOG("\n");
 
-            //errs() << "Tamanho do map: " << liveness.size() << "\n";
+            //errs() << "Tamanho do DenseMap: " << liveness.size() << "\n";
             
             // For every BasicBlock...
             for ( Function::iterator i = F.begin(); i != F.end(); i++ ) 
@@ -638,16 +634,16 @@ namespace
                             */
 
                         if ( liveness [ &*j ]->out.size() == 0 )
-                            LOGC ("==>> ");
-                        LOGC ( "Candidate Instruction " << &*j << " (" << j->getName().str() << ") out: { " );
+                            //LOGC ("==>> ");
+                        //LOGC ( "Candidate Instruction " << &*j << " (" << j->getName().str() << ") out: { " );
                         for ( set < Instruction* >::iterator si = liveness[ &*j ]->out.begin();
                                 si != liveness[ &*j ]->out.end();
                                 si++
                             )
                         {
-                            LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                            //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                         }
-                        LOGC ( " } Set test: " << liveness[ &*j ]->out.count( &*j ) << "\n" ); 
+                        //LOGC ( " } Set test: " << liveness[ &*j ]->out.count( &*j ) << "\n" ); 
                         //                        errs() << &*j << *j << "\n";
 
                         // If the instruction is going to die, remove it
@@ -664,7 +660,7 @@ namespace
             // Deleting
             if ( toDelete.size() )
             {
-                errs() << "Instruções deletadas:: " << toDelete.size() << "\n";
+                errs() << "Instruções deletadas: " << toDelete.size() << "\n";
             }
 
             while( toDelete.size() > 0 ) 
@@ -672,9 +668,10 @@ namespace
                 Instruction* deadInst = toDelete.front();
                 toDelete.pop();
                 errs() << "- - - - - Deleting " << deadInst << *deadInst << "\n";
-                //deadInst->eraseFromParent();
+                deadInst->eraseFromParent();
             }
 
+            errs() << "Optimization done at " << F.getName().str() << "                                       \n";
             // Return
             return changed;
         }
@@ -683,5 +680,5 @@ namespace
     };
 }
 
-char deadCodeElimination::ID = 0;
-static RegisterPass<deadCodeElimination> X( "deadCodeElimination", "Dead Code Elimination Pass", false, false );
+char dcep3::ID = 0;
+static RegisterPass<dcep3> X( "dce-p3", "Dead Code Elimination Pass", false, false );
