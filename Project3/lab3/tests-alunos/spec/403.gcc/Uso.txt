@@ -1,0 +1,10 @@
+# 
+# Uso
+#
+# Todos os bitcode passaram por um ConstantPropagation.
+# Para gerar o executável utilize o LLC. Não use o LLI.
+#
+
+./gcc test/cccp.i -o test/cccp.s
+
+

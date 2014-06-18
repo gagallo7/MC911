@@ -1,0 +1,45 @@
+=========================
+       SPEC2006       
+=========================
+
+Cada pasta dentro de 'spec' contém um programa do benchmark SPEC CPU2006 ou FP2006.
+
+=== Cada pasta contém ===
+
+ABC.bc : bitcode em LLVM da aplicação ABC
+test   : arquivo(s) de input
+Uso    : instrução de como executar a aplicação
+golden : diretório para garantir a corretude. Contém:
+            out-dce.bc : bitcode resultante do meu Dead Code Elimination* 
+            output     : output experado da aplicação do SPEC
+
+* Meu DCE também aplica o deadLoad do lab03
+
+=== Como comparar ====
+
+1. Aplique o DCE que você implementou e façam diff com o golden/out-dce.bc
+2. Se forem iguais:
+    2.1 Seu DCE está correto.
+3. Se não:
+    3.1 Confira se o seu bitcode gerado executa sem Seg. Fault.
+    3.2 Confira se a saída da sua execução está de acordo com a golden.
+    3.3 Utilize o script spec.sh como apoio. 
+
+=== Atenção ===
+
+Não utilize o 'lli' para executar os bitcode SPEC. 
+Gere assembler com 'llc' depois compile com 'gcc'.
+O nível de maturidade do 'lli' não é o mesmo que o 'llc'.
+Como o SPEC são aplicações reais e pesadas, o 'lli' pode quebrar. 
+Vejam o script 'spec.sh'.
+
+========================
+       minijava
+=======================
+
+Cada programa do minijava foi otimizado com Constant Propagation (CP).
+O algoritmo de CP implementado no LLVM sempre remove as instruções após propagá-las, 
+não deixando espaço para o DCE. Por isso, modifiquei o CP nativo do LLVM para que 
+as instruções propagadas fossem removidas no DCE, e não no próprio CP. 
+
+

@@ -1,0 +1,9 @@
+# 
+# Uso
+#
+# Todos os bitcode passaram por um ConstantPropagation.
+# Para gerar o executável utilize o LLC.
+
+./dealII 3
+
+
