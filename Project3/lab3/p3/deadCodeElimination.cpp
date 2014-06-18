@@ -195,6 +195,7 @@ namespace
                 }
             }  
 
+            /*
             // Logging
             for ( DenseMap < BasicBlock*, BasicBlockData* >::iterator bb = data.blocks.begin();
                     bb != data.blocks.end();
@@ -220,6 +221,7 @@ namespace
             {
                 //LOG("\t~~" << ib->first << " " << ((*ib).first)->getName().str() << "\n");
             }
+            */
 
             errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 1                   \t\t\t\r";
             //LOGC2("\n++++++++Step 1\n");
@@ -262,6 +264,7 @@ namespace
                     }
                 }
 
+                /*
                 // Logging
                 //LOG ( "Block " << &*i << " " << i->getName().str() << "\n" );
                 //LOG ( "\tDEF: { " );
@@ -281,7 +284,7 @@ namespace
                     //LOG ( *si << " " << (*si)->getName().str() << ", " );
                 }
                 //LOG ( "}\n" );
-
+                */
             }
 
             errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 2                   \t\t\t\r";
@@ -330,36 +333,36 @@ namespace
 
                     // Out[B] - defB
                     tmp = getSetDifference ( b->out, b->def );
-                    
+
                     /*
                     //// LOGGING results
                     //LOGC ( "  Block " << &*fe << " " << fe->getName().str() << "\t\tout: { " );
                     for ( set < Instruction* >::iterator si = b->out.begin();
-                            si != b->out.end();
-                            si++
-                        )
+                    si != b->out.end();
+                    si++
+                    )
                     {
-                        //LOG ( *si << " " << (*si)->getName().str() << ", " );
+                    //LOG ( *si << " " << (*si)->getName().str() << ", " );
                     }
                     //LOGC ( " }\n" ); 
 
                     //LOGC ( "\t\t\t\tdef: { " );
                     for ( set < Instruction* >::iterator si = b->def.begin();
-                            si != b->def.end();
-                            si++
-                        )
+                    si != b->def.end();
+                    si++
+                    )
                     {
-                        //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                    //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
                     //LOGC ( " }\n" ); 
-                    
+
                     //LOGC ( "\t\t\t\tTMP: { " );
                     for ( set < Instruction* >::iterator si = tmp.begin();
-                            si != tmp.end();
-                            si++
-                        )
+                    si != tmp.end();
+                    si++
+                    )
                     {
-                        //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                    //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
                     */
                     //LOGC ( " }\n" ); 
@@ -370,48 +373,47 @@ namespace
                     /*
                     //LOGC ( "\t\t\t\t in: { " );
                     for ( set < Instruction* >::iterator si = b->in.begin();
-                            si != b->in.end();
-                            si++
-                        )
+                    si != b->in.end();
+                    si++
+                    )
                     {
-                        //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                    //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
                     //LOGC ( " }\n" ); 
 
                     //LOGC ( "\t\t\t\told: { " );
                     for ( set < Instruction* >::iterator si = old.begin();
-                            si != old.end();
-                            si++
-                        )
+                    si != old.end();
+                    si++
+                    )
                     {
-                        //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                    //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
                     //LOGC ( " }\n" ); 
                     */
 
                     // If some IN changed
-                        if ( old.size() != b->in.size() )
-                        {
-                            inChanged = true;
-                        }
-                        //b->canChange = false;
-                        /*
-                        set<Instruction*>::iterator a, aa;
-                        a = b->in.begin();
-                        aa = old.begin();
+                    if ( old.size() != b->in.size() )
+                    {
+                        inChanged = true;
+                    }
+                    /*
+                       set<Instruction*>::iterator a, aa;
+                       a = b->in.begin();
+                       aa = old.begin();
 
-                        while ( a != b->in.end() || aa != old.end() )
-                        {
-                            if ( *aa != *a )
-                            {
-                                inChanged = true;
-                                //LOGC3 ("  Changed!\n");
-                                break;
-                            }
-                            ++aa;
-                            ++a;
-                        }
-                        */
+                       while ( a != b->in.end() || aa != old.end() )
+                       {
+                       if ( *aa != *a )
+                       {
+                       inChanged = true;
+                    //LOGC3 ("  Changed!\n");
+                    break;
+                    }
+                    ++aa;
+                    ++a;
+                    }
+                    */
                     //LOG ("\n");
                 }
             }
@@ -483,6 +485,7 @@ namespace
                     }
                 }
 
+                /*
                 //// LOGGING results
                 for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
                 {
@@ -507,7 +510,7 @@ namespace
                     }
                     //LOG ( " }\n" );
                 }
-
+*/
             }
 
             errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 4                   \t\t\t\r";
@@ -524,7 +527,6 @@ namespace
                 BasicBlock::iterator j = i->end();
                 j--;
                 data.instructions[ &*j ]->out = data.blocks[ &*i ]->out;
-
 
                 // in = use U ( out - def )
                 data.instructions[ &*j ]->in = getSetUnion( data.instructions[ &*j ]->use, getSetDifference( data.instructions[ &*j ]->out, data.instructions[ &*j ]->def ) );
@@ -552,6 +554,7 @@ namespace
                                 );
                 } 
 
+                /*
                 // Logging
                 j = i->end();
                 while ( j != i->begin() )
@@ -597,9 +600,8 @@ namespace
                         //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
                     //LOGC ( " }\n" ); 
-                    /*
-                    */
                 }
+                    */
             }
 
             // ===========================================
@@ -646,7 +648,6 @@ namespace
                                 j->mayHaveSideEffects() || isa<DbgInfoIntrinsic>( *j ) )
                             continue;
                         /*
-                            */
 
                         if ( data.instructions[ &*j ]->out.size() == 0 )
                             //LOGC ("==>> ");
@@ -660,6 +661,7 @@ namespace
                         }
                         //LOGC ( " } Set test: " << data.instructions[ &*j ]->out.count( &*j ) << "\n" ); 
                         //                        errs() << &*j << *j << "\n";
+                            */
 
                         // If the instruction is going to die, remove it
 
