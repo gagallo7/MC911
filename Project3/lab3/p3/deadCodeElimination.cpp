@@ -47,12 +47,20 @@ namespace
             // Sucessors
             vector< BasicBlock* > sucessors;
 
+            // Will change
+            bool canChange;
+
             // Sets
             set< Instruction* > use; 
             set< Instruction* > def; 
 
             set< Instruction* > in; 
             set< Instruction* > out; 
+
+            BasicBlockData ()
+            {
+                canChange = true;
+            }
     };
 
     class InstructionData 
@@ -298,6 +306,11 @@ namespace
                     fe--;
                     BasicBlockData * b = data.blocks[ &*fe ];
 
+                    if ( b->canChange == false )
+                    {
+                        continue;
+                    }
+
                     // For each successor
                     for ( unsigned int s = 0; s < b->sucessors.size(); s++ )
                     {
@@ -318,6 +331,7 @@ namespace
                     // Out[B] - defB
                     tmp = getSetDifference ( b->out, b->def );
                     
+                    /*
                     //// LOGGING results
                     //LOGC ( "  Block " << &*fe << " " << fe->getName().str() << "\t\tout: { " );
                     for ( set < Instruction* >::iterator si = b->out.begin();
@@ -347,11 +361,13 @@ namespace
                     {
                         //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
+                    */
                     //LOGC ( " }\n" ); 
 
                     // use[B] U ( out[B] - def[B] )
                     b->in.insert ( tmp.begin(), tmp.end() );
 
+                    /*
                     //LOGC ( "\t\t\t\t in: { " );
                     for ( set < Instruction* >::iterator si = b->in.begin();
                             si != b->in.end();
@@ -371,12 +387,12 @@ namespace
                         //LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
                     //LOGC ( " }\n" ); 
+                    */
 
                     // If some IN changed
-                    if ( inChanged == false )
-                    {
                         if ( old.size() != b->in.size() )
                         {
+                            b->canChange = false;
                             inChanged = true;
                             break;
                         }
@@ -397,11 +413,11 @@ namespace
                             ++a;
                         }
                         */
-                    }
                     //LOG ("\n");
                 }
             }
 
+            /*
             //// LOGGING results
             for (Function::iterator i = func->begin(), e = func->end(); i != e; ++i)
             {
@@ -428,6 +444,7 @@ namespace
                 }
                 //LOG ( " }\n" );
             }
+            */
 
             errs() << "Function: " << func->getName().str() << " :D:D:D:D Step 3                   \t\t\t\r";
             //LOGC2("\n++++++++Step 3\n");
