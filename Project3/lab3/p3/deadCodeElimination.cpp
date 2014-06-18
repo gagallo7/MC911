@@ -31,6 +31,9 @@ using namespace std;
 #define LOGC2(X) log.open("log", ios::app); \
                 log << "\033[32m" << X << "\033[0m"; \
                 log.close();
+#define LOGC3(X) log.open("log", ios::app); \
+                log << "\033[31m" << X << "\033[0m"; \
+                log.close();
 
 // =============================
 // Liveness Data
@@ -162,7 +165,8 @@ namespace
         {
             LivenessData data;
 
-            LOGC ( "\n-------------------------NEW LIVENESS ANALYSIS-----------------------\n");
+            LOGC ( "\n-------------------------LIVENESS ANALYSIS on " << func->getName().str() 
+                    << "-----------------------\n");
 
             errs() << ":D:D:D:D Step 0\n";
             LOGC2("\n++++++++Step 0\n");
@@ -193,11 +197,12 @@ namespace
                     bb++
                 )
             {
-                LOG( "Block " << (*bb).first << "\n\tSuccesors:\n" );
+                LOG( "Block " << (*bb).first << " " << bb->first->getName().str() << "\n\tSuccesors:\n" );
 
                 for ( unsigned int sc = 0; sc < (*bb).second->sucessors.size(); sc++ )
                 {
-                    LOG ( "\t--"<< (*bb).second->sucessors[sc] << "\n" );
+                    LOG ( "\t--"<< (*bb).second->sucessors[sc] << " " <<
+                            bb->second->sucessors[sc]->getName().str() << "\n" );
                 }
                 
             }
@@ -241,17 +246,20 @@ namespace
                         }
                     }
 
-                    if ( isa < Instruction > ( *j ) )
+                    if ( j->hasName() )
                     {
-                        if ( b->use.find ( &*j ) == b->use.end() )
+                        if ( isa < Instruction > ( *j ) )
                         {
-                            b->def.insert ( &*j );
+                            if ( b->use.find ( &*j ) == b->use.end() )
+                            {
+                                b->def.insert ( &*j );
+                            }
                         }
                     }
                 }
 
                 // Logging
-                LOG ( "Block " << &*i << "\n" );
+                LOG ( "Block " << &*i << " " << i->getName().str() << "\n" );
                 LOG ( "\tDEF: { " );
                 for ( set < Instruction* >::iterator si = b->def.begin();
                         si != b->def.end();
@@ -285,6 +293,7 @@ namespace
 
             while ( inChanged == true )
             {
+                LOGC2 ( "Loop until every IN isn't changed...\n" );
                 inChanged = false;
                 Function::iterator fe = func->end();
                 //fe--;
@@ -315,7 +324,7 @@ namespace
                     tmp = getSetDifference ( b->out, b->def );
                     
                     // LOGGING results
-                    LOGC ( "out: { " );
+                    LOGC ( "  Block " << &*fe << " " << fe->getName().str() << "\t\tout: { " );
                     for ( set < Instruction* >::iterator si = b->out.begin();
                             si != b->out.end();
                             si++
@@ -325,7 +334,7 @@ namespace
                     }
                     LOGC ( " }\n" ); 
 
-                    LOGC ( "def: { " );
+                    LOGC ( "\t\t\t\tdef: { " );
                     for ( set < Instruction* >::iterator si = b->def.begin();
                             si != b->def.end();
                             si++
@@ -335,7 +344,7 @@ namespace
                     }
                     LOGC ( " }\n" ); 
                     
-                    LOGC ( "TMP: { " );
+                    LOGC ( "\t\t\t\tTMP: { " );
                     for ( set < Instruction* >::iterator si = tmp.begin();
                             si != tmp.end();
                             si++
@@ -348,9 +357,7 @@ namespace
                     // use[B] U ( out[B] - def[B] )
                     b->in.insert ( tmp.begin(), tmp.end() );
 
-                    // LOGGING results
-                    LOGC ( "out: { " );
-                    LOGC ( " in: { " );
+                    LOGC ( "\t\t\t\t in: { " );
                     for ( set < Instruction* >::iterator si = b->in.begin();
                             si != b->in.end();
                             si++
@@ -358,7 +365,17 @@ namespace
                     {
                         LOG ( *si <<  " " << (*si)->getName().str() << ", " );
                     }
-                    LOGC ( " }\n\n" ); 
+                    LOGC ( " }\n" ); 
+
+                    LOGC ( "\t\t\t\told: { " );
+                    for ( set < Instruction* >::iterator si = old.begin();
+                            si != old.end();
+                            si++
+                        )
+                    {
+                        LOG ( *si <<  " " << (*si)->getName().str() << ", " );
+                    }
+                    LOGC ( " }\n" ); 
 
                     // If some IN changed
                     if ( inChanged == false )
@@ -372,12 +389,14 @@ namespace
                             if ( *aa != *a )
                             {
                                 inChanged = true;
+                                LOGC3 ("  Changed!\n");
                                 break;
                             }
                             ++aa;
                             ++a;
                         }
                     }
+                    LOG ("\n");
                 }
             }
 
@@ -386,7 +405,7 @@ namespace
             {
                 BasicBlockData * b = data.blocks[ &*i ];
 
-                LOG ( "Block " << &*i << "\n" );
+                LOG ( "Block " << &*i << " " << i->getName().str() << "\n" );
 
                 LOG ( "\tIN: { " );
                 for ( set < Instruction* >::iterator si = b->in.begin();
@@ -439,6 +458,7 @@ namespace
                             }
                         }
 
+                        if ( j->hasName() )
                         if ( !data.instructions[ &*j ]->use.count ( &*j ) )
                         {
                             data.instructions[ &*j ]->def.insert( &*j );
@@ -449,7 +469,7 @@ namespace
                 // LOGGING results
                 for ( BasicBlock::iterator j = i->begin(); j != i->end(); j++ ) 
                 {
-                    LOG ( "Instruction " << &*j << "\n" );
+                    LOG ( "Instruction " << &*j << " " << j->getName().str() << "\n" );
 
                     LOG ( "\tUSE: { " );
                     for ( set < Instruction* >::iterator si = data.instructions[ &*j ]->use.begin();
